@@ -11,8 +11,6 @@ namespace RentEase_Service
     [ServiceContract]
     public interface IRentEase
     {
-        [OperationContract]
-        void DoWork();
 
         [OperationContract]
         void Login();

@@ -11,8 +11,17 @@ namespace RentEase_Service
     // NOTE: In order to launch WCF Test Client for testing this service, please select RentEase.svc or RentEase.svc.cs at the Solution Explorer and start debugging.
     public class RentEase : IRentEase
     {
-        public void DoWork()
+        [OperationContract]
+        public void Login()
         {
+            String Word="something to do";
         }
+
+        [OperationContract]
+        public void GetStats()
+        {
+
+        }
+
     }
 }
