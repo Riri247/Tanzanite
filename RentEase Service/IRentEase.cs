@@ -13,5 +13,11 @@ namespace RentEase_Service
     {
         [OperationContract]
         void DoWork();
+
+        [OperationContract]
+        void Login();
+
+        [OperationContract]
+        void GetStats();
     }
 }
