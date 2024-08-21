@@ -67,7 +67,6 @@
       <DependentUpon>Database1.mdf</DependentUpon>
     </Content>
     <Content Include="RentEase.svc" />
-    <Content Include="Service1.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -80,10 +79,6 @@
     <Compile Include="RentEase.svc.cs">
       <DependentUpon>RentEase.svc</DependentUpon>
     </Compile>
-    <Compile Include="Service1.svc.cs">
-      <DependentUpon>Service1.svc</DependentUpon>
-    </Compile>
-    <Compile Include="IService1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
