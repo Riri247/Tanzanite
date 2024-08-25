@@ -11,6 +11,7 @@ namespace RentEase_Service
     [ServiceContract]
     public interface IRentEase
     {
+
         
         [OperationContract]
         User Login(string email, string password);
