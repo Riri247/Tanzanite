@@ -11,13 +11,31 @@ namespace RentEase_Service
     [ServiceContract]
     public interface IRentEase
     {
+
+        
         [OperationContract]
-        void DoWork();
+        User Login(string email, string password);
 
         [OperationContract]
-        void Login();
+        bool Register(string email, string password, string name, string surname);
 
         [OperationContract]
-        void GetStats();
+        Product getProduct(int ID);
+
+        [OperationContract]
+        List<Product> getProducts();
+
+        [OperationContract]
+        bool addToCart(int UserID, int ProductID);
+
+        [OperationContract]
+        bool removeFromCart(int UserID, int ProductID);
+
+        [OperationContract]
+        List<Product> getUserCart(int ID);
+
+        [OperationContract]
+        User getUser(int ID);
+
     }
 }
