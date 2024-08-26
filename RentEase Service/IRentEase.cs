@@ -12,13 +12,31 @@ namespace RentEase_Service
     public interface IRentEase
     {
 
+
+        
         [OperationContract]
-        void Login();
-        //function for getting stats for merchants 
-        //how many products they rented out 
-        //number of people who rented their products 
-        //and the profit they have made overall
+        User Login(string email, string password);
+
         [OperationContract]
-        void GetStats();
+        bool Register(string email, string password, string name, string surname);
+
+        [OperationContract]
+        Product getProduct(int ID);
+
+        [OperationContract]
+        List<Product> getProducts();
+
+        [OperationContract]
+        bool addToCart(int UserID, int ProductID);
+
+        [OperationContract]
+        bool removeFromCart(int UserID, int ProductID);
+
+        [OperationContract]
+        List<Product> getUserCart(int ID);
+
+        [OperationContract]
+        User getUser(int ID);
+
     }
 }
