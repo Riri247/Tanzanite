@@ -48,6 +48,9 @@ namespace RentEase_Service
     partial void InsertInvoice(Invoice instance);
     partial void UpdateInvoice(Invoice instance);
     partial void DeleteInvoice(Invoice instance);
+    partial void InsertImage(Image instance);
+    partial void UpdateImage(Image instance);
+    partial void DeleteImage(Image instance);
     #endregion
 		
 		public RentDatadbmlDataContext() : 
@@ -133,6 +136,22 @@ namespace RentEase_Service
 			get
 			{
 				return this.GetTable<Customer_Invoice>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Order> Orders
+		{
+			get
+			{
+				return this.GetTable<Order>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Image> Images
+		{
+			get
+			{
+				return this.GetTable<Image>();
 			}
 		}
 	}
@@ -663,6 +682,8 @@ namespace RentEase_Service
 		
 		private EntitySet<Shopping_cart> _Shopping_carts;
 		
+		private EntitySet<Image> _Images;
+		
 		private EntityRef<Merchant> _Merchant;
 		
     #region Extensibility Method Definitions
@@ -684,6 +705,7 @@ namespace RentEase_Service
 		public Product()
 		{
 			this._Shopping_carts = new EntitySet<Shopping_cart>(new Action<Shopping_cart>(this.attach_Shopping_carts), new Action<Shopping_cart>(this.detach_Shopping_carts));
+			this._Images = new EntitySet<Image>(new Action<Image>(this.attach_Images), new Action<Image>(this.detach_Images));
 			this._Merchant = default(EntityRef<Merchant>);
 			OnCreated();
 		}
@@ -805,6 +827,19 @@ namespace RentEase_Service
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Product_Image", Storage="_Images", ThisKey="Id", OtherKey="P_ID")]
+		public EntitySet<Image> Images
+		{
+			get
+			{
+				return this._Images;
+			}
+			set
+			{
+				this._Images.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Merchant_Product", Storage="_Merchant", ThisKey="M_ID", OtherKey="M_ID", IsForeignKey=true)]
 		public Merchant Merchant
 		{
@@ -866,6 +901,18 @@ namespace RentEase_Service
 		}
 		
 		private void detach_Shopping_carts(Shopping_cart entity)
+		{
+			this.SendPropertyChanging();
+			entity.Product = null;
+		}
+		
+		private void attach_Images(Image entity)
+		{
+			this.SendPropertyChanging();
+			entity.Product = this;
+		}
+		
+		private void detach_Images(Image entity)
 		{
 			this.SendPropertyChanging();
 			entity.Product = null;
@@ -1239,6 +1286,256 @@ namespace RentEase_Service
 				{
 					this._Invoice_ID = value;
 				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.[Order]")]
+	public partial class Order
+	{
+		
+		private int _Invoice_ID;
+		
+		private int _Product_ID;
+		
+		private int _Quantity;
+		
+		private decimal _subTotal;
+		
+		private int _Durantion;
+		
+		public Order()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Invoice_ID", DbType="Int NOT NULL")]
+		public int Invoice_ID
+		{
+			get
+			{
+				return this._Invoice_ID;
+			}
+			set
+			{
+				if ((this._Invoice_ID != value))
+				{
+					this._Invoice_ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Product_ID", DbType="Int NOT NULL")]
+		public int Product_ID
+		{
+			get
+			{
+				return this._Product_ID;
+			}
+			set
+			{
+				if ((this._Product_ID != value))
+				{
+					this._Product_ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Quantity", DbType="Int NOT NULL")]
+		public int Quantity
+		{
+			get
+			{
+				return this._Quantity;
+			}
+			set
+			{
+				if ((this._Quantity != value))
+				{
+					this._Quantity = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_subTotal", DbType="Decimal(18,0) NOT NULL")]
+		public decimal subTotal
+		{
+			get
+			{
+				return this._subTotal;
+			}
+			set
+			{
+				if ((this._subTotal != value))
+				{
+					this._subTotal = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Durantion", DbType="Int NOT NULL")]
+		public int Durantion
+		{
+			get
+			{
+				return this._Durantion;
+			}
+			set
+			{
+				if ((this._Durantion != value))
+				{
+					this._Durantion = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Image")]
+	public partial class Image : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Image_ID;
+		
+		private int _P_ID;
+		
+		private string _Image_URL;
+		
+		private EntityRef<Product> _Product;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnImage_IDChanging(int value);
+    partial void OnImage_IDChanged();
+    partial void OnP_IDChanging(int value);
+    partial void OnP_IDChanged();
+    partial void OnImage_URLChanging(string value);
+    partial void OnImage_URLChanged();
+    #endregion
+		
+		public Image()
+		{
+			this._Product = default(EntityRef<Product>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Image_ID
+		{
+			get
+			{
+				return this._Image_ID;
+			}
+			set
+			{
+				if ((this._Image_ID != value))
+				{
+					this.OnImage_IDChanging(value);
+					this.SendPropertyChanging();
+					this._Image_ID = value;
+					this.SendPropertyChanged("Image_ID");
+					this.OnImage_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_P_ID", DbType="Int NOT NULL")]
+		public int P_ID
+		{
+			get
+			{
+				return this._P_ID;
+			}
+			set
+			{
+				if ((this._P_ID != value))
+				{
+					if (this._Product.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnP_IDChanging(value);
+					this.SendPropertyChanging();
+					this._P_ID = value;
+					this.SendPropertyChanged("P_ID");
+					this.OnP_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image_URL", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string Image_URL
+		{
+			get
+			{
+				return this._Image_URL;
+			}
+			set
+			{
+				if ((this._Image_URL != value))
+				{
+					this.OnImage_URLChanging(value);
+					this.SendPropertyChanging();
+					this._Image_URL = value;
+					this.SendPropertyChanged("Image_URL");
+					this.OnImage_URLChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Product_Image", Storage="_Product", ThisKey="P_ID", OtherKey="Id", IsForeignKey=true)]
+		public Product Product
+		{
+			get
+			{
+				return this._Product.Entity;
+			}
+			set
+			{
+				Product previousValue = this._Product.Entity;
+				if (((previousValue != value) 
+							|| (this._Product.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Product.Entity = null;
+						previousValue.Images.Remove(this);
+					}
+					this._Product.Entity = value;
+					if ((value != null))
+					{
+						value.Images.Add(this);
+						this._P_ID = value.Id;
+					}
+					else
+					{
+						this._P_ID = default(int);
+					}
+					this.SendPropertyChanged("Product");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
