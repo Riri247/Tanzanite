@@ -22,13 +22,15 @@ namespace RentEase_Service
         /// <returns>Returns a User if the login was successful, otherwise null.</returns>
         public User Login(string email, string password)
         {
-            var query = from u in RentEaseDB.Users where u.Email == email && u.password == password 
-                        select new User {
+            var query = from u in RentEaseDB.Users
+                        where u.Email == email && u.password == password
+                        select new User
+                        {
                             Email = u.Email,
                             Id = u.Id,
                             User_Type = u.User_Type
-                            
-                         };
+
+                        };
             return query.FirstOrDefault();
         }
 
@@ -56,7 +58,7 @@ namespace RentEase_Service
             {
                 if (isAccount(email))
                     return false;
-                
+
                 var u = new User
                 {
                     U_Name = name,
@@ -108,7 +110,8 @@ namespace RentEase_Service
         /// <returns>Returns true if the product was added to the cart, otherwise false.</returns>
         public bool addToCart(int UserID, int ProductID)
         {
-            try { 
+            try
+            {
 
                 var s = new Shopping_cart
                 {
@@ -138,7 +141,7 @@ namespace RentEase_Service
         {
             // Find the user by ID
             var cartToDelete = RentEaseDB.Shopping_carts.FirstOrDefault(c => c.C_ID == UserID && c.P_ID == ProductID);
-    
+
             // If the cart exists
             if (cartToDelete != null)
             {
@@ -181,27 +184,276 @@ namespace RentEase_Service
         /// <returns>Returns a User, otherwise null.</returns>
         public User getUser(int ID)
         {
-            var query = from u in RentEaseDB.Users where u.Id == ID 
-                        select new User {
+            var query = from u in RentEaseDB.Users
+                        where u.Id == ID
+                        select new User
+                        {
                             Email = u.Email,
                             Id = u.Id,
                             User_Type = u.User_Type,
                             Surname = u.Surname,
                             U_Name = u.U_Name
-                            
-                         };
 
-             return query.FirstOrDefault();
+                        };
+
+            return query.FirstOrDefault();
 
         }
 
 
+        /// <summary>
+        /// This method adds a product to the database.
+        /// </summary>
+        /// <param name="description">The description of the product.</param>
+        /// <param name="quantity">The quantity of the product.</param>
+        /// <param name="price">The price of the product.</param>
+        /// <param name="merchantID">The ID of the merchant associated with the product.</param>
+        /// <returns>Returns true if the product was added successfully, otherwise false.</returns>
+        public bool AddProduct(string description, int quantity, decimal price, int merchantID)
+        {
+            try
+            {
+                var product = new Product
+                {
+                    Decript = description,
+                    Quantity = quantity,
+                    Price = price,
+                    M_ID = merchantID
+                };
 
+                RentEaseDB.Products.InsertOnSubmit(product);
+                RentEaseDB.SubmitChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
 
+        }
 
+        //Function to add the products 
+        public void AddSampleProducts()
+        {
+            bool success = AddProduct("Clarens Sofa", 10, 400.00m, 1);
+            if (success)
+            {
+                Console.WriteLine("Product added successfully.");
+            }
+            else
+            {
+                Console.WriteLine("Failed to add product.");
+            }
 
+            // You can add more products by calling AddProduct again
+            success = AddProduct("Baltimore Sofa", 10, 550.00m, 2);
+            if (success)
+            {
+                Console.WriteLine("Another product added successfully.");
+            }
+            else
+            {
+                Console.WriteLine("Failed to add another product.");
+            }
 
+            // You can add more products by calling AddProduct again
+            success = AddProduct("Monatgu Sofa", 5, 450.00m, 3);
+            if (success)
+            {
+                Console.WriteLine("Another product added successfully.");
+            }
+            else
+            {
+                Console.WriteLine("Failed to add another product.");
+            }
 
+            // You can add more products by calling AddProduct again
+            success = AddProduct("Ashton Chair", 8, 370.00m, 4);
+            if (success)
+            {
+                Console.WriteLine("Another product added successfully.");
+            }
+            else
+            {
+                Console.WriteLine("Failed to add another product.");
+            }
+
+            // You can add more products by calling AddProduct again
+            success = AddProduct("Campbell Chair", 6, 400.00m, 5);
+            if (success)
+            {
+                Console.WriteLine("Another product added successfully.");
+            }
+            else
+            {
+                Console.WriteLine("Failed to add another product.");
+            }
+
+            // You can add more products by calling AddProduct again
+            success = AddProduct("Ballito Chair", 4, 200.00m, 6);
+            if (success)
+            {
+                Console.WriteLine("Another product added successfully.");
+            }
+            else
+            {
+                Console.WriteLine("Failed to add another product.");
+            }
+
+            // You can add more products by calling AddProduct again
+            success = AddProduct("Hamilton Chair", 4, 550.00m, 7);
+            if (success)
+            {
+                Console.WriteLine("Another product added successfully.");
+            }
+            else
+            {
+                Console.WriteLine("Failed to add another product.");
+            }
+
+            // You can add more products by calling AddProduct again
+            success = AddProduct("Centurion table", 3, 550.00m, 8);
+            if (success)
+            {
+                Console.WriteLine("Another product added successfully.");
+            }
+            else
+            {
+                Console.WriteLine("Failed to add another product.");
+            }
+
+            // You can add more products by calling AddProduct again
+            success = AddProduct("Derby table", 5, 200.00m, 9);
+            if (success)
+            {
+                Console.WriteLine("Another product added successfully.");
+            }
+            else
+            {
+                Console.WriteLine("Failed to add another product.");
+            }
+
+            // You can add more products by calling AddProduct again
+            success = AddProduct("Molteno Table", 12, 300.00m, 10);
+            if (success)
+            {
+                Console.WriteLine("Another product added successfully.");
+            }
+            else
+            {
+                Console.WriteLine("Failed to add another product.");
+            }
+
+            // You can add more products by calling AddProduct again
+            success = AddProduct("Designer Book Drawer", 10, 600.00m, 11);
+            if (success)
+            {
+                Console.WriteLine("Another product added successfully.");
+            }
+            else
+            {
+                Console.WriteLine("Failed to add another product.");
+            }
+
+            // You can add more products by calling AddProduct again
+            success = AddProduct("Lamp Stand", 4, 400.00m, 12);
+            if (success)
+            {
+                Console.WriteLine("Another product added successfully.");
+            }
+            else
+            {
+                Console.WriteLine("Failed to add another product.");
+            }
+
+            // You can add more products by calling AddProduct again
+            success = AddProduct("Designer Chairs", 8, 580.00m, 13);
+            if (success)
+            {
+                Console.WriteLine("Another product added successfully.");
+            }
+            else
+            {
+                Console.WriteLine("Failed to add another product.");
+            }
+
+            // You can add more products by calling AddProduct again
+            success = AddProduct("Orange Leather Couch", 3, 600.00m, 14);
+            if (success)
+            {
+                Console.WriteLine("Another product added successfully.");
+            }
+            else
+            {
+                Console.WriteLine("Failed to add another product.");
+            }
+
+            // You can add more products by calling AddProduct again
+            success = AddProduct("Computer stand", 20, 300.00m, 15);
+            if (success)
+            {
+                Console.WriteLine("Another product added successfully.");
+            }
+            else
+            {
+                Console.WriteLine("Failed to add another product.");
+            }
+
+            // You can add more products by calling AddProduct again
+            success = AddProduct("George Lamp", 10, 300.00m, 16);
+            if (success)
+            {
+                Console.WriteLine("Another product added successfully.");
+            }
+            else
+            {
+                Console.WriteLine("Failed to add another product.");
+            }
+
+            // You can add more products by calling AddProduct again
+            success = AddProduct("Heidelberg Lamp", 10, 200.00m, 17);
+            if (success)
+            {
+                Console.WriteLine("Another product added successfully.");
+            }
+            else
+            {
+                Console.WriteLine("Failed to add another product.");
+            }
+
+            // You can add more products by calling AddProduct again
+            success = AddProduct("Infantana Lamp", 20, 150.00m, 18);
+            if (success)
+            {
+                Console.WriteLine("Another product added successfully.");
+            }
+            else
+            {
+                Console.WriteLine("Failed to add another product.");
+            }
+
+            // You can add more products by calling AddProduct again
+            success = AddProduct("Biggie Furniture Movers", 1, 1400.00m, 19);
+            if (success)
+            {
+                Console.WriteLine("Another product added successfully.");
+            }
+            else
+            {
+                Console.WriteLine("Failed to add another product.");
+            }
+
+            // You can add more products by calling AddProduct again
+            success = AddProduct("Storage rentals", 40, 460.00m, 20);
+            if (success)
+            {
+                Console.WriteLine("Another product added successfully.");
+            }
+            else
+            {
+                Console.WriteLine("Failed to add another product.");
+            }
+        }
 
 
     }
