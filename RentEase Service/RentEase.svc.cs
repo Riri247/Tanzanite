@@ -11,7 +11,6 @@ namespace RentEase_Service
     // NOTE: In order to launch WCF Test Client for testing this service, please select RentEase.svc or RentEase.svc.cs at the Solution Explorer and start debugging.
     public class RentEase : IRentEase
     {
-
         RentDatadbmlDataContext RentEaseDB = new RentDatadbmlDataContext();
 
         /// <summary>
@@ -194,15 +193,5 @@ namespace RentEase_Service
              return query.FirstOrDefault();
 
         }
-
-
-
-
-
-
-
-
-
-
     }
 }
