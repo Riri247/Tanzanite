@@ -5,9 +5,9 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <style>
-        /*---------------------
+/*--------------------
   Hero
------------------------*/
+----------------------*/
   .hero {
 	padding-top: 50px;
 	position: relative;
@@ -224,8 +224,6 @@ input[type="radio"]:checked + .control {
       visibility: visible; }
     .product-section .product-item:hover:before {
       height: 70%; }
-
-
     </style>
 
 
@@ -242,8 +240,8 @@ input[type="radio"]:checked + .control {
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="hero__text">
-                                <div class="label">Adventure</div>
-                                <h2>Fate / Stay Night: Unlimited Blade Works</h2>
+                                <div class="label">Rentals</div>
+                                <h2>Acomodations</h2>
                                 <p>T1</p>
                                 <a href="#"><span>Explore</span> <i class="fa fa-angle-right"></i></a>
                             </div>
@@ -254,8 +252,8 @@ input[type="radio"]:checked + .control {
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="hero__text">
-                                <div class="label">Adventure</div>
-                                <h2>Fate / Stay Night: Unlimited Blade Works</h2>
+                                <div class="label">Rentals</div>
+                                <h2>Electronics</h2>
                                <p>T2</p>
                                 <a href="#"><span>Explore</span> <i class="fa fa-angle-right"></i></a>
                             </div>
@@ -266,8 +264,8 @@ input[type="radio"]:checked + .control {
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="hero__text">
-                                <div class="label">Adventure</div>
-                                <h2>Fate / Stay Night: Unlimited Blade Works</h2>
+                                <div class="label">Rentals</div>
+                                <h2>Furniture</h2>
                               <p>T3</p>
                                 <a href="#"><span>Explore</span> <i class="fa fa-angle-right"></i></a>
                             </div>
