@@ -12,6 +12,7 @@ namespace RentEase_Service
     public interface IRentEase
     {
 
+
         
         [OperationContract]
         User Login(string email, string password);
@@ -37,5 +38,10 @@ namespace RentEase_Service
         [OperationContract]
         User getUser(int ID);
 
+        [OperationContract]
+        bool AddProduct(string description, int quantity, decimal price, int merchantID);
+
+        [OperationContract]
+        void AddSampleProducts();
     }
 }
