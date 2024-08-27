@@ -150,331 +150,80 @@ input[type="radio"]:checked + .control {
     background-color: gray;
 }
 
-/*---------------------
-  Product
------------------------*/
 
-.product {
-	padding-bottom: 60px;
-	padding-top: 80px;
-}
 
-.product-page {
-	padding-top: 60px;
-}
 
-.btn__all {
-	text-align: right;
-	margin-bottom: 30px;
-}
-
-.trending__product {
-	margin-bottom: 50px;
-}
-
-.popular__product {
-	margin-bottom: 50px;
-}
-
-.recent__product {
-	margin-bottom: 50px;
-}
-
-.product__item {
-	margin-bottom: 30px;
-  
-}
-
-.product__item__pic {
-	height: 325px;
-	position: relative;
-	border-radius: 5px;
-     background-repeat: no-repeat;
-}
-
-.product__item__pic .ep {
-	font-size: 13px;
-	color: #ffffff;
-	background: #e53637;
-	display: inline-block;
-	padding: 2px 12px;
-	border-radius: 4px;
-	position: absolute;
-	left: 10px;
-	top: 10px;
-}
-
-.product__item__pic .comment {
-	font-size: 13px;
-	color: #ffffff;
-	background: #3d3d3d;
-	display: inline-block;
-	padding: 2px 10px;
-	border-radius: 4px;
-	position: absolute;
-	left: 10px;
-	bottom: 10px;
-}
-
-.product__item__pic .view {
-	font-size: 13px;
-	color: #ffffff;
-	background: #3d3d3d;
-	display: inline-block;
-	padding: 2px 10px;
-	border-radius: 4px;
-	position: absolute;
-	right: 10px;
-	bottom: 10px;
-}
-
-.product__item__text {
-	padding-top: 20px;
-}
-
-.product__item__text ul {
-	margin-bottom: 10px;
-}
-
-.product__item__text ul li {
-	list-style: none;
-	font-size: 10px;
-	color: #ffffff;
-	font-weight: 700;
-	padding: 1px 10px;
-	background: rgba(255, 255, 255, 0.2);
-	border-radius: 50px;
-	display: inline-block;
-}
-
-.product__item__text h5 a {
-	color: #ffffff;
-	font-weight: 700;
-	line-height: 26px;
-}
-
-.product__sidebar .section-title h5 {
-	color: #ffffff;
-	font-weight: 600;
-	font-family: "Oswald", sans-serif;
-	line-height: 21px;
-	text-transform: uppercase;
-	padding-left: 20px;
-	position: relative;
-}
-
-.product__sidebar .section-title h5:after {
-	position: absolute;
-	left: 0;
-	top: -6px;
-	height: 32px;
-	width: 4px;
-	background: #e53637;
-	content: "";
-}
-
-.product__sidebar__view {
-	position: relative;
-	margin-bottom: 80px;
-}
-
-.product__sidebar__view .filter__controls {
-	position: absolute;
-	right: 0;
-	top: -5px;
-}
-
-.product__sidebar__view .filter__controls li {
-	list-style: none;
-	font-size: 13px;
-	color: #b7b7b7;
-	display: inline-block;
-	margin-right: 7px;
-	cursor: pointer;
-}
-
-.product__sidebar__view .filter__controls li.active {
-	color: #ffffff;
-}
-
-.product__sidebar__view .filter__controls li:last-child {
-	margin-right: 0;
-}
-
-.product__sidebar__view__item {
-	height: 190px;
-	position: relative;
-	border-radius: 5px;
-	margin-bottom: 20px;
-}
-
-.product__sidebar__view__item .ep {
-	font-size: 13px;
-	color: #ffffff;
-	background: #e53637;
-	display: inline-block;
-	padding: 2px 12px;
-	border-radius: 4px;
-	position: absolute;
-	left: 10px;
-	top: 10px;
-}
-
-.product__sidebar__view__item .view {
-	font-size: 13px;
-	color: #ffffff;
-	background: #3d3d3d;
-	display: inline-block;
-	padding: 2px 10px;
-	border-radius: 4px;
-	position: absolute;
-	right: 10px;
-	top: 10px;
-}
-
-.product__sidebar__view__item h5 {
-	position: absolute;
-	left: 0;
-	bottom: 25px;
-	width: 100%;
-	padding: 0 30px 0 20px;
-}
-
-.product__sidebar__view__item h5 a {
-	color: #ffffff;
-	font-weight: 700;
-	line-height: 26px;
-}
-
-.product__sidebar__comment {
-	margin-bottom: 35px;
-}
-
-.product__sidebar__comment__item {
-	margin-bottom: 20px;
-	overflow: hidden;
-}
-
-.product__sidebar__comment__item__pic {
-	float: left;
-	margin-right: 15px;
-}
-
-.product__sidebar__comment__item__text {
-	overflow: hidden;
-}
-
-.product__sidebar__comment__item__text ul {
-	margin-bottom: 10px;
-}
-
-.product__sidebar__comment__item__text ul li {
-	list-style: none;
-	font-size: 10px;
-	color: #ffffff;
-	font-weight: 700;
-	padding: 1px 10px;
-	background: rgba(255, 255, 255, 0.2);
-	border-radius: 50px;
-	display: inline-block;
-}
-
-.product__sidebar__comment__item__text h5 {
-	margin-bottom: 10px;
-}
-
-.product__sidebar__comment__item__text h5 a {
-	color: #ffffff;
-	font-weight: 700;
-	line-height: 26px;
-}
-
-.product__sidebar__comment__item__text span {
-	display: block;
-	font-size: 13px;
-	color: #b7b7b7;
-}
-
-.product__page__title {
-	border-bottom: 2px solid rgba(255, 255, 255, 0.2);
-	padding-bottom: 10px;
-	margin-bottom: 30px;
-}
-
-.product__page__title .section-title {
-	margin-bottom: 0;
-}
-
-.product__page__title .product__page__filter {
-	text-align: right;
-}
-
-.product__page__title .product__page__filter p {
-	color: #ffffff;
-	display: inline-block;
-	margin-bottom: 0;
-	margin-right: 16px;
-}
-
-.product__page__title .product__page__filter .nice-select {
-	float: none;
-	display: inline-block;
-	font-size: 15px;
-	color: #3d3d3d;
-	font-weight: 700;
-	border-radius: 0;
-	padding-left: 15px;
-	padding-right: 40px;
-	height: 32px;
-	line-height: 32px;
-}
-
-.product__page__title .product__page__filter .nice-select:after {
-	border-bottom: 2px solid #111;
-	border-right: 2px solid #111;
-	height: 8px;
-	top: 47%;
-	width: 8px;
-	right: 15px;
-}
-
-.product__page__title .product__page__filter .nice-select .list {
-	margin-top: 0;
-	border-radius: 0;
-}
-
-.product__pagination {
-	padding-top: 15px;
-}
-
-.product__pagination a {
-	display: inline-block;
-	font-size: 15px;
-	color: #b7b7b7;
-	font-weight: 600;
-	height: 50px;
-	width: 50px;
-	border: 1px solid transparent;
-	border-radius: 50%;
-	line-height: 48px;
-	text-align: center;
-	-webkit-transition: all, 0.3s;
-	-o-transition: all, 0.3s;
-	transition: all, 0.3s;
-}
-
-.product__pagination a:hover {
-	color: #ffffff;
-}
-
-.product__pagination a.current-page {
-	border: 1px solid #ffffff;
-}
-
-.product__pagination a i {
-	color: #b7b7b7;
-	font-size: 15px;
-}
+.product-section {
+  padding: 7rem 0; }
+  .product-section .product-item {
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    position: relative;
+    padding-bottom: 50px;
+    cursor: pointer; }
+    .product-section .product-item .product-thumbnail {
+      margin-bottom: 30px;
+      position: relative;
+      top: 0;
+      -webkit-transition: .3s all ease;
+      -o-transition: .3s all ease;
+      transition: .3s all ease; }
+    .product-section .product-item h3 {
+      font-weight: 600;
+      font-size: 16px; }
+    .product-section .product-item strong {
+      font-weight: 800 !important;
+      font-size: 18px !important; }
+    .product-section .product-item h3, .product-section .product-item strong {
+      color: #2f2f2f;
+      text-decoration: none; }
+    .product-section .product-item .icon-cross {
+      position: absolute;
+      width: 35px;
+      height: 35px;
+      display: inline-block;
+      background: #2f2f2f;
+      bottom: 15px;
+      left: 50%;
+      -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+      transform: translateX(-50%);
+      margin-bottom: -17.5px;
+      border-radius: 50%;
+      opacity: 0;
+      visibility: hidden;
+      -webkit-transition: .3s all ease;
+      -o-transition: .3s all ease;
+      transition: .3s all ease; }
+      .product-section .product-item .icon-cross img {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%); }
+    .product-section .product-item:before {
+      bottom: 0;
+      left: 0;
+      right: 0;
+      position: absolute;
+      content: "";
+      background: #dce5e4;
+      height: 0%;
+      z-index: -1;
+      border-radius: 10px;
+      -webkit-transition: .3s all ease;
+      -o-transition: .3s all ease;
+      transition: .3s all ease; }
+    .product-section .product-item:hover .product-thumbnail {
+      top: -25px; }
+    .product-section .product-item:hover .icon-cross {
+      bottom: 0;
+      opacity: 1;
+      visibility: visible; }
+    .product-section .product-item:hover:before {
+      height: 70%; }
 
 
     </style>
@@ -496,7 +245,7 @@ input[type="radio"]:checked + .control {
                                 <div class="label">Adventure</div>
                                 <h2>Fate / Stay Night: Unlimited Blade Works</h2>
                                 <p>T1</p>
-                                <a href="#"><span>Watch Now</span> <i class="fa fa-angle-right"></i></a>
+                                <a href="#"><span>Explore</span> <i class="fa fa-angle-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -508,7 +257,7 @@ input[type="radio"]:checked + .control {
                                 <div class="label">Adventure</div>
                                 <h2>Fate / Stay Night: Unlimited Blade Works</h2>
                                <p>T2</p>
-                                <a href="#"><span>Watch Now</span> <i class="fa fa-angle-right"></i></a>
+                                <a href="#"><span>Explore</span> <i class="fa fa-angle-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -520,7 +269,7 @@ input[type="radio"]:checked + .control {
                                 <div class="label">Adventure</div>
                                 <h2>Fate / Stay Night: Unlimited Blade Works</h2>
                               <p>T3</p>
-                                <a href="#"><span>Watch Now</span> <i class="fa fa-angle-right"></i></a>
+                                <a href="#"><span>Explore</span> <i class="fa fa-angle-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -539,198 +288,65 @@ input[type="radio"]:checked + .control {
     <!-- Hero Section End -->
     <br>
 
-    <!-- table start-->
-    <table>
-        <tr>
-            <td>
-<!--start of product item-->
-                 <div class="col-lg-4 col-md-6 col-sm-6">
-                                <div class="product__item">
-                                    <div class="product__item__pic" style="background-image:url(hero-1.jpg); ">
-                                        <div class="ep">18 / 18</div>
-                                        <div class="comment"><i class="fa fa-comments"></i> 11</div>
-                                        <div class="view"><i class="fa fa-eye"></i> 9141</div>
-                                    </div>
-                                    <div class="product__item__text">
-                                        <ul>
-                                            <li>Active</li>
-                                            <li>Movie</li>
-                                        </ul>
-                                        <h5><a href="#">The Seven Deadly Sins: Wrath of the Gods</a></h5>
-                                    </div>
-                                </div>
-                     </div>
-                           
-                            <!-- end of product item-->
-            </td>
-
-            <td>
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                                <div class="product__item">
-                                    <div class="product__item__pic" style="background-image:url(hero-1.jpg)">
-                                        <div class="ep">18 / 18</div>
-                                        <div class="comment"><i class="fa fa-comments"></i> 11</div>
-                                        <div class="view"><i class="fa fa-eye"></i> 9141</div>
-                                    </div>
-                                    <div class="product__item__text">
-                                        <ul>
-                                            <li>Active</li>
-                                            <li>Movie</li>
-                                        </ul>
-                                        <h5><a href="#">Code Geass: Hangyaku no Lelouch R2</a></h5>
-                                    </div>
-                                </div>
-                            </div>
-            </td>
-        </tr>
-    </table>
-    <!-- end of table>
-
-
-    <!-- Product Section Begin -->
-    <section class="product spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8">
-                    <div class="trending__product">
-                        <div class="row">
-                            <div class="col-lg-8 col-md-8 col-sm-8">
-                                <div class="section-title">
-                                    <!--start of trending-->
-                                    <h4>Trending Now</h4>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-4">
-                                <div class="btn__all">
-                                    <a href="#" class="primary-btn">View All <span class="arrow_right"></span></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                           
-                                
-                           
-                           
-                            
-                        </div>
-                    </div>
-                    <!-- END OF TRENDING -->
-
-                     <!-- START OF PUPULAR-->
-                    <div class="popular__product">
-                        <div class="row">
-                            <div class="col-lg-8 col-md-8 col-sm-8">
-                                <div class="section-title">
-                                    <h4>Popular Shows</h4>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-4">
-                                <div class="btn__all">
-                                    <a href="#" class="primary-btn">View All <span class="arrow_right"></span></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                           
-                            <!-- start of pop Prod-->
-                            <div class="col-lg-4 col-md-6 col-sm-6">
-                                <div class="product__item">
-                                    <div class="product__item__pic set-bg" style="background-image:url(hero-1.jpg)">
-                                        <div class="ep">18 / 18</div>
-                                        <div class="comment"><i class="fa fa-comments"></i> 11</div>
-                                        <div class="view"><i class="fa fa-eye"></i> 9141</div>
-                                    </div>
-                                    <div class="product__item__text">
-                                        <ul>
-                                            <li>Active</li>
-                                            <li>Movie</li>
-                                        </ul>
-                                        <h5><a href="#">Sen to Chihiro no Kamikakushi</a></h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- end of pop product-->
-                            <div class="col-lg-4 col-md-6 col-sm-6">
-                                <div class="product__item">
-                                    <div class="product__item__pic set-bg" style="background-image:url(hero-1.jpg)">
-                                        <div class="ep">18 / 18</div>
-                                        <div class="comment"><i class="fa fa-comments"></i> 11</div>
-                                        <div class="view"><i class="fa fa-eye"></i> 9141</div>
-                                    </div>
-                                    <div class="product__item__text">
-                                        <ul>
-                                            <li>Active</li>
-                                            <li>Movie</li>
-                                        </ul>
-                                        <h5><a href="#">Kizumonogatari III: Reiket su-hen</a></h5>
-                                    </div>
-                                </div>
-                            </div>
-                           
-                        </div>
-                    </div>
-                    <!-- END POPULAR>
-                    <!--START RECENT-->
-                    <div class="recent__product">
-                        <div class="row">
-                            <div class="col-lg-8 col-md-8 col-sm-8">
-                                <div class="section-title">
-                                    <h4>Recently Added Shows</h4>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-4">
-                                <div class="btn__all">
-                                    <a href="#" class="primary-btn">View All <span class="arrow_right"></span></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <!-- start of Recent product-->
-                            <div class="col-lg-4 col-md-6 col-sm-6">
-                                <div class="product__item">
-                                    <div class="product__item__pic set-bg" style="background-image:url(hero-1.jpg)">
-                                        <div class="ep">18 / 18</div>
-                                        <div class="comment"><i class="fa fa-comments"></i> 11</div>
-                                        <div class="view"><i class="fa fa-eye"></i> 9141</div>
-                                    </div>
-                                    <div class="product__item__text">
-                                        <ul>
-                                            <li>Active</li>
-                                            <li>Movie</li>
-                                        </ul>
-                                        <h5><a href="#">Great Teacher Onizuka</a></h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- end of recent product-->
-                            <div class="col-lg-4 col-md-6 col-sm-6">
-                                <div class="product__item">
-                                    <div class="product__item__pic set-bg" style="background-image:url(hero-1.jpg)">
-                                        <div class="ep">18 / 18</div>
-                                        <div class="comment"><i class="fa fa-comments"></i> 11</div>
-                                        <div class="view"><i class="fa fa-eye"></i> 9141</div>
-                                    </div>
-                                    <div class="product__item__text">
-                                        <ul>
-                                            <li>Active</li>
-                                            <li>Movie</li>
-                                        </ul>
-                                        <h5><a href="#">Fate/stay night Movie: Heaven's Feel - II. Lost</a></h5>
-                                    </div>
-                                </div>
-                            </div>
-                           
-                        </div>
-                    </div>
-                    
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-8">
-                    
-                  
-    </div>
+   
     
-</div>
-</div>
-</section>
-<!-- Product Section End -->
+<!-- Start Product Section -->
+		<div class="product-section">
+			<div class="container">
+				<div class="row">
+
+					<!-- Start Column 1 -->
+					<div class="col-md-12 col-lg-3 mb-5 mb-lg-0">
+						<h2 >Crafted with excellent material.</h2>
+						<p >Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique. </p>
+						<p><a href="shop.html" class="btn">Explore</a></p>
+					</div> 
+					<!-- End Column 1 -->
+
+					<!-- Start Column 2 -->
+					<div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
+						<a class="product-item" href="cart.html">
+							<img src="hero-1.jpg" class="img-fluid product-thumbnail" style="width: 300px; height: 200px;">
+							<h3 class="product-title">Nordic Chair</h3>
+							<strong class="product-price">$50.00</strong>
+
+							<span class="icon-cross">
+								<img src="images/cross.svg" class="img-fluid">
+							</span>
+						</a>
+					</div> 
+					<!-- End Column 2 -->
+
+					<!-- Start Column 3 -->
+					<div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
+						<a class="product-item" href="cart.html">
+							<img src="hero-1.jpg" class="img-fluid product-thumbnail" style="width: 300px; height: 200px;">
+							<h3 class="product-title">Kruzo Aero Chair</h3>
+							<strong class="product-price">$78.00</strong>
+
+							<span class="icon-cross">
+								<img src="images/cross.svg" class="img-fluid">
+							</span>
+						</a>
+					</div>
+					<!-- End Column 3 -->
+
+					<!-- Start Column 4 -->
+					<div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
+						<a class="product-item" href="cart.html">
+							<img src="hero-1.jpg" class="img-fluid product-thumbnail" style="width: 300px; height: 200px;">
+							<h3 class="product-title">Ergonomic Chair</h3>
+							<strong class="product-price">$43.00</strong>
+
+							<span class="icon-cross">
+								<img src="images/cross.svg" class="img-fluid">
+							</span>
+						</a>
+					</div>
+					<!-- End Column 4 -->
+
+				</div>
+			</div>
+		</div>
+		<!-- End Product Section -->
 </asp:Content>
