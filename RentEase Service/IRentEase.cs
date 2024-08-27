@@ -38,5 +38,10 @@ namespace RentEase_Service
         [OperationContract]
         User getUser(int ID);
 
+        [OperationContract]
+        bool AddProduct(string description, int quantity, decimal price, int merchantID);
+
+        [OperationContract]
+        void AddSampleProducts();
     }
 }
