@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -11,7 +12,25 @@ namespace FRONTEND
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                LoadProducts();
+            }
+        }
 
+        private void LoadProducts()
+        {
+            string connectionString = "your_connection_string_here";
+            string query = "SELECT Description, Price, ImageUrl FROM Products";
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand(query, conn);
+                conn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                rptProducts.DataSource = reader;
+                rptProducts.DataBind();
+            }
         }
 
         private void AddInitialProducts()
@@ -39,7 +58,6 @@ namespace FRONTEND
             rentEaseService.AddProduct("Biggie Furniture Movers", 1, 1400.00m, 19);
             rentEaseService.AddProduct("Storage Rentals", 40, 460.00m, 20);
 
-            // Add more products as needed
         }
     }
 }
