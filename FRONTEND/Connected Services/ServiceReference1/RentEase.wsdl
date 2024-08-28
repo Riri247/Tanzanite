@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="RentEase" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:53864/RentEase.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:53864/RentEase.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:53864/RentEase.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/RentEase_Service" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IRentEase_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="IRentEase_Login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRentEase_Register_InputMessage">
+    <wsdl:part name="parameters" element="tns:Register" />
+  </wsdl:message>
+  <wsdl:message name="IRentEase_Register_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRentEase_getProduct_InputMessage">
+    <wsdl:part name="parameters" element="tns:getProduct" />
+  </wsdl:message>
+  <wsdl:message name="IRentEase_getProduct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRentEase_getProducts_InputMessage">
+    <wsdl:part name="parameters" element="tns:getProducts" />
+  </wsdl:message>
+  <wsdl:message name="IRentEase_getProducts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getProductsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRentEase_addToCart_InputMessage">
+    <wsdl:part name="parameters" element="tns:addToCart" />
+  </wsdl:message>
+  <wsdl:message name="IRentEase_addToCart_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addToCartResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRentEase_removeFromCart_InputMessage">
+    <wsdl:part name="parameters" element="tns:removeFromCart" />
+  </wsdl:message>
+  <wsdl:message name="IRentEase_removeFromCart_OutputMessage">
+    <wsdl:part name="parameters" element="tns:removeFromCartResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRentEase_getUserCart_InputMessage">
+    <wsdl:part name="parameters" element="tns:getUserCart" />
+  </wsdl:message>
+  <wsdl:message name="IRentEase_getUserCart_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getUserCartResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRentEase_getUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:getUser" />
+  </wsdl:message>
+  <wsdl:message name="IRentEase_getUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRentEase_AddProduct_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddProduct" />
+  </wsdl:message>
+  <wsdl:message name="IRentEase_AddProduct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRentEase_AddSampleProducts_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddSampleProducts" />
+  </wsdl:message>
+  <wsdl:message name="IRentEase_AddSampleProducts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddSampleProductsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IRentEase">
+    <wsdl:operation name="Login">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRentEase/Login" message="tns:IRentEase_Login_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRentEase/LoginResponse" message="tns:IRentEase_Login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Register">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRentEase/Register" message="tns:IRentEase_Register_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRentEase/RegisterResponse" message="tns:IRentEase_Register_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getProduct">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRentEase/getProduct" message="tns:IRentEase_getProduct_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRentEase/getProductResponse" message="tns:IRentEase_getProduct_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getProducts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRentEase/getProducts" message="tns:IRentEase_getProducts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRentEase/getProductsResponse" message="tns:IRentEase_getProducts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addToCart">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRentEase/addToCart" message="tns:IRentEase_addToCart_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRentEase/addToCartResponse" message="tns:IRentEase_addToCart_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="removeFromCart">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRentEase/removeFromCart" message="tns:IRentEase_removeFromCart_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRentEase/removeFromCartResponse" message="tns:IRentEase_removeFromCart_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getUserCart">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRentEase/getUserCart" message="tns:IRentEase_getUserCart_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRentEase/getUserCartResponse" message="tns:IRentEase_getUserCart_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRentEase/getUser" message="tns:IRentEase_getUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRentEase/getUserResponse" message="tns:IRentEase_getUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddProduct">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRentEase/AddProduct" message="tns:IRentEase_AddProduct_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRentEase/AddProductResponse" message="tns:IRentEase_AddProduct_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddSampleProducts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRentEase/AddSampleProducts" message="tns:IRentEase_AddSampleProducts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRentEase/AddSampleProductsResponse" message="tns:IRentEase_AddSampleProducts_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IRentEase" type="tns:IRentEase">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://tempuri.org/IRentEase/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Register">
+      <soap:operation soapAction="http://tempuri.org/IRentEase/Register" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProduct">
+      <soap:operation soapAction="http://tempuri.org/IRentEase/getProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProducts">
+      <soap:operation soapAction="http://tempuri.org/IRentEase/getProducts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addToCart">
+      <soap:operation soapAction="http://tempuri.org/IRentEase/addToCart" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="removeFromCart">
+      <soap:operation soapAction="http://tempuri.org/IRentEase/removeFromCart" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserCart">
+      <soap:operation soapAction="http://tempuri.org/IRentEase/getUserCart" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUser">
+      <soap:operation soapAction="http://tempuri.org/IRentEase/getUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddProduct">
+      <soap:operation soapAction="http://tempuri.org/IRentEase/AddProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddSampleProducts">
+      <soap:operation soapAction="http://tempuri.org/IRentEase/AddSampleProducts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="RentEase">
+    <wsdl:port name="BasicHttpBinding_IRentEase" binding="tns:BasicHttpBinding_IRentEase">
+      <soap:address location="http://localhost:53864/RentEase.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
