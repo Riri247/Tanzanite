@@ -3,52 +3,6 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-<style>
-/*---------------------
-  Sign Up
------------------------*/
-
-.signup {
-	padding-top: 130px;
-	padding-bottom: 150px;
-}
-
-.signup .login__form:after {
-	height: 450px;
-}
-
-.signup .login__form h5 {
-	font-size: 15px;
-	color: #ffffff;
-	margin-top: 36px;
-}
-
-.signup .login__form h5 a {
-	color: #e53637;
-	font-weight: 700;
-}
-
-.signup .login__social__links {
-	text-align: left;
-	padding-left: 40px;
-}
-
-.signup .login__social__links h3 {
-	color: #ffffff;
-	font-weight: 700;
-	font-family: "Oswald", sans-serif;
-	margin-bottom: 30px;
-}
-
-.signup .login__social__links ul li a {
-	margin: 0;
-	text-align: center;
-}
-
-.container {
-    	background: #596e79; 
-		}
-    </style>
 
      <!-- Signup Section Begin -->
     <section class="signup spad">
