@@ -4,9 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <style>
-        body {
-  overflow-x: hidden;
-  position: relative; }
+  
 
 body {
   font-family: "Inter", sans-serif;
@@ -21,81 +19,19 @@ a {
   -webkit-transition: .3s all ease;
   -o-transition: .3s all ease;
   transition: .3s all ease;
-  color: #2f2f2f;
-  text-decoration: underline; }
+  color: #2f2f2f;}
   a:hover {
     color: #2f2f2f;
     text-decoration: none; }
   a.more {
     font-weight: 600; }
 
-  .hero {
-  background: #3b5d50;
-  padding: calc(4rem - 30px) 0 0rem 0; }
-  @media (min-width: 768px) {
-    .hero {
-      padding: calc(4rem - 30px) 0 4rem 0; } }
-  @media (min-width: 992px) {
-    .hero {
-      padding: calc(8rem - 30px) 0 8rem 0; } }
-  .hero .intro-excerpt {
-    position: relative;
-    z-index: 4; }
-    @media (min-width: 992px) {
-      .hero .intro-excerpt {
-        max-width: 450px; } }
-  .hero h1 {
-    font-weight: 700;
-    color: #ffffff;
-    margin-bottom: 30px; }
-    @media (min-width: 1400px) {
-      .hero h1 {
-        font-size: 54px; } }
-  .hero p {
-    color: rgba(255, 255, 255, 0.5);
-    margin-botom: 30px; }
-  .hero .hero-img-wrap {
-    position: relative; }
-    .hero .hero-img-wrap img {
-      position: relative;
-      top: 0px;
-      right: 0px;
-      z-index: 2;
-      max-width: 780px;
-      left: -20px; }
-      @media (min-width: 768px) {
-        .hero .hero-img-wrap img {
-          right: 0px;
-          left: -100px; } }
-      @media (min-width: 992px) {
-        .hero .hero-img-wrap img {
-          left: 0px;
-          top: -80px;
-          position: absolute;
-          right: -50px; } }
-      @media (min-width: 1200px) {
-        .hero .hero-img-wrap img {
-          left: 0px;
-          top: -80px;
-          right: -100px; } }
-    .hero .hero-img-wrap:after {
-      content: "";
-      position: absolute;
-      width: 255px;
-      height: 217px;
-      background-image: url("../images/dots-light.svg");
-      background-size: contain;
-      background-repeat: no-repeat;
-      right: -100px;
-      top: -0px; }
-      @media (min-width: 1200px) {
-        .hero .hero-img-wrap:after {
-          top: -40px; } }
+  
 
 .btn {
   font-weight: 600;
-  padding: 12px 30px;
-  border-radius: 30px;
+  padding: 12px 20px;
+  border-radius: 20px;
   color: #ffffff;
   background: #2f2f2f;
   border-color: #2f2f2f; }
@@ -122,7 +58,7 @@ a {
       border-color: #f8b810; }
   .btn.btn-white-outline {
     background: transparent;
-    border-width: 2px;
+    border-width: 1px;
     border-color: rgba(255, 255, 255, 0.3); }
     .btn.btn-white-outline:hover {
       border-color: white;
@@ -165,7 +101,9 @@ a {
                         </tr>
                       </thead>
                       <tbody>
+                           <!-- Product section start-->
                         <tr>
+                           
                           <td class="product-thumbnail">
                             <img src="hero-1.jpg" alt="Image" class="img-fluid"  style="width: 300px; height: 200px;">
                           </td>
@@ -178,7 +116,7 @@ a {
                               <div class="input-group-prepend">
                                 <button class="btn btn-outline-black decrease" type="button">&minus;</button>
                               </div>
-                              <input type="text" class="form-control text-center quantity-amount" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                              <input type="text" class="form-control text-center quantity-amount" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1" style="width:min-content;">
                               <div class="input-group-append">
                                 <button class="btn btn-outline-black increase" type="button">&plus;</button>
                               </div>
@@ -187,8 +125,10 @@ a {
                           </td>
                           <td>$49.00</td>
                           <td><a href="#" class="btn btn-black btn-sm">X</a></td>
+
+                            
                         </tr>
-        
+        <!-- end of product-->
                         <tr>
                           <td class="product-thumbnail">
                             <img src="hero-1.jpg" alt="Image" class="img-fluid"  style="width: 300px; height: 200px;">

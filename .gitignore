@@ -361,3 +361,25 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+# Ignore build artifacts
+*.cache
+*.dll
+*.exe
+*.pdb
+*.obj
+*.log
+*.suo
+*.user
+*.ncb
+*.sdf
+*.ipch
+*.aps
+*.pch
+*.tlog
+*.idb
+*.dbmdl
+*.sqlite
+*.db
+*.xproj
+*.vs/
