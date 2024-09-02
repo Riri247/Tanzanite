@@ -21,13 +21,15 @@ namespace RentEase_Service
         /// <returns>Returns a User if the login was successful, otherwise null.</returns>
         public User Login(string email, string password)
         {
-            var query = from u in RentEaseDB.Users where u.Email == email && u.password == password 
-                        select new User {
+            var query = from u in RentEaseDB.Users
+                        where u.Email == email && u.password == password
+                        select new User
+                        {
                             Email = u.Email,
                             Id = u.Id,
                             User_Type = u.User_Type
-                            
-                         };
+
+                        };
             return query.FirstOrDefault();
         }
 
@@ -55,7 +57,7 @@ namespace RentEase_Service
             {
                 if (isAccount(email))
                     return false;
-                
+
                 var u = new User
                 {
                     U_Name = name,
@@ -107,7 +109,8 @@ namespace RentEase_Service
         /// <returns>Returns true if the product was added to the cart, otherwise false.</returns>
         public bool addToCart(int UserID, int ProductID)
         {
-            try { 
+            try
+            {
 
                 var s = new Shopping_cart
                 {
@@ -137,7 +140,7 @@ namespace RentEase_Service
         {
             // Find the user by ID
             var cartToDelete = RentEaseDB.Shopping_carts.FirstOrDefault(c => c.C_ID == UserID && c.P_ID == ProductID);
-    
+
             // If the cart exists
             if (cartToDelete != null)
             {
@@ -180,18 +183,53 @@ namespace RentEase_Service
         /// <returns>Returns a User, otherwise null.</returns>
         public User getUser(int ID)
         {
-            var query = from u in RentEaseDB.Users where u.Id == ID 
-                        select new User {
+            var query = from u in RentEaseDB.Users
+                        where u.Id == ID
+                        select new User
+                        {
                             Email = u.Email,
                             Id = u.Id,
                             User_Type = u.User_Type,
                             Surname = u.Surname,
                             U_Name = u.U_Name
-                            
-                         };
 
-             return query.FirstOrDefault();
+                        };
+
+            return query.FirstOrDefault();
 
         }
+        
+        /// <summary>
+        /// This method adds a product to the database.
+        /// </summary>
+        /// <param name="description">The description of the product.</param>
+        /// <param name="quantity">The quantity of the product.</param>
+        /// <param name="price">The price of the product.</param>
+        /// <param name="merchantID">The ID of the merchant associated with the product.</param>
+        /// <returns>Returns true if the product was added successfully, otherwise false.</returns>
+        public bool AddProduct(string description, int quantity, decimal price, int merchantID)
+        {
+            try
+            {
+                var product = new Product
+                {
+                    Decript = description,
+                    Quantity = quantity,
+                    Price = price,
+                    M_ID = merchantID
+                };
+
+                RentEaseDB.Products.InsertOnSubmit(product);
+                RentEaseDB.SubmitChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+        }
+
+
     }
 }
