@@ -1,70 +1,71 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Database1" Class="RentDatadbmlDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="Database1ConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.[User]" Member="Users">
-    <Type Name="User">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="U_Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Surname" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Email" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="User_Type" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
-      <Column Name="password" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Association Name="User_Admin" Member="Admin" ThisKey="Id" OtherKey="A_ID" Type="Admin" Cardinality="One" />
-      <Association Name="User_Merchant" Member="Merchant" ThisKey="Id" OtherKey="M_ID" Type="Merchant" Cardinality="One" />
-      <Association Name="User_Shopping_cart" Member="Shopping_carts" ThisKey="Id" OtherKey="C_ID" Type="Shopping_cart" />
-      <Association Name="User_Customer_Invoice" Member="Customer_Invoices" ThisKey="Id" OtherKey="C_ID" Type="Customer_Invoice" />
-    </Type>
-  </Table>
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="TanzaniteD" Class="RentDatadbmlDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\TanzaniteD.mdf;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="TanzaniteDConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Admin" Member="Admins">
     <Type Name="Admin">
       <Column Name="A_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Association Name="User_Admin" Member="User" ThisKey="A_ID" OtherKey="Id" Type="User" IsForeignKey="true" />
+      <Association Name="User1_Admin" Member="User1" ThisKey="A_ID" OtherKey="Id" Type="User1" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Merchant" Member="Merchants">
     <Type Name="Merchant">
       <Column Name="M_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Association Name="Merchant_Product" Member="Products" ThisKey="M_ID" OtherKey="M_ID" Type="Product" />
-      <Association Name="User_Merchant" Member="User" ThisKey="M_ID" OtherKey="Id" Type="User" IsForeignKey="true" />
+      <Association Name="User1_Merchant" Member="User1" ThisKey="M_ID" OtherKey="Id" Type="User1" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Product" Member="Products">
-    <Type Name="Product">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Decript" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="Quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Price" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
-      <Column Name="M_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="Product_Shopping_cart" Member="Shopping_carts" ThisKey="Id" OtherKey="P_ID" Type="Shopping_cart" />
-      <Association Name="Product_Order" Member="Orders" ThisKey="Id" OtherKey="Product_ID" Type="Order" />
-      <Association Name="Product_Image" Member="Images" ThisKey="Id" OtherKey="P_ID" Type="Image" />
-      <Association Name="Merchant_Product" Member="Merchant" ThisKey="M_ID" OtherKey="M_ID" Type="Merchant" IsForeignKey="true" />
+  <Table Name="dbo.Image" Member="Images">
+    <Type Name="Image">
+      <Column Name="Image_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="P_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Image_URL" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Association Name="Product_Image" Member="Product" ThisKey="P_ID" OtherKey="Id" Type="Product" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Shopping_cart" Member="Shopping_carts">
     <Type Name="Shopping_cart">
-      <Column Name="Cart_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="P_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="C_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="User_Shopping_cart" Member="User" ThisKey="C_ID" OtherKey="Id" Type="User" IsForeignKey="true" />
+      <Column Name="P_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="C_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="User1_Shopping_cart" Member="User1" ThisKey="C_ID" OtherKey="Id" Type="User1" IsForeignKey="true" />
       <Association Name="Product_Shopping_cart" Member="Product" ThisKey="P_ID" OtherKey="Id" Type="Product" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Invoice" Member="Invoices">
-    <Type Name="Invoice">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="I_Date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="Total_Cost" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
-      <Column Name="Total_Quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="Invoice_Customer_Invoice" Member="Customer_Invoices" ThisKey="ID" OtherKey="Invoice_ID" Type="Customer_Invoice" />
-      <Association Name="Invoice_Order" Member="Orders" ThisKey="ID" OtherKey="Invoice_ID" Type="Order" />
     </Type>
   </Table>
   <Table Name="dbo.Customer_Invoices" Member="Customer_Invoices">
     <Type Name="Customer_Invoice">
       <Column Name="C_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Invoice_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="User1_Customer_Invoice" Member="User1" ThisKey="C_ID" OtherKey="Id" Type="User1" IsForeignKey="true" />
       <Association Name="Invoice_Customer_Invoice" Member="Invoice" ThisKey="Invoice_ID" OtherKey="ID" Type="Invoice" IsForeignKey="true" />
-      <Association Name="User_Customer_Invoice" Member="User" ThisKey="C_ID" OtherKey="Id" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[User]" Member="User1s">
+    <Type Name="User1">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="U_Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Surname" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="User_Type" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="password" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="User1_Admin" Member="Admin" ThisKey="Id" OtherKey="A_ID" Type="Admin" Cardinality="One" />
+      <Association Name="User1_Merchant" Member="Merchant" ThisKey="Id" OtherKey="M_ID" Type="Merchant" Cardinality="One" />
+      <Association Name="User1_Shopping_cart" Member="Shopping_carts" ThisKey="Id" OtherKey="C_ID" Type="Shopping_cart" />
+      <Association Name="User1_Customer_Invoice" Member="Customer_Invoices" ThisKey="Id" OtherKey="C_ID" Type="Customer_Invoice" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Product" Member="Products">
+    <Type Name="Product">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Product_Name" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="Decript" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Price" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="M_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Available" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Rental_Agreement" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Association Name="Product_Image" Member="Images" ThisKey="Id" OtherKey="P_ID" Type="Image" />
+      <Association Name="Product_Shopping_cart" Member="Shopping_carts" ThisKey="Id" OtherKey="P_ID" Type="Shopping_cart" />
+      <Association Name="Product_Order" Member="Orders" ThisKey="Id" OtherKey="Product_ID" Type="Order" />
+      <Association Name="Merchant_Product" Member="Merchant" ThisKey="M_ID" OtherKey="M_ID" Type="Merchant" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.[Order]" Member="Orders">
@@ -74,16 +75,21 @@
       <Column Name="Quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="subTotal" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
       <Column Name="Durantion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="Invoice_Order" Member="Invoice" ThisKey="Invoice_ID" OtherKey="ID" Type="Invoice" IsForeignKey="true" />
+      <Column Name="Price" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
       <Association Name="Product_Order" Member="Product" ThisKey="Product_ID" OtherKey="Id" Type="Product" IsForeignKey="true" />
+      <Association Name="Invoice_Order" Member="Invoice" ThisKey="Invoice_ID" OtherKey="ID" Type="Invoice" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Image" Member="Images">
-    <Type Name="Image">
-      <Column Name="Image_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="P_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Image_URL" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Association Name="Product_Image" Member="Product" ThisKey="P_ID" OtherKey="Id" Type="Product" IsForeignKey="true" />
+  <Table Name="dbo.Invoice" Member="Invoices">
+    <Type Name="Invoice">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="I_Date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Total_Cost" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="Total_Quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Successful" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Invoice_Customer_Invoice" Member="Customer_Invoices" ThisKey="ID" OtherKey="Invoice_ID" Type="Customer_Invoice" />
+      <Association Name="Invoice_Order" Member="Orders" ThisKey="ID" OtherKey="Invoice_ID" Type="Order" />
     </Type>
   </Table>
 </Database>
