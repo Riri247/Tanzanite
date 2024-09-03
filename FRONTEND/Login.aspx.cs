@@ -11,9 +11,20 @@ namespace FRONTEND
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
 
+
+      
+
+        private bool AuthenticateUser(string email, string password)
+        {
+            // Replace this with your actual authentication logic
+            // For example, querying the database to check if the credentials are correct.
+
+            // Example placeholder logic:
+            return email == "admin@example.com" && password == "password";
+        }
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
@@ -33,15 +44,6 @@ namespace FRONTEND
                 // Display an error message
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Invalid email or password.');", true);
             }
-        }
-
-        private bool AuthenticateUser(string email, string password)
-        {
-            // Replace this with your actual authentication logic
-            // For example, querying the database to check if the credentials are correct.
-
-            // Example placeholder logic:
-            return email == "admin@example.com" && password == "password";
         }
     }
 }

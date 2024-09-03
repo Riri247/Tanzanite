@@ -61,20 +61,36 @@
                                
 
 								<!-- default nav -->
-								<div class="default__nav">
-									 <li class="active"><a href="./categories.html">Categories <span class="arrow_carrot-down"></span></a>
+								<div class="default__nav" style="float:left;">
+									 <li class="active"><a href="#">Categories <span class="arrow_carrot-down"></span></a>
                                     <ul class="dropdown">
-                                        <li><a href="./anime-details.html">Anime Details</a></li>
-                                        <li><a href="./anime-watching.html">Anime Watching</a></li>
-                                        <li><a href="./blog-details.html">Blog Details</a></li>
-                                        <li><a href="./signup.html">Sign Up</a></li>
-                                        <li><a href="./login.html">Login</a></li>
-										<li><a href="./login.html">About us</a></li>
+                                        <!--default ones pages-->
+                                           <li><a href="Signup.aspx" runat="server" id="SignID" >Sign Up</a></li>
+                                        <li><a href="Login.aspx" runat="server" id="LoginID" >Login</a></li>
+                                        <li><a href="#" runat="server" id="ABoutOne" >About us</a></li>
+
+                                        <!--login ones=-->
+                                            <li><a href="#" runat="server" id="AccountOne"  visible="false">Account</a></li>
+                                            <li><a href="Cart.aspx" runat="server" id="CartOne" visible="false" >Check Cart</a></li>
+
+                                        <!--Renter one-->
+                                         <li><a href="Cart.aspx" runat="server" id="ProductOne" visible="false" >Check Products</a></li>
+
+                                        <!-- Admin-->
+                                        <li><a href="Cart.aspx" runat="server" id="UserOne" visible="false" >Track User</a></li>
+
+                                        
+                                       
+                                        
                                     </ul>
-					
-								<li class= "Register__block" Visible ="true"><a href="./blog.html"><asp:label ID="Register" runat="server" Text="Register"/></a></li>
-								<li class= "Login__block" Visible ="true"><a href="./blog.html"><asp:label ID="Login" runat="server" Text="Login"/></a></li>
-									
+
+                                         <!-- Default nav>
+                                         
+                                             <li class= "Register__block" ><a href="Signup.aspx"><asp:label ID="Label4" runat="server" Text="Register" visible="false" /></a></li>
+                                             <li class= "Login__block" ><a href="Login.aspx"><asp:label ID="Login" runat="server" Text="Login"/></a></li>               
+                                        
+	                                     <-->
+                                         
 										<!-- place search icon here -->
 								</div>
 	
@@ -90,6 +106,7 @@
                     <div class="header__right">
                         <a href="#" class="search-switch"><span class="icon_search"></span></a>
                         <a href="./login.html"><span class="icon_profile"></span></a>
+                      <a href="Cart.aspx"  id="CartImage" runat="server" visible="false"><img src="img/cart.svg"></a>
                     </div>
                 </div>
 
