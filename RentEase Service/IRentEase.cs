@@ -73,5 +73,15 @@ namespace RentEase_Service
         // make report table
         // make complaint table
 
+        //methods added by Emmanuel for page loading
+        //get products by category
+        [OperationContract]
+        List<Product> getProdsByCat(String Category);
+        //get by rating
+        [OperationContract]
+        List<Product> getBestProds();
+        //get by recent
+        [OperationContract]
+        List<Product> getNewProds();
     }
 }

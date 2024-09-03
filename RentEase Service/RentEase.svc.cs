@@ -479,12 +479,19 @@ namespace RentEase_Service
 
         }
 
-        
+        List<Product> IRentEase.getProdsByCat(string Category)
+        {
+            throw new NotImplementedException();
+        }
 
+        List<Product> IRentEase.getBestProds()
+        {
+            throw new NotImplementedException();
+        }
 
-
-        
-
-
+        List<Product> IRentEase.getNewProds()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
