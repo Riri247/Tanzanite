@@ -52,22 +52,6 @@
       <Association Name="User1_Customer_Invoice" Member="Customer_Invoices" ThisKey="Id" OtherKey="C_ID" Type="Customer_Invoice" />
     </Type>
   </Table>
-  <Table Name="dbo.Product" Member="Products">
-    <Type Name="Product">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Product_Name" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
-      <Column Name="Decript" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="Quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Price" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
-      <Column Name="M_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Available" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Column Name="Rental_Agreement" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Association Name="Product_Image" Member="Images" ThisKey="Id" OtherKey="P_ID" Type="Image" />
-      <Association Name="Product_Shopping_cart" Member="Shopping_carts" ThisKey="Id" OtherKey="P_ID" Type="Shopping_cart" />
-      <Association Name="Product_Order" Member="Orders" ThisKey="Id" OtherKey="Product_ID" Type="Order" />
-      <Association Name="Merchant_Product" Member="Merchant" ThisKey="M_ID" OtherKey="M_ID" Type="Merchant" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.[Order]" Member="Orders">
     <Type Name="Order">
       <Column Name="Invoice_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
@@ -76,8 +60,8 @@
       <Column Name="subTotal" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
       <Column Name="Durantion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Price" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
-      <Association Name="Product_Order" Member="Product" ThisKey="Product_ID" OtherKey="Id" Type="Product" IsForeignKey="true" />
       <Association Name="Invoice_Order" Member="Invoice" ThisKey="Invoice_ID" OtherKey="ID" Type="Invoice" IsForeignKey="true" />
+      <Association Name="Product_Order" Member="Product" ThisKey="Product_ID" OtherKey="Id" Type="Product" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Invoice" Member="Invoices">
@@ -90,6 +74,24 @@
       <Column Name="Successful" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="Invoice_Customer_Invoice" Member="Customer_Invoices" ThisKey="ID" OtherKey="Invoice_ID" Type="Customer_Invoice" />
       <Association Name="Invoice_Order" Member="Orders" ThisKey="ID" OtherKey="Invoice_ID" Type="Order" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Product" Member="Products">
+    <Type Name="Product">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Product_Name" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="Decript" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Price" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="M_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Available" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Rental_Agreement" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Category" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Registration_Date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="Product_Image" Member="Images" ThisKey="Id" OtherKey="P_ID" Type="Image" />
+      <Association Name="Product_Shopping_cart" Member="Shopping_carts" ThisKey="Id" OtherKey="P_ID" Type="Shopping_cart" />
+      <Association Name="Product_Order" Member="Orders" ThisKey="Id" OtherKey="Product_ID" Type="Order" />
+      <Association Name="Merchant_Product" Member="Merchant" ThisKey="M_ID" OtherKey="M_ID" Type="Merchant" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>
