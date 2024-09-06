@@ -16,7 +16,7 @@
                             <div class="view"><i class="fa fa-eye"></i> 9141</div>
                         </div>
                     </div>
-                    <div class="col-lg-9">
+                    <div class="col-lg-9" id="Productdetails" runat="server"> <!-- code bhind starts here-->
                         <div class="anime__details__text">
                             <div class="anime__details__title">
                                 <h3>Product NAme</h3>
@@ -61,6 +61,8 @@
                                     class="fa fa-angle-right"></i></a>
                                 </div>
                             </div>
+
+                        <!--section for code behind ends here-->
                         </div>
                     </div>
                 </div>
