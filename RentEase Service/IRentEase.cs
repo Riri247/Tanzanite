@@ -20,7 +20,7 @@ namespace RentEase_Service
 
         
         [OperationContract]
-        User Login(string email, string password);
+        User1 Login(string email, string password);
 
         [OperationContract]
         bool Register(string email, string password, string name, string surname);
@@ -41,7 +41,7 @@ namespace RentEase_Service
         List<Product> getUserCart(int ID);
 
         [OperationContract]
-        User getUser(int ID);
+        User1 getUser(int ID);
 
         [OperationContract]
         bool changePassword(int ID, string password);
@@ -58,8 +58,9 @@ namespace RentEase_Service
         [OperationContract]
         bool changePrice(int ID, double price);
 
-        [OperationContract]
-        bool changePrice(int ID, string name);
+        //Caused error so i took one out - Emmanuel
+        //[OperationContract]
+        //bool changePrice(int ID, string name);
 
         [OperationContract]
         bool removeProduct(int ID);

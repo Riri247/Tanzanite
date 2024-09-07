@@ -76,7 +76,10 @@
     <Content Include="Connected Services\ServiceReference1\FRONTEND.ServiceReference1.Product.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\ServiceReference1\FRONTEND.ServiceReference1.User.datasource">
+    <Content Include="Connected Services\ServiceReference1\FRONTEND.ServiceReference1.ProductImage.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ServiceReference1\FRONTEND.ServiceReference1.User1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Connected Services\ServiceReference1\Reference.svcmap">
@@ -173,6 +176,9 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\ServiceReference1\RentEase2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceReference1\RentEase3.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />

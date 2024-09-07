@@ -46,24 +46,9 @@
 
 		<div id="ContainerforRows" runat="server">
 
-			<!-- product start-->
-		<tr>
-			<td>
-			<a href="playstation_5.html">
-			Playstation 5
-			</a>
-			</td>
-			<td>
-			<a href="playstation_5.html">
-			<img src="https://i0.wp.com/allgamingconsoles.co.za/wp-content/uploads/2021/12/ps5.jpeg?fit=1500%2C1500&ssl=1" alt="Playstation 5">
-			</a>
-			</td>
-			<td>
-			R15 000
-			</td>
-		</tr>
+		<!-- Code goes here-->
 		<!-- product end-->
 		
-		
+		</div>
 	</table>
 </asp:Content>
