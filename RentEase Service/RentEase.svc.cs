@@ -479,12 +479,52 @@ namespace RentEase_Service
 
         }
 
-        
+        List<Product> IRentEase.getProdsByCat(string Category)
+        {
+            dynamic prodlist = (from p in RentEaseDB.Products
+                                where p.Category == Category
+                                select p).DefaultIfEmpty();
 
+            if (prodlist != null)
+            {
+                List<Product> TempList = new List<Product>();
+                foreach (Product p in prodlist)
+                {
+                    TempList.Add(p);
+                }
+                return TempList;
+            }
+            else { return null; }
+        }
 
+        List<Product> IRentEase.getBestProds()
+        {
+            List<Product> Temp = new List<Product>();
 
-        
+            return Temp;
+        }
 
+        List<Product> IRentEase.getNewProds()
+        {
 
+            // Get the first day of the current month
+            DateTime firstDayOfCurrentMonth = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+
+            dynamic prodlist = (from p in RentEaseDB.Products
+                                //finding products registered after the month
+                                where p.Registration_Date > firstDayOfCurrentMonth
+                                select p).DefaultIfEmpty();
+
+            if (prodlist != null)
+            {
+                List<Product> TempList = new List<Product>();
+                foreach (Product p in prodlist)
+                {
+                    TempList.Add(p);
+                }
+                return TempList;
+            }
+            else { return null; }
+        }
     }
 }
