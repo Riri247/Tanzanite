@@ -58,8 +58,9 @@ namespace RentEase_Service
         [OperationContract]
         bool changePrice(int ID, double price);
 
-        [OperationContract]
-        bool changePrice(int ID, string name);
+        //Caused error so i took one out - Emmanuel
+        //[OperationContract]
+        //bool changePrice(int ID, string name);
 
         [OperationContract]
         bool removeProduct(int ID);
@@ -73,5 +74,15 @@ namespace RentEase_Service
         // make report table
         // make complaint table
 
+        //methods added by Emmanuel for page loading
+        //get products by category
+        [OperationContract]
+        List<Product> getProdsByCat(String Category);
+        //get by rating
+        [OperationContract]
+        List<Product> getBestProds();
+        //get by recent
+        [OperationContract]
+        List<Product> getNewProds();
     }
 }

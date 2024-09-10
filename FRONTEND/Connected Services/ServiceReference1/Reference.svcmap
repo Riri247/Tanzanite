@@ -22,10 +22,11 @@
     <MetadataSource Address="http://localhost:53864/RentEase.svc?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
+    <MetadataFile FileName="RentEase3.xsd" MetadataType="Schema" ID="2af48754-60f8-434e-8ffc-ec06d33e224e" SourceId="1" SourceUrl="http://localhost:53864/RentEase.svc?xsd=xsd3" />
     <MetadataFile FileName="RentEase.xsd" MetadataType="Schema" ID="c503fbff-1dd0-46be-a1fb-51e4dd9f117d" SourceId="1" SourceUrl="http://localhost:53864/RentEase.svc?xsd=xsd1" />
-    <MetadataFile FileName="RentEase1.xsd" MetadataType="Schema" ID="80a21689-2149-4fd3-870d-8b8a51ffaa8b" SourceId="1" SourceUrl="http://localhost:53864/RentEase.svc?xsd=xsd0" />
     <MetadataFile FileName="RentEase2.xsd" MetadataType="Schema" ID="b08be930-cd7c-43eb-ae1e-41f5ef55401f" SourceId="1" SourceUrl="http://localhost:53864/RentEase.svc?xsd=xsd2" />
     <MetadataFile FileName="RentEase.wsdl" MetadataType="Wsdl" ID="59585817-faf8-43f4-932d-266b092524c7" SourceId="1" SourceUrl="http://localhost:53864/RentEase.svc?wsdl" />
+    <MetadataFile FileName="RentEase1.xsd" MetadataType="Schema" ID="80a21689-2149-4fd3-870d-8b8a51ffaa8b" SourceId="1" SourceUrl="http://localhost:53864/RentEase.svc?xsd=xsd0" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

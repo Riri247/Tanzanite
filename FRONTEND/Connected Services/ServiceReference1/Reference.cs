@@ -15,12 +15,15 @@ namespace FRONTEND.ServiceReference1 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="User", Namespace="http://schemas.datacontract.org/2004/07/RentEase_Service")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="User1", Namespace="http://schemas.datacontract.org/2004/07/RentEase_Service")]
     [System.SerializableAttribute()]
-    public partial class User : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class User1 : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool ActiveField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private FRONTEND.ServiceReference1.Admin AdminField;
@@ -56,6 +59,19 @@ namespace FRONTEND.ServiceReference1 {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Active {
+            get {
+                return this.ActiveField;
+            }
+            set {
+                if ((this.ActiveField.Equals(value) != true)) {
+                    this.ActiveField = value;
+                    this.RaisePropertyChanged("Active");
+                }
             }
         }
         
@@ -199,7 +215,7 @@ namespace FRONTEND.ServiceReference1 {
         private int A_IDField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private FRONTEND.ServiceReference1.User UserField;
+        private FRONTEND.ServiceReference1.User1 User1Field;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -225,14 +241,14 @@ namespace FRONTEND.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public FRONTEND.ServiceReference1.User User {
+        public FRONTEND.ServiceReference1.User1 User1 {
             get {
-                return this.UserField;
+                return this.User1Field;
             }
             set {
-                if ((object.ReferenceEquals(this.UserField, value) != true)) {
-                    this.UserField = value;
-                    this.RaisePropertyChanged("User");
+                if ((object.ReferenceEquals(this.User1Field, value) != true)) {
+                    this.User1Field = value;
+                    this.RaisePropertyChanged("User1");
                 }
             }
         }
@@ -263,7 +279,7 @@ namespace FRONTEND.ServiceReference1 {
         private FRONTEND.ServiceReference1.Product[] ProductsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private FRONTEND.ServiceReference1.User UserField;
+        private FRONTEND.ServiceReference1.User1 User1Field;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -302,14 +318,14 @@ namespace FRONTEND.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public FRONTEND.ServiceReference1.User User {
+        public FRONTEND.ServiceReference1.User1 User1 {
             get {
-                return this.UserField;
+                return this.User1Field;
             }
             set {
-                if ((object.ReferenceEquals(this.UserField, value) != true)) {
-                    this.UserField = value;
-                    this.RaisePropertyChanged("User");
+                if ((object.ReferenceEquals(this.User1Field, value) != true)) {
+                    this.User1Field = value;
+                    this.RaisePropertyChanged("User1");
                 }
             }
         }
@@ -337,16 +353,13 @@ namespace FRONTEND.ServiceReference1 {
         private int C_IDField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int Cart_IDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<int> P_IDField;
+        private int P_IDField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private FRONTEND.ServiceReference1.Product ProductField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private FRONTEND.ServiceReference1.User UserField;
+        private FRONTEND.ServiceReference1.User1 User1Field;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -372,20 +385,7 @@ namespace FRONTEND.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Cart_ID {
-            get {
-                return this.Cart_IDField;
-            }
-            set {
-                if ((this.Cart_IDField.Equals(value) != true)) {
-                    this.Cart_IDField = value;
-                    this.RaisePropertyChanged("Cart_ID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> P_ID {
+        public int P_ID {
             get {
                 return this.P_IDField;
             }
@@ -411,14 +411,14 @@ namespace FRONTEND.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public FRONTEND.ServiceReference1.User User {
+        public FRONTEND.ServiceReference1.User1 User1 {
             get {
-                return this.UserField;
+                return this.User1Field;
             }
             set {
-                if ((object.ReferenceEquals(this.UserField, value) != true)) {
-                    this.UserField = value;
-                    this.RaisePropertyChanged("User");
+                if ((object.ReferenceEquals(this.User1Field, value) != true)) {
+                    this.User1Field = value;
+                    this.RaisePropertyChanged("User1");
                 }
             }
         }
@@ -443,6 +443,12 @@ namespace FRONTEND.ServiceReference1 {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool AvailableField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CategoryField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string DecriptField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -461,7 +467,16 @@ namespace FRONTEND.ServiceReference1 {
         private decimal PriceField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Product_NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int QuantityField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime Registration_DateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Rental_AgreementField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private FRONTEND.ServiceReference1.Shopping_cart[] Shopping_cartsField;
@@ -473,6 +488,32 @@ namespace FRONTEND.ServiceReference1 {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Available {
+            get {
+                return this.AvailableField;
+            }
+            set {
+                if ((this.AvailableField.Equals(value) != true)) {
+                    this.AvailableField = value;
+                    this.RaisePropertyChanged("Available");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Category {
+            get {
+                return this.CategoryField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CategoryField, value) != true)) {
+                    this.CategoryField = value;
+                    this.RaisePropertyChanged("Category");
+                }
             }
         }
         
@@ -555,6 +596,19 @@ namespace FRONTEND.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Product_Name {
+            get {
+                return this.Product_NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Product_NameField, value) != true)) {
+                    this.Product_NameField = value;
+                    this.RaisePropertyChanged("Product_Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int Quantity {
             get {
                 return this.QuantityField;
@@ -563,6 +617,32 @@ namespace FRONTEND.ServiceReference1 {
                 if ((this.QuantityField.Equals(value) != true)) {
                     this.QuantityField = value;
                     this.RaisePropertyChanged("Quantity");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime Registration_Date {
+            get {
+                return this.Registration_DateField;
+            }
+            set {
+                if ((this.Registration_DateField.Equals(value) != true)) {
+                    this.Registration_DateField = value;
+                    this.RaisePropertyChanged("Registration_Date");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Rental_Agreement {
+            get {
+                return this.Rental_AgreementField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Rental_AgreementField, value) != true)) {
+                    this.Rental_AgreementField = value;
+                    this.RaisePropertyChanged("Rental_Agreement");
                 }
             }
         }
@@ -683,15 +763,76 @@ namespace FRONTEND.ServiceReference1 {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ProductImage", Namespace="http://schemas.datacontract.org/2004/07/RentEase_Service")]
+    [System.SerializableAttribute()]
+    public partial class ProductImage : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private FRONTEND.ServiceReference1.Image ImageField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private FRONTEND.ServiceReference1.Product ProductField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public FRONTEND.ServiceReference1.Image Image {
+            get {
+                return this.ImageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ImageField, value) != true)) {
+                    this.ImageField = value;
+                    this.RaisePropertyChanged("Image");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public FRONTEND.ServiceReference1.Product Product {
+            get {
+                return this.ProductField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ProductField, value) != true)) {
+                    this.ProductField = value;
+                    this.RaisePropertyChanged("Product");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IRentEase")]
     public interface IRentEase {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/Login", ReplyAction="http://tempuri.org/IRentEase/LoginResponse")]
-        FRONTEND.ServiceReference1.User Login(string email, string password);
+        FRONTEND.ServiceReference1.User1 Login(string email, string password);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/Login", ReplyAction="http://tempuri.org/IRentEase/LoginResponse")]
-        System.Threading.Tasks.Task<FRONTEND.ServiceReference1.User> LoginAsync(string email, string password);
+        System.Threading.Tasks.Task<FRONTEND.ServiceReference1.User1> LoginAsync(string email, string password);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/Register", ReplyAction="http://tempuri.org/IRentEase/RegisterResponse")]
         bool Register(string email, string password, string name, string surname);
@@ -700,16 +841,16 @@ namespace FRONTEND.ServiceReference1 {
         System.Threading.Tasks.Task<bool> RegisterAsync(string email, string password, string name, string surname);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/getProduct", ReplyAction="http://tempuri.org/IRentEase/getProductResponse")]
-        FRONTEND.ServiceReference1.Product getProduct(int ID);
+        FRONTEND.ServiceReference1.ProductImage getProduct(int ID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/getProduct", ReplyAction="http://tempuri.org/IRentEase/getProductResponse")]
-        System.Threading.Tasks.Task<FRONTEND.ServiceReference1.Product> getProductAsync(int ID);
+        System.Threading.Tasks.Task<FRONTEND.ServiceReference1.ProductImage> getProductAsync(int ID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/getProducts", ReplyAction="http://tempuri.org/IRentEase/getProductsResponse")]
-        FRONTEND.ServiceReference1.Product[] getProducts();
+        FRONTEND.ServiceReference1.ProductImage[] getProducts();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/getProducts", ReplyAction="http://tempuri.org/IRentEase/getProductsResponse")]
-        System.Threading.Tasks.Task<FRONTEND.ServiceReference1.Product[]> getProductsAsync();
+        System.Threading.Tasks.Task<FRONTEND.ServiceReference1.ProductImage[]> getProductsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/addToCart", ReplyAction="http://tempuri.org/IRentEase/addToCartResponse")]
         bool addToCart(int UserID, int ProductID);
@@ -730,22 +871,70 @@ namespace FRONTEND.ServiceReference1 {
         System.Threading.Tasks.Task<FRONTEND.ServiceReference1.Product[]> getUserCartAsync(int ID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/getUser", ReplyAction="http://tempuri.org/IRentEase/getUserResponse")]
-        FRONTEND.ServiceReference1.User getUser(int ID);
+        FRONTEND.ServiceReference1.User1 getUser(int ID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/getUser", ReplyAction="http://tempuri.org/IRentEase/getUserResponse")]
-        System.Threading.Tasks.Task<FRONTEND.ServiceReference1.User> getUserAsync(int ID);
+        System.Threading.Tasks.Task<FRONTEND.ServiceReference1.User1> getUserAsync(int ID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/changePassword", ReplyAction="http://tempuri.org/IRentEase/changePasswordResponse")]
+        bool changePassword(int ID, string password);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/changePassword", ReplyAction="http://tempuri.org/IRentEase/changePasswordResponse")]
+        System.Threading.Tasks.Task<bool> changePasswordAsync(int ID, string password);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/AddProduct", ReplyAction="http://tempuri.org/IRentEase/AddProductResponse")]
-        bool AddProduct(string description, int quantity, decimal price, int merchantID);
+        bool AddProduct(string description, int quantity, decimal price, int merchantID, string[] images);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/AddProduct", ReplyAction="http://tempuri.org/IRentEase/AddProductResponse")]
-        System.Threading.Tasks.Task<bool> AddProductAsync(string description, int quantity, decimal price, int merchantID);
+        System.Threading.Tasks.Task<bool> AddProductAsync(string description, int quantity, decimal price, int merchantID, string[] images);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/AddSampleProducts", ReplyAction="http://tempuri.org/IRentEase/AddSampleProductsResponse")]
-        void AddSampleProducts();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/changeQuantity", ReplyAction="http://tempuri.org/IRentEase/changeQuantityResponse")]
+        bool changeQuantity(int ID, int quantity);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/AddSampleProducts", ReplyAction="http://tempuri.org/IRentEase/AddSampleProductsResponse")]
-        System.Threading.Tasks.Task AddSampleProductsAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/changeQuantity", ReplyAction="http://tempuri.org/IRentEase/changeQuantityResponse")]
+        System.Threading.Tasks.Task<bool> changeQuantityAsync(int ID, int quantity);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/changeDescription", ReplyAction="http://tempuri.org/IRentEase/changeDescriptionResponse")]
+        bool changeDescription(int ID, string description);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/changeDescription", ReplyAction="http://tempuri.org/IRentEase/changeDescriptionResponse")]
+        System.Threading.Tasks.Task<bool> changeDescriptionAsync(int ID, string description);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/changePrice", ReplyAction="http://tempuri.org/IRentEase/changePriceResponse")]
+        bool changePrice(int ID, double price);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/changePrice", ReplyAction="http://tempuri.org/IRentEase/changePriceResponse")]
+        System.Threading.Tasks.Task<bool> changePriceAsync(int ID, double price);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/removeProduct", ReplyAction="http://tempuri.org/IRentEase/removeProductResponse")]
+        bool removeProduct(int ID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/removeProduct", ReplyAction="http://tempuri.org/IRentEase/removeProductResponse")]
+        System.Threading.Tasks.Task<bool> removeProductAsync(int ID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/placeOrder", ReplyAction="http://tempuri.org/IRentEase/placeOrderResponse")]
+        int placeOrder(int ID, FRONTEND.ServiceReference1.Product[] arrProducts, int[] arrQuantities, int[] arrDurations);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/placeOrder", ReplyAction="http://tempuri.org/IRentEase/placeOrderResponse")]
+        System.Threading.Tasks.Task<int> placeOrderAsync(int ID, FRONTEND.ServiceReference1.Product[] arrProducts, int[] arrQuantities, int[] arrDurations);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/getProdsByCat", ReplyAction="http://tempuri.org/IRentEase/getProdsByCatResponse")]
+        FRONTEND.ServiceReference1.Product[] getProdsByCat(string Category);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/getProdsByCat", ReplyAction="http://tempuri.org/IRentEase/getProdsByCatResponse")]
+        System.Threading.Tasks.Task<FRONTEND.ServiceReference1.Product[]> getProdsByCatAsync(string Category);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/getBestProds", ReplyAction="http://tempuri.org/IRentEase/getBestProdsResponse")]
+        FRONTEND.ServiceReference1.Product[] getBestProds();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/getBestProds", ReplyAction="http://tempuri.org/IRentEase/getBestProdsResponse")]
+        System.Threading.Tasks.Task<FRONTEND.ServiceReference1.Product[]> getBestProdsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/getNewProds", ReplyAction="http://tempuri.org/IRentEase/getNewProdsResponse")]
+        FRONTEND.ServiceReference1.Product[] getNewProds();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/getNewProds", ReplyAction="http://tempuri.org/IRentEase/getNewProdsResponse")]
+        System.Threading.Tasks.Task<FRONTEND.ServiceReference1.Product[]> getNewProdsAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -775,11 +964,11 @@ namespace FRONTEND.ServiceReference1 {
                 base(binding, remoteAddress) {
         }
         
-        public FRONTEND.ServiceReference1.User Login(string email, string password) {
+        public FRONTEND.ServiceReference1.User1 Login(string email, string password) {
             return base.Channel.Login(email, password);
         }
         
-        public System.Threading.Tasks.Task<FRONTEND.ServiceReference1.User> LoginAsync(string email, string password) {
+        public System.Threading.Tasks.Task<FRONTEND.ServiceReference1.User1> LoginAsync(string email, string password) {
             return base.Channel.LoginAsync(email, password);
         }
         
@@ -791,19 +980,19 @@ namespace FRONTEND.ServiceReference1 {
             return base.Channel.RegisterAsync(email, password, name, surname);
         }
         
-        public FRONTEND.ServiceReference1.Product getProduct(int ID) {
+        public FRONTEND.ServiceReference1.ProductImage getProduct(int ID) {
             return base.Channel.getProduct(ID);
         }
         
-        public System.Threading.Tasks.Task<FRONTEND.ServiceReference1.Product> getProductAsync(int ID) {
+        public System.Threading.Tasks.Task<FRONTEND.ServiceReference1.ProductImage> getProductAsync(int ID) {
             return base.Channel.getProductAsync(ID);
         }
         
-        public FRONTEND.ServiceReference1.Product[] getProducts() {
+        public FRONTEND.ServiceReference1.ProductImage[] getProducts() {
             return base.Channel.getProducts();
         }
         
-        public System.Threading.Tasks.Task<FRONTEND.ServiceReference1.Product[]> getProductsAsync() {
+        public System.Threading.Tasks.Task<FRONTEND.ServiceReference1.ProductImage[]> getProductsAsync() {
             return base.Channel.getProductsAsync();
         }
         
@@ -831,28 +1020,92 @@ namespace FRONTEND.ServiceReference1 {
             return base.Channel.getUserCartAsync(ID);
         }
         
-        public FRONTEND.ServiceReference1.User getUser(int ID) {
+        public FRONTEND.ServiceReference1.User1 getUser(int ID) {
             return base.Channel.getUser(ID);
         }
         
-        public System.Threading.Tasks.Task<FRONTEND.ServiceReference1.User> getUserAsync(int ID) {
+        public System.Threading.Tasks.Task<FRONTEND.ServiceReference1.User1> getUserAsync(int ID) {
             return base.Channel.getUserAsync(ID);
         }
         
-        public bool AddProduct(string description, int quantity, decimal price, int merchantID) {
-            return base.Channel.AddProduct(description, quantity, price, merchantID);
+        public bool changePassword(int ID, string password) {
+            return base.Channel.changePassword(ID, password);
         }
         
-        public System.Threading.Tasks.Task<bool> AddProductAsync(string description, int quantity, decimal price, int merchantID) {
-            return base.Channel.AddProductAsync(description, quantity, price, merchantID);
+        public System.Threading.Tasks.Task<bool> changePasswordAsync(int ID, string password) {
+            return base.Channel.changePasswordAsync(ID, password);
         }
         
-        public void AddSampleProducts() {
-            base.Channel.AddSampleProducts();
+        public bool AddProduct(string description, int quantity, decimal price, int merchantID, string[] images) {
+            return base.Channel.AddProduct(description, quantity, price, merchantID, images);
         }
         
-        public System.Threading.Tasks.Task AddSampleProductsAsync() {
-            return base.Channel.AddSampleProductsAsync();
+        public System.Threading.Tasks.Task<bool> AddProductAsync(string description, int quantity, decimal price, int merchantID, string[] images) {
+            return base.Channel.AddProductAsync(description, quantity, price, merchantID, images);
+        }
+        
+        public bool changeQuantity(int ID, int quantity) {
+            return base.Channel.changeQuantity(ID, quantity);
+        }
+        
+        public System.Threading.Tasks.Task<bool> changeQuantityAsync(int ID, int quantity) {
+            return base.Channel.changeQuantityAsync(ID, quantity);
+        }
+        
+        public bool changeDescription(int ID, string description) {
+            return base.Channel.changeDescription(ID, description);
+        }
+        
+        public System.Threading.Tasks.Task<bool> changeDescriptionAsync(int ID, string description) {
+            return base.Channel.changeDescriptionAsync(ID, description);
+        }
+        
+        public bool changePrice(int ID, double price) {
+            return base.Channel.changePrice(ID, price);
+        }
+        
+        public System.Threading.Tasks.Task<bool> changePriceAsync(int ID, double price) {
+            return base.Channel.changePriceAsync(ID, price);
+        }
+        
+        public bool removeProduct(int ID) {
+            return base.Channel.removeProduct(ID);
+        }
+        
+        public System.Threading.Tasks.Task<bool> removeProductAsync(int ID) {
+            return base.Channel.removeProductAsync(ID);
+        }
+        
+        public int placeOrder(int ID, FRONTEND.ServiceReference1.Product[] arrProducts, int[] arrQuantities, int[] arrDurations) {
+            return base.Channel.placeOrder(ID, arrProducts, arrQuantities, arrDurations);
+        }
+        
+        public System.Threading.Tasks.Task<int> placeOrderAsync(int ID, FRONTEND.ServiceReference1.Product[] arrProducts, int[] arrQuantities, int[] arrDurations) {
+            return base.Channel.placeOrderAsync(ID, arrProducts, arrQuantities, arrDurations);
+        }
+        
+        public FRONTEND.ServiceReference1.Product[] getProdsByCat(string Category) {
+            return base.Channel.getProdsByCat(Category);
+        }
+        
+        public System.Threading.Tasks.Task<FRONTEND.ServiceReference1.Product[]> getProdsByCatAsync(string Category) {
+            return base.Channel.getProdsByCatAsync(Category);
+        }
+        
+        public FRONTEND.ServiceReference1.Product[] getBestProds() {
+            return base.Channel.getBestProds();
+        }
+        
+        public System.Threading.Tasks.Task<FRONTEND.ServiceReference1.Product[]> getBestProdsAsync() {
+            return base.Channel.getBestProdsAsync();
+        }
+        
+        public FRONTEND.ServiceReference1.Product[] getNewProds() {
+            return base.Channel.getNewProds();
+        }
+        
+        public System.Threading.Tasks.Task<FRONTEND.ServiceReference1.Product[]> getNewProdsAsync() {
+            return base.Channel.getNewProdsAsync();
         }
     }
 }

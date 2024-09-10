@@ -46,7 +46,8 @@ h4,
 h5,
 h6 {
 	margin: 0;
-	color: #111111;
+
+	color: #000000;
 	font-weight: 400;
 	font-family: "Mulish", sans-serif;
 }
@@ -78,7 +79,7 @@ h6 {
 p {
 	font-size: 15px;
 	font-family: "Mulish", sans-serif;
-	color: #3d3d3d;
+	color: #000000;
 	font-weight: 400;
 	line-height: 25px;
 	margin: 0 0 15px 0;
@@ -116,16 +117,16 @@ ol {
 	margin-bottom: 30px;
 }
 
-.section-title h4,
-.section-title h5 {
-	color: #ffffff;
-	font-weight: 600;
-	line-height: 21px;
-	text-transform: uppercase;
-	padding-left: 20px;
-	position: relative;
-	font-family: "Oswald", sans-serif;
-}
+	.section-title h4,
+	.section-title h5 {
+		color: #000000;
+		font-weight: 600;
+		line-height: 21px;
+		text-transform: uppercase;
+		padding-left: 20px;
+		position: relative;
+		font-family: "Oswald", sans-serif;
+	}
 
 .section-title h4:after,
 .section-title h5:after {
@@ -159,7 +160,7 @@ ol {
 .text-white span,
 .text-white li,
 .text-white a {
-	color: #fff;
+	color: #000000;
 }
 
 /* buttons */
@@ -455,47 +456,47 @@ ol {
 	z-index: 9;
 }
 
-.hero__text .label {
-	font-size: 13px;
-	color: #e53637;
-	background: #ffffff;
-	padding: 5px 14px 3px;
-	display: inline-block;
-	position: relative;
-	top: -100px;
-	opacity: 0;
-	-webkit-transition: all, 0.2s;
-	-o-transition: all, 0.2s;
-	transition: all, 0.2s;
-}
+	.hero__text .label {
+		font-size: 13px;
+		color: #000000;
+		background: #ffffff;
+		padding: 5px 14px 3px;
+		display: inline-block;
+		position: relative;
+		top: -100px;
+		opacity: 0;
+		-webkit-transition: all, 0.2s;
+		-o-transition: all, 0.2s;
+		transition: all, 0.2s;
+	}
 
-.hero__text h2 {
-	color: #ffffff;
-	font-size: 42px;
-	font-family: "Oswald", sans-serif;
-	font-weight: 700;
-	line-height: 52px;
-	margin-top: 35px;
-	margin-bottom: 8px;
-	position: relative;
-	top: -100px;
-	opacity: 0;
-	-webkit-transition: all, 0.4s;
-	-o-transition: all, 0.4s;
-	transition: all, 0.4s;
-}
+	.hero__text h2 {
+		color: #000000;
+		font-size: 42px;
+		font-family: "Oswald", sans-serif;
+		font-weight: 700;
+		line-height: 52px;
+		margin-top: 35px;
+		margin-bottom: 8px;
+		position: relative;
+		top: -100px;
+		opacity: 0;
+		-webkit-transition: all, 0.4s;
+		-o-transition: all, 0.4s;
+		transition: all, 0.4s;
+	}
 
-.hero__text p {
-	color: #ffffff;
-	font-size: 16px;
-	margin-bottom: 40px;
-	position: relative;
-	top: -100px;
-	opacity: 0;
-	-webkit-transition: all, 0.6s;
-	-o-transition: all, 0.6s;
-	transition: all, 0.6s;
-}
+	.hero__text p {
+		color: #000000;
+		font-size: 16px;
+		margin-bottom: 40px;
+		position: relative;
+		top: -100px;
+		opacity: 0;
+		-webkit-transition: all, 0.6s;
+		-o-transition: all, 0.6s;
+		transition: all, 0.6s;
+	}
 
 .hero__text a {
 	position: relative;
@@ -519,14 +520,14 @@ ol {
 	margin-right: 1px;
 }
 
-.hero__text a i {
-	font-size: 20px;
-	display: inline-block;
-	background: #e53637;
-	padding: 11px 5px 16px 8px;
-	color: #ffffff;
-	border-radius: 0 4px 4px 0;
-}
+	.hero__text a i {
+		font-size: 20px;
+		display: inline-block;
+		background: #000000;
+		padding: 11px 5px 16px 8px;
+		color: #000000;
+		border-radius: 0 4px 4px 0;
+	}
 
 .hero__slider.owl-carousel .owl-item.active .hero__text .label {
 	top: 0;
@@ -579,7 +580,7 @@ ol {
 	background: #0b0c2a;
 	line-height: 66px;
 	text-align: center;
-	color: #ffffff;
+	color: #000000;
 	-webkit-transform: rotate(45deg);
 	-ms-transform: rotate(45deg);
 	transform: rotate(45deg);
@@ -657,41 +658,41 @@ ol {
 	border-radius: 5px;
 }
 
-.product__item__pic .ep {
-	font-size: 13px;
-	color: #ffffff;
-	background: #e53637;
-	display: inline-block;
-	padding: 2px 12px;
-	border-radius: 4px;
-	position: absolute;
-	left: 10px;
-	top: 10px;
-}
+	.product__item__pic .ep {
+		font-size: 13px;
+		color: #000000;
+		background: #e53637;
+		display: inline-block;
+		padding: 2px 12px;
+		border-radius: 4px;
+		position: absolute;
+		left: 10px;
+		top: 10px;
+	}
 
-.product__item__pic .comment {
-	font-size: 13px;
-	color: #ffffff;
-	background: #3d3d3d;
-	display: inline-block;
-	padding: 2px 10px;
-	border-radius: 4px;
-	position: absolute;
-	left: 10px;
-	bottom: 10px;
-}
+	.product__item__pic .comment {
+		font-size: 13px;
+		color: #000000;
+		background: #3d3d3d;
+		display: inline-block;
+		padding: 2px 10px;
+		border-radius: 4px;
+		position: absolute;
+		left: 10px;
+		bottom: 10px;
+	}
 
-.product__item__pic .view {
-	font-size: 13px;
-	color: #ffffff;
-	background: #3d3d3d;
-	display: inline-block;
-	padding: 2px 10px;
-	border-radius: 4px;
-	position: absolute;
-	right: 10px;
-	bottom: 10px;
-}
+	.product__item__pic .view {
+		font-size: 13px;
+		color: #000000;
+		background: #3d3d3d;
+		display: inline-block;
+		padding: 2px 10px;
+		border-radius: 4px;
+		position: absolute;
+		right: 10px;
+		bottom: 10px;
+	}
 
 .product__item__text {
 	padding-top: 20px;
@@ -701,25 +702,25 @@ ol {
 	margin-bottom: 10px;
 }
 
-.product__item__text ul li {
-	list-style: none;
-	font-size: 10px;
-	color: #ffffff;
-	font-weight: 700;
-	padding: 1px 10px;
-	background: rgba(255, 255, 255, 0.2);
-	border-radius: 50px;
-	display: inline-block;
-}
+	.product__item__text ul li {
+		list-style: none;
+		font-size: 10px;
+		color: #000000;
+		font-weight: 700;
+		padding: 1px 10px;
+		background: rgba(255, 255, 255, 0.2);
+		border-radius: 50px;
+		display: inline-block;
+	}
 
-.product__item__text h5 a {
-	color: #ffffff;
-	font-weight: 700;
-	line-height: 26px;
-}
+	.product__item__text h5 a {
+		color: #000000;
+		font-weight: 700;
+		line-height: 26px;
+	}
 
 .product__sidebar .section-title h5 {
-	color: #ffffff;
+	color: #000000;
 	font-weight: 600;
 	font-family: "Oswald", sans-serif;
 	line-height: 21px;
@@ -773,29 +774,29 @@ ol {
 	margin-bottom: 20px;
 }
 
-.product__sidebar__view__item .ep {
-	font-size: 13px;
-	color: #ffffff;
-	background: #e53637;
-	display: inline-block;
-	padding: 2px 12px;
-	border-radius: 4px;
-	position: absolute;
-	left: 10px;
-	top: 10px;
-}
+	.product__sidebar__view__item .ep {
+		font-size: 13px;
+		color: #000000;
+		background: #e53637;
+		display: inline-block;
+		padding: 2px 12px;
+		border-radius: 4px;
+		position: absolute;
+		left: 10px;
+		top: 10px;
+	}
 
-.product__sidebar__view__item .view {
-	font-size: 13px;
-	color: #ffffff;
-	background: #3d3d3d;
-	display: inline-block;
-	padding: 2px 10px;
-	border-radius: 4px;
-	position: absolute;
-	right: 10px;
-	top: 10px;
-}
+	.product__sidebar__view__item .view {
+		font-size: 13px;
+		color: #000000;
+		background: #3d3d3d;
+		display: inline-block;
+		padding: 2px 10px;
+		border-radius: 4px;
+		position: absolute;
+		right: 10px;
+		top: 10px;
+	}
 
 .product__sidebar__view__item h5 {
 	position: absolute;
@@ -805,11 +806,11 @@ ol {
 	padding: 0 30px 0 20px;
 }
 
-.product__sidebar__view__item h5 a {
-	color: #ffffff;
-	font-weight: 700;
-	line-height: 26px;
-}
+	.product__sidebar__view__item h5 a {
+		color: #000000;
+		font-weight: 700;
+		line-height: 26px;
+	}
 
 .product__sidebar__comment {
 	margin-bottom: 35px;
@@ -833,26 +834,26 @@ ol {
 	margin-bottom: 10px;
 }
 
-.product__sidebar__comment__item__text ul li {
-	list-style: none;
-	font-size: 10px;
-	color: #ffffff;
-	font-weight: 700;
-	padding: 1px 10px;
-	background: rgba(255, 255, 255, 0.2);
-	border-radius: 50px;
-	display: inline-block;
-}
+	.product__sidebar__comment__item__text ul li {
+		list-style: none;
+		font-size: 10px;
+		color: #000000;
+		font-weight: 700;
+		padding: 1px 10px;
+		background: rgba(255, 255, 255, 0.2);
+		border-radius: 50px;
+		display: inline-block;
+	}
 
 .product__sidebar__comment__item__text h5 {
 	margin-bottom: 10px;
 }
 
-.product__sidebar__comment__item__text h5 a {
-	color: #ffffff;
-	font-weight: 700;
-	line-height: 26px;
-}
+	.product__sidebar__comment__item__text h5 a {
+		color: #000000;
+		font-weight: 700;
+		line-height: 26px;
+	}
 
 .product__sidebar__comment__item__text span {
 	display: block;
@@ -874,12 +875,12 @@ ol {
 	text-align: right;
 }
 
-.product__page__title .product__page__filter p {
-	color: #ffffff;
-	display: inline-block;
-	margin-bottom: 0;
-	margin-right: 16px;
-}
+	.product__page__title .product__page__filter p {
+		color: #000000;
+		display: inline-block;
+		margin-bottom: 0;
+		margin-right: 16px;
+	}
 
 .product__page__title .product__page__filter .nice-select {
 	float: none;
@@ -928,13 +929,13 @@ ol {
 	transition: all, 0.3s;
 }
 
-.product__pagination a:hover {
-	color: #ffffff;
-}
+	.product__pagination a:hover {
+		color: #000000;
+	}
 
-.product__pagination a.current-page {
-	border: 1px solid #ffffff;
-}
+	.product__pagination a.current-page {
+		border: 1px solid #000000;
+	}
 
 .product__pagination a i {
 	color: #b7b7b7;
@@ -969,45 +970,45 @@ ol {
 	position: relative;
 }
 
-.anime__details__pic .comment {
-	font-size: 13px;
-	color: #ffffff;
-	background: #3d3d3d;
-	display: inline-block;
-	padding: 2px 10px;
-	border-radius: 4px;
-	position: absolute;
-	left: 10px;
-	bottom: 25px;
-}
+	.anime__details__pic .comment {
+		font-size: 13px;
+		color: #000000;
+		background: #3d3d3d;
+		display: inline-block;
+		padding: 2px 10px;
+		border-radius: 4px;
+		position: absolute;
+		left: 10px;
+		bottom: 25px;
+	}
 
-.anime__details__pic .view {
-	font-size: 13px;
-	color: #ffffff;
-	background: #3d3d3d;
-	display: inline-block;
-	padding: 2px 10px;
-	border-radius: 4px;
-	position: absolute;
-	right: 10px;
-	bottom: 25px;
-}
+	.anime__details__pic .view {
+		font-size: 13px;
+		color: #000000;
+		background: #3d3d3d;
+		display: inline-block;
+		padding: 2px 10px;
+		border-radius: 4px;
+		position: absolute;
+		right: 10px;
+		bottom: 25px;
+	}
 
 .anime__details__title {
 	margin-bottom: 20px;
 }
 
-.anime__details__title h3 {
-	color: #ffffff;
-	font-weight: 700;
-	margin-bottom: 13px;
-}
+	.anime__details__title h3 {
+		color: #000000;
+		font-weight: 700;
+		margin-bottom: 13px;
+	}
 
-.anime__details__title span {
-	font-size: 15px;
-	color: #b7b7b7;
-	display: block;
-}
+	.anime__details__title span {
+		font-size: 15px;
+		color: #000000;
+		display: block;
+	}
 
 .anime__details__rating {
 	text-align: center;
@@ -1036,14 +1037,14 @@ ol {
 	margin-bottom: 20px;
 }
 
-.anime__details__widget ul li {
-	list-style: none;
-	font-size: 15px;
-	color: #ffffff;
-	line-height: 30px;
-	position: relative;
-	padding-left: 18px;
-}
+	.anime__details__widget ul li {
+		list-style: none;
+		font-size: 15px;
+		color: #000000;
+		line-height: 30px;
+		position: relative;
+		padding-left: 18px;
+	}
 
 .anime__details__widget ul li:before {
 	position: absolute;
@@ -1136,11 +1137,11 @@ ol {
 	border-radius: 10px;
 }
 
-.anime__review__item__text h6 {
-	color: #ffffff;
-	font-weight: 700;
-	margin-bottom: 10px;
-}
+	.anime__review__item__text h6 {
+		color: #000000;
+		font-weight: 700;
+		margin-bottom: 10px;
+	}
 
 .anime__review__item__text h6 span {
 	color: #b7b7b7;
@@ -1168,7 +1169,7 @@ ol {
 
 .anime__details__form form button {
 	font-size: 11px;
-	color: #ffffff;
+	color: #000000;
 	font-weight: 700;
 	letter-spacing: 2px;
 	text-transform: uppercase;
@@ -1269,23 +1270,23 @@ ol {
 	margin-bottom: 35px;
 }
 
-.anime__details__episodes a {
-	display: inline-block;
-	font-size: 15px;
-	color: #ffffff;
-	background: rgba(255, 255, 255, 0.2);
-	padding: 10px 20px;
-	border-radius: 4px;
-	margin-right: 15px;
-	margin-bottom: 20px;
-	-webkit-transition: all, 0.3s;
-	-o-transition: all, 0.3s;
-	transition: all, 0.3s;
-}
+	.anime__details__episodes a {
+		display: inline-block;
+		font-size: 15px;
+		color: #000000;
+		background: rgba(255, 255, 255, 0.2);
+		padding: 10px 20px;
+		border-radius: 4px;
+		margin-right: 15px;
+		margin-bottom: 20px;
+		-webkit-transition: all, 0.3s;
+		-o-transition: all, 0.3s;
+		transition: all, 0.3s;
+	}
 
 .anime__details__episodes a:hover {
 	color: #000000;
-	background: #ffffff;
+	background: #000000;
 }
 
 /*---------------------
@@ -1298,7 +1299,7 @@ ol {
 
 .breadcrumb__links a {
 	font-size: 15px;
-	color: #ffffff;
+	color: #000000;
 	margin-right: 18px;
 	display: inline-block;
 	position: relative;
@@ -1341,7 +1342,7 @@ ol {
 }
 
 .normal__breadcrumb__text h2 {
-	color: #ffffff;
+	color: #000000;
 	font-size: 48px;
 	font-family: "Oswald", sans-serif;
 	font-weight: 700;
@@ -1349,7 +1350,7 @@ ol {
 }
 
 .normal__breadcrumb__text p {
-	color: #ffffff;
+	color: #000000;
 	font-size: 24px;
 	margin-bottom: 0;
 }
@@ -1736,12 +1737,12 @@ ol {
 	content: "";
 }
 
-.login__form h3 {
-	color: #ffffff;
-	font-weight: 700;
-	font-family: "Oswald", sans-serif;
-	margin-bottom: 30px;
-}
+	.login__form h3 {
+		color: #000000;
+		font-weight: 700;
+		font-family: "Oswald", sans-serif;
+		margin-bottom: 30px;
+	}
 
 .login__form form .input__item {
 	position: relative;
@@ -1759,15 +1760,15 @@ ol {
 	content: "";
 }
 
-.login__form form .input__item input {
-	height: 50px;
-	width: 100%;
-	font-size: 15px;
-	color: #b7b7b7;
-	background: #ffffff;
-	border: none;
-	padding-left: 76px;
-}
+	.login__form form .input__item input {
+		height: 50px;
+		width: 100%;
+		font-size: 15px;
+		color: #b7b7b7;
+		background: #000000;
+		border: none;
+		padding-left: 76px;
+	}
 
 .login__form form .input__item input::-webkit-input-placeholder {
 	color: #b7b7b7;
@@ -1802,25 +1803,25 @@ ol {
 	margin-top: 10px;
 }
 
-.login__form .forget_pass {
-	font-size: 15px;
-	color: #ffffff;
-	display: inline-block;
-	position: absolute;
-	right: 60px;
-	bottom: 12px;
-}
+	.login__form .forget_pass {
+		font-size: 15px;
+		color: #000000;
+		display: inline-block;
+		position: absolute;
+		right: 60px;
+		bottom: 12px;
+	}
 
 .login__register {
 	padding-left: 30px;
 }
 
-.login__register h3 {
-	color: #ffffff;
-	font-weight: 700;
-	font-family: "Oswald", sans-serif;
-	margin-bottom: 30px;
-}
+	.login__register h3 {
+		color: #000000;
+		font-weight: 700;
+		font-family: "Oswald", sans-serif;
+		margin-bottom: 30px;
+	}
 
 .login__register .primary-btn {
 	background: #e53637;
@@ -1835,15 +1836,15 @@ ol {
 	text-align: center;
 }
 
-.login__social__links span {
-	color: #ffffff;
-	display: block;
-	font-size: 13px;
-	font-weight: 700;
-	letter-spacing: 2px;
-	text-transform: uppercase;
-	margin-bottom: 30px;
-}
+	.login__social__links span {
+		color: #000000;
+		display: block;
+		font-size: 13px;
+		font-weight: 700;
+		letter-spacing: 2px;
+		text-transform: uppercase;
+		margin-bottom: 30px;
+	}
 
 .login__social__links ul li {
 	list-style: none;
@@ -1854,18 +1855,18 @@ ol {
 	margin-bottom: 0;
 }
 
-.login__social__links ul li a {
-	color: #ffffff;
-	display: block;
-	font-size: 13px;
-	font-weight: 700;
-	letter-spacing: 2px;
-	text-transform: uppercase;
-	width: 460px;
-	padding: 14px 0;
-	position: relative;
-	margin: 0 auto;
-}
+	.login__social__links ul li a {
+		color: #000000;
+		display: block;
+		font-size: 13px;
+		font-weight: 700;
+		letter-spacing: 2px;
+		text-transform: uppercase;
+		width: 460px;
+		padding: 14px 0;
+		position: relative;
+		margin: 0 auto;
+	}
 
 .login__social__links ul li a.facebook {
 	background: #4267b2;
@@ -1899,11 +1900,11 @@ ol {
 	height: 450px;
 }
 
-.signup .login__form h5 {
-	font-size: 15px;
-	color: #ffffff;
-	margin-top: 36px;
-}
+	.signup .login__form h5 {
+		font-size: 15px;
+		color: #000000;
+		margin-top: 36px;
+	}
 
 .signup .login__form h5 a {
 	color: #e53637;
@@ -1915,12 +1916,12 @@ ol {
 	padding-left: 40px;
 }
 
-.signup .login__social__links h3 {
-	color: #ffffff;
-	font-weight: 700;
-	font-family: "Oswald", sans-serif;
-	margin-bottom: 30px;
-}
+	.signup .login__social__links h3 {
+		color: #000000;
+		font-weight: 700;
+		font-family: "Oswald", sans-serif;
+		margin-bottom: 30px;
+	}
 
 .signup .login__social__links ul li a {
 	margin: 0;
@@ -1948,7 +1949,7 @@ ol {
 .page-up a {
 	display: inline-block;
 	font-size: 36px;
-	color: #ffffff;
+	color:#000000;
 	height: 50px;
 	width: 50px;
 	background: #e53637;

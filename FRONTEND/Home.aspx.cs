@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using FRONTEND.ServiceReference1;
 
 namespace FRONTEND
 {
@@ -13,51 +14,136 @@ namespace FRONTEND
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
-            {
+           {
                 LoadProducts();
             }
         }
 
         private void LoadProducts()
-        {
-            string connectionString = "your_connection_string_here";
-            string query = "SELECT Description, Price, ImageUrl FROM Products";
+       {
+            RentEaseClient rc = new RentEaseClient();
+            dynamic BestProds = rc.getBestProds();
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            String htmlstrBestProds = "";
+            foreach (Product p in BestProds)
             {
-                SqlCommand cmd = new SqlCommand(query, conn);
-                conn.Open();
-                SqlDataReader reader = cmd.ExecuteReader();
-                rptProducts.DataSource = reader;
-                rptProducts.DataBind();
+                htmlstrBestProds += "<div class='Scol-lg-4 col-md-6 col-sm-6'>";
+                htmlstrBestProds += "<div class='product__item'>";
+                htmlstrBestProds += "<div class='product__item__pic set-bg'data-setbg='img / trending / trend - 1.jpg'>";
+                htmlstrBestProds += "<div class='ep'>18 / 18</div>"; //idk what this can be so i made it product price
+                htmlstrBestProds += "<div class='comment'><i class='fa fa-comments'></i> 11</div>";
+                htmlstrBestProds += "<div class='view'><i class='fa fa-eye'></i> 9141</div>";
+                htmlstrBestProds += "</div>";
+                htmlstrBestProds += "<div class='product__item__text'>";
+                htmlstrBestProds += "<ul>";
+                htmlstrBestProds += "< li > Active </ li >";
+                htmlstrBestProds += "<li>Movie</li>";
+                htmlstrBestProds += "</ul>";
+                htmlstrBestProds += "<h5><a href = '#' > The Seven Deadly Sins: Wrath of the Gods</a></h5>";
+
+                htmlstrBestProds += "</div>";
+                htmlstrBestProds += "</div>";
+                htmlstrBestProds += "</div>";
             }
+            ProductList.InnerHtml=htmlstrBestProds;
+
+
+            String hymlstrNewProds = "";
+            hymlstrNewProds += "<div class= 'section-title'>";
+
+            hymlstrNewProds += "<h5> New Comment</h5>";
+
+
+      hymlstrNewProds +=   "</div>";
+            BestProds = rc.getNewProds();
+            foreach (Product p in BestProds)
+            {
+                hymlstrNewProds += "<div class='product__sidebar__comment__item'>";
+                hymlstrNewProds += "<div class='product__sidebar__comment__item__pic'>";
+
+                hymlstrNewProds += "<img src='img/sidebar/comment-1.jpg' alt= ''>";
+
+                hymlstrNewProds += "</div>";
+
+                hymlstrNewProds += "<div class='product__sidebar__comment__item__text'>";
+
+                hymlstrNewProds += "<ul>";
+                hymlstrNewProds += "<li>Active</li>";
+
+                hymlstrNewProds += "<li>Movie</li>";
+
+                hymlstrNewProds += "</ ul >";
+
+                hymlstrNewProds += "<h5><a href = '#'>The Seven Deadly Sins: Wrath of the Gods</a></h5>";
+                hymlstrNewProds += "<span><i class= 'fa fa-eye'></i>19.141 Viewes</span>";
+
+                hymlstrNewProds += "</div>";
+
+                hymlstrNewProds += "</div>";
+            }
+
+            Sidebarcontent.InnerHtml = hymlstrNewProds;
+
+            
         }
 
-        private void AddInitialProducts()
-        {
-            ServiceReference1.RentEaseClient rentEaseService = new ServiceReference1.RentEaseClient();
-            // Call your AddProduct method to insert products into the database
-            rentEaseService.AddProduct("Clarens Sofa", 10, 400.00m, 1);
-            rentEaseService.AddProduct("Baltimore Sofa", 10, 550.00m, 2);
-            rentEaseService.AddProduct("Montagu Sofa", 5, 450.00m, 3);
-            rentEaseService.AddProduct("Ashton Chair", 8, 370.00m, 4);
-            rentEaseService.AddProduct("Campbell Chair", 6, 400.00m, 5);
-            rentEaseService.AddProduct("Ballito Chair", 4, 200.00m, 6);
-            rentEaseService.AddProduct("Hamilton Chair", 4, 550.00m, 7);
-            rentEaseService.AddProduct("Centurion Table", 3, 550.00m, 8);
-            rentEaseService.AddProduct("Derby Table", 5, 200.00m, 9);
-            rentEaseService.AddProduct("Molteno Table", 12, 300.00m, 10);
-            rentEaseService.AddProduct("Designer Book Drawer", 10, 600.00m, 11);
-            rentEaseService.AddProduct("Lamp Stand", 4, 400.00m, 12);
-            rentEaseService.AddProduct("Designer Chairs", 8, 580.00m, 13);
-            rentEaseService.AddProduct("Orange Leather Couch", 3, 600.00m, 14);
-            rentEaseService.AddProduct("Computer Stand", 20, 300.00m, 15);
-            rentEaseService.AddProduct("George Lamp", 10, 300.00m, 16);
-            rentEaseService.AddProduct("Heidelberg Lamp", 10, 200.00m, 17);
-            rentEaseService.AddProduct("Infantana Lamp", 20, 150.00m, 18);
-            rentEaseService.AddProduct("Biggie Furniture Movers", 1, 1400.00m, 19);
-            rentEaseService.AddProduct("Storage Rentals", 40, 460.00m, 20);
+       
 
-        }
+        // private  GetList()
     }
+
+        //<!-- Product section start-->
+        //                    <div class="col-lg-4 col-md-6 col-sm-6">
+        //                        <div class="product__item">
+        //                            <div class="product__item__pic set-bg" data-setbg="img/trending/trend-1.jpg">
+        //                                <div class="ep">18 / 18</div>
+        //                                <div class="comment"><i class="fa fa-comments"></i> 11</div>
+        //                                <div class="view"><i class="fa fa-eye"></i> 9141</div>
+        //                            </div>
+        //                            <div class="product__item__text">
+        //                                <ul>
+        //                                    <li>Active</li>
+        //                                    <li>Movie</li>
+        //                                </ul>
+        //                                <h5><a href = "#" > The Seven Deadly Sins: Wrath of the Gods</a></h5>
+        //                            </div>
+        //                        </div>
+        //                    </div>
+        //                    <!-- Product section end-->
 }
+
+
+
+//new Comment sections
+        // < div class= "section-title" >
+ 
+        //     < h5 > New Comment </ h5 >
+    
+        //    </ div >
+    
+        //                        < !--side bar procust start-->
+        //<div class= "product__sidebar__comment__item" >
+        //    < div class= "product__sidebar__comment__item__pic" >
+ 
+        //         < img src = "img/sidebar/comment-1.jpg" alt = "" >
+    
+        //        </ div >
+    
+        //        < div class= "product__sidebar__comment__item__text" >
+     
+        //             < ul >
+     
+        //                 < li > Active </ li >
+     
+        //                 < li > Movie </ li >
+     
+        //             </ ul >
+     
+        //             < h5 >< a href = "#" > The Seven Deadly Sins: Wrath of the Gods</a></h5>
+        //        <span><i class= "fa fa-eye" ></ i > 19.141 Viewes </ span >
+    
+        //        </ div >
+    
+        //    </ div >
+    
+        //                        < !--side bar procust end-->
