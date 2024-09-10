@@ -19,11 +19,11 @@ namespace RentEase_Service
         /// <param name="email">The email of the user logging in.</param>
         /// <param name="password">The password of the user logging in.</param>
         /// <returns>Returns a User (Email, Id, User_Type) if the login was successful, otherwise null.</returns>
-        public User1 Login(string email, string password)
+        public User Login(string email, string password)
         {
-            var query = from u in RentEaseDB.User1s
+            var query = from u in RentEaseDB.Users
                         where u.Email == email && u.password == password
-                        select new User1
+                        select new User
                         {
                             Email = u.Email,
                             Id = u.Id,
@@ -40,7 +40,7 @@ namespace RentEase_Service
         /// <returns>Returns true if an account exists, otherwise false.</returns>
         public bool isAccount(string email)
         {
-            return RentEaseDB.User1s.Any(u => u.Email == email);
+            return RentEaseDB.Users.Any(u => u.Email == email);
         }
 
         /// <summary>
@@ -58,7 +58,7 @@ namespace RentEase_Service
                 if (isAccount(email))
                     return false;
                 // create user
-                var u = new User1
+                var u = new User
                 {
                     U_Name = name,
                     Surname = surname,
@@ -68,7 +68,7 @@ namespace RentEase_Service
 
                 };
 
-                RentEaseDB.User1s.InsertOnSubmit(u);
+                RentEaseDB.Users.InsertOnSubmit(u);
                 RentEaseDB.SubmitChanges();
                 return true;
             }
@@ -198,11 +198,11 @@ namespace RentEase_Service
         /// </summary>
         /// <param name="ID">The ID of the user.</param>
         /// <returns>Returns a User, otherwise null.</returns>
-        public User1 getUser(int ID)
+        public User getUser(int ID)
         {
-            var query = from u in RentEaseDB.User1s
+            var query = from u in RentEaseDB.Users
                         where u.Id == ID
-                        select new User1
+                        select new User
                         {
                             Email = u.Email,
                             Id = u.Id,
@@ -225,7 +225,7 @@ namespace RentEase_Service
         public bool changePassword(int ID, string password)
         {
             // get user
-            var user = (from u in RentEaseDB.User1s
+            var user = (from u in RentEaseDB.Users
                         where u.Id == ID
                         select u).FirstOrDefault();
 

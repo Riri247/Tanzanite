@@ -20,7 +20,7 @@ namespace RentEase_Service
 
         
         [OperationContract]
-        User1 Login(string email, string password);
+        User Login(string email, string password);
 
         [OperationContract]
         bool Register(string email, string password, string name, string surname);
@@ -41,7 +41,7 @@ namespace RentEase_Service
         List<Product> getUserCart(int ID);
 
         [OperationContract]
-        User1 getUser(int ID);
+        User getUser(int ID);
 
         [OperationContract]
         bool changePassword(int ID, string password);
