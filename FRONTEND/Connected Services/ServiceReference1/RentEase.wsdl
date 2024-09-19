@@ -5,6 +5,7 @@
       <xsd:import schemaLocation="http://localhost:53864/RentEase.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:53864/RentEase.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:53864/RentEase.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/RentEase_Service" />
+      <xsd:import schemaLocation="http://localhost:53864/RentEase.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IRentEase_Login_InputMessage">
@@ -55,17 +56,65 @@
   <wsdl:message name="IRentEase_getUser_OutputMessage">
     <wsdl:part name="parameters" element="tns:getUserResponse" />
   </wsdl:message>
+  <wsdl:message name="IRentEase_changePassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:changePassword" />
+  </wsdl:message>
+  <wsdl:message name="IRentEase_changePassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:changePasswordResponse" />
+  </wsdl:message>
   <wsdl:message name="IRentEase_AddProduct_InputMessage">
     <wsdl:part name="parameters" element="tns:AddProduct" />
   </wsdl:message>
   <wsdl:message name="IRentEase_AddProduct_OutputMessage">
     <wsdl:part name="parameters" element="tns:AddProductResponse" />
   </wsdl:message>
-  <wsdl:message name="IRentEase_AddSampleProducts_InputMessage">
-    <wsdl:part name="parameters" element="tns:AddSampleProducts" />
+  <wsdl:message name="IRentEase_changeQuantity_InputMessage">
+    <wsdl:part name="parameters" element="tns:changeQuantity" />
   </wsdl:message>
-  <wsdl:message name="IRentEase_AddSampleProducts_OutputMessage">
-    <wsdl:part name="parameters" element="tns:AddSampleProductsResponse" />
+  <wsdl:message name="IRentEase_changeQuantity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:changeQuantityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRentEase_changeDescription_InputMessage">
+    <wsdl:part name="parameters" element="tns:changeDescription" />
+  </wsdl:message>
+  <wsdl:message name="IRentEase_changeDescription_OutputMessage">
+    <wsdl:part name="parameters" element="tns:changeDescriptionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRentEase_changePrice_InputMessage">
+    <wsdl:part name="parameters" element="tns:changePrice" />
+  </wsdl:message>
+  <wsdl:message name="IRentEase_changePrice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:changePriceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRentEase_removeProduct_InputMessage">
+    <wsdl:part name="parameters" element="tns:removeProduct" />
+  </wsdl:message>
+  <wsdl:message name="IRentEase_removeProduct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:removeProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRentEase_placeOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:placeOrder" />
+  </wsdl:message>
+  <wsdl:message name="IRentEase_placeOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:placeOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRentEase_getProdsByCat_InputMessage">
+    <wsdl:part name="parameters" element="tns:getProdsByCat" />
+  </wsdl:message>
+  <wsdl:message name="IRentEase_getProdsByCat_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getProdsByCatResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRentEase_getBestProds_InputMessage">
+    <wsdl:part name="parameters" element="tns:getBestProds" />
+  </wsdl:message>
+  <wsdl:message name="IRentEase_getBestProds_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getBestProdsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRentEase_getNewProds_InputMessage">
+    <wsdl:part name="parameters" element="tns:getNewProds" />
+  </wsdl:message>
+  <wsdl:message name="IRentEase_getNewProds_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getNewProdsResponse" />
   </wsdl:message>
   <wsdl:portType name="IRentEase">
     <wsdl:operation name="Login">
@@ -100,13 +149,45 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IRentEase/getUser" message="tns:IRentEase_getUser_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IRentEase/getUserResponse" message="tns:IRentEase_getUser_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="changePassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRentEase/changePassword" message="tns:IRentEase_changePassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRentEase/changePasswordResponse" message="tns:IRentEase_changePassword_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="AddProduct">
       <wsdl:input wsaw:Action="http://tempuri.org/IRentEase/AddProduct" message="tns:IRentEase_AddProduct_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IRentEase/AddProductResponse" message="tns:IRentEase_AddProduct_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="AddSampleProducts">
-      <wsdl:input wsaw:Action="http://tempuri.org/IRentEase/AddSampleProducts" message="tns:IRentEase_AddSampleProducts_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IRentEase/AddSampleProductsResponse" message="tns:IRentEase_AddSampleProducts_OutputMessage" />
+    <wsdl:operation name="changeQuantity">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRentEase/changeQuantity" message="tns:IRentEase_changeQuantity_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRentEase/changeQuantityResponse" message="tns:IRentEase_changeQuantity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="changeDescription">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRentEase/changeDescription" message="tns:IRentEase_changeDescription_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRentEase/changeDescriptionResponse" message="tns:IRentEase_changeDescription_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="changePrice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRentEase/changePrice" message="tns:IRentEase_changePrice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRentEase/changePriceResponse" message="tns:IRentEase_changePrice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="removeProduct">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRentEase/removeProduct" message="tns:IRentEase_removeProduct_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRentEase/removeProductResponse" message="tns:IRentEase_removeProduct_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="placeOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRentEase/placeOrder" message="tns:IRentEase_placeOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRentEase/placeOrderResponse" message="tns:IRentEase_placeOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getProdsByCat">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRentEase/getProdsByCat" message="tns:IRentEase_getProdsByCat_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRentEase/getProdsByCatResponse" message="tns:IRentEase_getProdsByCat_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getBestProds">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRentEase/getBestProds" message="tns:IRentEase_getBestProds_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRentEase/getBestProdsResponse" message="tns:IRentEase_getBestProds_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getNewProds">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRentEase/getNewProds" message="tns:IRentEase_getNewProds_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRentEase/getNewProdsResponse" message="tns:IRentEase_getNewProds_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IRentEase" type="tns:IRentEase">
@@ -183,6 +264,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="changePassword">
+      <soap:operation soapAction="http://tempuri.org/IRentEase/changePassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="AddProduct">
       <soap:operation soapAction="http://tempuri.org/IRentEase/AddProduct" style="document" />
       <wsdl:input>
@@ -192,8 +282,71 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="AddSampleProducts">
-      <soap:operation soapAction="http://tempuri.org/IRentEase/AddSampleProducts" style="document" />
+    <wsdl:operation name="changeQuantity">
+      <soap:operation soapAction="http://tempuri.org/IRentEase/changeQuantity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="changeDescription">
+      <soap:operation soapAction="http://tempuri.org/IRentEase/changeDescription" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="changePrice">
+      <soap:operation soapAction="http://tempuri.org/IRentEase/changePrice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="removeProduct">
+      <soap:operation soapAction="http://tempuri.org/IRentEase/removeProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="placeOrder">
+      <soap:operation soapAction="http://tempuri.org/IRentEase/placeOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProdsByCat">
+      <soap:operation soapAction="http://tempuri.org/IRentEase/getProdsByCat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBestProds">
+      <soap:operation soapAction="http://tempuri.org/IRentEase/getBestProds" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNewProds">
+      <soap:operation soapAction="http://tempuri.org/IRentEase/getNewProds" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
