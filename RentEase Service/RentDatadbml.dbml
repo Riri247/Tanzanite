@@ -1,11 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="TanzaniteD" Class="RentDatadbmlDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="WebSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\TanzaniteD.mdf;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="TanzaniteDConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.Admin" Member="Admins">
-    <Type Name="Admin">
-      <Column Name="A_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Association Name="User_Admin" Member="User" ThisKey="A_ID" OtherKey="Id" Type="User" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.Customer_Invoices" Member="Customer_Invoices">
     <Type Name="Customer_Invoice">
       <Column Name="C_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
@@ -34,9 +28,7 @@
       <Column Name="Email" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
       <Column Name="User_Type" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
       <Column Name="password" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Association Name="User_Admin" Member="Admin" ThisKey="Id" OtherKey="A_ID" Type="Admin" Cardinality="One" />
       <Association Name="User_Customer_Invoice" Member="Customer_Invoices" ThisKey="Id" OtherKey="C_ID" Type="Customer_Invoice" />
-      <Association Name="User_Review" Member="Reviews" ThisKey="Id" OtherKey="User_ID" Type="Reviews" />
       <Association Name="User_Merchant" Member="Merchant" ThisKey="Id" OtherKey="M_ID" Type="Merchant" Cardinality="One" />
       <Association Name="User_Shopping_cart" Member="Shopping_carts" ThisKey="Id" OtherKey="C_ID" Type="Shopping_cart" />
     </Type>
@@ -67,20 +59,9 @@
       <Column Name="subTotal" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
       <Column Name="Durantion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Price" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
-      <Association Name="Order_Review" Member="Reviews" ThisKey="Invoice_ID,Product_ID" OtherKey="Invoice_ID,Product_ID" Type="Reviews" />
+      <Association Name="Order_Review" Member="Reviews" ThisKey="Invoice_ID,Product_ID" OtherKey="Invoice_ID,Product_ID" Type="Reviews" Cardinality="One" />
       <Association Name="Invoice_Order" Member="Invoice" ThisKey="Invoice_ID" OtherKey="ID" Type="Invoice" IsForeignKey="true" />
       <Association Name="Product_Order" Member="Product" ThisKey="Product_ID" OtherKey="Id" Type="Product" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Reviews" Member="Reviews">
-    <Type Name="Reviews">
-      <Column Name="User_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="Invoice_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="Product_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="Star_Rating" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Review" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
-      <Association Name="Order_Review" Member="Order" ThisKey="Invoice_ID,Product_ID" OtherKey="Invoice_ID,Product_ID" Type="Order" IsForeignKey="true" />
-      <Association Name="User_Review" Member="User" ThisKey="User_ID" OtherKey="Id" Type="User" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Merchant" Member="Merchants">
@@ -98,6 +79,15 @@
       <Column Name="Quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Association Name="User_Shopping_cart" Member="User" ThisKey="C_ID" OtherKey="Id" Type="User" IsForeignKey="true" />
       <Association Name="Product_Shopping_cart" Member="Product" ThisKey="P_ID" OtherKey="Id" Type="Product" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Reviews" Member="Reviews">
+    <Type Name="Reviews">
+      <Column Name="Invoice_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Product_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Star_Rating" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Review" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Association Name="Order_Review" Member="Order" ThisKey="Invoice_ID,Product_ID" OtherKey="Invoice_ID,Product_ID" Type="Order" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>
