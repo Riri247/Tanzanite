@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using Newtonsoft.Json;
 
 namespace RentEase_Service
 {
@@ -13,17 +14,12 @@ namespace RentEase_Service
     {
         RentDatadbmlDataContext RentEaseDB = new RentDatadbmlDataContext();
 
-        /// <summary>
-        /// This method logis in a user.
-        /// </summary>
-        /// <param name="email">The email of the user logging in.</param>
-        /// <param name="password">The password of the user logging in.</param>
-        /// <returns>Returns a User (Email, Id, User_Type) if the login was successful, otherwise null.</returns>
-        public User Login(string email, string password)
+
+        public SysUser Login(string email, string password)
         {
             var query = from u in RentEaseDB.Users
                         where u.Email == email && u.password == password
-                        select new User
+                        select new SysUser
                         {
                             Email = u.Email,
                             Id = u.Id,
@@ -33,24 +29,13 @@ namespace RentEase_Service
             return query.FirstOrDefault();
         }
 
-        /// <summary>
-        /// This method checks if an account exists with the given email.
-        /// </summary>
-        /// <param name="email">The email to check.</param>
-        /// <returns>Returns true if an account exists, otherwise false.</returns>
+
         public bool isAccount(string email)
         {
             return RentEaseDB.Users.Any(u => u.Email == email);
         }
 
-        /// <summary>
-        /// This method registers a user.
-        /// </summary>
-        /// <param name="email">The email of the user being registered.</param>
-        /// <param name="password">The password of the user being registered.</param>
-        /// <param name="name">The name of the user being registered.</param>
-        /// <param name="surname">The surname of the user being registered.</param>
-        /// <returns>Returns true if an account was registered, otherwise false.</returns>
+
         public bool Register(string email, string password, string name, string surname)
         {
             try
@@ -65,7 +50,6 @@ namespace RentEase_Service
                     Email = email,
                     password = password,
                     User_Type = "Customer"
-
                 };
 
                 RentEaseDB.Users.InsertOnSubmit(u);
@@ -78,53 +62,43 @@ namespace RentEase_Service
             }
         }
 
-        /// <summary>
-        /// This method gets a product.
-        /// </summary>
-        /// <param name="ID">The ID of the product being queried.</param>
-        /// <returns>Returns an ProductImage object which holds a Product and it's Images if the ID matches, otherwise null.</returns>
-        public ProductImage getProduct(int ID)
+        public SysProduct getProduct(int ID)
         {
-            var query = from p in RentEaseDB.Products 
-                        join img in RentEaseDB.Images on p.Id equals img.P_ID
-                        where p.Id == ID 
-                        select new ProductImage {
-                            Product = p,
-                            Image = img
+            var query = from p in RentEaseDB.Products
+                        where p.Id == ID
+                        select new SysProduct
+                        {
+                            Id = p.Id,
+                            Product_Name = p.Product_Name,
+                            Quantity = p.Quantity,
+                            Price = p.Price,
+                            M_ID = p.M_ID,
+                            Available = p.Available,
+                            Rental_Agreement = p.Rental_Agreement,
+                            Category = p.Category,
+                            Registration_Date = p.Registration_Date,
+                            Image_URL = p.Image_URL
                         };
-;
+
             return query.FirstOrDefault();
         }
 
-        /// <summary>
-        /// This method gets all products.
-        /// </summary>
-        /// <returns>Returns a list of an ProductImage object where each Prodc=uctImage holds a Product and it's Images, otherwise null.</returns>
-        public List<ProductImage> getProducts()
+        public List<SysProduct> getProducts()
         {
             var query = from p in RentEaseDB.Products
-                        join img in RentEaseDB.Images on p.Id equals img.P_ID
                         where p.Quantity > 0
-                        select new ProductImage {
-                            Product = new Product{
-                                    Product_Name = p.Product_Name,
-                                    Price = p.Price,
-                                    Quantity = p.Quantity
-                            },
-                            Image = new Image {
-                                Image_URL = img.Image_URL
-                            }
+                        select new SysProduct
+                        {
+                            Id = p.Id,
+                            Decript = p.Decript,
+                            Quantity = p.Quantity,
+                            Image_URL = p.Image_URL
                         };
 
             return query.DefaultIfEmpty().ToList();
         }
 
-        /// <summary>
-        /// This method adds a product to the user's shopping cart.
-        /// </summary>
-        /// <param name="UserID">The ID of the user.</param>
-        /// <param name="ProductID">The ID of the product.</param>
-        /// <returns>Returns true if the product was added to the cart, otherwise false.</returns>
+
         public bool addToCart(int UserID, int ProductID)
         {
             try
@@ -147,12 +121,7 @@ namespace RentEase_Service
 
         }
 
-        /// <summary>
-        /// This method removes a product from the user's shopping cart.
-        /// </summary>
-        /// <param name="UserID">The ID of the user.</param>
-        /// <param name="ProductID">The ID of the product.</param>
-        /// <returns>Returns true if the product was removed from the cart, otherwise false.</returns>
+
         public bool removeFromCart(int UserID, int ProductID)
         {
             // Find the user by ID
@@ -170,58 +139,60 @@ namespace RentEase_Service
         }
 
 
-        /// <summary>
-        /// This method gets a user's shopping cart.
-        /// </summary>
-        /// <param name="ID">The ID of the user.</param>
-        /// <returns>Returns a list of Product, otherwise null.</returns>
-        public List<Product> getUserCart(int ID)
+
+        public List<CartProductWrapper> getUserCart(int ID)
         {
             var query = from c in RentEaseDB.Shopping_carts
                         join p in RentEaseDB.Products
                         on c.P_ID equals p.Id
                         where c.C_ID == ID
-                        select new Product
+                        select new CartProductWrapper
                         {
-                            Id = p.Id,
-                            Decript = p.Decript,
-                            Quantity = p.Quantity,
-                            Price = p.Price
+                            product = new SysProduct
+                            {
+                                Id = p.Id,
+                                Product_Name = p.Product_Name,
+                                Quantity = p.Quantity,
+                                Price = p.Price,
+                                M_ID = p.M_ID,
+                                Available = p.Available,
+                                Rental_Agreement = p.Rental_Agreement,
+                                Category = p.Category,
+                                Registration_Date = p.Registration_Date,
+                                Image_URL = p.Image_URL
+
+                            },
+
+                            cart = new SysShopping_Cart
+                            {
+                                C_ID = c.C_ID,
+                                P_ID = c.P_ID,
+                                Quantity = c.Quantity
+                            }
+
                         };
 
             return query.DefaultIfEmpty().ToList();
         }
 
 
-        /// <summary>
-        /// This method gets a user's data.
-        /// </summary>
-        /// <param name="ID">The ID of the user.</param>
-        /// <returns>Returns a User, otherwise null.</returns>
-        public User getUser(int ID)
+
+        public SysUser getUser(int ID)
         {
             var query = from u in RentEaseDB.Users
                         where u.Id == ID
-                        select new User
+                        select new SysUser
                         {
                             Email = u.Email,
                             Id = u.Id,
                             User_Type = u.User_Type,
                             Surname = u.Surname,
                             U_Name = u.U_Name
-
                         };
 
             return query.FirstOrDefault();
-
         }
 
-
-        /// <summary>
-        /// This method changes a user's password.
-        /// </summary>
-        /// <param name="ID">The ID of the user.</param>
-        /// <returns>Returns true if the user's password was changed, otherwise false.</returns>
         public bool changePassword(int ID, string password)
         {
             // get user
@@ -243,16 +214,7 @@ namespace RentEase_Service
             return false;
         }
 
-        
-        /// <summary>
-        /// This method adds a product to the database.
-        /// </summary>
-        /// <param name="description">The description of the product.</param>
-        /// <param name="quantity">The quantity of the product.</param>
-        /// <param name="price">The price of the product.</param>
-        /// <param name="merchantID">The ID of the merchant associated with the product.</param>
-        /// <param name="images">The name/ link of the images of this product.</param>
-        /// <returns>Returns true if the product was added successfully, otherwise false.</returns>
+
         public bool AddProduct(string description, int quantity, decimal price, int merchantID, string[] images)
         {
             try
@@ -263,28 +225,11 @@ namespace RentEase_Service
                     Decript = description,
                     Quantity = quantity,
                     Price = price,
-                    M_ID = merchantID
+                    M_ID = merchantID,
+                    Image_URL = JsonConvert.SerializeObject(images, Formatting.Indented)
                 };
 
                 RentEaseDB.Products.InsertOnSubmit(product);
-                RentEaseDB.SubmitChanges();
-
-                List<Image> lstImages = new List<Image>();
-                int product_id = product.Id;
-
-                // create Images
-                foreach(string image in images){
-
-                    var img = new Image {
-                        P_ID = product_id,
-                        Image_URL = image,
-                    };
-
-                    lstImages.Add(img);
-
-                }
-
-                RentEaseDB.Images.InsertAllOnSubmit(lstImages);
                 RentEaseDB.SubmitChanges();
 
                 return true;
@@ -297,11 +242,7 @@ namespace RentEase_Service
         }
 
 
-        /// <summary>
-        /// This method deletes a product from the database.
-        /// </summary>
-        /// <param name="ID">The ID of the product being deleted.</param>
-        /// <returns>Returns true if the product was deleted successfully, otherwise false.</returns>
+
         public bool removeProduct(int ID)
         {
             // Find the product by ID
@@ -319,16 +260,11 @@ namespace RentEase_Service
         }
 
 
-        /// <summary>
-        /// This method changes a product's quantity.
-        /// </summary>
-        /// <param name="ID">The ID of the product being changed.</param>
-        /// <returns>Returns true if the product specifications were changed successfully, otherwise false.</returns>
         public bool changeQuantity(int ID, int quantity)
         {
             var prod = (from p in RentEaseDB.Products
-                       where p.Id == ID
-                       select p).FirstOrDefault();
+                        where p.Id == ID
+                        select p).FirstOrDefault();
 
             if (prod != null && quantity >= 0)
             {
@@ -341,16 +277,12 @@ namespace RentEase_Service
 
         }
 
-        /// <summary>
-        /// This method changes a product's description.
-        /// </summary>
-        /// <param name="ID">The ID of the product being changed.</param>
-        /// <returns>Returns true if the product specifications were changed successfully, otherwise false.</returns>
+
         public bool changeDescription(int ID, string description)
         {
             var prod = (from p in RentEaseDB.Products
-                       where p.Id == ID
-                       select p).FirstOrDefault();
+                        where p.Id == ID
+                        select p).FirstOrDefault();
 
             if (prod != null)
             {
@@ -363,16 +295,12 @@ namespace RentEase_Service
 
         }
 
-        /// <summary>
-        /// This method changes a product's price.
-        /// </summary>
-        /// <param name="ID">The ID of the product being changed.</param>
-        /// <returns>Returns true if the product specifications were changed successfully, otherwise false.</returns>
+
         public bool changePrice(int ID, double price)
         {
             var prod = (from p in RentEaseDB.Products
-                       where p.Id == ID
-                       select p).FirstOrDefault();
+                        where p.Id == ID
+                        select p).FirstOrDefault();
 
             if (prod != null && price >= 0)
             {
@@ -386,16 +314,11 @@ namespace RentEase_Service
         }
 
 
-        /// <summary>
-        /// This method changes a product's name.
-        /// </summary>
-        /// <param name="ID">The ID of the product being changed.</param>
-        /// <returns>Returns true if the product specifications were changed successfully, otherwise false.</returns>
-        public bool changePrice(int ID, string name)
+        public bool changeName(int ID, string name)
         {
             var prod = (from p in RentEaseDB.Products
-                       where p.Id == ID
-                       select p).FirstOrDefault();
+                        where p.Id == ID
+                        select p).FirstOrDefault();
 
             if (prod != null)
             {
@@ -408,21 +331,13 @@ namespace RentEase_Service
 
         }
 
-        /// <summary>
-        /// This method creates an invoice and orders.
-        /// All the arrays must be parallel arrays which have data parralel to (related to) the corresponding product in the array of products
-        /// </summary>
-        /// <param name="ID">The ID of the user.</param>
-        /// <param name="arrProducts">The products in the invoice.</param>
-        /// <param name="arrQuantities">The quantities of the produts in the invoice.</param>
-        /// <param name="arrDurations">The durations of the products in the invoice.</param>
-        /// <returns>Returns the ID of the invoice if one was created, or -1 otherwise</returns>
-        public int placeOrder(int ID, Product[] arrProducts, int[] arrQuantities, int[] arrDurations)
+
+        public int placeOrder(int ID, SysShopping_Cart[] cart, int[] arrDurations)
         {
-            if (!(arrProducts.Length == arrDurations.Length && arrDurations.Length == arrQuantities.Length))
+            if (!(cart.Length == arrDurations.Length))
                 return -1;
-            
-            int parrallel_length = arrProducts.Length;
+
+            int parrallel_length = cart.Length;
 
             try
             {
@@ -452,13 +367,14 @@ namespace RentEase_Service
                 // CREATE ORDERS for every product in that invoice
                 for (int i = 0; i < parrallel_length; i++)
                 {
+
                     // create new order
                     Order order = new Order
                     {
                         Invoice_ID = invoice_id,
-                        Product_ID = arrProducts[i].Id,
-                        subTotal = arrProducts[i].Price,
-                        Quantity = arrQuantities[i],
+                        Product_ID = cart[i].P_ID,
+                        subTotal = getPrice(cart[i].P_ID),
+                        Quantity = cart[i].Quantity,
                         Durantion = arrDurations[i]
                     };
                     // add to list of orders
@@ -479,52 +395,143 @@ namespace RentEase_Service
 
         }
 
-        List<Product> IRentEase.getProdsByCat(string Category)
-        {
-            dynamic prodlist = (from p in RentEaseDB.Products
-                                where p.Category == Category
-                                select p).DefaultIfEmpty();
 
-            if (prodlist != null)
-            {
-                List<Product> TempList = new List<Product>();
-                foreach (Product p in prodlist)
-                {
-                    TempList.Add(p);
-                }
-                return TempList;
-            }
-            else { return null; }
+
+
+
+
+
+
+
+        private decimal getPrice(int ID)
+        {
+            var query = from p in RentEaseDB.Products
+                        where p.Id == ID
+                        select p.Price;
+           
+            return query.FirstOrDefault();
         }
 
-        List<Product> IRentEase.getBestProds()
-        {
-            List<Product> Temp = new List<Product>();
+     
 
-            return Temp;
+        public List<SysProduct> getBestProds()
+        {
+            var query = from p in RentEaseDB.Products
+                        join r in RentEaseDB.Reviews
+                        on p.Id equals r.Product_ID
+                        group r by new
+                        {
+                            p.Id,
+                            p.Product_Name,
+                            p.Quantity,
+                            p.Price,
+                            p.M_ID,
+                            p.Available,
+                            p.Rental_Agreement,
+                            p.Category,
+                            p.Registration_Date,
+                            p.Image_URL
+                        } into productGroup
+                        where productGroup.Average(r => r.Star_Rating) >= 3.5
+                        select new SysProduct
+                        {
+                            Id = productGroup.Key.Id,
+                            Product_Name = productGroup.Key.Product_Name,
+                            Quantity = productGroup.Key.Quantity,
+                            Price = productGroup.Key.Price,
+                            M_ID = productGroup.Key.M_ID,
+                            Available = productGroup.Key.Available,
+                            Rental_Agreement = productGroup.Key.Rental_Agreement,
+                            Category = productGroup.Key.Category,
+                            Registration_Date = productGroup.Key.Registration_Date,
+                            Image_URL = productGroup.Key.Image_URL
+                        };
+
+
+            return query.DefaultIfEmpty().ToList();
         }
 
-        List<Product> IRentEase.getNewProds()
+        public List<SysProduct> getNewProds()
         {
 
             // Get the first day of the current month
             DateTime firstDayOfCurrentMonth = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
 
-            dynamic prodlist = (from p in RentEaseDB.Products
-                                //finding products registered after the month
+            var query = from p in RentEaseDB.Products
+                                    //finding products registered after the month
                                 where p.Registration_Date > firstDayOfCurrentMonth
-                                select p).DefaultIfEmpty();
+                                select new SysProduct
+                                {
+                                    Id = p.Id,
+                                    Product_Name = p.Product_Name,
+                                    Quantity = p.Quantity,
+                                    Price = p.Price,
+                                    M_ID = p.M_ID,
+                                    Available = p.Available,
+                                    Rental_Agreement = p.Rental_Agreement,
+                                    Category = p.Category,
+                                    Registration_Date = p.Registration_Date,
+                                    Image_URL = p.Image_URL
+                                };
+
+            dynamic prodlist = query.DefaultIfEmpty().ToList();
 
             if (prodlist != null)
             {
-                List<Product> TempList = new List<Product>();
-                foreach (Product p in prodlist)
-                {
-                    TempList.Add(p);
-                }
-                return TempList;
+                return prodlist;
             }
             else { return null; }
         }
+
+        public bool rateProduct(int InvoiceID, int ProductID, int stars, string review) {
+
+            Reviews tmpReview = new Reviews { 
+                Invoice_ID = InvoiceID,
+                Product_ID = ProductID,
+                Star_Rating = stars,
+                Review = review
+            };
+
+
+            try
+            {
+                RentEaseDB.Reviews.InsertOnSubmit(tmpReview);
+                RentEaseDB.SubmitChanges();
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+
+
+        public bool deactivateProduct(int ID)
+        {
+            var query = from p in RentEaseDB.Products
+                        where p.Id == ID
+                        select p;
+
+            Product product = query.FirstOrDefault();
+
+            try
+            {
+                product.Available = false;
+
+                RentEaseDB.SubmitChanges();
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+
+        }
+
+
     }
 }
