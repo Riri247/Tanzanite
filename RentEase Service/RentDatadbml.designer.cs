@@ -30,9 +30,6 @@ namespace RentEase_Service
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertAdmin(Admin instance);
-    partial void UpdateAdmin(Admin instance);
-    partial void DeleteAdmin(Admin instance);
     partial void InsertInvoice(Invoice instance);
     partial void UpdateInvoice(Invoice instance);
     partial void DeleteInvoice(Invoice instance);
@@ -45,15 +42,15 @@ namespace RentEase_Service
     partial void InsertOrder(Order instance);
     partial void UpdateOrder(Order instance);
     partial void DeleteOrder(Order instance);
-    partial void InsertReviews(Reviews instance);
-    partial void UpdateReviews(Reviews instance);
-    partial void DeleteReviews(Reviews instance);
     partial void InsertMerchant(Merchant instance);
     partial void UpdateMerchant(Merchant instance);
     partial void DeleteMerchant(Merchant instance);
     partial void InsertShopping_cart(Shopping_cart instance);
     partial void UpdateShopping_cart(Shopping_cart instance);
     partial void DeleteShopping_cart(Shopping_cart instance);
+    partial void InsertReviews(Reviews instance);
+    partial void UpdateReviews(Reviews instance);
+    partial void DeleteReviews(Reviews instance);
     #endregion
 		
 		public RentDatadbmlDataContext() : 
@@ -84,14 +81,6 @@ namespace RentEase_Service
 				base(connection, mappingSource)
 		{
 			OnCreated();
-		}
-		
-		public System.Data.Linq.Table<Admin> Admins
-		{
-			get
-			{
-				return this.GetTable<Admin>();
-			}
 		}
 		
 		public System.Data.Linq.Table<Customer_Invoice> Customer_Invoices
@@ -134,14 +123,6 @@ namespace RentEase_Service
 			}
 		}
 		
-		public System.Data.Linq.Table<Reviews> Reviews
-		{
-			get
-			{
-				return this.GetTable<Reviews>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Merchant> Merchants
 		{
 			get
@@ -157,107 +138,12 @@ namespace RentEase_Service
 				return this.GetTable<Shopping_cart>();
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Admin")]
-	public partial class Admin : INotifyPropertyChanging, INotifyPropertyChanged
-	{
 		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _A_ID;
-		
-		private EntityRef<User> _User;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnA_IDChanging(int value);
-    partial void OnA_IDChanged();
-    #endregion
-		
-		public Admin()
-		{
-			this._User = default(EntityRef<User>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_A_ID", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int A_ID
+		public System.Data.Linq.Table<Reviews> Reviews
 		{
 			get
 			{
-				return this._A_ID;
-			}
-			set
-			{
-				if ((this._A_ID != value))
-				{
-					if (this._User.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnA_IDChanging(value);
-					this.SendPropertyChanging();
-					this._A_ID = value;
-					this.SendPropertyChanged("A_ID");
-					this.OnA_IDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_Admin", Storage="_User", ThisKey="A_ID", OtherKey="Id", IsForeignKey=true)]
-		public User User
-		{
-			get
-			{
-				return this._User.Entity;
-			}
-			set
-			{
-				User previousValue = this._User.Entity;
-				if (((previousValue != value) 
-							|| (this._User.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._User.Entity = null;
-						previousValue.Admin = null;
-					}
-					this._User.Entity = value;
-					if ((value != null))
-					{
-						value.Admin = this;
-						this._A_ID = value.Id;
-					}
-					else
-					{
-						this._A_ID = default(int);
-					}
-					this.SendPropertyChanged("User");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+				return this.GetTable<Reviews>();
 			}
 		}
 	}
@@ -535,10 +421,6 @@ namespace RentEase_Service
 		
 		private string _password;
 		
-		private EntityRef<Admin> _Admin;
-		
-		private EntitySet<Reviews> _Reviews;
-		
 		private EntityRef<Merchant> _Merchant;
 		
 		private EntitySet<Shopping_cart> _Shopping_carts;
@@ -563,8 +445,6 @@ namespace RentEase_Service
 		
 		public User()
 		{
-			this._Admin = default(EntityRef<Admin>);
-			this._Reviews = new EntitySet<Reviews>(new Action<Reviews>(this.attach_Reviews), new Action<Reviews>(this.detach_Reviews));
 			this._Merchant = default(EntityRef<Merchant>);
 			this._Shopping_carts = new EntitySet<Shopping_cart>(new Action<Shopping_cart>(this.attach_Shopping_carts), new Action<Shopping_cart>(this.detach_Shopping_carts));
 			OnCreated();
@@ -690,48 +570,6 @@ namespace RentEase_Service
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_Admin", Storage="_Admin", ThisKey="Id", OtherKey="A_ID", IsUnique=true, IsForeignKey=false)]
-		public Admin Admin
-		{
-			get
-			{
-				return this._Admin.Entity;
-			}
-			set
-			{
-				Admin previousValue = this._Admin.Entity;
-				if (((previousValue != value) 
-							|| (this._Admin.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Admin.Entity = null;
-						previousValue.User = null;
-					}
-					this._Admin.Entity = value;
-					if ((value != null))
-					{
-						value.User = this;
-					}
-					this.SendPropertyChanged("Admin");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_Review", Storage="_Reviews", ThisKey="Id", OtherKey="User_ID")]
-		public EntitySet<Reviews> Reviews
-		{
-			get
-			{
-				return this._Reviews;
-			}
-			set
-			{
-				this._Reviews.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_Merchant", Storage="_Merchant", ThisKey="Id", OtherKey="M_ID", IsUnique=true, IsForeignKey=false)]
 		public Merchant Merchant
 		{
@@ -792,18 +630,6 @@ namespace RentEase_Service
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-		
-		private void attach_Reviews(Reviews entity)
-		{
-			this.SendPropertyChanging();
-			entity.User = this;
-		}
-		
-		private void detach_Reviews(Reviews entity)
-		{
-			this.SendPropertyChanging();
-			entity.User = null;
 		}
 		
 		private void attach_Shopping_carts(Shopping_cart entity)
@@ -1236,7 +1062,7 @@ namespace RentEase_Service
 		
 		private decimal _Price;
 		
-		private EntitySet<Reviews> _Reviews;
+		private EntityRef<Reviews> _Reviews;
 		
 		private EntityRef<Invoice> _Invoice;
 		
@@ -1262,7 +1088,7 @@ namespace RentEase_Service
 		
 		public Order()
 		{
-			this._Reviews = new EntitySet<Reviews>(new Action<Reviews>(this.attach_Reviews), new Action<Reviews>(this.detach_Reviews));
+			this._Reviews = default(EntityRef<Reviews>);
 			this._Invoice = default(EntityRef<Invoice>);
 			this._Product = default(EntityRef<Product>);
 			OnCreated();
@@ -1396,16 +1222,32 @@ namespace RentEase_Service
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Order_Review", Storage="_Reviews", ThisKey="Invoice_ID,Product_ID", OtherKey="Invoice_ID,Product_ID")]
-		public EntitySet<Reviews> Reviews
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Order_Review", Storage="_Reviews", ThisKey="Invoice_ID,Product_ID", OtherKey="Invoice_ID,Product_ID", IsUnique=true, IsForeignKey=false)]
+		public Reviews Reviews
 		{
 			get
 			{
-				return this._Reviews;
+				return this._Reviews.Entity;
 			}
 			set
 			{
-				this._Reviews.Assign(value);
+				Reviews previousValue = this._Reviews.Entity;
+				if (((previousValue != value) 
+							|| (this._Reviews.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Reviews.Entity = null;
+						previousValue.Order = null;
+					}
+					this._Reviews.Entity = value;
+					if ((value != null))
+					{
+						value.Order = this;
+					}
+					this.SendPropertyChanged("Reviews");
+				}
 			}
 		}
 		
@@ -1473,264 +1315,6 @@ namespace RentEase_Service
 						this._Product_ID = default(int);
 					}
 					this.SendPropertyChanged("Product");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Reviews(Reviews entity)
-		{
-			this.SendPropertyChanging();
-			entity.Order = this;
-		}
-		
-		private void detach_Reviews(Reviews entity)
-		{
-			this.SendPropertyChanging();
-			entity.Order = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Reviews")]
-	public partial class Reviews : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _User_ID;
-		
-		private int _Invoice_ID;
-		
-		private int _Product_ID;
-		
-		private int _Star_Rating;
-		
-		private string _Review;
-		
-		private EntityRef<Order> _Order;
-		
-		private EntityRef<User> _User;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnUser_IDChanging(int value);
-    partial void OnUser_IDChanged();
-    partial void OnInvoice_IDChanging(int value);
-    partial void OnInvoice_IDChanged();
-    partial void OnProduct_IDChanging(int value);
-    partial void OnProduct_IDChanged();
-    partial void OnStar_RatingChanging(int value);
-    partial void OnStar_RatingChanged();
-    partial void OnReviewChanging(string value);
-    partial void OnReviewChanged();
-    #endregion
-		
-		public Reviews()
-		{
-			this._Order = default(EntityRef<Order>);
-			this._User = default(EntityRef<User>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_User_ID", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int User_ID
-		{
-			get
-			{
-				return this._User_ID;
-			}
-			set
-			{
-				if ((this._User_ID != value))
-				{
-					if (this._User.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnUser_IDChanging(value);
-					this.SendPropertyChanging();
-					this._User_ID = value;
-					this.SendPropertyChanged("User_ID");
-					this.OnUser_IDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Invoice_ID", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int Invoice_ID
-		{
-			get
-			{
-				return this._Invoice_ID;
-			}
-			set
-			{
-				if ((this._Invoice_ID != value))
-				{
-					if (this._Order.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnInvoice_IDChanging(value);
-					this.SendPropertyChanging();
-					this._Invoice_ID = value;
-					this.SendPropertyChanged("Invoice_ID");
-					this.OnInvoice_IDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Product_ID", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int Product_ID
-		{
-			get
-			{
-				return this._Product_ID;
-			}
-			set
-			{
-				if ((this._Product_ID != value))
-				{
-					if (this._Order.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnProduct_IDChanging(value);
-					this.SendPropertyChanging();
-					this._Product_ID = value;
-					this.SendPropertyChanged("Product_ID");
-					this.OnProduct_IDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Star_Rating", DbType="Int NOT NULL")]
-		public int Star_Rating
-		{
-			get
-			{
-				return this._Star_Rating;
-			}
-			set
-			{
-				if ((this._Star_Rating != value))
-				{
-					this.OnStar_RatingChanging(value);
-					this.SendPropertyChanging();
-					this._Star_Rating = value;
-					this.SendPropertyChanged("Star_Rating");
-					this.OnStar_RatingChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Review", DbType="VarChar(500) NOT NULL", CanBeNull=false)]
-		public string Review
-		{
-			get
-			{
-				return this._Review;
-			}
-			set
-			{
-				if ((this._Review != value))
-				{
-					this.OnReviewChanging(value);
-					this.SendPropertyChanging();
-					this._Review = value;
-					this.SendPropertyChanged("Review");
-					this.OnReviewChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Order_Review", Storage="_Order", ThisKey="Invoice_ID,Product_ID", OtherKey="Invoice_ID,Product_ID", IsForeignKey=true)]
-		public Order Order
-		{
-			get
-			{
-				return this._Order.Entity;
-			}
-			set
-			{
-				Order previousValue = this._Order.Entity;
-				if (((previousValue != value) 
-							|| (this._Order.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Order.Entity = null;
-						previousValue.Reviews.Remove(this);
-					}
-					this._Order.Entity = value;
-					if ((value != null))
-					{
-						value.Reviews.Add(this);
-						this._Invoice_ID = value.Invoice_ID;
-						this._Product_ID = value.Product_ID;
-					}
-					else
-					{
-						this._Invoice_ID = default(int);
-						this._Product_ID = default(int);
-					}
-					this.SendPropertyChanged("Order");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_Review", Storage="_User", ThisKey="User_ID", OtherKey="Id", IsForeignKey=true)]
-		public User User
-		{
-			get
-			{
-				return this._User.Entity;
-			}
-			set
-			{
-				User previousValue = this._User.Entity;
-				if (((previousValue != value) 
-							|| (this._User.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._User.Entity = null;
-						previousValue.Reviews.Remove(this);
-					}
-					this._User.Entity = value;
-					if ((value != null))
-					{
-						value.Reviews.Add(this);
-						this._User_ID = value.Id;
-					}
-					else
-					{
-						this._User_ID = default(int);
-					}
-					this.SendPropertyChanged("User");
 				}
 			}
 		}
@@ -2078,6 +1662,187 @@ namespace RentEase_Service
 						this._P_ID = default(int);
 					}
 					this.SendPropertyChanged("Product");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Reviews")]
+	public partial class Reviews : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Invoice_ID;
+		
+		private int _Product_ID;
+		
+		private int _Star_Rating;
+		
+		private string _Review;
+		
+		private EntityRef<Order> _Order;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnInvoice_IDChanging(int value);
+    partial void OnInvoice_IDChanged();
+    partial void OnProduct_IDChanging(int value);
+    partial void OnProduct_IDChanged();
+    partial void OnStar_RatingChanging(int value);
+    partial void OnStar_RatingChanged();
+    partial void OnReviewChanging(string value);
+    partial void OnReviewChanged();
+    #endregion
+		
+		public Reviews()
+		{
+			this._Order = default(EntityRef<Order>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Invoice_ID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int Invoice_ID
+		{
+			get
+			{
+				return this._Invoice_ID;
+			}
+			set
+			{
+				if ((this._Invoice_ID != value))
+				{
+					if (this._Order.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnInvoice_IDChanging(value);
+					this.SendPropertyChanging();
+					this._Invoice_ID = value;
+					this.SendPropertyChanged("Invoice_ID");
+					this.OnInvoice_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Product_ID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int Product_ID
+		{
+			get
+			{
+				return this._Product_ID;
+			}
+			set
+			{
+				if ((this._Product_ID != value))
+				{
+					if (this._Order.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnProduct_IDChanging(value);
+					this.SendPropertyChanging();
+					this._Product_ID = value;
+					this.SendPropertyChanged("Product_ID");
+					this.OnProduct_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Star_Rating", DbType="Int NOT NULL")]
+		public int Star_Rating
+		{
+			get
+			{
+				return this._Star_Rating;
+			}
+			set
+			{
+				if ((this._Star_Rating != value))
+				{
+					this.OnStar_RatingChanging(value);
+					this.SendPropertyChanging();
+					this._Star_Rating = value;
+					this.SendPropertyChanged("Star_Rating");
+					this.OnStar_RatingChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Review", DbType="VarChar(500) NOT NULL", CanBeNull=false)]
+		public string Review
+		{
+			get
+			{
+				return this._Review;
+			}
+			set
+			{
+				if ((this._Review != value))
+				{
+					this.OnReviewChanging(value);
+					this.SendPropertyChanging();
+					this._Review = value;
+					this.SendPropertyChanged("Review");
+					this.OnReviewChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Order_Review", Storage="_Order", ThisKey="Invoice_ID,Product_ID", OtherKey="Invoice_ID,Product_ID", IsForeignKey=true)]
+		public Order Order
+		{
+			get
+			{
+				return this._Order.Entity;
+			}
+			set
+			{
+				Order previousValue = this._Order.Entity;
+				if (((previousValue != value) 
+							|| (this._Order.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Order.Entity = null;
+						previousValue.Reviews = null;
+					}
+					this._Order.Entity = value;
+					if ((value != null))
+					{
+						value.Reviews = this;
+						this._Invoice_ID = value.Invoice_ID;
+						this._Product_ID = value.Product_ID;
+					}
+					else
+					{
+						this._Invoice_ID = default(int);
+						this._Product_ID = default(int);
+					}
+					this.SendPropertyChanged("Order");
 				}
 			}
 		}
