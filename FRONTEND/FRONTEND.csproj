@@ -89,6 +89,8 @@
     <Content Include="hero-1.jpg" />
     <Content Include="Home.aspx" />
     <Content Include="Login.aspx" />
+    <Content Include="ManageOneP.aspx" />
+    <Content Include="ManageP.aspx" />
     <Content Include="ProductList.aspx" />
     <Content Include="Signup.aspx" />
     <Content Include="Test.aspx" />
@@ -135,6 +137,20 @@
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ManageOneP.aspx.cs">
+      <DependentUpon>ManageOneP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageOneP.aspx.designer.cs">
+      <DependentUpon>ManageOneP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ManageP.aspx.cs">
+      <DependentUpon>ManageP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageP.aspx.designer.cs">
+      <DependentUpon>ManageP.aspx</DependentUpon>
     </Compile>
     <Compile Include="ProductList.aspx.cs">
       <DependentUpon>ProductList.aspx</DependentUpon>
