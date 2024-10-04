@@ -31,6 +31,40 @@
 /* Template default CSS
 /*----------------------------------------*/
 
+
+
+/***********
+		Manage section
+	*/
+
+.EntityBox {
+	margin: 20px auto;
+	width: 70%;
+	height: 200px;
+	border: 2px solid black;
+	align-items: center;
+	justify-content: center;
+	display: flex;
+	letter-spacing: 5px;
+	border-radius: 15px;
+	position: relative;
+}
+
+.NameBox {
+	position: absolute;
+	left: 0;
+	margin: auto;
+	margin-bottom: 15px;
+	display: flex;
+}
+
+
+.btnbox {
+	position: absolute;
+	right: 0;
+}
+
+
 html,
 body {
 	height: 100%;
@@ -1996,6 +2030,8 @@ ol {
 	color: #e53637;
 }
 
+
+
 /*--------------------------------- Responsive Media Quaries -----------------------------*/
 
 @media only screen and (min-width: 1200px) and (max-width: 1300px) {
@@ -2340,4 +2376,9 @@ ol {
 	.anime__review__item__text {
 		padding: 18px 20px 20px;
 	}
+
+
+	
+
+
 }
