@@ -37,7 +37,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
 
-    <h1> Manage Products</h1>
+    <div width="100%"><h1> Manage Products</h1></div>
 
     <div class="EntityBox"> <div class="anime__details__btn" >
                                 <a href="#" class="follow-btn"> Add Product</a>      
