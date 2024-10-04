@@ -1,9 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Base.Master" AutoEventWireup="true" CodeBehind="ManageP.aspx.cs" Inherits="FRONTEND.ManageP" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Base.Master" AutoEventWireup="true" CodeBehind="History.aspx.cs" Inherits="FRONTEND.History" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
-
-        
-        .EntityBox {
+           .EntityBox {
              margin: 20px auto; 
              background-color :white;
 	width: 70%;
@@ -86,27 +84,22 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-
-    <div width="100%"><h1> Manage Products</h1></div>
-
-    <div class="EntityBox"> <div class="anime__details__btn" >
-                                <a href="#" class="follow-btn"> Add Product</a>      
-                               
-                            </div></div>
+    
+    <div width="100%"><h1> History</h1></div>
 
     <div class="scroll-contain">
          <div class="Scrollable">
         <div  class ="NameBox">
-            <p> P name </p>
-        <p> P attribute 1 </p>
-        <p> P attribute 2 </p>
+            <p> INvoice NUm </p>
+        <p> INvoice Date </p>
+   
             </div>
         
 
          <div class="btnbox">
 <div class="anime__details__btn" >
-                                <a href="#" class="follow-btn"> Remove</a>      
-                                <a href="#" class="follow-btn"> Edit</a>      
+                                <a href="#" class="follow-btn"> View</a>      
+                                 
                             </div>
             </div>
     </div>
@@ -114,34 +107,34 @@
 
      <div class="Scrollable">
         <div  class ="NameBox">
-            <p> P name </p>
-        <p> P attribute 1 </p>
-        <p> P attribute 2 </p>
+            <p> INvoice NUm </p>
+        <p> INvoice Date </p>
+   
             </div>
         
-        <div class="btnbox">
+
+         <div class="btnbox">
 <div class="anime__details__btn" >
-                                <a href="#" class="follow-btn"> Remove</a>      
-                                <a href="#" class="follow-btn"> Edit</a>      
+                                <a href="#" class="follow-btn"> View</a>      
+                                 
                             </div>
             </div>
-        
     </div>
 
 
 
      <div class="Scrollable">
         <div  class ="NameBox">
-            <p> P name </p>
-        <p> P attribute 1 </p>
-        <p> P attribute 2 </p>
+            <p> INvoice NUm </p>
+        <p> INvoice Date </p>
+   
             </div>
         
 
-          <div class="btnbox">
+         <div class="btnbox">
 <div class="anime__details__btn" >
-                                <a href="#" class="follow-btn"> Remove</a>      
-                                <a href="#" class="follow-btn"> Edit</a>      
+                                <a href="#" class="follow-btn"> View</a>      
+                                 
                             </div>
             </div>
     </div>
@@ -149,6 +142,4 @@
         </div>
 
    
-
-
 </asp:Content>
