@@ -88,6 +88,7 @@
     </None>
     <Content Include="hero-1.jpg" />
     <Content Include="Home.aspx" />
+    <Content Include="Invoice.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="ManageOneP.aspx" />
     <Content Include="ManageP.aspx" />
@@ -130,6 +131,13 @@
     </Compile>
     <Compile Include="Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Invoice.aspx.cs">
+      <DependentUpon>Invoice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Invoice.aspx.designer.cs">
+      <DependentUpon>Invoice.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
