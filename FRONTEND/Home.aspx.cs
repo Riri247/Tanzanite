@@ -30,9 +30,18 @@ namespace FRONTEND
                 htmlstrBestProds += "<div class='Scol-lg-4 col-md-6 col-sm-6'>";
                 htmlstrBestProds += "<div class='product__item'>";
                 htmlstrBestProds += "<div class='product__item__pic set-bg'data-setbg='img / trending / trend - 1.jpg'>";
-                htmlstrBestProds += "<div class='ep'>18 / 18</div>"; //idk what this can be so i made it product price
-                htmlstrBestProds += "<div class='comment'><i class='fa fa-comments'></i> 11</div>";
-                htmlstrBestProds += "<div class='view'><i class='fa fa-eye'></i> 9141</div>";
+                //htmlstrBestProds += "<div class='ep'>18 / 18</div>"; //idk what this can be so i made it product price
+                //htmlstrBestProds += "<div class='comment'><i class='fa fa-comments'></i> 11</div>";
+                htmlstrBestProds += "<span>";
+                htmlstrBestProds += "<div class='anime__details__btn'>";
+
+
+
+                htmlstrBestProds += "< a href ='#' class='watch-btn'><span> Add to cart</span> <i";
+                htmlstrBestProds += "class= 'fa fa-angle-right'></i></a>";
+                htmlstrBestProds += "</div>";
+
+                htmlstrBestProds += "</span>";
                 htmlstrBestProds += "</div>";
                 htmlstrBestProds += "<div class='product__item__text'>";
                 htmlstrBestProds += "<ul>";
@@ -75,7 +84,18 @@ namespace FRONTEND
                 hymlstrNewProds += "</ ul >";
 
                 hymlstrNewProds += "<h5><a href = '#'>The Seven Deadly Sins: Wrath of the Gods</a></h5>";
-                hymlstrNewProds += "<span><i class= 'fa fa-eye'></i>19.141 Viewes</span>";
+                hymlstrNewProds += "<span>";
+                hymlstrNewProds += "<div class='anime__details__btn'>";
+
+
+
+                hymlstrNewProds += "< a href ='#' class='watch-btn'><span> Add to cart</span> <i";
+                hymlstrNewProds += "class= 'fa fa-angle-right'></i></a>";
+                hymlstrNewProds += "</div>";
+
+                hymlstrNewProds += "</span>";
+
+               
 
                 hymlstrNewProds += "</div>";
 
