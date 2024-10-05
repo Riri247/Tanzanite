@@ -22,14 +22,14 @@ namespace FRONTEND
 
 			RentEaseClient rc = new RentEaseClient();
 			//Laoding the category
-			dynamic Prods= null; //dynamic list that can be any type of products
+			dynamic Prods= rc.getProducts(); //dynamic list that can be any type of products
 								 //if Category was passed as a parameter
 
 			if (Request.QueryString["Category"].ToString() != null)
 			{
 				String Category = Request.QueryString["Category"].ToString();
 
-				Prods = rc.getProdsByCat(Category);
+				Prods =null;
 			}
 			//if client either wants the best or new products
 			else if (Request.QueryString["Type"].ToString() != null) {
@@ -53,10 +53,10 @@ namespace FRONTEND
 			if (Prods != null)
 			{
 				String htmlstrProdList = "";
-				foreach (Product p in Prods) {
+				foreach (ServiceReference1.SysProduct p in Prods) {
 					htmlstrProdList += "<tr>";
 					htmlstrProdList += "<td>";
-					htmlstrProdList += "<a href='About.aspx?ID="+p.Id+"'>";
+					htmlstrProdList += "<a href='About.aspx?id="+p.Id+"'>";
 					htmlstrProdList += p.Product_Name;
 					htmlstrProdList += "</a>";
 
@@ -64,9 +64,9 @@ namespace FRONTEND
 
 					htmlstrProdList += "<td>";
 
-					htmlstrProdList += "<a href='About.aspx?ID=" + p.Id + "'>";
+					htmlstrProdList += "<a href='About.aspx?id=" + p.Id + "'>";
 
-					htmlstrProdList += "<img src='"+ p.Images+"' alt='Playstation 5'>";
+					htmlstrProdList += "<img src='"+ p.Image_URL+"' alt='Playstation 5'>";
 
 					htmlstrProdList += "</a>";
 
@@ -85,6 +85,8 @@ namespace FRONTEND
 				Response.Redirect("Home.aspx");
 			}
         }
+
+
     }
 }
 

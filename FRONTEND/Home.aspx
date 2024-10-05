@@ -41,7 +41,7 @@
                                 <div class="label">Rentals</div>
                                 <h2>Accomodations</h2>
                                 <p>Description</p>
-                                <a href="ProductList.aspx?Category=Accomodations"><span>Load products</span> <i class="fa fa-angle-right"></i></a>
+                                <a href="ProductList.aspx?Category=Accomodations"><span>View</span> <i class="fa fa-angle-right"></i></a>
                             </div>
                         </div>
                     </div>
