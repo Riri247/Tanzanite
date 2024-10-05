@@ -93,7 +93,7 @@
                             <div class="section-title">
             <h5>New Comment</h5>
         </div>
-                            <!-- side bar procust start-->
+                            <!-- side bar procust start end-->
         <div class="product__sidebar__comment__item">
             <div class="product__sidebar__comment__item__pic">
                 <img src="img/sidebar/comment-1.jpg" alt="">
