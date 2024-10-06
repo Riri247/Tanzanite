@@ -100,58 +100,11 @@ a {
                           <th class="product-remove">Remove</th>
                         </tr>
                       </thead>
-                      <tbody>
+                      <tbody id="DispCart" runat="server">
                            <!-- Product section start-->
-                        <tr>
-                           
-                          <td class="product-thumbnail">
-                            <img src="hero-1.jpg" alt="Image" class="img-fluid"  style="width: 300px; height: 200px;">
-                          </td>
-                          <td class="product-name">
-                            <h2 class="h5 text-black">Product 1</h2>
-                          </td>
-                          <td>$49.00</td>
-                          <td>
-                            <div class="input-group mb-3 d-flex align-items-center quantity-container" style="max-width: 120px;">
-                              <div class="input-group-prepend">
-                                <button class="btn btn-outline-black decrease" type="button">&minus;</button>
-                              </div>
-                              <input type="text" class="form-control text-center quantity-amount" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1" style="width:min-content;">
-                              <div class="input-group-append">
-                                <button class="btn btn-outline-black increase" type="button">&plus;</button>
-                              </div>
-                            </div>
-        
-                          </td>
-                          <td>$49.00</td>
-                          <td><a href="#" class="btn btn-black btn-sm">X</a></td>
-
-                            
-                        </tr>
+                        
         <!-- end of product-->
-                        <tr>
-                          <td class="product-thumbnail">
-                            <img src="hero-1.jpg" alt="Image" class="img-fluid"  style="width: 300px; height: 200px;">
-                          </td>
-                          <td class="product-name">
-                            <h2 class="h5 text-black">Product 2</h2>
-                          </td>
-                          <td>$49.00</td>
-                          <td>
-                            <div class="input-group mb-3 d-flex align-items-center quantity-container" style="max-width: 120px;">
-                              <div class="input-group-prepend">
-                                <button class="btn btn-outline-black decrease" type="button">&minus;</button>
-                              </div>
-                              <input type="text" class="form-control text-center quantity-amount" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
-                              <div class="input-group-append">
-                                <button class="btn btn-outline-black increase" type="button">&plus;</button>
-                              </div>
-                            </div>
-        
-                          </td>
-                          <td>$49.00</td>
-                          <td><a href="#" class="btn btn-black btn-sm">X</a></td>
-                        </tr>
+
                       </tbody>
                     </table>
                   </div>

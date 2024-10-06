@@ -30,10 +30,10 @@ namespace FRONTEND
                 htmlstrBestProds += "<div class='Scol-lg-4 col-md-6 col-sm-6'>";
                 htmlstrBestProds += "<div class='product__item'>";
                 htmlstrBestProds += "<div class='product_item_pic set-bg' data-setbg='img/trending/trend-1.jpg'>";
-                htmlstrBestProds += "<div class='ep'>"+p.Price+"</div>";  
+                htmlstrBestProds += "<div class='ep'>R"+p.Price+"</div>";  
                 htmlstrBestProds += "<span>";
                 htmlstrBestProds += "<div class='anime_details_btn'>";
-                htmlstrBestProds += "<a href ='#' class='watch-btn'><span> Add to cart</span> <i class='fa fa-angle-right'></i></a>";
+                htmlstrBestProds += "<a href ='Cart.aspx?prodID="+p.Id+"' class='watch-btn'><span> Add to cart</span> <i class='fa fa-angle-right'></i></a>";
                 htmlstrBestProds += "</div>";
                 htmlstrBestProds += "</span>";
                 htmlstrBestProds += "</div>";
@@ -68,7 +68,7 @@ namespace FRONTEND
                 hymlstrNewProds += "<h5><a href='About.aspx?=id"+p.Id+"'>"+p.Product_Name+"</a></h5>";
                 hymlstrNewProds += "<span>";
                 hymlstrNewProds += "<div class='anime_details_btn'>";
-                hymlstrNewProds += "<a href ='#' class='watch-btn'><span> Add to cart</span> <i class='fa fa-angle-right'></i></a>";
+                hymlstrNewProds += "<a href ='Cart.aspx?prodID="+p.Id+"' class='watch-btn'><span> Add to cart</span> <i class='fa fa-angle-right'></i></a>";
                 hymlstrNewProds += "</div>";
                 hymlstrNewProds += "</span>";
                 hymlstrNewProds += "</div>";

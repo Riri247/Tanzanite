@@ -113,7 +113,7 @@ namespace FRONTEND
 					htmlstrProdList += "</td>";
 
 					htmlstrProdList += "<td>";
-					htmlstrProdList += p.Price;
+					htmlstrProdList +="R"+ p.Price;
 					htmlstrProdList += "</td>";
 
 					htmlstrProdList += "</tr>";
