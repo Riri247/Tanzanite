@@ -13,18 +13,25 @@
                         <h2>Sign Up</h2>
                         <form action="#">
                             <div class="input__item">
-                                <input type="text" placeholder="Email address">
+                                <input type="text" placeholder="Email address"  runat="server" id="txtEmail">
                                 <span class="icon_mail"></span>
                             </div>
                             <div class="input__item">
-                                <input type="text" placeholder="Your Name">
+                                <input type="text" placeholder="Your Name"  runat="server" id="txtName">
                                 <span class="icon_profile"></span>
                             </div>
                             <div class="input__item">
-                                <input type="text" placeholder="Password">
+                                <input type="text" placeholder="Your Surname"  runat="server" id="txtSur">
+                                <span class="icon_profile"></span>
+                            </div>
+                            <div class="input__item">
+                                <input type="text" placeholder="Password" runat="server" id="txtPassword">
                                 <span class="icon_lock"></span>
                             </div>
-                            <button type="submit" class="site-btn">Login Now</button>
+                            <ASP:button ID="btnRegister" class="site-btn" runat="server" Text="Register" OnClick="btnRegister_Click"/>
+                            <div>
+                                <asp:Label ID="lblMessage" runat="server"/>
+                            </div>
                         </form>
                         <h5>Already have an account? <a href="Login.aspx">Log In!</a></h5>
                     </div>

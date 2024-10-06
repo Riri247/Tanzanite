@@ -175,3 +175,7 @@ C:\Users\risun\OneDrive\Documents\Tanzanite Group Project\Tanzanite\FRONTEND\obj
 C:\Users\risun\OneDrive\Documents\Tanzanite Group Project\Tanzanite\FRONTEND\obj\Debug\FRONTEND.csproj.CopyComplete
 C:\Users\risun\OneDrive\Documents\Tanzanite Group Project\Tanzanite\FRONTEND\obj\Debug\FRONTEND.dll
 C:\Users\risun\OneDrive\Documents\Tanzanite Group Project\Tanzanite\FRONTEND\obj\Debug\FRONTEND.pdb
+C:\Users\Wesley_The_CodeDemon\Source\Repos\Tanzanite\FRONTEND\obj\Debug\FRONTEND.csproj.AssemblyReference.cache
+C:\Users\Wesley_The_CodeDemon\Source\Repos\Tanzanite\FRONTEND\obj\Debug\FRONTEND.csproj.CoreCompileInputs.cache
+C:\Users\Wesley_The_CodeDemon\Source\Repos\Tanzanite\FRONTEND\obj\Debug\FRONTEND.dll
+C:\Users\Wesley_The_CodeDemon\Source\Repos\Tanzanite\FRONTEND\obj\Debug\FRONTEND.pdb

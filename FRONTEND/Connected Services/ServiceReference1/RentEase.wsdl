@@ -98,11 +98,17 @@
   <wsdl:message name="IRentEase_placeOrder_OutputMessage">
     <wsdl:part name="parameters" element="tns:placeOrderResponse" />
   </wsdl:message>
-  <wsdl:message name="IRentEase_getProdsByCat_InputMessage">
-    <wsdl:part name="parameters" element="tns:getProdsByCat" />
+  <wsdl:message name="IRentEase_rateProduct_InputMessage">
+    <wsdl:part name="parameters" element="tns:rateProduct" />
   </wsdl:message>
-  <wsdl:message name="IRentEase_getProdsByCat_OutputMessage">
-    <wsdl:part name="parameters" element="tns:getProdsByCatResponse" />
+  <wsdl:message name="IRentEase_rateProduct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:rateProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRentEase_deactivateProduct_InputMessage">
+    <wsdl:part name="parameters" element="tns:deactivateProduct" />
+  </wsdl:message>
+  <wsdl:message name="IRentEase_deactivateProduct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deactivateProductResponse" />
   </wsdl:message>
   <wsdl:message name="IRentEase_getBestProds_InputMessage">
     <wsdl:part name="parameters" element="tns:getBestProds" />
@@ -177,9 +183,13 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IRentEase/placeOrder" message="tns:IRentEase_placeOrder_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IRentEase/placeOrderResponse" message="tns:IRentEase_placeOrder_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="getProdsByCat">
-      <wsdl:input wsaw:Action="http://tempuri.org/IRentEase/getProdsByCat" message="tns:IRentEase_getProdsByCat_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IRentEase/getProdsByCatResponse" message="tns:IRentEase_getProdsByCat_OutputMessage" />
+    <wsdl:operation name="rateProduct">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRentEase/rateProduct" message="tns:IRentEase_rateProduct_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRentEase/rateProductResponse" message="tns:IRentEase_rateProduct_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deactivateProduct">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRentEase/deactivateProduct" message="tns:IRentEase_deactivateProduct_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRentEase/deactivateProductResponse" message="tns:IRentEase_deactivateProduct_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="getBestProds">
       <wsdl:input wsaw:Action="http://tempuri.org/IRentEase/getBestProds" message="tns:IRentEase_getBestProds_InputMessage" />
@@ -327,8 +337,17 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="getProdsByCat">
-      <soap:operation soapAction="http://tempuri.org/IRentEase/getProdsByCat" style="document" />
+    <wsdl:operation name="rateProduct">
+      <soap:operation soapAction="http://tempuri.org/IRentEase/rateProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deactivateProduct">
+      <soap:operation soapAction="http://tempuri.org/IRentEase/deactivateProduct" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
