@@ -54,8 +54,8 @@ namespace FRONTEND
             hymlstrNewProds += "<h5> New Comment</h5>";
             hymlstrNewProds += "</div>";
            
-            BestProds = rc.getNewProds();
-            foreach (Product p in BestProds)
+            Prods = rc.getNewProds();
+            foreach (ServiceReference1.SysProduct p in Prods)
             {
                 hymlstrNewProds += "<div class='product_sidebarcomment_item'>";
                 hymlstrNewProds += "<div class='product_sidebarcommentitem_pic'>";
@@ -63,10 +63,9 @@ namespace FRONTEND
                 hymlstrNewProds += "</div>";
                 hymlstrNewProds += "<div class='product_sidebarcommentitem_text'>";
                 hymlstrNewProds += "<ul>";
-                hymlstrNewProds += "<li>Active</li>";
-                hymlstrNewProds += "<li>Movie</li>";
+                hymlstrNewProds += "<li>"+p.Category+"</li>";
                 hymlstrNewProds += "</ul>";
-                hymlstrNewProds += "<h5><a href='#'>The Seven Deadly Sins: Wrath of the Gods</a></h5>";
+                hymlstrNewProds += "<h5><a href='About.aspx?=id"+p.Id+"'>"+p.Product_Name+"</a></h5>";
                 hymlstrNewProds += "<span>";
                 hymlstrNewProds += "<div class='anime_details_btn'>";
                 hymlstrNewProds += "<a href ='#' class='watch-btn'><span> Add to cart</span> <i class='fa fa-angle-right'></i></a>";
