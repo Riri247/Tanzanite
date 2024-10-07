@@ -545,6 +545,12 @@ namespace FRONTEND.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/AddProduct", ReplyAction="http://tempuri.org/IRentEase/AddProductResponse")]
         System.Threading.Tasks.Task<bool> AddProductAsync(string description, int quantity, decimal price, int merchantID, string[] images);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/EditProduct", ReplyAction="http://tempuri.org/IRentEase/EditProductResponse")]
+        bool EditProduct(int ProductID, string description, int quantity, decimal price, int merchantID, string[] images);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/EditProduct", ReplyAction="http://tempuri.org/IRentEase/EditProductResponse")]
+        System.Threading.Tasks.Task<bool> EditProductAsync(int ProductID, string description, int quantity, decimal price, int merchantID, string[] images);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/changeQuantity", ReplyAction="http://tempuri.org/IRentEase/changeQuantityResponse")]
         bool changeQuantity(int ID, int quantity);
         
@@ -705,6 +711,14 @@ namespace FRONTEND.ServiceReference1 {
         
         public System.Threading.Tasks.Task<bool> AddProductAsync(string description, int quantity, decimal price, int merchantID, string[] images) {
             return base.Channel.AddProductAsync(description, quantity, price, merchantID, images);
+        }
+        
+        public bool EditProduct(int ProductID, string description, int quantity, decimal price, int merchantID, string[] images) {
+            return base.Channel.EditProduct(ProductID, description, quantity, price, merchantID, images);
+        }
+        
+        public System.Threading.Tasks.Task<bool> EditProductAsync(int ProductID, string description, int quantity, decimal price, int merchantID, string[] images) {
+            return base.Channel.EditProductAsync(ProductID, description, quantity, price, merchantID, images);
         }
         
         public bool changeQuantity(int ID, int quantity) {

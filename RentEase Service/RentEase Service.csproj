@@ -66,6 +66,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\TanzaniteD.mdf" />
+    <Content Include="App_Data\TanzaniteD_log.ldf">
+      <DependentUpon>TanzaniteD.mdf</DependentUpon>
+    </Content>
     <Content Include="RentEase.svc" />
     <Content Include="Tanzanite Files\Accomodation\Room 3.jpg" />
     <Content Include="Tanzanite Files\Accomodation\Room 4.jpg" />
@@ -97,6 +100,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IRentEase.cs" />
+    <Compile Include="RentDatadbml.cs">
+      <DependentUpon>RentDatadbml.dbml</DependentUpon>
+    </Compile>
     <Compile Include="RentDatadbml.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

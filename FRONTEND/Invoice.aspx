@@ -29,13 +29,14 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <div class="scroll-contain">
-
-        <object data="img/INDIVIDUAL ASSIGNMENT 2 HE ASHIMWE 222127212.pdf" type="application/pdf" width="100%" height="100%">
-            <p>This browser does not support PDFs. Please download the PDF to view it: <a href="path/to/your/document.pdf">Download PDF</a>.</p>
+    <div class="scroll-contain>
+        <object id="pdfViewer"  data="" type="application/pdf" width="100%" height="100%" runat="server">
+            <p>This browser does not support PDFs. Please download the PDF to view it: <a id="pdfSec" runat="server" href="">Download PDF</a>.</p>
         </object>
-        </div>
-
+    </div>
+    <div>
+        <asp:Checkbox runat><p><p>
+    </div>
 
     
     
