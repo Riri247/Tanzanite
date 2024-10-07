@@ -15,10 +15,14 @@ namespace FRONTEND
         SysProduct product;
         RentEaseClient rc = new RentEaseClient();
         int inputCount = 1;
-        
+
 
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            if (Session["ID"] == null)
+                Response.Redirect("Home.aspx");
+
             if (!IsPostBack)
             {
                 if (Request.QueryString["ID"] != null)
@@ -30,11 +34,11 @@ namespace FRONTEND
             }
             else
             {
-                
-               RecreateTextBoxes();
+
+                RecreateTextBoxes();
             }
 
-            
+
 
             if (product == null)
             {
@@ -73,7 +77,8 @@ namespace FRONTEND
                 Controls.Remove(image1);
                 int count = 1;
 
-                foreach (String img in images){
+                foreach (String img in images)
+                {
 
                     TextBox txtImg = new TextBox()
                     {
@@ -81,7 +86,7 @@ namespace FRONTEND
                         CssClass = "Pinput",
                         ID = "image" + count
                     };
-                  
+
                     image_url_holder.Controls.Add(txtImg);
 
 
@@ -89,6 +94,74 @@ namespace FRONTEND
                 }
                 inputCount = count;
 
+            }
+
+        }
+
+        protected void addInput_Click(object sender, EventArgs e)
+        {
+            TextBox txtImg = new TextBox()
+            {
+                CssClass = "Pinput",
+                ID = "image" + inputCount + 1
+            };
+
+            image_url_holder.Controls.Add(txtImg);
+            inputCount++;
+        }
+
+        protected void Submit_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                string strName = name.Value;
+                string strDescrip = description.Value;
+                string strCat = category.Value;
+                decimal dblPrice = decimal.Parse(price.Value);
+                int intQuant = int.Parse(quantity.Value);
+                bool blAvail = available.Checked;
+                string strAgree = agreement.Value;
+                List<String> arrImages = new List<String>();
+
+
+                for (int i = 1; i <= inputCount; i++)
+                {
+                    arrImages[i] = ((TextBox)image_url_holder.FindControl("image" + 1)).Text;
+
+                }
+
+
+                if (product != null)
+                {
+
+
+
+                }
+                else
+                {
+
+                    if (rc.AddProduct(strDescrip, intQuant, dblPrice, int.Parse(Session["ID"].ToString()), arrImages.ToArray()))
+                    {
+                        response.ForeColor = System.Drawing.Color.Green;
+                        response.Text = "Product Successully added to the database";
+                    }
+                    else
+                    {
+                        response.ForeColor = System.Drawing.Color.Red;
+                        response.Text = "Product Could Not be added to the database";
+
+
+                    }
+
+
+                }
+            }
+            catch (Exception)
+            {
+                Response.Redirect("ManageOneP.aspx");
+                response.ForeColor = System.Drawing.Color.Red;
+                response.Text = "An error occurred, You are now creating a product.";
             }
 
         }
