@@ -53,3 +53,5 @@ INSERT INTO [dbo].[Product] (Product_Name, Decript, Quantity, Price, M_ID, Avail
 -- Truck Moving Service (1 Service)
 INSERT INTO [dbo].[Product] (Product_Name, Decript, Quantity, Price, M_ID, Available, Rental_Agreement, Category, Registration_Date, Image_URL) VALUES
 ('Truck Moving Service', 'Truck available to move items from one location to another. Price per hour.', 1, 500.00, 1, 1, '/Tanzanite Files/Rental Agreement/Default_Contract.pdf', 'Furniture', GETDATE(), '/Tanzanite Files/Moving Products/Truck_Service.jpg');
+
+
