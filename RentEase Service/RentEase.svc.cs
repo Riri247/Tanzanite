@@ -168,7 +168,7 @@ namespace RentEase_Service
                             {
                                 C_ID = c.C_ID,
                                 P_ID = c.P_ID,
-                                Quantity = c.Quantity
+                                //Quantity = c.Quantity
                             }
 
                         };
