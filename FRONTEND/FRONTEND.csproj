@@ -73,13 +73,13 @@
     <Content Include="Cart.aspx" />
     <None Include="Connected Services\ServiceReference1\configuration91.svcinfo" />
     <None Include="Connected Services\ServiceReference1\configuration.svcinfo" />
-    <Content Include="Connected Services\ServiceReference1\FRONTEND.ServiceReference1.Product.datasource">
+    <Content Include="Connected Services\ServiceReference1\FRONTEND.ServiceReference1.CartProductWrapper.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\ServiceReference1\FRONTEND.ServiceReference1.ProductImage.datasource">
+    <Content Include="Connected Services\ServiceReference1\FRONTEND.ServiceReference1.SysProduct.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\ServiceReference1\FRONTEND.ServiceReference1.User1.datasource">
+    <Content Include="Connected Services\ServiceReference1\FRONTEND.ServiceReference1.SysUser.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Connected Services\ServiceReference1\Reference.svcmap">
@@ -208,6 +208,7 @@
     <Compile Include="Report.aspx.designer.cs">
       <DependentUpon>Report.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Secrecy.cs" />
     <Compile Include="Signup.aspx.cs">
       <DependentUpon>Signup.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

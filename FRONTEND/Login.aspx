@@ -19,6 +19,9 @@
                                 <span class="icon_lock"></span>
                             </div>
                             <asp:Button ID="btnLogin" runat="server" Text="Login Now" CssClass="site-btn" OnClick="btnLogin_Click" />
+                            <div>
+                                <asp:Label ID="lblMessage" runat="server"/>
+                            </div>
                         </form>
                         <a href="#" class="forget_pass">Forgot Your Password?</a>
                     </div>

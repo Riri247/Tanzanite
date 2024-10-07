@@ -15,30 +15,18 @@ namespace FRONTEND.ServiceReference1 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="User1", Namespace="http://schemas.datacontract.org/2004/07/RentEase_Service")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SysUser", Namespace="http://schemas.datacontract.org/2004/07/RentEase_Service")]
     [System.SerializableAttribute()]
-    public partial class User1 : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class SysUser : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool ActiveField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private FRONTEND.ServiceReference1.Admin AdminField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string EmailField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private FRONTEND.ServiceReference1.Merchant MerchantField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private FRONTEND.ServiceReference1.Shopping_cart[] Shopping_cartsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string SurnameField;
@@ -59,32 +47,6 @@ namespace FRONTEND.ServiceReference1 {
             }
             set {
                 this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool Active {
-            get {
-                return this.ActiveField;
-            }
-            set {
-                if ((this.ActiveField.Equals(value) != true)) {
-                    this.ActiveField = value;
-                    this.RaisePropertyChanged("Active");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public FRONTEND.ServiceReference1.Admin Admin {
-            get {
-                return this.AdminField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.AdminField, value) != true)) {
-                    this.AdminField = value;
-                    this.RaisePropertyChanged("Admin");
-                }
             }
         }
         
@@ -110,32 +72,6 @@ namespace FRONTEND.ServiceReference1 {
                 if ((this.IdField.Equals(value) != true)) {
                     this.IdField = value;
                     this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public FRONTEND.ServiceReference1.Merchant Merchant {
-            get {
-                return this.MerchantField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.MerchantField, value) != true)) {
-                    this.MerchantField = value;
-                    this.RaisePropertyChanged("Merchant");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public FRONTEND.ServiceReference1.Shopping_cart[] Shopping_carts {
-            get {
-                return this.Shopping_cartsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Shopping_cartsField, value) != true)) {
-                    this.Shopping_cartsField = value;
-                    this.RaisePropertyChanged("Shopping_carts");
                 }
             }
         }
@@ -204,240 +140,9 @@ namespace FRONTEND.ServiceReference1 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Admin", Namespace="http://schemas.datacontract.org/2004/07/RentEase_Service")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SysProduct", Namespace="http://schemas.datacontract.org/2004/07/RentEase_Service")]
     [System.SerializableAttribute()]
-    public partial class Admin : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int A_IDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private FRONTEND.ServiceReference1.User1 User1Field;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int A_ID {
-            get {
-                return this.A_IDField;
-            }
-            set {
-                if ((this.A_IDField.Equals(value) != true)) {
-                    this.A_IDField = value;
-                    this.RaisePropertyChanged("A_ID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public FRONTEND.ServiceReference1.User1 User1 {
-            get {
-                return this.User1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.User1Field, value) != true)) {
-                    this.User1Field = value;
-                    this.RaisePropertyChanged("User1");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Merchant", Namespace="http://schemas.datacontract.org/2004/07/RentEase_Service")]
-    [System.SerializableAttribute()]
-    public partial class Merchant : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int M_IDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private FRONTEND.ServiceReference1.Product[] ProductsField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private FRONTEND.ServiceReference1.User1 User1Field;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int M_ID {
-            get {
-                return this.M_IDField;
-            }
-            set {
-                if ((this.M_IDField.Equals(value) != true)) {
-                    this.M_IDField = value;
-                    this.RaisePropertyChanged("M_ID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public FRONTEND.ServiceReference1.Product[] Products {
-            get {
-                return this.ProductsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ProductsField, value) != true)) {
-                    this.ProductsField = value;
-                    this.RaisePropertyChanged("Products");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public FRONTEND.ServiceReference1.User1 User1 {
-            get {
-                return this.User1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.User1Field, value) != true)) {
-                    this.User1Field = value;
-                    this.RaisePropertyChanged("User1");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Shopping_cart", Namespace="http://schemas.datacontract.org/2004/07/RentEase_Service")]
-    [System.SerializableAttribute()]
-    public partial class Shopping_cart : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int C_IDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int P_IDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private FRONTEND.ServiceReference1.Product ProductField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private FRONTEND.ServiceReference1.User1 User1Field;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int C_ID {
-            get {
-                return this.C_IDField;
-            }
-            set {
-                if ((this.C_IDField.Equals(value) != true)) {
-                    this.C_IDField = value;
-                    this.RaisePropertyChanged("C_ID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int P_ID {
-            get {
-                return this.P_IDField;
-            }
-            set {
-                if ((this.P_IDField.Equals(value) != true)) {
-                    this.P_IDField = value;
-                    this.RaisePropertyChanged("P_ID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public FRONTEND.ServiceReference1.Product Product {
-            get {
-                return this.ProductField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ProductField, value) != true)) {
-                    this.ProductField = value;
-                    this.RaisePropertyChanged("Product");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public FRONTEND.ServiceReference1.User1 User1 {
-            get {
-                return this.User1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.User1Field, value) != true)) {
-                    this.User1Field = value;
-                    this.RaisePropertyChanged("User1");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Product", Namespace="http://schemas.datacontract.org/2004/07/RentEase_Service")]
-    [System.SerializableAttribute()]
-    public partial class Product : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class SysProduct : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -455,13 +160,10 @@ namespace FRONTEND.ServiceReference1 {
         private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private FRONTEND.ServiceReference1.Image[] ImagesField;
+        private string Image_URLField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int M_IDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private FRONTEND.ServiceReference1.Merchant MerchantField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private decimal PriceField;
@@ -477,9 +179,6 @@ namespace FRONTEND.ServiceReference1 {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string Rental_AgreementField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private FRONTEND.ServiceReference1.Shopping_cart[] Shopping_cartsField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -544,14 +243,14 @@ namespace FRONTEND.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public FRONTEND.ServiceReference1.Image[] Images {
+        public string Image_URL {
             get {
-                return this.ImagesField;
+                return this.Image_URLField;
             }
             set {
-                if ((object.ReferenceEquals(this.ImagesField, value) != true)) {
-                    this.ImagesField = value;
-                    this.RaisePropertyChanged("Images");
+                if ((object.ReferenceEquals(this.Image_URLField, value) != true)) {
+                    this.Image_URLField = value;
+                    this.RaisePropertyChanged("Image_URL");
                 }
             }
         }
@@ -565,19 +264,6 @@ namespace FRONTEND.ServiceReference1 {
                 if ((this.M_IDField.Equals(value) != true)) {
                     this.M_IDField = value;
                     this.RaisePropertyChanged("M_ID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public FRONTEND.ServiceReference1.Merchant Merchant {
-            get {
-                return this.MerchantField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.MerchantField, value) != true)) {
-                    this.MerchantField = value;
-                    this.RaisePropertyChanged("Merchant");
                 }
             }
         }
@@ -647,15 +333,63 @@ namespace FRONTEND.ServiceReference1 {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public FRONTEND.ServiceReference1.Shopping_cart[] Shopping_carts {
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CartProductWrapper", Namespace="http://schemas.datacontract.org/2004/07/RentEase_Service")]
+    [System.SerializableAttribute()]
+    public partial class CartProductWrapper : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private FRONTEND.ServiceReference1.SysShopping_Cart cartField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private FRONTEND.ServiceReference1.SysProduct productField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
-                return this.Shopping_cartsField;
+                return this.extensionDataField;
             }
             set {
-                if ((object.ReferenceEquals(this.Shopping_cartsField, value) != true)) {
-                    this.Shopping_cartsField = value;
-                    this.RaisePropertyChanged("Shopping_carts");
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public FRONTEND.ServiceReference1.SysShopping_Cart cart {
+            get {
+                return this.cartField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.cartField, value) != true)) {
+                    this.cartField = value;
+                    this.RaisePropertyChanged("cart");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public FRONTEND.ServiceReference1.SysProduct product {
+            get {
+                return this.productField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.productField, value) != true)) {
+                    this.productField = value;
+                    this.RaisePropertyChanged("product");
                 }
             }
         }
@@ -672,24 +406,21 @@ namespace FRONTEND.ServiceReference1 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Image", Namespace="http://schemas.datacontract.org/2004/07/RentEase_Service")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SysShopping_Cart", Namespace="http://schemas.datacontract.org/2004/07/RentEase_Service")]
     [System.SerializableAttribute()]
-    public partial class Image : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class SysShopping_Cart : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int Image_IDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string Image_URLField;
+        private int C_IDField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int P_IDField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private FRONTEND.ServiceReference1.Product ProductField;
+        private int QuantityField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -702,27 +433,14 @@ namespace FRONTEND.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Image_ID {
+        public int C_ID {
             get {
-                return this.Image_IDField;
+                return this.C_IDField;
             }
             set {
-                if ((this.Image_IDField.Equals(value) != true)) {
-                    this.Image_IDField = value;
-                    this.RaisePropertyChanged("Image_ID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Image_URL {
-            get {
-                return this.Image_URLField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Image_URLField, value) != true)) {
-                    this.Image_URLField = value;
-                    this.RaisePropertyChanged("Image_URL");
+                if ((this.C_IDField.Equals(value) != true)) {
+                    this.C_IDField = value;
+                    this.RaisePropertyChanged("C_ID");
                 }
             }
         }
@@ -741,75 +459,14 @@ namespace FRONTEND.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public FRONTEND.ServiceReference1.Product Product {
+        public int Quantity {
             get {
-                return this.ProductField;
+                return this.QuantityField;
             }
             set {
-                if ((object.ReferenceEquals(this.ProductField, value) != true)) {
-                    this.ProductField = value;
-                    this.RaisePropertyChanged("Product");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ProductImage", Namespace="http://schemas.datacontract.org/2004/07/RentEase_Service")]
-    [System.SerializableAttribute()]
-    public partial class ProductImage : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private FRONTEND.ServiceReference1.Image ImageField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private FRONTEND.ServiceReference1.Product ProductField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public FRONTEND.ServiceReference1.Image Image {
-            get {
-                return this.ImageField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ImageField, value) != true)) {
-                    this.ImageField = value;
-                    this.RaisePropertyChanged("Image");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public FRONTEND.ServiceReference1.Product Product {
-            get {
-                return this.ProductField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ProductField, value) != true)) {
-                    this.ProductField = value;
-                    this.RaisePropertyChanged("Product");
+                if ((this.QuantityField.Equals(value) != true)) {
+                    this.QuantityField = value;
+                    this.RaisePropertyChanged("Quantity");
                 }
             }
         }
@@ -829,10 +486,10 @@ namespace FRONTEND.ServiceReference1 {
     public interface IRentEase {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/Login", ReplyAction="http://tempuri.org/IRentEase/LoginResponse")]
-        FRONTEND.ServiceReference1.User1 Login(string email, string password);
+        FRONTEND.ServiceReference1.SysUser Login(string email, string password);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/Login", ReplyAction="http://tempuri.org/IRentEase/LoginResponse")]
-        System.Threading.Tasks.Task<FRONTEND.ServiceReference1.User1> LoginAsync(string email, string password);
+        System.Threading.Tasks.Task<FRONTEND.ServiceReference1.SysUser> LoginAsync(string email, string password);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/Register", ReplyAction="http://tempuri.org/IRentEase/RegisterResponse")]
         bool Register(string email, string password, string name, string surname);
@@ -841,16 +498,16 @@ namespace FRONTEND.ServiceReference1 {
         System.Threading.Tasks.Task<bool> RegisterAsync(string email, string password, string name, string surname);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/getProduct", ReplyAction="http://tempuri.org/IRentEase/getProductResponse")]
-        FRONTEND.ServiceReference1.ProductImage getProduct(int ID);
+        FRONTEND.ServiceReference1.SysProduct getProduct(int ID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/getProduct", ReplyAction="http://tempuri.org/IRentEase/getProductResponse")]
-        System.Threading.Tasks.Task<FRONTEND.ServiceReference1.ProductImage> getProductAsync(int ID);
+        System.Threading.Tasks.Task<FRONTEND.ServiceReference1.SysProduct> getProductAsync(int ID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/getProducts", ReplyAction="http://tempuri.org/IRentEase/getProductsResponse")]
-        FRONTEND.ServiceReference1.ProductImage[] getProducts();
+        FRONTEND.ServiceReference1.SysProduct[] getProducts();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/getProducts", ReplyAction="http://tempuri.org/IRentEase/getProductsResponse")]
-        System.Threading.Tasks.Task<FRONTEND.ServiceReference1.ProductImage[]> getProductsAsync();
+        System.Threading.Tasks.Task<FRONTEND.ServiceReference1.SysProduct[]> getProductsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/addToCart", ReplyAction="http://tempuri.org/IRentEase/addToCartResponse")]
         bool addToCart(int UserID, int ProductID);
@@ -865,16 +522,16 @@ namespace FRONTEND.ServiceReference1 {
         System.Threading.Tasks.Task<bool> removeFromCartAsync(int UserID, int ProductID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/getUserCart", ReplyAction="http://tempuri.org/IRentEase/getUserCartResponse")]
-        FRONTEND.ServiceReference1.Product[] getUserCart(int ID);
+        FRONTEND.ServiceReference1.CartProductWrapper[] getUserCart(int ID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/getUserCart", ReplyAction="http://tempuri.org/IRentEase/getUserCartResponse")]
-        System.Threading.Tasks.Task<FRONTEND.ServiceReference1.Product[]> getUserCartAsync(int ID);
+        System.Threading.Tasks.Task<FRONTEND.ServiceReference1.CartProductWrapper[]> getUserCartAsync(int ID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/getUser", ReplyAction="http://tempuri.org/IRentEase/getUserResponse")]
-        FRONTEND.ServiceReference1.User1 getUser(int ID);
+        FRONTEND.ServiceReference1.SysUser getUser(int ID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/getUser", ReplyAction="http://tempuri.org/IRentEase/getUserResponse")]
-        System.Threading.Tasks.Task<FRONTEND.ServiceReference1.User1> getUserAsync(int ID);
+        System.Threading.Tasks.Task<FRONTEND.ServiceReference1.SysUser> getUserAsync(int ID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/changePassword", ReplyAction="http://tempuri.org/IRentEase/changePasswordResponse")]
         bool changePassword(int ID, string password);
@@ -913,28 +570,34 @@ namespace FRONTEND.ServiceReference1 {
         System.Threading.Tasks.Task<bool> removeProductAsync(int ID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/placeOrder", ReplyAction="http://tempuri.org/IRentEase/placeOrderResponse")]
-        int placeOrder(int ID, FRONTEND.ServiceReference1.Product[] arrProducts, int[] arrQuantities, int[] arrDurations);
+        int placeOrder(int ID, FRONTEND.ServiceReference1.SysShopping_Cart[] cart, int[] arrDurations);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/placeOrder", ReplyAction="http://tempuri.org/IRentEase/placeOrderResponse")]
-        System.Threading.Tasks.Task<int> placeOrderAsync(int ID, FRONTEND.ServiceReference1.Product[] arrProducts, int[] arrQuantities, int[] arrDurations);
+        System.Threading.Tasks.Task<int> placeOrderAsync(int ID, FRONTEND.ServiceReference1.SysShopping_Cart[] cart, int[] arrDurations);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/getProdsByCat", ReplyAction="http://tempuri.org/IRentEase/getProdsByCatResponse")]
-        FRONTEND.ServiceReference1.Product[] getProdsByCat(string Category);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/rateProduct", ReplyAction="http://tempuri.org/IRentEase/rateProductResponse")]
+        bool rateProduct(int InvoiceID, int ProductID, int stars, string review);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/getProdsByCat", ReplyAction="http://tempuri.org/IRentEase/getProdsByCatResponse")]
-        System.Threading.Tasks.Task<FRONTEND.ServiceReference1.Product[]> getProdsByCatAsync(string Category);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/rateProduct", ReplyAction="http://tempuri.org/IRentEase/rateProductResponse")]
+        System.Threading.Tasks.Task<bool> rateProductAsync(int InvoiceID, int ProductID, int stars, string review);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/deactivateProduct", ReplyAction="http://tempuri.org/IRentEase/deactivateProductResponse")]
+        bool deactivateProduct(int ID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/deactivateProduct", ReplyAction="http://tempuri.org/IRentEase/deactivateProductResponse")]
+        System.Threading.Tasks.Task<bool> deactivateProductAsync(int ID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/getBestProds", ReplyAction="http://tempuri.org/IRentEase/getBestProdsResponse")]
-        FRONTEND.ServiceReference1.Product[] getBestProds();
+        FRONTEND.ServiceReference1.SysProduct[] getBestProds();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/getBestProds", ReplyAction="http://tempuri.org/IRentEase/getBestProdsResponse")]
-        System.Threading.Tasks.Task<FRONTEND.ServiceReference1.Product[]> getBestProdsAsync();
+        System.Threading.Tasks.Task<FRONTEND.ServiceReference1.SysProduct[]> getBestProdsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/getNewProds", ReplyAction="http://tempuri.org/IRentEase/getNewProdsResponse")]
-        FRONTEND.ServiceReference1.Product[] getNewProds();
+        FRONTEND.ServiceReference1.SysProduct[] getNewProds();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/getNewProds", ReplyAction="http://tempuri.org/IRentEase/getNewProdsResponse")]
-        System.Threading.Tasks.Task<FRONTEND.ServiceReference1.Product[]> getNewProdsAsync();
+        System.Threading.Tasks.Task<FRONTEND.ServiceReference1.SysProduct[]> getNewProdsAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -964,11 +627,11 @@ namespace FRONTEND.ServiceReference1 {
                 base(binding, remoteAddress) {
         }
         
-        public FRONTEND.ServiceReference1.User1 Login(string email, string password) {
+        public FRONTEND.ServiceReference1.SysUser Login(string email, string password) {
             return base.Channel.Login(email, password);
         }
         
-        public System.Threading.Tasks.Task<FRONTEND.ServiceReference1.User1> LoginAsync(string email, string password) {
+        public System.Threading.Tasks.Task<FRONTEND.ServiceReference1.SysUser> LoginAsync(string email, string password) {
             return base.Channel.LoginAsync(email, password);
         }
         
@@ -980,19 +643,19 @@ namespace FRONTEND.ServiceReference1 {
             return base.Channel.RegisterAsync(email, password, name, surname);
         }
         
-        public FRONTEND.ServiceReference1.ProductImage getProduct(int ID) {
+        public FRONTEND.ServiceReference1.SysProduct getProduct(int ID) {
             return base.Channel.getProduct(ID);
         }
         
-        public System.Threading.Tasks.Task<FRONTEND.ServiceReference1.ProductImage> getProductAsync(int ID) {
+        public System.Threading.Tasks.Task<FRONTEND.ServiceReference1.SysProduct> getProductAsync(int ID) {
             return base.Channel.getProductAsync(ID);
         }
         
-        public FRONTEND.ServiceReference1.ProductImage[] getProducts() {
+        public FRONTEND.ServiceReference1.SysProduct[] getProducts() {
             return base.Channel.getProducts();
         }
         
-        public System.Threading.Tasks.Task<FRONTEND.ServiceReference1.ProductImage[]> getProductsAsync() {
+        public System.Threading.Tasks.Task<FRONTEND.ServiceReference1.SysProduct[]> getProductsAsync() {
             return base.Channel.getProductsAsync();
         }
         
@@ -1012,19 +675,19 @@ namespace FRONTEND.ServiceReference1 {
             return base.Channel.removeFromCartAsync(UserID, ProductID);
         }
         
-        public FRONTEND.ServiceReference1.Product[] getUserCart(int ID) {
+        public FRONTEND.ServiceReference1.CartProductWrapper[] getUserCart(int ID) {
             return base.Channel.getUserCart(ID);
         }
         
-        public System.Threading.Tasks.Task<FRONTEND.ServiceReference1.Product[]> getUserCartAsync(int ID) {
+        public System.Threading.Tasks.Task<FRONTEND.ServiceReference1.CartProductWrapper[]> getUserCartAsync(int ID) {
             return base.Channel.getUserCartAsync(ID);
         }
         
-        public FRONTEND.ServiceReference1.User1 getUser(int ID) {
+        public FRONTEND.ServiceReference1.SysUser getUser(int ID) {
             return base.Channel.getUser(ID);
         }
         
-        public System.Threading.Tasks.Task<FRONTEND.ServiceReference1.User1> getUserAsync(int ID) {
+        public System.Threading.Tasks.Task<FRONTEND.ServiceReference1.SysUser> getUserAsync(int ID) {
             return base.Channel.getUserAsync(ID);
         }
         
@@ -1076,35 +739,43 @@ namespace FRONTEND.ServiceReference1 {
             return base.Channel.removeProductAsync(ID);
         }
         
-        public int placeOrder(int ID, FRONTEND.ServiceReference1.Product[] arrProducts, int[] arrQuantities, int[] arrDurations) {
-            return base.Channel.placeOrder(ID, arrProducts, arrQuantities, arrDurations);
+        public int placeOrder(int ID, FRONTEND.ServiceReference1.SysShopping_Cart[] cart, int[] arrDurations) {
+            return base.Channel.placeOrder(ID, cart, arrDurations);
         }
         
-        public System.Threading.Tasks.Task<int> placeOrderAsync(int ID, FRONTEND.ServiceReference1.Product[] arrProducts, int[] arrQuantities, int[] arrDurations) {
-            return base.Channel.placeOrderAsync(ID, arrProducts, arrQuantities, arrDurations);
+        public System.Threading.Tasks.Task<int> placeOrderAsync(int ID, FRONTEND.ServiceReference1.SysShopping_Cart[] cart, int[] arrDurations) {
+            return base.Channel.placeOrderAsync(ID, cart, arrDurations);
         }
         
-        public FRONTEND.ServiceReference1.Product[] getProdsByCat(string Category) {
-            return base.Channel.getProdsByCat(Category);
+        public bool rateProduct(int InvoiceID, int ProductID, int stars, string review) {
+            return base.Channel.rateProduct(InvoiceID, ProductID, stars, review);
         }
         
-        public System.Threading.Tasks.Task<FRONTEND.ServiceReference1.Product[]> getProdsByCatAsync(string Category) {
-            return base.Channel.getProdsByCatAsync(Category);
+        public System.Threading.Tasks.Task<bool> rateProductAsync(int InvoiceID, int ProductID, int stars, string review) {
+            return base.Channel.rateProductAsync(InvoiceID, ProductID, stars, review);
         }
         
-        public FRONTEND.ServiceReference1.Product[] getBestProds() {
+        public bool deactivateProduct(int ID) {
+            return base.Channel.deactivateProduct(ID);
+        }
+        
+        public System.Threading.Tasks.Task<bool> deactivateProductAsync(int ID) {
+            return base.Channel.deactivateProductAsync(ID);
+        }
+        
+        public FRONTEND.ServiceReference1.SysProduct[] getBestProds() {
             return base.Channel.getBestProds();
         }
         
-        public System.Threading.Tasks.Task<FRONTEND.ServiceReference1.Product[]> getBestProdsAsync() {
+        public System.Threading.Tasks.Task<FRONTEND.ServiceReference1.SysProduct[]> getBestProdsAsync() {
             return base.Channel.getBestProdsAsync();
         }
         
-        public FRONTEND.ServiceReference1.Product[] getNewProds() {
+        public FRONTEND.ServiceReference1.SysProduct[] getNewProds() {
             return base.Channel.getNewProds();
         }
         
-        public System.Threading.Tasks.Task<FRONTEND.ServiceReference1.Product[]> getNewProdsAsync() {
+        public System.Threading.Tasks.Task<FRONTEND.ServiceReference1.SysProduct[]> getNewProdsAsync() {
             return base.Channel.getNewProdsAsync();
         }
     }

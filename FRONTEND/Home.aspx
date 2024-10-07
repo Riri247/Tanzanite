@@ -41,7 +41,7 @@
                                 <div class="label">Rentals</div>
                                 <h2>Accomodations</h2>
                                 <p>Description</p>
-                                <a href="ProductList.aspx?Category=Accomodations"><span>Load products</span> <i class="fa fa-angle-right"></i></a>
+                                <a href="ProductList.aspx?Category=Accomodations"><span>View</span> <i class="fa fa-angle-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -93,7 +93,7 @@
                             <div class="section-title">
             <h5>New Comment</h5>
         </div>
-                            <!-- side bar procust start-->
+                            <!-- side bar procust start end-->
         <div class="product__sidebar__comment__item">
             <div class="product__sidebar__comment__item__pic">
                 <img src="img/sidebar/comment-1.jpg" alt="">
