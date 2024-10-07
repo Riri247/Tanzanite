@@ -3084,6 +3084,5 @@ namespace RentEase_Service
 			entity.User = null;
 		}
 	}
->>>>>>> main
 }
 #pragma warning restore 1591

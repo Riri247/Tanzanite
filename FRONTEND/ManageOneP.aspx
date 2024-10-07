@@ -147,7 +147,7 @@
     <!-- BUTTON-->
     <div class="AttributeCont">
         <div class="anime__details__btn">
-            <a href="#" class="follow-btn">Submit to DB</a>
+            <asp:Button ID="btnSubmit" runat="server" CssClass="follow-btn" Text="Submit to DB" OnClick="Submit_Click"></asp:Button>
 
         </div>
 

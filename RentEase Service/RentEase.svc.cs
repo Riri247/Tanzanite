@@ -168,7 +168,7 @@ namespace RentEase_Service
                             {
                                 C_ID = c.C_ID,
                                 P_ID = c.P_ID,
-                                Quantity = c.Quantity
+                                //Quantity = c.Quantity
                             }
 
                         };
@@ -216,13 +216,14 @@ namespace RentEase_Service
         }
 
 
-        public bool AddProduct(string description, int quantity, decimal price, int merchantID, string[] images)
+        public bool AddProduct(string name, string description, int quantity, decimal price, int merchantID, string[] images)
         {
             try
             {
                 // create product
                 var product = new Product
                 {
+                    Product_Name = name,
                     Decript = description,
                     Quantity = quantity,
                     Price = price,
@@ -242,7 +243,7 @@ namespace RentEase_Service
 
         }
 
-        public bool EditProduct(int ProductID, string description, int quantity, decimal price, int merchantID, string[] images)
+        public bool EditProduct(int ProductID, string name, string description, int quantity, decimal price, int merchantID, string[] images)
         {
             try
             {
@@ -255,6 +256,7 @@ namespace RentEase_Service
 
                 if (product != null)
                 {
+                    product.Product_Name = name;
                     product.Decript = description;
                     product.Quantity = quantity;
                     product.Price = price;
