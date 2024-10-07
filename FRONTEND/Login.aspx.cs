@@ -4,46 +4,45 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using FRONTEND.ServiceReference1;
+using HashPass;
 
 namespace FRONTEND
 {
     public partial class Login : System.Web.UI.Page
     {
+        RentEaseClient serve = new RentEaseClient();
         protected void Page_Load(object sender, EventArgs e)
         {
             
         }
 
-
-      
-
-        private bool AuthenticateUser(string email, string password)
-        {
-            // Replace this with your actual authentication logic
-            // For example, querying the database to check if the credentials are correct.
-
-            // Example placeholder logic:
-            return email == "admin@example.com" && password == "password";
-        }
-
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-            string email = txtEmail.Text.Trim();
-            string password = txtPassword.Text.Trim();
+            /*
+             * Email = u.Email,
+               Id = u.Id,
+               User_Type = u.User_Type
+             */
 
-            // Implement your authentication logic here.
-            bool isAuthenticated = AuthenticateUser(email, password);
+            if(!String.IsNullOrEmpty(txtEmail.Text) && !String.IsNullOrEmpty(txtPassword.Text))
+            {
+                //validate
+                ServiceReference1.SysUser user = serve.Login(txtEmail.Text, Secrecy.HashPassword(txtPassword.Text));
+                if(user!=null)
+                {
+                    Session["ID"] = user.Id;
+                    Session["Email"] = user.Email;
+                    Session["U_type"] = user.User_Type;
+                }
+                else
+                {
+                    lblMessage.Text = "Incorrect Email address or password.";
+                    lblMessage.ForeColor = System.Drawing.Color.Red;
+                }
+            }
 
-            if (isAuthenticated)
-            {
-                // Redirect to the homepage or any other page upon successful login.
-                Response.Redirect("Home.aspx");
-            }
-            else
-            {
-                // Display an error message
-                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Invalid email or password.');", true);
-            }
+            
         }
     }
 }

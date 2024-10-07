@@ -65,15 +65,34 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\Database1.mdf" />
-    <Content Include="App_Data\Database1_log.ldf">
-      <DependentUpon>Database1.mdf</DependentUpon>
-    </Content>
     <Content Include="App_Data\TanzaniteD.mdf" />
-    <Content Include="App_Data\TanzaniteD_log.ldf">
-      <DependentUpon>TanzaniteD.mdf</DependentUpon>
-    </Content>
     <Content Include="RentEase.svc" />
+    <Content Include="Tanzanite Files\Accomodation\Room 3.jpg" />
+    <Content Include="Tanzanite Files\Accomodation\Room 4.jpg" />
+    <Content Include="Tanzanite Files\Accomodation\Room 5.jpg" />
+    <Content Include="Tanzanite Files\Accomodation\Rooms-to-rent-in-Randburg.jpg" />
+    <Content Include="Tanzanite Files\Chairs\Chair 1.jpg" />
+    <Content Include="Tanzanite Files\Chairs\Chair 2.jpg" />
+    <Content Include="Tanzanite Files\Chairs\Chair 3.jpg" />
+    <Content Include="Tanzanite Files\Chairs\Chair 4.jpg" />
+    <Content Include="Tanzanite Files\Chairs\Chair 5.jpg" />
+    <Content Include="Tanzanite Files\Couches\Sofa 1.jpg" />
+    <Content Include="Tanzanite Files\Couches\Sofa 2.jpg" />
+    <Content Include="Tanzanite Files\Couches\Sofa 3.jpg" />
+    <Content Include="Tanzanite Files\Couches\Sofa 4.jpg" />
+    <Content Include="Tanzanite Files\Couches\Sofa 5.jpg" />
+    <Content Include="Tanzanite Files\Fridges\Fridge 3.jpg" />
+    <Content Include="Tanzanite Files\Lamps\Lamp 1.jpg" />
+    <Content Include="Tanzanite Files\Lamps\Lamp 2.jpg" />
+    <Content Include="Tanzanite Files\Lamps\Lamp 3.jpg" />
+    <Content Include="Tanzanite Files\Lamps\Lamp 4.jpg" />
+    <Content Include="Tanzanite Files\Microwaves\Microwave 2.jpg" />
+    <Content Include="Tanzanite Files\Microwaves\Microwave 3.png" />
+    <Content Include="Tanzanite Files\Moving Products\Truck service.jpg" />
+    <Content Include="Tanzanite Files\Tables\Table 1.jpg" />
+    <Content Include="Tanzanite Files\Tables\Table 2.jpg" />
+    <Content Include="Tanzanite Files\Tables\Table 3.jpg" />
+    <Content Include="Tanzanite Files\Tables\Table 4.jpg" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -99,6 +118,14 @@
     <None Include="RentDatadbml.dbml.layout">
       <DependentUpon>RentDatadbml.dbml</DependentUpon>
     </None>
+    <Content Include="Tanzanite Files\Accomodation\Room 2.webp" />
+    <Content Include="Tanzanite Files\Fridges\Fridge 1.avif" />
+    <Content Include="Tanzanite Files\Fridges\Fridge 2.webp" />
+    <Content Include="Tanzanite Files\Fridges\Fridge 4.webp" />
+    <Content Include="Tanzanite Files\Fridges\Fridge 5.webp" />
+    <Content Include="Tanzanite Files\Microwaves\Microwave 1.webp" />
+    <Content Include="Tanzanite Files\Microwaves\Microwave 4.webp" />
+    <Content Include="Tanzanite Files\Rental Agreement\Default Contract.pdf" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

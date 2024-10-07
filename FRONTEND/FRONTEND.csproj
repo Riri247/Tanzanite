@@ -73,23 +73,31 @@
     <Content Include="Cart.aspx" />
     <None Include="Connected Services\ServiceReference1\configuration91.svcinfo" />
     <None Include="Connected Services\ServiceReference1\configuration.svcinfo" />
-    <Content Include="Connected Services\ServiceReference1\FRONTEND.ServiceReference1.Product.datasource">
+    <Content Include="Connected Services\ServiceReference1\FRONTEND.ServiceReference1.CartProductWrapper.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\ServiceReference1\FRONTEND.ServiceReference1.ProductImage.datasource">
+    <Content Include="Connected Services\ServiceReference1\FRONTEND.ServiceReference1.SysProduct.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\ServiceReference1\FRONTEND.ServiceReference1.User1.datasource">
+    <Content Include="Connected Services\ServiceReference1\FRONTEND.ServiceReference1.SysUser.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Connected Services\ServiceReference1\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="ContractView.aspx" />
+    <Content Include="EditUser.aspx" />
     <Content Include="hero-1.jpg" />
+    <Content Include="History.aspx" />
     <Content Include="Home.aspx" />
+    <Content Include="Invoice.aspx" />
     <Content Include="Login.aspx" />
+    <Content Include="ManageOneP.aspx" />
+    <Content Include="ManageP.aspx" />
+    <Content Include="ManageU.aspx" />
     <Content Include="ProductList.aspx" />
+    <Content Include="Report.aspx" />
     <Content Include="Signup.aspx" />
     <Content Include="Test.aspx" />
     <Content Include="Web.config" />
@@ -122,6 +130,27 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="ContractView.aspx.cs">
+      <DependentUpon>ContractView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ContractView.aspx.designer.cs">
+      <DependentUpon>ContractView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditUser.aspx.cs">
+      <DependentUpon>EditUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditUser.aspx.designer.cs">
+      <DependentUpon>EditUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="History.aspx.cs">
+      <DependentUpon>History.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="History.aspx.designer.cs">
+      <DependentUpon>History.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -129,12 +158,40 @@
     <Compile Include="Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Invoice.aspx.cs">
+      <DependentUpon>Invoice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Invoice.aspx.designer.cs">
+      <DependentUpon>Invoice.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ManageOneP.aspx.cs">
+      <DependentUpon>ManageOneP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageOneP.aspx.designer.cs">
+      <DependentUpon>ManageOneP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ManageP.aspx.cs">
+      <DependentUpon>ManageP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageP.aspx.designer.cs">
+      <DependentUpon>ManageP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ManageU.aspx.cs">
+      <DependentUpon>ManageU.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageU.aspx.designer.cs">
+      <DependentUpon>ManageU.aspx</DependentUpon>
     </Compile>
     <Compile Include="ProductList.aspx.cs">
       <DependentUpon>ProductList.aspx</DependentUpon>
@@ -144,6 +201,14 @@
       <DependentUpon>ProductList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Report.aspx.cs">
+      <DependentUpon>Report.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Report.aspx.designer.cs">
+      <DependentUpon>Report.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Secrecy.cs" />
     <Compile Include="Signup.aspx.cs">
       <DependentUpon>Signup.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
