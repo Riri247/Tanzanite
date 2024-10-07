@@ -20,19 +20,6 @@
       <Association Name="Invoice_Order" Member="Orders" ThisKey="ID" OtherKey="Invoice_ID" Type="Order" />
     </Type>
   </Table>
-  <Table Name="dbo.[User]" Member="Users">
-    <Type Name="User">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="U_Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Surname" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Email" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="User_Type" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
-      <Column Name="password" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Association Name="User_Customer_Invoice" Member="Customer_Invoices" ThisKey="Id" OtherKey="C_ID" Type="Customer_Invoice" />
-      <Association Name="User_Merchant" Member="Merchant" ThisKey="Id" OtherKey="M_ID" Type="Merchant" Cardinality="One" />
-      <Association Name="User_Shopping_cart" Member="Shopping_carts" ThisKey="Id" OtherKey="C_ID" Type="Shopping_cart" />
-    </Type>
-  </Table>
   <Table Name="dbo.Product" Member="Products">
     <Type Name="Product">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -59,7 +46,7 @@
       <Column Name="subTotal" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
       <Column Name="Durantion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Price" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
-      <Association Name="Order_Review" Member="Reviews" ThisKey="Invoice_ID,Product_ID" OtherKey="Invoice_ID,Product_ID" Type="Reviews" Cardinality="One" />
+      <Association Name="Order_Reviews" Member="Reviews" ThisKey="Invoice_ID,Product_ID" OtherKey="Invoice_ID,Product_ID" Type="Reviews" Cardinality="One" />
       <Association Name="Invoice_Order" Member="Invoice" ThisKey="Invoice_ID" OtherKey="ID" Type="Invoice" IsForeignKey="true" />
       <Association Name="Product_Order" Member="Product" ThisKey="Product_ID" OtherKey="Id" Type="Product" IsForeignKey="true" />
     </Type>
@@ -77,8 +64,8 @@
       <Column Name="P_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="C_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="Quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="User_Shopping_cart" Member="User" ThisKey="C_ID" OtherKey="Id" Type="User" IsForeignKey="true" />
       <Association Name="Product_Shopping_cart" Member="Product" ThisKey="P_ID" OtherKey="Id" Type="Product" IsForeignKey="true" />
+      <Association Name="User_Shopping_cart" Member="User" ThisKey="C_ID" OtherKey="Id" Type="User" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Reviews" Member="Reviews">
@@ -87,7 +74,21 @@
       <Column Name="Product_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="Star_Rating" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Review" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
-      <Association Name="Order_Review" Member="Order" ThisKey="Invoice_ID,Product_ID" OtherKey="Invoice_ID,Product_ID" Type="Order" IsForeignKey="true" />
+      <Association Name="Order_Reviews" Member="Order" ThisKey="Invoice_ID,Product_ID" OtherKey="Invoice_ID,Product_ID" Type="Order" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[User]" Member="Users">
+    <Type Name="User">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="U_Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Surname" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="User_Type" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="password" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="User_Customer_Invoice" Member="Customer_Invoices" ThisKey="Id" OtherKey="C_ID" Type="Customer_Invoice" />
+      <Association Name="User_Merchant" Member="Merchant" ThisKey="Id" OtherKey="M_ID" Type="Merchant" Cardinality="One" />
+      <Association Name="User_Shopping_cart" Member="Shopping_carts" ThisKey="Id" OtherKey="C_ID" Type="Shopping_cart" />
     </Type>
   </Table>
 </Database>

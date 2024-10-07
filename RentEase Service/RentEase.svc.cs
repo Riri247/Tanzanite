@@ -49,7 +49,8 @@ namespace RentEase_Service
                     Surname = surname,
                     Email = email,
                     password = password,
-                    User_Type = "Customer"
+                    User_Type = "Cus",
+                    Active = true
                 };
 
                 RentEaseDB.Users.InsertOnSubmit(u);
