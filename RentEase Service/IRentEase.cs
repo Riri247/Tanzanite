@@ -151,6 +151,19 @@ namespace RentEase_Service
         [OperationContract]
         bool AddProduct(string description, int quantity, decimal price, int merchantID, string[] images);
 
+        /// <summary>
+        /// This method edits a product in the database.
+        /// </summary>
+        /// <param name="ProductID">The ID of the product being edited.</param>
+        /// <param name="description">The description of the product.</param>
+        /// <param name="quantity">The quantity of the product.</param>
+        /// <param name="price">The price of the product.</param>
+        /// <param name="merchantID">The ID of the merchant associated with the product.</param>
+        /// <param name="images">The name/ link of the images of this product.</param>
+        /// <returns>Returns true if the product was added successfully, otherwise false.</returns>
+        [OperationContract]
+        bool EditProduct(int ProductID, string description, int quantity, decimal price, int merchantID, string[] images);
+
 
         /// <summary>
         /// This method changes a product's quantity.
