@@ -23,13 +23,53 @@ namespace FRONTEND
 			RentEaseClient rc = new RentEaseClient();
 			//Laoding the category
 			dynamic Prods= rc.getProducts(); //dynamic list that can be any type of products
-								 //if Category was passed as a parameter
+			List<ServiceReference1.SysProduct> listProducts = new List<SysProduct>();
+			//if Category was passed as a parameter
 
 			if (Request.QueryString["Category"].ToString() != null)
 			{
 				String Category = Request.QueryString["Category"].ToString();
+				
+				switch (Category)
+                {
+					case "Electronics":
+                        {
+							foreach(SysProduct p in Prods)
+                            {
+								if(p.Category.Equals("Electronics"))
+                                {
+									listProducts.Add(p);
+                                }
+                            }
 
-				Prods =null;
+							break;
+                        }
+					case "Accomodations":
+						{
+							foreach (SysProduct p in Prods)
+							{
+								if (p.Category.Equals("Accomodations"))
+								{
+									listProducts.Add(p);
+								}
+							}
+
+							break;
+						}
+					case "Furniture":
+						{
+							foreach (SysProduct p in Prods)
+							{
+								if (p.Category.Equals("Furniture"))
+								{
+									listProducts.Add(p);
+								}
+							}
+
+							break;
+						}
+
+				}
 			}
 			//if client either wants the best or new products
 			else if (Request.QueryString["Type"].ToString() != null) {
@@ -53,7 +93,7 @@ namespace FRONTEND
 			if (Prods != null)
 			{
 				String htmlstrProdList = "";
-				foreach (ServiceReference1.SysProduct p in Prods) {
+				foreach (ServiceReference1.SysProduct p in listProducts) {
 					htmlstrProdList += "<tr>";
 					htmlstrProdList += "<td>";
 					htmlstrProdList += "<a href='About.aspx?id="+p.Id+"'>";
@@ -73,7 +113,7 @@ namespace FRONTEND
 					htmlstrProdList += "</td>";
 
 					htmlstrProdList += "<td>";
-					htmlstrProdList += p.Price;
+					htmlstrProdList +="R"+ p.Price;
 					htmlstrProdList += "</td>";
 
 					htmlstrProdList += "</tr>";

@@ -49,7 +49,8 @@ namespace RentEase_Service
                     Surname = surname,
                     Email = email,
                     password = password,
-                    User_Type = "Customer"
+                    User_Type = "Cus",
+                    Active = true
                 };
 
                 RentEaseDB.Users.InsertOnSubmit(u);
@@ -240,6 +241,45 @@ namespace RentEase_Service
             }
 
         }
+
+        public bool EditProduct(int ProductID, string description, int quantity, decimal price, int merchantID, string[] images)
+        {
+            try
+            {
+
+                var query = from p in RentEaseDB.Products
+                            where p.Id == ProductID && p.M_ID == merchantID
+                            select p;
+
+                Product product = query.FirstOrDefault();
+
+                if (product != null)
+                {
+                    product.Decript = description;
+                    product.Quantity = quantity;
+                    product.Price = price;
+                    product.Image_URL = JsonConvert.SerializeObject(images, Formatting.Indented);
+
+                    RentEaseDB.Products.InsertOnSubmit(product);
+                    RentEaseDB.SubmitChanges();
+
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+        }
+
+
 
 
 
