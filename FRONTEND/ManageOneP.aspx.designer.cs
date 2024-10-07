@@ -112,6 +112,7 @@ namespace FRONTEND
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label response;
+<<<<<<< HEAD
 
         /// <summary>
         /// btnSubmit control.
@@ -121,5 +122,7 @@ namespace FRONTEND
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSubmit;
+=======
+>>>>>>> 54df8ef899b44db1052f04610d8883e27a5b8954
     }
 }

@@ -165,5 +165,18 @@ namespace FRONTEND
             }
 
         }
+
+        protected void addInput_Click(object sender, EventArgs e)
+        {
+            TextBox txtImg = new TextBox()
+            {
+                CssClass = "Pinput",
+            };
+
+            image_url_holder.Controls.Add(txtImg);
+            inputCount++;
+        }
+
+
     }
 }

@@ -234,3 +234,7 @@ C:\Users\Wesley_The_CodeDemon\source\repos\Tanzanite\FRONTEND\bin\roslyn\VBCSCom
 C:\Users\Wesley_The_CodeDemon\source\repos\Tanzanite\FRONTEND\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\Wesley_The_CodeDemon\source\repos\Tanzanite\FRONTEND\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\Wesley_The_CodeDemon\source\repos\Tanzanite\FRONTEND\obj\Debug\FRONTEND.csproj.CopyComplete
+C:\Users\Wesley_The_CodeDemon\source\repos\Tanzanite\FRONTEND\bin\BouncyCastle.Cryptography.dll
+C:\Users\Wesley_The_CodeDemon\source\repos\Tanzanite\FRONTEND\bin\itextsharp.dll
+C:\Users\Wesley_The_CodeDemon\source\repos\Tanzanite\FRONTEND\bin\BouncyCastle.Cryptography.xml
+C:\Users\Wesley_The_CodeDemon\source\repos\Tanzanite\FRONTEND\bin\itextsharp.xml
