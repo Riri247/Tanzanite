@@ -33,9 +33,6 @@ namespace RentEase_Service
     partial void InsertInvoice(Invoice instance);
     partial void UpdateInvoice(Invoice instance);
     partial void DeleteInvoice(Invoice instance);
-    partial void InsertUser(User instance);
-    partial void UpdateUser(User instance);
-    partial void DeleteUser(User instance);
     partial void InsertProduct(Product instance);
     partial void UpdateProduct(Product instance);
     partial void DeleteProduct(Product instance);
@@ -51,6 +48,9 @@ namespace RentEase_Service
     partial void InsertReviews(Reviews instance);
     partial void UpdateReviews(Reviews instance);
     partial void DeleteReviews(Reviews instance);
+    partial void InsertUser(User instance);
+    partial void UpdateUser(User instance);
+    partial void DeleteUser(User instance);
     #endregion
 		
 		public RentDatadbmlDataContext() : 
@@ -99,14 +99,6 @@ namespace RentEase_Service
 			}
 		}
 		
-		public System.Data.Linq.Table<User> Users
-		{
-			get
-			{
-				return this.GetTable<User>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Product> Products
 		{
 			get
@@ -144,6 +136,14 @@ namespace RentEase_Service
 			get
 			{
 				return this.GetTable<Reviews>();
+			}
+		}
+		
+		public System.Data.Linq.Table<User> Users
+		{
+			get
+			{
+				return this.GetTable<User>();
 			}
 		}
 	}
@@ -400,248 +400,6 @@ namespace RentEase_Service
 		{
 			this.SendPropertyChanging();
 			entity.Invoice = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.[User]")]
-	public partial class User : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Id;
-		
-		private string _U_Name;
-		
-		private string _Surname;
-		
-		private string _Email;
-		
-		private string _User_Type;
-		
-		private string _password;
-		
-		private EntityRef<Merchant> _Merchant;
-		
-		private EntitySet<Shopping_cart> _Shopping_carts;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdChanging(int value);
-    partial void OnIdChanged();
-    partial void OnU_NameChanging(string value);
-    partial void OnU_NameChanged();
-    partial void OnSurnameChanging(string value);
-    partial void OnSurnameChanged();
-    partial void OnEmailChanging(string value);
-    partial void OnEmailChanged();
-    partial void OnUser_TypeChanging(string value);
-    partial void OnUser_TypeChanged();
-    partial void OnpasswordChanging(string value);
-    partial void OnpasswordChanged();
-    #endregion
-		
-		public User()
-		{
-			this._Merchant = default(EntityRef<Merchant>);
-			this._Shopping_carts = new EntitySet<Shopping_cart>(new Action<Shopping_cart>(this.attach_Shopping_carts), new Action<Shopping_cart>(this.detach_Shopping_carts));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Id
-		{
-			get
-			{
-				return this._Id;
-			}
-			set
-			{
-				if ((this._Id != value))
-				{
-					this.OnIdChanging(value);
-					this.SendPropertyChanging();
-					this._Id = value;
-					this.SendPropertyChanged("Id");
-					this.OnIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_U_Name", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string U_Name
-		{
-			get
-			{
-				return this._U_Name;
-			}
-			set
-			{
-				if ((this._U_Name != value))
-				{
-					this.OnU_NameChanging(value);
-					this.SendPropertyChanging();
-					this._U_Name = value;
-					this.SendPropertyChanged("U_Name");
-					this.OnU_NameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Surname", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Surname
-		{
-			get
-			{
-				return this._Surname;
-			}
-			set
-			{
-				if ((this._Surname != value))
-				{
-					this.OnSurnameChanging(value);
-					this.SendPropertyChanging();
-					this._Surname = value;
-					this.SendPropertyChanged("Surname");
-					this.OnSurnameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
-		public string Email
-		{
-			get
-			{
-				return this._Email;
-			}
-			set
-			{
-				if ((this._Email != value))
-				{
-					this.OnEmailChanging(value);
-					this.SendPropertyChanging();
-					this._Email = value;
-					this.SendPropertyChanged("Email");
-					this.OnEmailChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_User_Type", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
-		public string User_Type
-		{
-			get
-			{
-				return this._User_Type;
-			}
-			set
-			{
-				if ((this._User_Type != value))
-				{
-					this.OnUser_TypeChanging(value);
-					this.SendPropertyChanging();
-					this._User_Type = value;
-					this.SendPropertyChanged("User_Type");
-					this.OnUser_TypeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_password", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
-		public string password
-		{
-			get
-			{
-				return this._password;
-			}
-			set
-			{
-				if ((this._password != value))
-				{
-					this.OnpasswordChanging(value);
-					this.SendPropertyChanging();
-					this._password = value;
-					this.SendPropertyChanged("password");
-					this.OnpasswordChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_Merchant", Storage="_Merchant", ThisKey="Id", OtherKey="M_ID", IsUnique=true, IsForeignKey=false)]
-		public Merchant Merchant
-		{
-			get
-			{
-				return this._Merchant.Entity;
-			}
-			set
-			{
-				Merchant previousValue = this._Merchant.Entity;
-				if (((previousValue != value) 
-							|| (this._Merchant.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Merchant.Entity = null;
-						previousValue.User = null;
-					}
-					this._Merchant.Entity = value;
-					if ((value != null))
-					{
-						value.User = this;
-					}
-					this.SendPropertyChanged("Merchant");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_Shopping_cart", Storage="_Shopping_carts", ThisKey="Id", OtherKey="C_ID")]
-		public EntitySet<Shopping_cart> Shopping_carts
-		{
-			get
-			{
-				return this._Shopping_carts;
-			}
-			set
-			{
-				this._Shopping_carts.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Shopping_carts(Shopping_cart entity)
-		{
-			this.SendPropertyChanging();
-			entity.User = this;
-		}
-		
-		private void detach_Shopping_carts(Shopping_cart entity)
-		{
-			this.SendPropertyChanging();
-			entity.User = null;
 		}
 	}
 	
@@ -1222,7 +980,7 @@ namespace RentEase_Service
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Order_Review", Storage="_Reviews", ThisKey="Invoice_ID,Product_ID", OtherKey="Invoice_ID,Product_ID", IsUnique=true, IsForeignKey=false)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Order_Reviews", Storage="_Reviews", ThisKey="Invoice_ID,Product_ID", OtherKey="Invoice_ID,Product_ID", IsUnique=true, IsForeignKey=false)]
 		public Reviews Reviews
 		{
 			get
@@ -1507,9 +1265,9 @@ namespace RentEase_Service
 		
 		private int _Quantity;
 		
-		private EntityRef<User> _User;
-		
 		private EntityRef<Product> _Product;
+		
+		private EntityRef<User> _User;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1525,8 +1283,8 @@ namespace RentEase_Service
 		
 		public Shopping_cart()
 		{
-			this._User = default(EntityRef<User>);
 			this._Product = default(EntityRef<Product>);
+			this._User = default(EntityRef<User>);
 			OnCreated();
 		}
 		
@@ -1598,40 +1356,6 @@ namespace RentEase_Service
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_Shopping_cart", Storage="_User", ThisKey="C_ID", OtherKey="Id", IsForeignKey=true)]
-		public User User
-		{
-			get
-			{
-				return this._User.Entity;
-			}
-			set
-			{
-				User previousValue = this._User.Entity;
-				if (((previousValue != value) 
-							|| (this._User.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._User.Entity = null;
-						previousValue.Shopping_carts.Remove(this);
-					}
-					this._User.Entity = value;
-					if ((value != null))
-					{
-						value.Shopping_carts.Add(this);
-						this._C_ID = value.Id;
-					}
-					else
-					{
-						this._C_ID = default(int);
-					}
-					this.SendPropertyChanged("User");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Product_Shopping_cart", Storage="_Product", ThisKey="P_ID", OtherKey="Id", IsForeignKey=true)]
 		public Product Product
 		{
@@ -1662,6 +1386,40 @@ namespace RentEase_Service
 						this._P_ID = default(int);
 					}
 					this.SendPropertyChanged("Product");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_Shopping_cart", Storage="_User", ThisKey="C_ID", OtherKey="Id", IsForeignKey=true)]
+		public User User
+		{
+			get
+			{
+				return this._User.Entity;
+			}
+			set
+			{
+				User previousValue = this._User.Entity;
+				if (((previousValue != value) 
+							|| (this._User.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._User.Entity = null;
+						previousValue.Shopping_carts.Remove(this);
+					}
+					this._User.Entity = value;
+					if ((value != null))
+					{
+						value.Shopping_carts.Add(this);
+						this._C_ID = value.Id;
+					}
+					else
+					{
+						this._C_ID = default(int);
+					}
+					this.SendPropertyChanged("User");
 				}
 			}
 		}
@@ -1811,7 +1569,7 @@ namespace RentEase_Service
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Order_Review", Storage="_Order", ThisKey="Invoice_ID,Product_ID", OtherKey="Invoice_ID,Product_ID", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Order_Reviews", Storage="_Order", ThisKey="Invoice_ID,Product_ID", OtherKey="Invoice_ID,Product_ID", IsForeignKey=true)]
 		public Order Order
 		{
 			get
@@ -1865,6 +1623,272 @@ namespace RentEase_Service
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.[User]")]
+	public partial class User : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private string _U_Name;
+		
+		private string _Surname;
+		
+		private string _Email;
+		
+		private string _User_Type;
+		
+		private string _password;
+		
+		private bool _Active;
+		
+		private EntityRef<Merchant> _Merchant;
+		
+		private EntitySet<Shopping_cart> _Shopping_carts;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnU_NameChanging(string value);
+    partial void OnU_NameChanged();
+    partial void OnSurnameChanging(string value);
+    partial void OnSurnameChanged();
+    partial void OnEmailChanging(string value);
+    partial void OnEmailChanged();
+    partial void OnUser_TypeChanging(string value);
+    partial void OnUser_TypeChanged();
+    partial void OnpasswordChanging(string value);
+    partial void OnpasswordChanged();
+    partial void OnActiveChanging(bool value);
+    partial void OnActiveChanged();
+    #endregion
+		
+		public User()
+		{
+			this._Merchant = default(EntityRef<Merchant>);
+			this._Shopping_carts = new EntitySet<Shopping_cart>(new Action<Shopping_cart>(this.attach_Shopping_carts), new Action<Shopping_cart>(this.detach_Shopping_carts));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_U_Name", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string U_Name
+		{
+			get
+			{
+				return this._U_Name;
+			}
+			set
+			{
+				if ((this._U_Name != value))
+				{
+					this.OnU_NameChanging(value);
+					this.SendPropertyChanging();
+					this._U_Name = value;
+					this.SendPropertyChanged("U_Name");
+					this.OnU_NameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Surname", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Surname
+		{
+			get
+			{
+				return this._Surname;
+			}
+			set
+			{
+				if ((this._Surname != value))
+				{
+					this.OnSurnameChanging(value);
+					this.SendPropertyChanging();
+					this._Surname = value;
+					this.SendPropertyChanged("Surname");
+					this.OnSurnameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string Email
+		{
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this.OnEmailChanging(value);
+					this.SendPropertyChanging();
+					this._Email = value;
+					this.SendPropertyChanged("Email");
+					this.OnEmailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_User_Type", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
+		public string User_Type
+		{
+			get
+			{
+				return this._User_Type;
+			}
+			set
+			{
+				if ((this._User_Type != value))
+				{
+					this.OnUser_TypeChanging(value);
+					this.SendPropertyChanging();
+					this._User_Type = value;
+					this.SendPropertyChanged("User_Type");
+					this.OnUser_TypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_password", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string password
+		{
+			get
+			{
+				return this._password;
+			}
+			set
+			{
+				if ((this._password != value))
+				{
+					this.OnpasswordChanging(value);
+					this.SendPropertyChanging();
+					this._password = value;
+					this.SendPropertyChanged("password");
+					this.OnpasswordChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Active", DbType="Bit NOT NULL")]
+		public bool Active
+		{
+			get
+			{
+				return this._Active;
+			}
+			set
+			{
+				if ((this._Active != value))
+				{
+					this.OnActiveChanging(value);
+					this.SendPropertyChanging();
+					this._Active = value;
+					this.SendPropertyChanged("Active");
+					this.OnActiveChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_Merchant", Storage="_Merchant", ThisKey="Id", OtherKey="M_ID", IsUnique=true, IsForeignKey=false)]
+		public Merchant Merchant
+		{
+			get
+			{
+				return this._Merchant.Entity;
+			}
+			set
+			{
+				Merchant previousValue = this._Merchant.Entity;
+				if (((previousValue != value) 
+							|| (this._Merchant.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Merchant.Entity = null;
+						previousValue.User = null;
+					}
+					this._Merchant.Entity = value;
+					if ((value != null))
+					{
+						value.User = this;
+					}
+					this.SendPropertyChanged("Merchant");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_Shopping_cart", Storage="_Shopping_carts", ThisKey="Id", OtherKey="C_ID")]
+		public EntitySet<Shopping_cart> Shopping_carts
+		{
+			get
+			{
+				return this._Shopping_carts;
+			}
+			set
+			{
+				this._Shopping_carts.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Shopping_carts(Shopping_cart entity)
+		{
+			this.SendPropertyChanging();
+			entity.User = this;
+		}
+		
+		private void detach_Shopping_carts(Shopping_cart entity)
+		{
+			this.SendPropertyChanging();
+			entity.User = null;
 		}
 	}
 }
