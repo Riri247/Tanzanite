@@ -37,7 +37,11 @@ namespace FRONTEND
                 htmlstrBestProds += "<div class='ep'>R"+p.Price+"</div>";  
                 htmlstrBestProds += "<span>";
                 htmlstrBestProds += "<div class='anime_details_btn'>";
-                htmlstrBestProds += "<a href ='Cart.aspx?prodID="+p.Id+"' class='watch-btn'><span> Add to cart</span> <i class='fa fa-angle-right'></i></a>";
+                //if they are logged in they will see the add to cart shandiz
+                if (Session["ID"] != null) {
+                    htmlstrBestProds += "<a href ='Cart.aspx?prodID=" + p.Id + "' class='watch-btn'><span> Add to cart</span> <i class='fa fa-angle-right'></i></a>";
+                }
+              
                 htmlstrBestProds += "</div>";
                 htmlstrBestProds += "</span>";
                 htmlstrBestProds += "</div>";
@@ -68,7 +72,12 @@ namespace FRONTEND
                 hymlstrNewProds += "<h5><a href='About.aspx?=id"+p.Id+"'>"+p.Product_Name+"</a></h5>";
                 hymlstrNewProds += "<span>";
                 hymlstrNewProds += "<div class='anime_details_btn'>";
-                hymlstrNewProds += "<a href ='Cart.aspx?prodID="+p.Id+"' class='watch-btn'><span> Add to cart</span> <i class='fa fa-angle-right'></i></a>";
+                //if they are logged in they will see the add to cart shandiz
+                if (Session["ID"] != null)
+                {
+                    hymlstrNewProds += "<a href ='Cart.aspx?prodID=" + p.Id + "' class='watch-btn'><span> Add to cart</span> <i class='fa fa-angle-right'></i></a>";
+                }
+               
                 hymlstrNewProds += "</div>";
                 hymlstrNewProds += "</span>";
                 hymlstrNewProds += "</div>";

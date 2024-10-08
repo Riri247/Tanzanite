@@ -12,7 +12,7 @@
     <meta name="keywords" content="Anime, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>222127212</title>
+    <title>RENT EASE</title> <!--changed the name FINALLY-->
 
 
    <meta charset="UTF-8">
@@ -68,19 +68,20 @@
                                            <li><a href="Signup.aspx" runat="server" id="SignID" >Sign Up</a></li>
                                         <li><a href="Login.aspx" runat="server" id="LoginID" >Login</a></li>
                                         <!--Remeber to add about us page-->
+                                        <!-- Still need to add-->
                                         <li><a href="#" runat="server" id="ABoutOne" >About us</a></li>
 
                                         <!--login ones=-->
                                         <!-- Account management page-->
-                                            <li><a href="#" runat="server" id="AccountOne"  visible="false">Account</a></li>
+                                            <li><a href="EditUser.aspx?Val=1" runat="server" id="AccountOne"  visible="false">Account</a></li>
                                             <li><a href="Cart.aspx" runat="server" id="CartOne" visible="false" >Check Cart</a></li>
 
                                         <!--Renter one-->
-                                         <li><a href="Cart.aspx" runat="server" id="ProductOne" visible="false" >Check Products</a></li>
+                                         <li><a href="ManageP.aspx" runat="server" id="ProductOne" visible="false" >Check Products</a></li>
 
                                         <!-- Admin-->
                                         <!-- SUers page-->
-                                        <li><a href="Cart.aspx" runat="server" id="UserOne" visible="false" >Track User</a></li>
+                                        <li><a href="ManageU.aspx" runat="server" id="UserOne" visible="false" >Track User</a></li>
 
                                         
                                        
@@ -108,15 +109,15 @@
                  <div class="col-lg-2">
                     <div class="header__right">
                         <a href="#" class="search-switch"><span class="icon_search"></span></a>
-                        <a href="./login.html"><span class="icon_profile"></span></a>
+                        <a href="Login.aspx"><span class="icon_profile"></span></a>
                       <a href="Cart.aspx"  id="CartImage" runat="server" visible="false"><img src="img/cart.svg"></a>
                     </div>
                 </div>
 
 				  <div class="col-lg-2">
                     <div class="header__logo">
-                        <a href="./index.html">
-                            <img src="#logo" alt="">
+                        <a href="Home.aspx">
+                            <img src="#logo" alt=""> <!-- add logo-->
                         </a>
                     </div>
                 </div>
@@ -155,8 +156,8 @@
                 <div class="footer__nav">
                     <ul>
                         <li class="active"><a href="./index.html">Homepage</a></li>
-                        <li><a href="./categories.html">Categories</a></li>
-                        <li><a href="./blog.html">Our Blog</a></li>
+                        <li><a href="Home.aspx>Categories</a></li>
+                      <%--  <li><a href="./blog.html">Our Blog</a></li>   may need this later--%>
                         <li><a href="#">Contacts</a></li>
                     </ul>
                 </div>

@@ -67,9 +67,14 @@ namespace FRONTEND
                                 <h2>Electronics</h2> <!-- Product name-->
                                 <p>{product.Decript}</p> <!--- Description-->";
 
+                //this varibale is to check of the user bought the thing its stand in value will be true for now but you guys change it witht he function
+                bool CheckIfPurchased = true;
 
-                Descphtml = $@"    <a href ='ProductList.aspx?Category=Electronics'>< span > Review </ span > <i class='fa fa-angle-right'></i></a> <!-- Review button must only be seen  when the user has bought it before-->";
-               
+                //if the they purchased show the review button
+                if (CheckIfPurchased) {
+                    Descphtml = $@"    <a href ='#anime__details__form'>< span > Review </ span > <i class='fa fa-angle-right'></i></a> <!-- Review button must only be seen  when the user has bought it before-->";
+
+                }
                 Descphtml = $@"    </div>
                         </div>
                     </div>
