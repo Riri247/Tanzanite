@@ -21,19 +21,15 @@ namespace FRONTEND
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Productdetails;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divReviews;
 
         /// <summary>
-        /// reviews control.
-
+        /// divLeavReview control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl reviews;
-
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divLeavReview;
     }
 }
