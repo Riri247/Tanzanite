@@ -304,6 +304,20 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
+      <xs:element name="getUserInvoices">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="UserID" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getUserInvoicesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/RentEase_Service" minOccurs="0" name="getUserInvoicesResult" nillable="true" type="q12:ArrayOfGetInvoice" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
     </xs:schema>
     <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
       <xs:element name="anyType" nillable="true" type="xs:anyType" />
@@ -407,6 +421,20 @@
         </xs:sequence>
       </xs:complexType>
       <xs:element name="ArrayOfSysShopping_Cart" nillable="true" type="tns:ArrayOfSysShopping_Cart" />
+      <xs:complexType name="ArrayOfGetInvoice">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="GetInvoice" nillable="true" type="tns:GetInvoice" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfGetInvoice" nillable="true" type="tns:ArrayOfGetInvoice" />
+      <xs:complexType name="GetInvoice">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="INvPrice" type="xs:decimal" />
+          <xs:element minOccurs="0" name="invDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="invID" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="GetInvoice" nillable="true" type="tns:GetInvoice" />
     </xs:schema>
     <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/Arrays" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:xs="http://www.w3.org/2001/XMLSchema">
       <xs:complexType name="ArrayOfstring">
@@ -543,6 +571,12 @@
   <wsdl:message name="IRentEase_getNewProds_OutputMessage">
     <wsdl:part name="parameters" element="tns:getNewProdsResponse" />
   </wsdl:message>
+  <wsdl:message name="IRentEase_getUserInvoices_InputMessage">
+    <wsdl:part name="parameters" element="tns:getUserInvoices" />
+  </wsdl:message>
+  <wsdl:message name="IRentEase_getUserInvoices_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getUserInvoicesResponse" />
+  </wsdl:message>
   <wsdl:portType name="IRentEase">
     <wsdl:operation name="Login">
       <wsdl:input wsaw:Action="http://tempuri.org/IRentEase/Login" message="tns:IRentEase_Login_InputMessage" />
@@ -623,6 +657,10 @@
     <wsdl:operation name="getNewProds">
       <wsdl:input wsaw:Action="http://tempuri.org/IRentEase/getNewProds" message="tns:IRentEase_getNewProds_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IRentEase/getNewProdsResponse" message="tns:IRentEase_getNewProds_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getUserInvoices">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRentEase/getUserInvoices" message="tns:IRentEase_getUserInvoices_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRentEase/getUserInvoicesResponse" message="tns:IRentEase_getUserInvoices_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IRentEase" type="tns:IRentEase">
@@ -800,6 +838,15 @@
     </wsdl:operation>
     <wsdl:operation name="getNewProds">
       <soap:operation soapAction="http://tempuri.org/IRentEase/getNewProds" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserInvoices">
+      <soap:operation soapAction="http://tempuri.org/IRentEase/getUserInvoices" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

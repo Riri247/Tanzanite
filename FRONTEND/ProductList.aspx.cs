@@ -98,7 +98,7 @@ namespace FRONTEND
 					string[] images = JsonConvert.DeserializeObject<string[]>(p.Image_URL);
 					htmlstrProdList += "<tr>";
 					htmlstrProdList += "<td>";
-					htmlstrProdList += "<a href='About.aspx?id="+p.Id+"'>";
+					htmlstrProdList += "<a href='About.aspx?ID="+p.Id+"'>";
 					htmlstrProdList += p.Product_Name;
 					htmlstrProdList += "</a>";
 
@@ -106,9 +106,9 @@ namespace FRONTEND
 
 					htmlstrProdList += "<td>";
 
-					htmlstrProdList += "<a href='About.aspx?id=" + p.Id + "'>";
+					htmlstrProdList += "<a href='About.aspx?ID=" + p.Id + "'>";
 
-					htmlstrProdList += "<img src='"+ images[0]+"' alt='Playstation 5'>";
+					htmlstrProdList += "<img src='"+ images[0]+"' alt='img'>";
 
 					htmlstrProdList += "</a>";
 
