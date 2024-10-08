@@ -82,13 +82,16 @@
     <Content Include="Connected Services\ServiceReference1\FRONTEND.ServiceReference1.CartProductWrapper.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Connected Services\ServiceReference1\FRONTEND.ServiceReference1.GetInvoice.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <Content Include="Connected Services\ServiceReference1\FRONTEND.ServiceReference1.SysProduct.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\ServiceReference1\FRONTEND.ServiceReference1.SysUser.datasource">
+    <Content Include="Connected Services\ServiceReference1\FRONTEND.ServiceReference1.SysReview.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\ServiceReference1\FRONTEND.ServiceReference1.GetInvoice.datasource">
+    <Content Include="Connected Services\ServiceReference1\FRONTEND.ServiceReference1.SysUser.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Connected Services\ServiceReference1\Reference.svcmap">

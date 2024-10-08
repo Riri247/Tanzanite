@@ -219,6 +219,21 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
+      <xs:element name="changeName">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="ID" type="xs:int" />
+            <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="changeNameResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="changeNameResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
       <xs:element name="removeProduct">
         <xs:complexType>
           <xs:sequence>
@@ -280,6 +295,36 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
+      <xs:element name="getReview">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="UserID" type="xs:int" />
+            <xs:element minOccurs="0" name="InvoiceID" type="xs:int" />
+            <xs:element minOccurs="0" name="ProductID" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getReviewResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/RentEase_Service" minOccurs="0" name="getReviewResult" nillable="true" type="q10:SysReview" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getAllReviews">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="ProductID" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getAllReviewsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/RentEase_Service" minOccurs="0" name="getAllReviewsResult" nillable="true" type="q11:ArrayOfSysReview" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
       <xs:element name="getBestProds">
         <xs:complexType>
           <xs:sequence />
@@ -288,7 +333,7 @@
       <xs:element name="getBestProdsResponse">
         <xs:complexType>
           <xs:sequence>
-            <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/RentEase_Service" minOccurs="0" name="getBestProdsResult" nillable="true" type="q10:ArrayOfSysProduct" />
+            <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/RentEase_Service" minOccurs="0" name="getBestProdsResult" nillable="true" type="q12:ArrayOfSysProduct" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -300,7 +345,7 @@
       <xs:element name="getNewProdsResponse">
         <xs:complexType>
           <xs:sequence>
-            <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/RentEase_Service" minOccurs="0" name="getNewProdsResult" nillable="true" type="q11:ArrayOfSysProduct" />
+            <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/RentEase_Service" minOccurs="0" name="getNewProdsResult" nillable="true" type="q13:ArrayOfSysProduct" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -314,7 +359,7 @@
       <xs:element name="getUserInvoicesResponse">
         <xs:complexType>
           <xs:sequence>
-            <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/RentEase_Service" minOccurs="0" name="getUserInvoicesResult" nillable="true" type="q12:ArrayOfGetInvoice" />
+            <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/RentEase_Service" minOccurs="0" name="getUserInvoicesResult" nillable="true" type="q14:ArrayOfGetInvoice" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -421,6 +466,21 @@
         </xs:sequence>
       </xs:complexType>
       <xs:element name="ArrayOfSysShopping_Cart" nillable="true" type="tns:ArrayOfSysShopping_Cart" />
+      <xs:complexType name="SysReview">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Invoice_ID" type="xs:int" />
+          <xs:element minOccurs="0" name="Product_ID" type="xs:int" />
+          <xs:element minOccurs="0" name="Review1" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Star_Ratng" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="SysReview" nillable="true" type="tns:SysReview" />
+      <xs:complexType name="ArrayOfSysReview">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="SysReview" nillable="true" type="tns:SysReview" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfSysReview" nillable="true" type="tns:ArrayOfSysReview" />
       <xs:complexType name="ArrayOfGetInvoice">
         <xs:sequence>
           <xs:element minOccurs="0" maxOccurs="unbounded" name="GetInvoice" nillable="true" type="tns:GetInvoice" />
@@ -535,6 +595,12 @@
   <wsdl:message name="IRentEase_changePrice_OutputMessage">
     <wsdl:part name="parameters" element="tns:changePriceResponse" />
   </wsdl:message>
+  <wsdl:message name="IRentEase_changeName_InputMessage">
+    <wsdl:part name="parameters" element="tns:changeName" />
+  </wsdl:message>
+  <wsdl:message name="IRentEase_changeName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:changeNameResponse" />
+  </wsdl:message>
   <wsdl:message name="IRentEase_removeProduct_InputMessage">
     <wsdl:part name="parameters" element="tns:removeProduct" />
   </wsdl:message>
@@ -558,6 +624,18 @@
   </wsdl:message>
   <wsdl:message name="IRentEase_deactivateProduct_OutputMessage">
     <wsdl:part name="parameters" element="tns:deactivateProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRentEase_getReview_InputMessage">
+    <wsdl:part name="parameters" element="tns:getReview" />
+  </wsdl:message>
+  <wsdl:message name="IRentEase_getReview_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getReviewResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRentEase_getAllReviews_InputMessage">
+    <wsdl:part name="parameters" element="tns:getAllReviews" />
+  </wsdl:message>
+  <wsdl:message name="IRentEase_getAllReviews_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getAllReviewsResponse" />
   </wsdl:message>
   <wsdl:message name="IRentEase_getBestProds_InputMessage">
     <wsdl:part name="parameters" element="tns:getBestProds" />
@@ -634,6 +712,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IRentEase/changePrice" message="tns:IRentEase_changePrice_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IRentEase/changePriceResponse" message="tns:IRentEase_changePrice_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="changeName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRentEase/changeName" message="tns:IRentEase_changeName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRentEase/changeNameResponse" message="tns:IRentEase_changeName_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="removeProduct">
       <wsdl:input wsaw:Action="http://tempuri.org/IRentEase/removeProduct" message="tns:IRentEase_removeProduct_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IRentEase/removeProductResponse" message="tns:IRentEase_removeProduct_OutputMessage" />
@@ -649,6 +731,14 @@
     <wsdl:operation name="deactivateProduct">
       <wsdl:input wsaw:Action="http://tempuri.org/IRentEase/deactivateProduct" message="tns:IRentEase_deactivateProduct_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IRentEase/deactivateProductResponse" message="tns:IRentEase_deactivateProduct_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getReview">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRentEase/getReview" message="tns:IRentEase_getReview_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRentEase/getReviewResponse" message="tns:IRentEase_getReview_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllReviews">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRentEase/getAllReviews" message="tns:IRentEase_getAllReviews_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRentEase/getAllReviewsResponse" message="tns:IRentEase_getAllReviews_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="getBestProds">
       <wsdl:input wsaw:Action="http://tempuri.org/IRentEase/getBestProds" message="tns:IRentEase_getBestProds_InputMessage" />
@@ -791,6 +881,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="changeName">
+      <soap:operation soapAction="http://tempuri.org/IRentEase/changeName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="removeProduct">
       <soap:operation soapAction="http://tempuri.org/IRentEase/removeProduct" style="document" />
       <wsdl:input>
@@ -820,6 +919,24 @@
     </wsdl:operation>
     <wsdl:operation name="deactivateProduct">
       <soap:operation soapAction="http://tempuri.org/IRentEase/deactivateProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getReview">
+      <soap:operation soapAction="http://tempuri.org/IRentEase/getReview" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllReviews">
+      <soap:operation soapAction="http://tempuri.org/IRentEase/getAllReviews" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
