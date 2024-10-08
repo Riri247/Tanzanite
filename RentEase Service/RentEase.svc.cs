@@ -279,10 +279,6 @@ namespace RentEase_Service
 
         }
 
-
-
-
-
         public bool removeProduct(int ID)
         {
             // Find the product by ID
@@ -446,15 +442,6 @@ namespace RentEase_Service
         }
 
 
-
-
-
-
-
-
-
-
-
         private decimal getPrice(int ID)
         {
             var query = from p in RentEaseDB.Products
@@ -558,8 +545,6 @@ namespace RentEase_Service
             }
         }
 
-
-
         public bool deactivateProduct(int ID)
         {
             var query = from p in RentEaseDB.Products
@@ -584,6 +569,87 @@ namespace RentEase_Service
 
         }
 
+        public List<GetInvoice> getUserInvoices(int UserID)
+        {
+            dynamic ListInvoices = (from i in RentEaseDB.Customer_Invoices
+                                    where i.C_ID == UserID
+                                    select i).DefaultIfEmpty();
 
+
+
+
+            if (ListInvoices != null)
+            {
+                List<GetInvoice> Listinv = new List<GetInvoice>();
+
+                foreach (Customer_Invoice ci in ListInvoices)
+                {
+
+        public SysReview getReview(int UserID, int InvoiceID, int ProductID)
+        {
+
+            var query = from r in RentEaseDB.Reviews
+                        join i in RentEaseDB.Invoices
+                        on r.Invoice_ID equals i.ID
+                        join ci in RentEaseDB.Customer_Invoices
+                        on r.Invoice_ID equals ci.Invoice_ID
+                        select new SysReview
+                        {
+                            Invoice_ID = r.Invoice_ID,
+                            Product_ID = r.Product_ID,
+                            Star_Ratng = r.Star_Rating,
+                            Review1 = r.Review1
+
+                        };
+
+            return query.FirstOrDefault();
+
+        }
+
+
+        public List<SysReview> getAllReviews(int ProductID)
+        {
+
+            var quary = from r in RentEaseDB.Reviews
+                        where r.Product_ID == ProductID
+                        select new SysReview
+                        {
+                            Invoice_ID = r.Invoice_ID,
+                            Product_ID = r.Product_ID,
+                            Star_Ratng = r.Star_Rating,
+                            Review1 = r.Review1
+                        };
+
+            return quary.DefaultIfEmpty().ToList();
+        }
+
+                    GetInvoice Temp = new GetInvoice();
+                    Temp.invID = ci.Invoice_ID;
+
+
+                    var Tempinv = (from i in RentEaseDB.Invoices
+                                   where i.ID == Temp.invID
+                                   select i).FirstOrDefault();
+
+                    if (Tempinv != null)
+                    {
+
+                        Temp.invDate = Tempinv.I_Date;
+                        Temp.INvPrice = Tempinv.Total_Cost;
+
+                    }
+
+                    Listinv.Add(Temp);
+
+                }
+
+                return Listinv;
+
+            }
+            else {
+                return null;
+            }
+            
+        }
     }
 }
