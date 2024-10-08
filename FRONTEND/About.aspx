@@ -28,7 +28,7 @@
                   <!-- Hero Section Begin -->
     <section class="hero">
         <div class="container">
-            <div class="hero__slider owl-carousel" id="Description side">
+            <div class="hero__slider owl-carousel" id="Descriptiondiv" runat="server">
 
                 <!-- Different image same words-->
                 <!-- Code to repeat back end start--->
