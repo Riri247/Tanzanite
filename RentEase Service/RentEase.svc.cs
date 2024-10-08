@@ -525,11 +525,11 @@ namespace RentEase_Service
 
         public bool rateProduct(int InvoiceID, int ProductID, int stars, string review) {
 
-            Reviews tmpReview = new Reviews { 
+            Review tmpReview = new Review() { 
                 Invoice_ID = InvoiceID,
                 Product_ID = ProductID,
                 Star_Rating = stars,
-                Review = review
+                Review1 = review
             };
 
 
