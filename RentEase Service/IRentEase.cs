@@ -217,6 +217,7 @@ namespace RentEase_Service
         /// </summary>
         /// <param name="ID">The ID of the product being changed.</param>
         /// <returns>Returns true if the product specifications were changed successfully, otherwise false.</returns>
+        [OperationContract]
         bool changeName(int ID, string name);
 
 
@@ -269,6 +270,7 @@ namespace RentEase_Service
         /// <param name="InvoiceID">ID of the invoice the review belongs to</param>
         /// <param name="ProductID">ID of the product that the review belongs to</param>
         /// <returns>A review for a user</returns>
+        [OperationContract]
         SysReview getReview(int UserID, int InvoiceID, int ProductID);
 
 
@@ -277,18 +279,10 @@ namespace RentEase_Service
         /// </summary>
         /// <param name="ProductID">ID of the product that the review belongs to</param>
         /// <returns>A list of reviews for a user</returns>
+        [OperationContract]
         List<SysReview> getAllReviews(int ProductID);
 
 
-
-        // method to deactivate user
-        // method to make product unavailable
-        // make report table
-        // make complaint table
-
-        //methods added by Emmanuel for page loading
-
-        //get by rating
 
         /// <summary>
         /// Method to get the best products, determined by the product's average rating being above or equal to 3.5
