@@ -425,7 +425,7 @@ namespace RentEase_Service
                     };
 
 
-                    invoice.Total_Cost += order.subTotal;
+                    invoice.Total_Cost += order.subTotal * order.Quantity;
 
                     // add to list of orders
                     orders.Add(order);
