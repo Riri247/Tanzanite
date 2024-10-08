@@ -31,8 +31,9 @@
             <div class="hero__slider owl-carousel" id="Descriptiondiv" runat="server">
 
                 <!-- Different image same words-->
+                <!-- Commented out incase we may need it again-->
                 <!-- Code to repeat back end start--->
-                <div class="hero__items set-bg" data-setbg="img/hero/electronics.png"> <!-- Change image directory per loop-->
+              <%--  <div class="hero__items set-bg" data-setbg="img/hero/electronics.png"> <!-- Change image directory per loop-->
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="hero__text">
@@ -43,7 +44,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>--%>
                  <!-- Code to repeat back end END--->
              
             </div>

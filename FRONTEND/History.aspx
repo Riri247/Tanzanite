@@ -115,11 +115,13 @@
 
          <div class="btnbox">
 <div class="anime__details__btn" >
-                                <a href="#" class="follow-btn"> View</a>      
+                                <a href="Invoice.aspx?ID=22" class="follow-btn"> View</a>      
                                  
                             </div>
             </div>
     </div>
+
+        </div>
         <!-- End of repeat->
 
     
