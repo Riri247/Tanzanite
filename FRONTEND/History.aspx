@@ -85,9 +85,24 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     
-    <div width="100%"><h1> History</h1></div>
+        <!-- Start Hero Section -->
+			<div class="hero">
+				<div class="container">
+					<div class="row justify-content-between">
+						<div class="col-lg-5">
+							<div class="intro-excerpt">
+								<h2> HISTORY</h2>
+							</div>
+						</div>
+						<div class="col-lg-7">
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		<!-- End Hero Section -->
 
-    <div class="scroll-contain">
+    <div class="scroll-contain" id="divScrool">
          <div class="Scrollable">
         <div  class ="NameBox">
             <p> INvoice NUm </p>
@@ -105,40 +120,7 @@
     </div>
 
 
-     <div class="Scrollable">
-        <div  class ="NameBox">
-            <p> INvoice NUm </p>
-        <p> INvoice Date </p>
-   
-            </div>
-        
-
-         <div class="btnbox">
-<div class="anime__details__btn" >
-                                <a href="#" class="follow-btn"> View</a>      
-                                 
-                            </div>
-            </div>
-    </div>
-
-
-
-     <div class="Scrollable">
-        <div  class ="NameBox">
-            <p> INvoice NUm </p>
-        <p> INvoice Date </p>
-   
-            </div>
-        
-
-         <div class="btnbox">
-<div class="anime__details__btn" >
-                                <a href="#" class="follow-btn"> View</a>      
-                                 
-                            </div>
-            </div>
-    </div>
-
+    
         </div>
 
    
