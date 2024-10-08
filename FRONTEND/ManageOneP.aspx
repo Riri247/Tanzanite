@@ -16,10 +16,10 @@
             position: relative;
         }
 
-        .EntityBox h2{
-            text-wrap:none;
-
-        }
+            .EntityBox h2 {
+                text-wrap: none;
+                height: 109px;
+            }
 
         .Pinput {
             position: relative;
@@ -34,123 +34,128 @@
             align-items: center;
             justify-content: center;
             display: flex;
+            height: 127px;
+            top: 0px;
+            left: 0px;
         }
 
-        .response{
-            width:100%;
-
+        .response {
+            width: 100%;
+            text-align: center !important;
         }
-
-
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <!-- per attribute this 1-->
-    <div class="AttributeCont">
-        <div class="EntityBox">
-            <h2>Name :</h2>
+    <form id="form1" runat="server">
+        <!-- per attribute this 1-->
+        <div class="AttributeCont">
+            <div class="EntityBox">
+                <h2>Name :</h2>
+            </div>
+
+            <input type="text" id="name" runat="server" class="Pinput" placeholder="Enter Value">
         </div>
+        <!-- end of that attribute-->
 
-        <input type="text" id="name" runat="server" class="Pinput" placeholder="Enter Value">
-    </div>
-    <!-- end of that attribute-->
+        <!-- per attribute this 1-->
+        <div class="AttributeCont">
+            <div class="EntityBox">
+                <h2>Description :</h2>
+            </div>
+            <textarea id="description" runat="server" class="Pinput" placeholder="Enter Value" rows="10" cols="50"></textarea>
 
-    <!-- per attribute this 1-->
-    <div class="AttributeCont">
-        <div class="EntityBox">
-            <h2>Description :</h2>
         </div>
-        <textarea id="description" runat="server" class="Pinput" placeholder="Enter Value" rows="10" cols="50">Enter Value</textarea>
+        <!-- end of that attribute-->
 
-    </div>
-    <!-- end of that attribute-->
+        <!-- per attribute this 1-->
+        <div class="AttributeCont">
+            <div class="EntityBox">
+                <h2>Category :</h2>
+            </div>
 
-    <!-- per attribute this 1-->
-    <div class="AttributeCont">
-        <div class="EntityBox">
-            <h2>Category :</h2>
+            <input type="text" id="category" runat="server" class="Pinput" placeholder="Enter Value">
         </div>
-
-        <input type="text" id="category" runat="server" class="Pinput" placeholder="Enter Value">
-    </div>
-    <!-- end of that attribute-->
+        <!-- end of that attribute-->
 
 
-    <!-- per attribute this 1-->
-    <div class="AttributeCont">
-        <div class="EntityBox">
-            <h2>Price :</h2>
+        <!-- per attribute this 1-->
+        <div class="AttributeCont">
+            <div class="EntityBox">
+                <h2>Price :</h2>
+            </div>
+
+            <input type="number" id="price" runat="server" class="Pinput" placeholder="Enter Value" step="0.01" min="0">
         </div>
+        <!-- end of that attribute-->
 
-        <input type="number" id="price" runat="server" class="Pinput" placeholder="Enter Value" step="0.01" min="0">
-    </div>
-    <!-- end of that attribute-->
+        <!-- per attribute this 1-->
+        <div class="AttributeCont">
+            <div class="EntityBox">
+                <h2>Quantity :</h2>
+            </div>
 
-    <!-- per attribute this 1-->
-    <div class="AttributeCont">
-        <div class="EntityBox">
-            <h2>Quantity :</h2>
+            <input type="number" id="quantity" runat="server" class="Pinput" placeholder="Enter Value" step="1" min="0">
         </div>
+        <!-- end of that attribute-->
 
-        <input type="number" id="quantity" runat="server" class="Pinput" placeholder="Enter Value" step="1" min="0">
-    </div>
-    <!-- end of that attribute-->
-    
-    <!-- per attribute this 1-->
-    <div class="AttributeCont">
-        <div class="EntityBox">
-            <h2>Available :</h2>
+        <!-- per attribute this 1-->
+        <div class="AttributeCont">
+            <div class="EntityBox">
+                <h2>Available :</h2>
+            </div>
+
+            <input type="checkbox" id="available" runat="server" class="Pinput" placeholder="Enter Value">
         </div>
+        <!-- end of that attribute-->
 
-        <input type="checkbox" id="available" runat="server" class="Pinput" placeholder="Enter Value">
-    </div>
-    <!-- end of that attribute-->
+        <!-- per attribute this 1-->
+        <div class="AttributeCont">
+            <div class="EntityBox">
+                <h2>Rental Aggreement:</h2>
+            </div>
 
-    <!-- per attribute this 1-->
-    <div class="AttributeCont">
-        <div class="EntityBox">
-            <h2>Rental Aggreement:</h2>
+            <textarea id="agreement" runat="server" class="Pinput" placeholder="Enter Value" rows="10" cols="50"></textarea>
         </div>
-
-        <textarea id="agreement" runat="server" class="Pinput" placeholder="Enter Value" rows="10" cols="50">Enter Value</textarea>
-    </div>
-    <!-- end of that attribute-->
-    
+        <!-- end of that attribute-->
 
 
 
-    <!-- per attribute this 1-->
-    <div class="AttributeCont">
-        <div class="EntityBox">
-            <h2>Images :</h2>
+
+        <!-- per attribute this 1-->
+        <div class="AttributeCont">
+            <div class="EntityBox">
+                <h2>Images :</h2>
+            </div>
+
+            <asp:Panel ID="image_url_holder" runat="server">
+                <asp:TextBox ID="image1" runat="server" CssClass="Pinput" PlaceHolder="Enter Value1" />
+
+            </asp:Panel>
+
+
         </div>
-
-        <asp:PlaceHolder ID="image_url_holder" runat="server">
-            <asp:TextBox ID="image1" runat="server" CssClass="Pinput" PlaceHolder="Enter Value" />
-
-        </asp:PlaceHolder>
 
         <div class="AttributeCont">
             <div class="anime__details__btn">
-                <asp:Button ID="addInput" runat="server" CssClass="follow-btn" Text="Add Image URL" OnClick="addInput_Click"></asp:Button>
+                <asp:Button ID="btnAddInput" runat="server" CssClass="follow-btn" Text="Add Image URL" OnClick="addInput_Click"></asp:Button>
 
             </div>
 
         </div>
 
-    </div>
+        <asp:Label ID="response" runat="server" CssClass="response"></asp:Label>
 
-    <asp:Label ID="response" runat="server" CssClass="response"></asp:Label>
+        <!-- end of that attribute-->
 
-    <!-- end of that attribute-->
+        <!-- BUTTON-->
+        <div class="AttributeCont">
+            <div class="anime__details__btn">
+                <asp:Button ID="btnSubmit" runat="server" CssClass="follow-btn" Text="Submit to DB" OnClick="Submit_Click"></asp:Button>
 
-    <!-- BUTTON-->
-    <div class="AttributeCont">
-        <div class="anime__details__btn">
-            <asp:Button ID="btnSubmit" runat="server" CssClass="follow-btn" Text="Submit to DB" OnClick="Submit_Click"></asp:Button>
+
+            </div>
 
         </div>
-
-    </div>
-    <!-- end of that-->
+        <!-- end of that-->
+    </form>
 </asp:Content>
