@@ -216,7 +216,7 @@ namespace RentEase_Service
         }
 
 
-        public bool AddProduct(string description, int quantity, decimal price, int merchantID, string[] images)
+        public int AddProduct(string name, string description, int quantity, decimal price, int merchantID, string[] images)
         {
             try
             {
@@ -233,16 +233,16 @@ namespace RentEase_Service
                 RentEaseDB.Products.InsertOnSubmit(product);
                 RentEaseDB.SubmitChanges();
 
-                return true;
+                return product.Id;
             }
             catch (Exception)
             {
-                return false;
+                return -1;
             }
 
         }
 
-        public bool EditProduct(int ProductID, string description, int quantity, decimal price, int merchantID, string[] images)
+        public bool EditProduct(int ProductID, string name, string description, int quantity, decimal price, int merchantID, string[] images)
         {
             try
             {

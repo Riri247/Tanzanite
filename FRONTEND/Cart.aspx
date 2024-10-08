@@ -100,6 +100,11 @@ a {
                           <th class="product-remove">Remove</th>
                         </tr>
                       </thead>
+
+                        <!-- Wes idk what this shit is LMFAO so ill add how i did it-->
+                        <asp:PlaceHolder ID="divCartStuff" runat="server">
+
+                            </asp:PlaceHolder>
                       <tbody id="DispCart" runat="server">
                            <!-- Product section start-->
                         
@@ -150,6 +155,7 @@ a {
         
                       <div class="row">
                         <div class="col-md-12">
+
                           <a class="btn btn-black btn-lg py-3 btn-block" href="Invoice.aspx?userID=<%= Session["ID"] %>" >Proceed To Checkout</a>
                         </div>
                       </div>

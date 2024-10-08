@@ -87,7 +87,23 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
 
-    <div width="100%"><h1> Manage Products</h1></div>
+    
+    <!-- Start Hero Section -->
+			<div class="hero">
+				<div class="container">
+					<div class="row justify-content-between">
+						<div class="col-lg-5">
+							<div class="intro-excerpt">
+								<h1>Manage Products</h1>
+							</div>
+						</div>
+						<div class="col-lg-7">
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		<!-- End Hero Section -->
 
     <div class="EntityBox"> <div class="anime__details__btn" >
                                 <a href="#" class="follow-btn"> Add Product</a>      

@@ -149,7 +149,7 @@ namespace RentEase_Service
         /// <param name="images">The name/ link of the images of this product.</param>
         /// <returns>Returns true if the product was added successfully, otherwise false.</returns>
         [OperationContract]
-        bool AddProduct(string description, int quantity, decimal price, int merchantID, string[] images);
+        int AddProduct(string name, string description, int quantity, decimal price, int merchantID, string[] images);
 
         /// <summary>
         /// This method edits a product in the database.
@@ -162,7 +162,7 @@ namespace RentEase_Service
         /// <param name="images">The name/ link of the images of this product.</param>
         /// <returns>Returns true if the product was added successfully, otherwise false.</returns>
         [OperationContract]
-        bool EditProduct(int ProductID, string description, int quantity, decimal price, int merchantID, string[] images);
+        bool EditProduct(int ProductID, string name, string description, int quantity, decimal price, int merchantID, string[] images);
 
 
         /// <summary>
