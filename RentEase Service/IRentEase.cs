@@ -51,6 +51,16 @@ namespace RentEase_Service
         public SysShopping_Cart cart;
     }
 
+    public class SysReview
+    {
+        public int Invoice_ID;
+        public int Product_ID;
+        public int Star_Ratng;
+        public string Review1;
+    }
+
+
+
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IRentEase" in both code and config file together.
     [ServiceContract]
     public interface IRentEase
@@ -243,6 +253,23 @@ namespace RentEase_Service
         /// <returns></returns>
         [OperationContract]
         bool deactivateProduct(int ID);
+
+        /// <summary>
+        /// This method dactivates a product
+        /// </summary>
+        /// <param name="UserID">ID of the user to be who made the review</param>
+        /// <param name="InvoiceID">ID of the invoice the review belongs to</param>
+        /// <param name="ProductID">ID of the product that the review belongs to</param>
+        /// <returns>A review for a user</returns>
+        SysReview getReview(int UserID, int InvoiceID, int ProductID);
+
+
+        /// <summary>
+        /// This method dactivates a product
+        /// </summary>
+        /// <param name="ProductID">ID of the product that the review belongs to</param>
+        /// <returns>A list of reviews for a user</returns>
+        List<SysReview> getAllReviews(int ProductID);
 
 
 
