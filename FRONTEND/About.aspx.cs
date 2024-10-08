@@ -5,24 +5,58 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using FRONTEND.ServiceReference1;
+
 namespace FRONTEND
 {
     public partial class About : System.Web.UI.Page
     {
+        RentEaseClient rc = new RentEaseClient();
+        SysProduct product;
+        SysReview[] reviews;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             //if (!IsPostBack)
             //{
             //    LoadProduct();
             //}
+
+            if (Request.QueryString["ID"] != null)
+            {
+                int id = int.Parse(Request.QueryString["ID"].ToString());
+
+                product = rc.getProduct(id);
+                reviews = rc.getAllReviews(id);
+
+                foreach (SysReview r in reviews)
+                {
+                    concat(r.Review1, r.Star_Ratng);
+                }
+            }
         }
 
-        private void LoadProduct()
+
+        private void concat(string text, int rating)
+        {
+            string innerChild = $@"<div class='anime__review__item'>
+                <div class='anime__review__item__text'>
+                <h6> Star: {rating}</h6>
+                <p>{text}</p>
+                </div>
+                </div>";
+
+            divReviews.InnerHtml += innerChild;
+        }
+
+    private void LoadProduct()
         {
             RentEaseClient rc = new RentEaseClient();
 
             int ID = Convert.ToInt32(Request.QueryString["ID"].ToString());
             var Product = rc.getProduct(ID);
+
+
+
           //  string htmlstrProduct = "<div class='anime__details__text'>";
           //  htmlstrProduct += "<div class='anime__details__title'>";
           //  //Name
@@ -119,85 +153,3 @@ namespace FRONTEND
         }
     }
 }
-
- //< div class= "anime__details__text" >
- 
- //   < div class= "anime__details__title" >
-  
- //        < h3 > Product NAme </ h3 >
-     
- //               < span > Maker </ span >
-     
- //           </ div >
-     
- //             < div class= "anime__details__rating" >
-      
- //            < div class= "rating" >
-       
- //             < a href = "#" >< i class= "fa fa-star" ></ i ></ a >
-            
- //                 < a href = "#" >< i class= "fa fa-star" ></ i ></ a >
-                 
- //         < a href = "#" >< i class= "fa fa-star" ></ i ></ a >
-                      
- //    < a href = "#" >< i class= "fa fa-star" ></ i ></ a >
-                           
- //       < a href = "#" >< i class= "fa fa-star-half-o" ></ i ></ a >
-                                
- //            </ div >
-                                
- //           < span > Number of votes</span>
- //                    </div>
- //                           <p>Description</p>
- //              <div class= "anime__details__widget" >
-                                  
- //              < div class= "row" >
-                                   
- //           < div class= "col-lg-6 col-md-6" >
-                                    
- //            < ul >
-                                    
- //             < li >< span > Type:</ span > Type of thing</li>
- //                   <li><span>Studios:</ span > category </ li >
-                                           
- //          < li >< span > Date aired:</ span > Date added </ li >
-                                                  
- //           < li >< span > Status:</ span > status </ li >
-                                                       
-
- //             </ ul >
-                                                       
- //             </ div >
-                                                       
- //     < div class= "col-lg-6 col-md-6" >
-                                                        
- //      < ul >
-                                                        
- //     < li >< span > Scores:</ span > 7.31 / 1,515 </ li >
-                                                               
- //       < li >< span > Rating:</ span > 8.5 / 161 times </ li >
-                                                                      
-                            //          < li >< span > Duration:</ span > 24 min / ep </ li >
-                                                                             
-                            //              < li >< span > Quality:</ span > HD </ li >
-                                                                                  
-                            //                      < li >< span > Views:</ span > 131,541 </ li >
-                                                                                         
-                            //                      </ ul >
-                                                                                         
-                            //                     </ div >
-                                                                                         
-                            //               </ div >
-                                                                                         
-                            //             </ div >
-                                                                                         
-                            //          < div class= "anime__details__btn" >
-                                                                                          
-                            //                < a href = "#" class= "follow-btn" >< i class= "fa fa-heart-o" ></ i > Follow ??? idk if we need this </ a >
-                                                                                                    
-                            //          < a href = "#" class= "watch-btn" >< span > Add to cart</span> <i
-                            //       class= "fa fa-angle-right" ></ i ></ a >
-                            //    </ div >
-                            //</ div >
-
-
