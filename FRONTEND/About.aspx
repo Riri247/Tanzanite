@@ -28,7 +28,7 @@
                   <!-- Hero Section Begin -->
     <section class="hero">
         <div class="container">
-            <div class="hero__slider owl-carousel" id="Description side">
+            <div class="hero__slider owl-carousel" id="Descriptiondiv" runat="server">
 
                 <!-- Different image same words-->
                 <!-- Code to repeat back end start--->
@@ -63,13 +63,15 @@
                             <div class="anime__review__item"> <!--start or repeat code for this section-->
                                
                                 <div class="anime__review__item__text">
-                                    <h6>Chris Curry - <span>1 Hour ago</span></h6> <!-- name a time cna be removed-->
+                                    <h6> Star: 5</h6> <!-- name a time cna be removed-->
                                     <p>whachikan Just noticed that someone categorized this as belonging to the genre
                                     "demons" LOL</p> <!-- Review-->
                                 </div> <!-- end of repeat code for this section-->
                             </div>
                           
                         </div>
+
+                         <%--add your own--%>
                         <div class="anime__details__form" id="divLeavReview" visible="false" runat="server">
                             <div class="section-title">
                                 <h5>Your Comment</h5>

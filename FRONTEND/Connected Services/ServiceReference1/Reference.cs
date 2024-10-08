@@ -483,6 +483,99 @@ namespace FRONTEND.ServiceReference1 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SysReview", Namespace="http://schemas.datacontract.org/2004/07/RentEase_Service")]
+    [System.SerializableAttribute()]
+    public partial class SysReview : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int Invoice_IDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int Product_IDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Review1Field;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int Star_RatngField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Invoice_ID {
+            get {
+                return this.Invoice_IDField;
+            }
+            set {
+                if ((this.Invoice_IDField.Equals(value) != true)) {
+                    this.Invoice_IDField = value;
+                    this.RaisePropertyChanged("Invoice_ID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Product_ID {
+            get {
+                return this.Product_IDField;
+            }
+            set {
+                if ((this.Product_IDField.Equals(value) != true)) {
+                    this.Product_IDField = value;
+                    this.RaisePropertyChanged("Product_ID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Review1 {
+            get {
+                return this.Review1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Review1Field, value) != true)) {
+                    this.Review1Field = value;
+                    this.RaisePropertyChanged("Review1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Star_Ratng {
+            get {
+                return this.Star_RatngField;
+            }
+            set {
+                if ((this.Star_RatngField.Equals(value) != true)) {
+                    this.Star_RatngField = value;
+                    this.RaisePropertyChanged("Star_Ratng");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="GetInvoice", Namespace="http://schemas.datacontract.org/2004/07/RentEase_Service")]
     [System.SerializableAttribute()]
     public partial class GetInvoice : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -646,6 +739,12 @@ namespace FRONTEND.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/changePrice", ReplyAction="http://tempuri.org/IRentEase/changePriceResponse")]
         System.Threading.Tasks.Task<bool> changePriceAsync(int ID, double price);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/changeName", ReplyAction="http://tempuri.org/IRentEase/changeNameResponse")]
+        bool changeName(int ID, string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/changeName", ReplyAction="http://tempuri.org/IRentEase/changeNameResponse")]
+        System.Threading.Tasks.Task<bool> changeNameAsync(int ID, string name);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/removeProduct", ReplyAction="http://tempuri.org/IRentEase/removeProductResponse")]
         bool removeProduct(int ID);
         
@@ -669,6 +768,18 @@ namespace FRONTEND.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/deactivateProduct", ReplyAction="http://tempuri.org/IRentEase/deactivateProductResponse")]
         System.Threading.Tasks.Task<bool> deactivateProductAsync(int ID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/getReview", ReplyAction="http://tempuri.org/IRentEase/getReviewResponse")]
+        FRONTEND.ServiceReference1.SysReview getReview(int UserID, int InvoiceID, int ProductID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/getReview", ReplyAction="http://tempuri.org/IRentEase/getReviewResponse")]
+        System.Threading.Tasks.Task<FRONTEND.ServiceReference1.SysReview> getReviewAsync(int UserID, int InvoiceID, int ProductID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/getAllReviews", ReplyAction="http://tempuri.org/IRentEase/getAllReviewsResponse")]
+        FRONTEND.ServiceReference1.SysReview[] getAllReviews(int ProductID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/getAllReviews", ReplyAction="http://tempuri.org/IRentEase/getAllReviewsResponse")]
+        System.Threading.Tasks.Task<FRONTEND.ServiceReference1.SysReview[]> getAllReviewsAsync(int ProductID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/getBestProds", ReplyAction="http://tempuri.org/IRentEase/getBestProdsResponse")]
         FRONTEND.ServiceReference1.SysProduct[] getBestProds();
@@ -828,6 +939,14 @@ namespace FRONTEND.ServiceReference1 {
             return base.Channel.changePriceAsync(ID, price);
         }
         
+        public bool changeName(int ID, string name) {
+            return base.Channel.changeName(ID, name);
+        }
+        
+        public System.Threading.Tasks.Task<bool> changeNameAsync(int ID, string name) {
+            return base.Channel.changeNameAsync(ID, name);
+        }
+        
         public bool removeProduct(int ID) {
             return base.Channel.removeProduct(ID);
         }
@@ -858,6 +977,22 @@ namespace FRONTEND.ServiceReference1 {
         
         public System.Threading.Tasks.Task<bool> deactivateProductAsync(int ID) {
             return base.Channel.deactivateProductAsync(ID);
+        }
+        
+        public FRONTEND.ServiceReference1.SysReview getReview(int UserID, int InvoiceID, int ProductID) {
+            return base.Channel.getReview(UserID, InvoiceID, ProductID);
+        }
+        
+        public System.Threading.Tasks.Task<FRONTEND.ServiceReference1.SysReview> getReviewAsync(int UserID, int InvoiceID, int ProductID) {
+            return base.Channel.getReviewAsync(UserID, InvoiceID, ProductID);
+        }
+        
+        public FRONTEND.ServiceReference1.SysReview[] getAllReviews(int ProductID) {
+            return base.Channel.getAllReviews(ProductID);
+        }
+        
+        public System.Threading.Tasks.Task<FRONTEND.ServiceReference1.SysReview[]> getAllReviewsAsync(int ProductID) {
+            return base.Channel.getAllReviewsAsync(ProductID);
         }
         
         public FRONTEND.ServiceReference1.SysProduct[] getBestProds() {
