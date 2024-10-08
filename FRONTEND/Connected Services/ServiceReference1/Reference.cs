@@ -540,10 +540,16 @@ namespace FRONTEND.ServiceReference1 {
         System.Threading.Tasks.Task<bool> changePasswordAsync(int ID, string password);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/AddProduct", ReplyAction="http://tempuri.org/IRentEase/AddProductResponse")]
-        bool AddProduct(string description, int quantity, decimal price, int merchantID, string[] images);
+        int AddProduct(string name, string description, int quantity, decimal price, int merchantID, string[] images);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/AddProduct", ReplyAction="http://tempuri.org/IRentEase/AddProductResponse")]
-        System.Threading.Tasks.Task<bool> AddProductAsync(string description, int quantity, decimal price, int merchantID, string[] images);
+        System.Threading.Tasks.Task<int> AddProductAsync(string name, string description, int quantity, decimal price, int merchantID, string[] images);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/EditProduct", ReplyAction="http://tempuri.org/IRentEase/EditProductResponse")]
+        bool EditProduct(int ProductID, string name, string description, int quantity, decimal price, int merchantID, string[] images);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/EditProduct", ReplyAction="http://tempuri.org/IRentEase/EditProductResponse")]
+        System.Threading.Tasks.Task<bool> EditProductAsync(int ProductID, string name, string description, int quantity, decimal price, int merchantID, string[] images);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/changeQuantity", ReplyAction="http://tempuri.org/IRentEase/changeQuantityResponse")]
         bool changeQuantity(int ID, int quantity);
@@ -699,12 +705,20 @@ namespace FRONTEND.ServiceReference1 {
             return base.Channel.changePasswordAsync(ID, password);
         }
         
-        public bool AddProduct(string description, int quantity, decimal price, int merchantID, string[] images) {
-            return base.Channel.AddProduct(description, quantity, price, merchantID, images);
+        public int AddProduct(string name, string description, int quantity, decimal price, int merchantID, string[] images) {
+            return base.Channel.AddProduct(name, description, quantity, price, merchantID, images);
         }
         
-        public System.Threading.Tasks.Task<bool> AddProductAsync(string description, int quantity, decimal price, int merchantID, string[] images) {
-            return base.Channel.AddProductAsync(description, quantity, price, merchantID, images);
+        public System.Threading.Tasks.Task<int> AddProductAsync(string name, string description, int quantity, decimal price, int merchantID, string[] images) {
+            return base.Channel.AddProductAsync(name, description, quantity, price, merchantID, images);
+        }
+        
+        public bool EditProduct(int ProductID, string name, string description, int quantity, decimal price, int merchantID, string[] images) {
+            return base.Channel.EditProduct(ProductID, name, description, quantity, price, merchantID, images);
+        }
+        
+        public System.Threading.Tasks.Task<bool> EditProductAsync(int ProductID, string name, string description, int quantity, decimal price, int merchantID, string[] images) {
+            return base.Channel.EditProductAsync(ProductID, name, description, quantity, price, merchantID, images);
         }
         
         public bool changeQuantity(int ID, int quantity) {

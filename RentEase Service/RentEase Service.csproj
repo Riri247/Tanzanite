@@ -100,9 +100,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IRentEase.cs" />
-    <Compile Include="RentDatadbml.cs">
-      <DependentUpon>RentDatadbml.dbml</DependentUpon>
-    </Compile>
     <Compile Include="RentDatadbml.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -115,15 +112,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="RentDatadbml.dbml">
-      <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>RentDatadbml.designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </Content>
     <None Include="packages.config" />
-    <None Include="RentDatadbml.dbml.layout">
-      <DependentUpon>RentDatadbml.dbml</DependentUpon>
-    </None>
     <Content Include="Tanzanite Files\Accomodation\Room 2.webp" />
     <Content Include="Tanzanite Files\Fridges\Fridge 1.avif" />
     <Content Include="Tanzanite Files\Fridges\Fridge 2.webp" />
@@ -132,6 +121,14 @@
     <Content Include="Tanzanite Files\Microwaves\Microwave 1.webp" />
     <Content Include="Tanzanite Files\Microwaves\Microwave 4.webp" />
     <Content Include="Tanzanite Files\Rental Agreement\Default Contract.pdf" />
+    <Content Include="RentDatadbml.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>RentDatadbml.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="RentDatadbml.dbml.layout">
+      <DependentUpon>RentDatadbml.dbml</DependentUpon>
+    </None>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

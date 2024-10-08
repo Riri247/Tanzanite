@@ -11,10 +11,10 @@ namespace FRONTEND
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                LoadProduct();
-            }
+            //if (!IsPostBack)
+            //{
+            //    LoadProduct();
+            //}
         }
 
         private void LoadProduct()
@@ -23,99 +23,99 @@ namespace FRONTEND
 
             int ID = Convert.ToInt32(Request.QueryString["ID"].ToString());
             var Product = rc.getProduct(ID);
-            string htmlstrProduct = "<div class='anime__details__text'>";
-            htmlstrProduct += "<div class='anime__details__title'>";
-            //Name
-          // error for some reason  htmlstrProduct += "<h3>"+Product.Name+"</h3>";
+          //  string htmlstrProduct = "<div class='anime__details__text'>";
+          //  htmlstrProduct += "<div class='anime__details__title'>";
+          //  //Name
+          //// error for some reason  htmlstrProduct += "<h3>"+Product.Name+"</h3>";
 
-            //maker
-            htmlstrProduct += "<span>Maker</span>";
+          //  //maker
+          //  htmlstrProduct += "<span>Maker</span>";
 
-            htmlstrProduct += "</div>";
-
-
-            htmlstrProduct += "<div class='anime__details__rating'>";
-
-            htmlstrProduct += "<div class='rating'>";
-            //ratings idk if this will go
-            htmlstrProduct += "<a href='#'><i class='fa fa-star'></i></a>";
-
-            htmlstrProduct += "<a href='#'><i class='fa fa-star'></i></a>";
-
-            htmlstrProduct += "<a href ='#'><i class='fa fa-star'></i></a>";
-
-            htmlstrProduct += "<a href='#'><i class='fa fa-star'></i></a>";
-
-            htmlstrProduct += "<a href='#'><i class='fa fa-star-half-o'></i></a>";
-
-            htmlstrProduct += "</div>";
-
-            htmlstrProduct += "<span>Number of votes</span>";
-            htmlstrProduct += "</div>";
-            //Discription
-           //error we dont have the proper function yet htmlstrProduct += "<p>" + Product.Description + "</p>";
-            htmlstrProduct += "<div class='anime__details__widget'>";
+          //  htmlstrProduct += "</div>";
 
 
-            htmlstrProduct += "<div class='row'>";
+          //  htmlstrProduct += "<div class='anime__details__rating'>";
+
+          //  htmlstrProduct += "<div class='rating'>";
+          //  //ratings idk if this will go
+          //  htmlstrProduct += "<a href='#'><i class='fa fa-star'></i></a>";
+
+          //  htmlstrProduct += "<a href='#'><i class='fa fa-star'></i></a>";
+
+          //  htmlstrProduct += "<a href ='#'><i class='fa fa-star'></i></a>";
+
+          //  htmlstrProduct += "<a href='#'><i class='fa fa-star'></i></a>";
+
+          //  htmlstrProduct += "<a href='#'><i class='fa fa-star-half-o'></i></a>";
+
+          //  htmlstrProduct += "</div>";
+
+          //  htmlstrProduct += "<span>Number of votes</span>";
+          //  htmlstrProduct += "</div>";
+          //  //Discription
+          // //error we dont have the proper function yet htmlstrProduct += "<p>" + Product.Description + "</p>";
+          //  htmlstrProduct += "<div class='anime__details__widget'>";
 
 
-            htmlstrProduct += "<div class='col -lg-6 col-md-6'>";
+          //  htmlstrProduct += "<div class='row'>";
 
 
-            htmlstrProduct += "<ul>";
-
-            //additional detals may remove later
-            htmlstrProduct += "<li><span>Type:</span> Type of thing</li>";
-            htmlstrProduct += "<li><span>Studios:</span>category</li>";
-
-            htmlstrProduct += "<li><span>Date aired:</span>Date added</li>";
+          //  htmlstrProduct += "<div class='col -lg-6 col-md-6'>";
 
 
-            htmlstrProduct += "<li><span>Status:</span>status</li>";
+          //  htmlstrProduct += "<ul>";
+
+          //  //additional detals may remove later
+          //  htmlstrProduct += "<li><span>Type:</span> Type of thing</li>";
+          //  htmlstrProduct += "<li><span>Studios:</span>category</li>";
+
+          //  htmlstrProduct += "<li><span>Date aired:</span>Date added</li>";
 
 
-            htmlstrProduct += "</ul>";
+          //  htmlstrProduct += "<li><span>Status:</span>status</li>";
 
 
-            htmlstrProduct += "</div>";
+          //  htmlstrProduct += "</ul>";
 
 
-            htmlstrProduct += "<div class='col -lg-6 col-md-6'>";
+          //  htmlstrProduct += "</div>";
 
 
-            htmlstrProduct += "<ul>";
-
-            //other descriptions
-            htmlstrProduct += "<li><span>Scores:</span>7.31/1,515</li>";
+          //  htmlstrProduct += "<div class='col -lg-6 col-md-6'>";
 
 
-            htmlstrProduct += "<li><span>Rating:</span>8.5/161times</li>";
+          //  htmlstrProduct += "<ul>";
 
-            htmlstrProduct += "<li><span>Duration:</span>24 min/ep</li>";
-
-            htmlstrProduct += "<li><span>Quality:</span>HD</li>";
-
-            htmlstrProduct += "<li><span>Views:</span>131,541</li>";
+          //  //other descriptions
+          //  htmlstrProduct += "<li><span>Scores:</span>7.31/1,515</li>";
 
 
-            htmlstrProduct += "</ul>";
+          //  htmlstrProduct += "<li><span>Rating:</span>8.5/161times</li>";
 
-            htmlstrProduct += "</div>";
+          //  htmlstrProduct += "<li><span>Duration:</span>24 min/ep</li>";
 
-            htmlstrProduct += "</div>";
+          //  htmlstrProduct += "<li><span>Quality:</span>HD</li>";
 
-            htmlstrProduct += "</div>";
-
-            htmlstrProduct += "<div class='anime__details__btn'>";
+          //  htmlstrProduct += "<li><span>Views:</span>131,541</li>";
 
 
-            htmlstrProduct += "<a href ='#' class='follow-btn'><i class='fa fa-heart-o'></i> Follow ??? idk if we need this </a>";
+          //  htmlstrProduct += "</ul>";
 
-            htmlstrProduct += "< a href ='#' class='watch-btn'><span> Add to cart</span> <i";
-            htmlstrProduct += "class= 'fa fa-angle-right'></i></a>";
-            htmlstrProduct += "</div>";
-            htmlstrProduct += "</div>";
+          //  htmlstrProduct += "</div>";
+
+          //  htmlstrProduct += "</div>";
+
+          //  htmlstrProduct += "</div>";
+
+          //  htmlstrProduct += "<div class='anime__details__btn'>";
+
+
+          //  htmlstrProduct += "<a href ='#' class='follow-btn'><i class='fa fa-heart-o'></i> Follow ??? idk if we need this </a>";
+
+          //  htmlstrProduct += "< a href ='#' class='watch-btn'><span> Add to cart</span> <i";
+          //  htmlstrProduct += "class= 'fa fa-angle-right'></i></a>";
+          //  htmlstrProduct += "</div>";
+          //  htmlstrProduct += "</div>";
         }
     }
 }

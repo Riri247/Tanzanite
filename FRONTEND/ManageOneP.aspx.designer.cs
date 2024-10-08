@@ -15,6 +15,15 @@ namespace FRONTEND
     {
 
         /// <summary>
+        /// form1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+
+        /// <summary>
         /// name control.
         /// </summary>
         /// <remarks>
@@ -84,7 +93,7 @@ namespace FRONTEND
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder image_url_holder;
+        protected global::System.Web.UI.WebControls.Panel image_url_holder;
 
         /// <summary>
         /// image1 control.
@@ -96,13 +105,13 @@ namespace FRONTEND
         protected global::System.Web.UI.WebControls.TextBox image1;
 
         /// <summary>
-        /// addInput control.
+        /// btnAddInput control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button addInput;
+        protected global::System.Web.UI.WebControls.Button btnAddInput;
 
         /// <summary>
         /// response control.

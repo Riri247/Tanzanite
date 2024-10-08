@@ -216,7 +216,11 @@ namespace RentEase_Service
         }
 
 
+<<<<<<< HEAD
         public bool AddProduct(string name, string description, int quantity, decimal price, int merchantID, string[] images)
+=======
+        public int AddProduct(string name, string description, int quantity, decimal price, int merchantID, string[] images)
+>>>>>>> main
         {
             try
             {
@@ -234,11 +238,11 @@ namespace RentEase_Service
                 RentEaseDB.Products.InsertOnSubmit(product);
                 RentEaseDB.SubmitChanges();
 
-                return true;
+                return product.Id;
             }
             catch (Exception)
             {
-                return false;
+                return -1;
             }
 
         }
@@ -386,7 +390,9 @@ namespace RentEase_Service
                 // CREATE INVOICE
                 Invoice invoice = new Invoice
                 {
-                    I_Date = new DateTime()
+                    I_Date = new DateTime(),
+                    Total_Quantity = 0,
+                    Total_Cost = 0
                 };
 
                 RentEaseDB.Invoices.InsertOnSubmit(invoice);
@@ -406,9 +412,13 @@ namespace RentEase_Service
 
                 List<Order> orders = new List<Order>();
 
+
+
                 // CREATE ORDERS for every product in that invoice
                 for (int i = 0; i < parrallel_length; i++)
                 {
+
+                    invoice.Total_Quantity++;
 
                     // create new order
                     Order order = new Order
@@ -419,6 +429,10 @@ namespace RentEase_Service
                         Quantity = cart[i].Quantity,
                         Durantion = arrDurations[i]
                     };
+
+
+                    invoice.Total_Cost += order.subTotal * order.Quantity;
+
                     // add to list of orders
                     orders.Add(order);
 
@@ -436,6 +450,8 @@ namespace RentEase_Service
             }
 
         }
+
+
 
 
 
@@ -527,11 +543,11 @@ namespace RentEase_Service
 
         public bool rateProduct(int InvoiceID, int ProductID, int stars, string review) {
 
-            Reviews tmpReview = new Reviews { 
+            Review tmpReview = new Review() { 
                 Invoice_ID = InvoiceID,
                 Product_ID = ProductID,
                 Star_Rating = stars,
-                Review = review
+                Review1 = review
             };
 
 
