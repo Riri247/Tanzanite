@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using FRONTEND.ServiceReference1;
+using Newtonsoft.Json;
 
 namespace FRONTEND
 {
@@ -27,9 +28,10 @@ namespace FRONTEND
             String htmlstrBestProds = "";
             foreach (ServiceReference1.SysProduct p in Prods)
             {
+                string[] images = JsonConvert.DeserializeObject<string[]>(p.Image_URL);
                 htmlstrBestProds += "<div class='Scol-lg-4 col-md-6 col-sm-6'>";
                 htmlstrBestProds += "<div class='product__item'>";
-                htmlstrBestProds += "<div class='product_item_pic set-bg' data-setbg='img/trending/trend-1.jpg'>";
+                htmlstrBestProds += "<div class='product_item_pic set-bg' data-setbg='"+images[0]+"'>";
                 htmlstrBestProds += "<div class='ep'>R"+p.Price+"</div>";  
                 htmlstrBestProds += "<span>";
                 htmlstrBestProds += "<div class='anime_details_btn'>";
@@ -39,7 +41,6 @@ namespace FRONTEND
                 htmlstrBestProds += "</div>";
                 htmlstrBestProds += "<div class='product_item_text'>";
                 htmlstrBestProds += "<ul>";
-                htmlstrBestProds += "<li>Active</li>";
                 htmlstrBestProds += "<li>"+p.Category+"</li>";
                 htmlstrBestProds += "</ul>";
                 htmlstrBestProds += "<h5><a href='About.aspx?id="+ p.Id+"'>"+ p.Product_Name+"</a></h5>";
@@ -57,9 +58,10 @@ namespace FRONTEND
             Prods = rc.getNewProds();
             foreach (ServiceReference1.SysProduct p in Prods)
             {
+                string[] images = JsonConvert.DeserializeObject<string[]>(p.Image_URL);
                 hymlstrNewProds += "<div class='product_sidebarcomment_item'>";
                 hymlstrNewProds += "<div class='product_sidebarcommentitem_pic'>";
-                hymlstrNewProds += "<img src='img/sidebar/comment-1.jpg' alt=''>";
+                hymlstrNewProds += "<img src='"+images[0]+"' alt=''>";
                 hymlstrNewProds += "</div>";
                 hymlstrNewProds += "<div class='product_sidebarcommentitem_text'>";
                 hymlstrNewProds += "<ul>";
