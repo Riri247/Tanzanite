@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using FRONTEND.ServiceReference1;
+using Newtonsoft.Json;
 
 namespace FRONTEND
 {
@@ -94,6 +95,7 @@ namespace FRONTEND
 			{
 				String htmlstrProdList = "";
 				foreach (ServiceReference1.SysProduct p in listProducts) {
+					string[] images = JsonConvert.DeserializeObject<string[]>(p.Image_URL);
 					htmlstrProdList += "<tr>";
 					htmlstrProdList += "<td>";
 					htmlstrProdList += "<a href='About.aspx?id="+p.Id+"'>";
@@ -106,7 +108,7 @@ namespace FRONTEND
 
 					htmlstrProdList += "<a href='About.aspx?id=" + p.Id + "'>";
 
-					htmlstrProdList += "<img src='"+ p.Image_URL+"' alt='Playstation 5'>";
+					htmlstrProdList += "<img src='"+ images[0]+"' alt='Playstation 5'>";
 
 					htmlstrProdList += "</a>";
 
