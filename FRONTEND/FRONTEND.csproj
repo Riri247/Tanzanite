@@ -88,6 +88,9 @@
     <Content Include="Connected Services\ServiceReference1\FRONTEND.ServiceReference1.SysUser.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Connected Services\ServiceReference1\FRONTEND.ServiceReference1.GetInvoice.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Connected Services\ServiceReference1\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>

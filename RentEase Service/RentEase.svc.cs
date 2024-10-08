@@ -569,6 +569,21 @@ namespace RentEase_Service
 
         }
 
+        public List<GetInvoice> getUserInvoices(int UserID)
+        {
+            dynamic ListInvoices = (from i in RentEaseDB.Customer_Invoices
+                                    where i.C_ID == UserID
+                                    select i).DefaultIfEmpty();
+
+
+
+
+            if (ListInvoices != null)
+            {
+                List<GetInvoice> Listinv = new List<GetInvoice>();
+
+                foreach (Customer_Invoice ci in ListInvoices)
+                {
 
         public SysReview getReview(int UserID, int InvoiceID, int ProductID)
         {
@@ -608,5 +623,33 @@ namespace RentEase_Service
             return quary.DefaultIfEmpty().ToList();
         }
 
+                    GetInvoice Temp = new GetInvoice();
+                    Temp.invID = ci.Invoice_ID;
+
+
+                    var Tempinv = (from i in RentEaseDB.Invoices
+                                   where i.ID == Temp.invID
+                                   select i).FirstOrDefault();
+
+                    if (Tempinv != null)
+                    {
+
+                        Temp.invDate = Tempinv.I_Date;
+                        Temp.INvPrice = Tempinv.Total_Cost;
+
+                    }
+
+                    Listinv.Add(Temp);
+
+                }
+
+                return Listinv;
+
+            }
+            else {
+                return null;
+            }
+            
+        }
     }
 }
