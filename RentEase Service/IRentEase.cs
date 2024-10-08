@@ -51,6 +51,14 @@ namespace RentEase_Service
         public SysShopping_Cart cart;
     }
 
+    //making the returnable invoice thing
+   
+    public class GetInvoice {
+        public int invID;
+        public DateTime invDate;
+        public decimal INvPrice;
+    }
+
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IRentEase" in both code and config file together.
     [ServiceContract]
     public interface IRentEase
@@ -269,5 +277,16 @@ namespace RentEase_Service
         //get by recent
         [OperationContract]
         List<SysProduct> getNewProds();
+
+
+        /// <summary>
+        /// Method returns the user invoices 
+        /// </summary>
+        /// <param name="UserID"></param>
+        /// <returns>
+        /// Returns a list of the wrapper class invoices
+        /// </returns>
+        [OperationContract]
+        List<GetInvoice> getUserInvoices(int UserID);
     }
 }
