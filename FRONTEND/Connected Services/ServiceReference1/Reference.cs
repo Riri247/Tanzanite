@@ -481,6 +481,83 @@ namespace FRONTEND.ServiceReference1 {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="GetInvoice", Namespace="http://schemas.datacontract.org/2004/07/RentEase_Service")]
+    [System.SerializableAttribute()]
+    public partial class GetInvoice : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal INvPriceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime invDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int invIDField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal INvPrice {
+            get {
+                return this.INvPriceField;
+            }
+            set {
+                if ((this.INvPriceField.Equals(value) != true)) {
+                    this.INvPriceField = value;
+                    this.RaisePropertyChanged("INvPrice");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime invDate {
+            get {
+                return this.invDateField;
+            }
+            set {
+                if ((this.invDateField.Equals(value) != true)) {
+                    this.invDateField = value;
+                    this.RaisePropertyChanged("invDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int invID {
+            get {
+                return this.invIDField;
+            }
+            set {
+                if ((this.invIDField.Equals(value) != true)) {
+                    this.invIDField = value;
+                    this.RaisePropertyChanged("invID");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IRentEase")]
     public interface IRentEase {
@@ -604,6 +681,12 @@ namespace FRONTEND.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/getNewProds", ReplyAction="http://tempuri.org/IRentEase/getNewProdsResponse")]
         System.Threading.Tasks.Task<FRONTEND.ServiceReference1.SysProduct[]> getNewProdsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/getUserInvoices", ReplyAction="http://tempuri.org/IRentEase/getUserInvoicesResponse")]
+        FRONTEND.ServiceReference1.GetInvoice[] getUserInvoices(int UserID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/getUserInvoices", ReplyAction="http://tempuri.org/IRentEase/getUserInvoicesResponse")]
+        System.Threading.Tasks.Task<FRONTEND.ServiceReference1.GetInvoice[]> getUserInvoicesAsync(int UserID);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -791,6 +874,14 @@ namespace FRONTEND.ServiceReference1 {
         
         public System.Threading.Tasks.Task<FRONTEND.ServiceReference1.SysProduct[]> getNewProdsAsync() {
             return base.Channel.getNewProdsAsync();
+        }
+        
+        public FRONTEND.ServiceReference1.GetInvoice[] getUserInvoices(int UserID) {
+            return base.Channel.getUserInvoices(UserID);
+        }
+        
+        public System.Threading.Tasks.Task<FRONTEND.ServiceReference1.GetInvoice[]> getUserInvoicesAsync(int UserID) {
+            return base.Channel.getUserInvoicesAsync(UserID);
         }
     }
 }
