@@ -93,7 +93,10 @@ namespace RentEase_Service
                             Id = p.Id,
                             Decript = p.Decript,
                             Quantity = p.Quantity,
-                            Image_URL = p.Image_URL
+                            Image_URL = p.Image_URL,
+                            Price = p.Price,
+                            Category = p.Category,
+                            Product_Name = p.Product_Name
                         };
 
             return query.DefaultIfEmpty().ToList();

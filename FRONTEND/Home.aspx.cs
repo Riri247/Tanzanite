@@ -29,9 +29,11 @@ namespace FRONTEND
             foreach (ServiceReference1.SysProduct p in Prods)
             {
                 string[] images = JsonConvert.DeserializeObject<string[]>(p.Image_URL);
+
+
                 htmlstrBestProds += "<div class='Scol-lg-4 col-md-6 col-sm-6'>";
                 htmlstrBestProds += "<div class='product__item'>";
-                htmlstrBestProds += "<div class='product_item_pic set-bg' data-setbg='"+images[0]+"'>";
+                htmlstrBestProds += "<img class='product_item_pic set-bg' src='"+images[0]+"' alt='none' width='50%' height='50%'/>";
                 htmlstrBestProds += "<div class='ep'>R"+p.Price+"</div>";  
                 htmlstrBestProds += "<span>";
                 htmlstrBestProds += "<div class='anime_details_btn'>";
@@ -40,11 +42,7 @@ namespace FRONTEND
                 htmlstrBestProds += "</span>";
                 htmlstrBestProds += "</div>";
                 htmlstrBestProds += "<div class='product_item_text'>";
-                htmlstrBestProds += "<ul>";
-                htmlstrBestProds += "<li>"+p.Category+"</li>";
-                htmlstrBestProds += "</ul>";
                 htmlstrBestProds += "<h5><a href='About.aspx?id="+ p.Id+"'>"+ p.Product_Name+"</a></h5>";
-                htmlstrBestProds += "</div>";
                 htmlstrBestProds += "</div>";
                 htmlstrBestProds += "</div>";
             }
@@ -55,13 +53,13 @@ namespace FRONTEND
             hymlstrNewProds += "<h5> New Comment</h5>";
             hymlstrNewProds += "</div>";
            
-            Prods = rc.getNewProds();
-            foreach (ServiceReference1.SysProduct p in Prods)
+            dynamic newProds = rc.getNewProds();
+            foreach (ServiceReference1.SysProduct p in newProds)
             {
                 string[] images = JsonConvert.DeserializeObject<string[]>(p.Image_URL);
                 hymlstrNewProds += "<div class='product_sidebarcomment_item'>";
                 hymlstrNewProds += "<div class='product_sidebarcommentitem_pic'>";
-                hymlstrNewProds += "<img src='"+images[0]+"' alt=''>";
+                hymlstrNewProds += "<img src='"+images[0]+"' width='40%' height='40%' alt=''>";
                 hymlstrNewProds += "</div>";
                 hymlstrNewProds += "<div class='product_sidebarcommentitem_text'>";
                 hymlstrNewProds += "<ul>";
@@ -76,6 +74,7 @@ namespace FRONTEND
                 hymlstrNewProds += "</div>";
                 hymlstrNewProds += "</div>";
             }
+
             Sidebarcontent.InnerHtml = hymlstrNewProds;  
         }
     }
