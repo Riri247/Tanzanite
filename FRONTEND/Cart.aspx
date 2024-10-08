@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Base.Master" AutoEventWireup="true" CodeBehind="Cart.aspx.cs" Inherits="FRONTEND.Cart" %>
+﻿w<%@ Page Title="" Language="C#" MasterPageFile="~/Base.Master" AutoEventWireup="true" CodeBehind="Cart.aspx.cs" Inherits="FRONTEND.Cart" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -150,7 +150,7 @@ a {
         
                       <div class="row">
                         <div class="col-md-12">
-                          <button class="btn btn-black btn-lg py-3 btn-block" onclick="window.location='checkout.html'">Proceed To Checkout</button>
+                          <a class="btn btn-black btn-lg py-3 btn-block" href="Invoice.aspx?userID=<%= Session["ID"] %>" >Proceed To Checkout</a>
                         </div>
                       </div>
                     </div>
