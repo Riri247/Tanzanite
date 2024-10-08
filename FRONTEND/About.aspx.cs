@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using FRONTEND.ServiceReference1;
+using Newtonsoft.Json;
 
 namespace FRONTEND
 {
@@ -13,7 +14,7 @@ namespace FRONTEND
         RentEaseClient rc = new RentEaseClient();
         SysProduct product;
         SysReview[] reviews;
-
+        string[] images;
         protected void Page_Load(object sender, EventArgs e)
         {
             //if (!IsPostBack)
@@ -23,11 +24,15 @@ namespace FRONTEND
 
             if (Request.QueryString["ID"] != null)
             {
-                int id = int.Parse(Request.QueryString["ID"].ToString());
 
+
+                int id = int.Parse(Request.QueryString["ID"].ToString());
+              
                 product = rc.getProduct(id);
+                 images = JsonConvert.DeserializeObject<string[]>(product.Image_URL);
                 reviews = rc.getAllReviews(id);
 
+                LoadProduct();
                 foreach (SysReview r in reviews)
                 {
                     concat(r.Review1, r.Star_Ratng);
@@ -50,10 +55,27 @@ namespace FRONTEND
 
     private void LoadProduct()
         {
-            RentEaseClient rc = new RentEaseClient();
+            String Descphtml = "";
 
-            int ID = Convert.ToInt32(Request.QueryString["ID"].ToString());
-            var Product = rc.getProduct(ID);
+            foreach (string f in images) {
+
+                Descphtml = $@"<div class='hero__items set-bg' data-setbg='{f}'> <!-- Change image directory per loop-->
+                        <div class='row'>
+                        <div class='col-lg-6'>
+                            <div class='hero__text'>
+                                <div class='label'>{product.Category}</div> <!-- product type-->
+                                <h2>Electronics</h2> <!-- Product name-->
+                                <p>{product.Decript}</p> <!--- Description-->";
+
+
+                Descphtml = $@"    <a href ='ProductList.aspx?Category=Electronics'>< span > Review </ span > <i class='fa fa-angle-right'></i></a> <!-- Review button must only be seen  when the user has bought it before-->";
+               
+                Descphtml = $@"    </div>
+                        </div>
+                    </div>
+                </div>";
+            }
+            Descriptiondiv.InnerHtml = Descphtml;
 
 
 
