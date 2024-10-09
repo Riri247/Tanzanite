@@ -96,7 +96,7 @@ namespace FRONTEND
                 //if they are logged in they will see the add to cart shandiz
                 if (Session["ID"] != null)
                 {
-                    hymlstrNewProds += "<a href ='Cart.aspx?prodID=" + p.Id + "' class='watch-btn'><span> Add to cart</span> <i class='fa fa-angle-right'></i></a>";
+                    hymlstrNewProds += "<a href ='Cart.aspx?prodID='" + p.Id + "' class='watch-btn'><span> Add to cart</span> <i class='fa fa-angle-right'></i></a>";
                 }
                
                 hymlstrNewProds += "</div>";

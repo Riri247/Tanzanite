@@ -34,6 +34,7 @@ namespace FRONTEND
                     Session["ID"] = user.Id;
                     Session["Email"] = user.Email;
                     Session["U_type"] = user.User_Type;
+                    Response.Redirect("Home.aspx");
                 }
                 else
                 {
