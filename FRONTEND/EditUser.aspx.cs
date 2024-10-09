@@ -21,7 +21,7 @@ namespace FRONTEND
             if (!IsPostBack) {
 
                 if (Session["U_type"] != null) {
-                    if (Session["U_type"].ToString() == "Admin") {
+                    if (Session["U_type"].ToString() == "Adm") {
                         UseType.Visible = true;
                     }
                 }
