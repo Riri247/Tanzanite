@@ -798,6 +798,18 @@ namespace FRONTEND.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/getUserInvoices", ReplyAction="http://tempuri.org/IRentEase/getUserInvoicesResponse")]
         System.Threading.Tasks.Task<FRONTEND.ServiceReference1.GetInvoice[]> getUserInvoicesAsync(int UserID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/EditUserData", ReplyAction="http://tempuri.org/IRentEase/EditUserDataResponse")]
+        void EditUserData(FRONTEND.ServiceReference1.SysUser OneUser);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/EditUserData", ReplyAction="http://tempuri.org/IRentEase/EditUserDataResponse")]
+        System.Threading.Tasks.Task EditUserDataAsync(FRONTEND.ServiceReference1.SysUser OneUser);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/GetAllusers", ReplyAction="http://tempuri.org/IRentEase/GetAllusersResponse")]
+        FRONTEND.ServiceReference1.SysUser[] GetAllusers();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/GetAllusers", ReplyAction="http://tempuri.org/IRentEase/GetAllusersResponse")]
+        System.Threading.Tasks.Task<FRONTEND.ServiceReference1.SysUser[]> GetAllusersAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1017,6 +1029,22 @@ namespace FRONTEND.ServiceReference1 {
         
         public System.Threading.Tasks.Task<FRONTEND.ServiceReference1.GetInvoice[]> getUserInvoicesAsync(int UserID) {
             return base.Channel.getUserInvoicesAsync(UserID);
+        }
+        
+        public void EditUserData(FRONTEND.ServiceReference1.SysUser OneUser) {
+            base.Channel.EditUserData(OneUser);
+        }
+        
+        public System.Threading.Tasks.Task EditUserDataAsync(FRONTEND.ServiceReference1.SysUser OneUser) {
+            return base.Channel.EditUserDataAsync(OneUser);
+        }
+        
+        public FRONTEND.ServiceReference1.SysUser[] GetAllusers() {
+            return base.Channel.GetAllusers();
+        }
+        
+        public System.Threading.Tasks.Task<FRONTEND.ServiceReference1.SysUser[]> GetAllusersAsync() {
+            return base.Channel.GetAllusersAsync();
         }
     }
 }

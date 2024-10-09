@@ -46,6 +46,18 @@ width: 500px;
 </div>
     <!-- end of that attribute-->
 
+
+     <!-- per attribute this 1-->
+<div class="AttributeCont"  >
+     <div class="EntityBox">
+        <h2> Surname :</h2>
+        </div>
+
+    <input type="text" class="Pinput" placeholder="Enter Value" id="TxtSur" runat="server">
+ 
+</div>
+    <!-- end of that attribute-->
+
      <!-- per attribute this 1-->
 <div class="AttributeCont" >
      <div class="EntityBox">
