@@ -33,7 +33,7 @@
                 <!-- Different image same words-->
                 <!-- Commented out incase we may need it again-->
                 <!-- Code to repeat back end start--->
-              <%--  <div class="hero__items set-bg" data-setbg="img/hero/electronics.png"> <!-- Change image directory per loop-->
+               <div class="hero__items set-bg" data-setbg="img/hero/electronics.png"> <!-- Change image directory per loop-->
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="hero__text">
@@ -44,12 +44,18 @@
                             </div>
                         </div>
                     </div>
-                </div>--%>
+                </div>
                  <!-- Code to repeat back end END--->
              
+                <div style="background-image : url">
+
             </div>
         </div>
     </section>
+
+            <div class="row" id="Descpdiv" runat="server">
+
+                </div>
     <!-- Hero Section End -->
 
         
@@ -61,14 +67,7 @@
                             </div> <!-- Copy the whole thing-->
                         <div class="anime__details__review" id="divReviews" runat="server">
                     
-                            <div class="anime__review__item"> <!--start or repeat code for this section-->
-                               
-                                <div class="anime__review__item__text">
-                                    <h6> Star: 5</h6> <!-- name a time cna be removed-->
-                                    <p>whachikan Just noticed that someone categorized this as belonging to the genre
-                                    "demons" LOL</p> <!-- Review-->
-                                </div> <!-- end of repeat code for this section-->
-                            </div>
+                         <p> NO CREVIEWS </p>
                           
                         </div>
 
