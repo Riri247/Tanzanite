@@ -70,14 +70,6 @@
       <Association Name="Product_Review" Member="Product" ThisKey="Product_ID" OtherKey="Id" Type="Product" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Shopping_cart" Member="Shopping_carts">
-    <Type Name="Shopping_cart">
-      <Column Name="P_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="C_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Association Name="Product_Shopping_cart" Member="Product" ThisKey="P_ID" OtherKey="Id" Type="Product" IsForeignKey="true" />
-      <Association Name="User_Shopping_cart" Member="User" ThisKey="C_ID" OtherKey="Id" Type="User" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.[User]" Member="Users">
     <Type Name="User">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -89,6 +81,15 @@
       <Association Name="User_Customer_Invoice" Member="Customer_Invoices" ThisKey="Id" OtherKey="C_ID" Type="Customer_Invoice" />
       <Association Name="User_Merchant" Member="Merchant" ThisKey="Id" OtherKey="M_ID" Type="Merchant" Cardinality="One" />
       <Association Name="User_Shopping_cart" Member="Shopping_carts" ThisKey="Id" OtherKey="C_ID" Type="Shopping_cart" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Shopping_cart" Member="Shopping_carts">
+    <Type Name="Shopping_cart">
+      <Column Name="P_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="C_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="User_Shopping_cart" Member="User" ThisKey="C_ID" OtherKey="Id" Type="User" IsForeignKey="true" />
+      <Association Name="Product_Shopping_cart" Member="Product" ThisKey="P_ID" OtherKey="Id" Type="Product" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

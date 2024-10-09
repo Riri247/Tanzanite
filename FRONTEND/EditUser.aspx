@@ -111,12 +111,14 @@ width: 500px;
        </div>
 
        <!-- BUTTON-->
-        <div class="AttributeCont">
+       <form id="form1" runat="server">
+            <div class="AttributeCont">
             <div class="anime__details__btn">
                 <asp:Button ID="btnSubmit" runat="server" CssClass="follow-btn" Text="Submit to DB" OnClick="Submit_Click"></asp:Button>
 
 
             </div>
+           </form>
 
         </div>
         <!-- end of that-->

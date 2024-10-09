@@ -43,24 +43,21 @@ namespace FRONTEND
             if (ListUse != null) {
 
                 foreach (SysUser U in ListUse) {
-                    usehtml += $@"  <div class='Scrollable'>
-        < div  class ='NameBox'>
-            <p> {U.U_Name}</p>
-        <p> {U.Email}</p>
-        <p> {U.User_Type} </p>
+                    usehtml += $@"<div class='Scrollable'>
+        <div  class ='NameBox'>
+            <p>{U.U_Name}<br>{U.User_Type}</p>   
             </div>
-        
 
-         <div class='btnbox>
+         <div class='btnbox'>
 <div class='anime__details__btn'>
                                 <a href='#' class='follow-btn'> Remove</a>      
-                                <a href ='EditUser.aspx?ID={U.Id}' class='follow-btn'> Edit</a>      
+                              <a href='EditUser.aspx?ID={U.Id}' class='follow-btn'> Edit</a>      
                             </div>
             </div>
     </div>";
                 }
 
-                ScrollDiv.InnerHtml = usehtml;
+               ScrollDiv.InnerHtml = usehtml;
             }
 
 

@@ -242,7 +242,7 @@ namespace RentEase_Service
         /// <summary>
         /// This method rates a product in a user's invoice
         /// </summary>
-        /// <param name="InvoiceID">The ID of the invoice the product belongs to</param>
+        /// <param name="UserID">The ID of the user the review belongs to</param>
         /// <param name="ProductID">The ID of the product/param>
         /// <param name="stars">The star rating</param>
         /// <param name="review">The text review of the product</param>
@@ -250,6 +250,10 @@ namespace RentEase_Service
         [OperationContract]
         bool rateProduct(int InvoiceID, int ProductID, int stars, string review);
 
+
+        [OperationContract]
+
+        int getInvoiceID(int UserID, int ProductID);
 
 
         /// <summary>
@@ -329,8 +333,29 @@ namespace RentEase_Service
         [OperationContract]
         bool HasBoughtProduct(int UserID, int ProductID);
 
-
+        /// <summary>
+        /// Gets all the products related to the merchant
+        /// </summary>
+        /// <param name="MerchatID"></param>
+        /// <returns></returns>
         [OperationContract]
         List<SysProduct> GetMerchantProds(int MerchatID);
+
+
+        //Utiity function -- by Emmanuel
+
+        /// <summary>
+        /// checks if cart item exists
+        /// </summary>
+        /// <param name="useId"></param>
+        /// <param name="prodID"></param>
+        /// <returns> true if cart item in db already
+        /// </returns>
+        bool checkcart(int useId, int prodID);
+
+
+        void createCart(int useId, int prodID);
+
+
     }
 }

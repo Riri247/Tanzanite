@@ -61,7 +61,7 @@ namespace FRONTEND
                 htmlstrBestProds += "<h4 style='color:red'>R" + Math.Round(p.Price, 2) + "</h4>";
                 if (Session["ID"] != null) {
                     htmlstrBestProds+="<div class='add-to-cart'>";
-                    htmlstrBestProds += "<a href ='Cart.aspx?prodID=" + p.Id + "' class='add-to-cart-btn'><span><i class='fa fa-shopping - cart'></i> Add to cart</span> <i class='fa fa-angle-right'></i></a>";
+                    htmlstrBestProds += "<a href ='Cart.aspx?prodID='" + p.Id + "' class='add-to-cart-btn'><span><i class='fa fa-shopping - cart'></i> Add to cart</span> <i class='fa fa-angle-right'></i></a>";
                     htmlstrBestProds += "</div>";
                 }
                 htmlstrBestProds += "</div>";
@@ -96,7 +96,7 @@ namespace FRONTEND
                 //if they are logged in they will see the add to cart shandiz
                 if (Session["ID"] != null)
                 {
-                    hymlstrNewProds += "<a href ='Cart.aspx?prodID=" + p.Id + "' class='watch-btn'><span> Add to cart</span> <i class='fa fa-angle-right'></i></a>";
+                    hymlstrNewProds += "<a href ='Cart.aspx?prodID='" + p.Id + "' class='watch-btn'><span> Add to cart</span> <i class='fa fa-angle-right'></i></a>";
                 }
                
                 hymlstrNewProds += "</div>";

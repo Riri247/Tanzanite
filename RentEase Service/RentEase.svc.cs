@@ -108,23 +108,30 @@ namespace RentEase_Service
 
         public bool addToCart(int UserID, int ProductID)
         {
-            try
+
+            if (checkcart(UserID, ProductID))
             {
-                var s = new Shopping_cart
+                var query = (from sc in RentEaseDB.Shopping_carts
+                             where sc.C_ID == UserID && sc.P_ID == ProductID
+                             select sc).FirstOrDefault();
+
+                if (query != null)
                 {
-                    P_ID = ProductID,
-                    C_ID = UserID
-                };
+                    // increase quantity
 
-                RentEaseDB.Shopping_carts.InsertOnSubmit(s);
-                RentEaseDB.SubmitChanges();
-                return true;
+                    query.Quantity++;
+
+                    RentEaseDB.SubmitChanges();
+                    return true;
+
+                }
+                else { return false; }
 
             }
-            catch (Exception)
-            {
-                return false;
-            }
+            else { createCart(UserID, ProductID);  return true; }
+
+            return false;
+
 
         }
 
@@ -174,7 +181,7 @@ namespace RentEase_Service
                             {
                                 C_ID = c.C_ID,
                                 P_ID = c.P_ID,
-                                //Quantity = c.Quantity
+                                Quantity = c.Quantity
                             }
 
                         };
@@ -528,6 +535,18 @@ namespace RentEase_Service
             else { return null; }
         }
 
+        public int getInvoiceID(int UserID, int ProductID)
+        {
+            var query = from i in RentEaseDB.Customer_Invoices
+                        join p in RentEaseDB.Orders
+                        on i.Invoice_ID equals p.Invoice_ID
+                        where i.C_ID == UserID
+                        select i.Invoice_ID;
+
+
+            return query.FirstOrDefault();
+        }
+
         public bool rateProduct(int InvoiceID, int ProductID, int stars, string review)
         {
 
@@ -538,6 +557,7 @@ namespace RentEase_Service
                 Star_Rating = stars,
                 Review1 = review
             };
+
 
 
             try
@@ -693,18 +713,35 @@ namespace RentEase_Service
 
         public List<SysUser> GetAllusers()
         {
-            dynamic query = from u in RentEaseDB.Users
-                      
-                        select new SysUser
-                        {
-                            Email = u.Email,
-                            Id = u.Id,
-                            User_Type = u.User_Type,
-                            Surname = u.Surname,
-                            U_Name = u.U_Name
-                        };
+            dynamic query = (from u in RentEaseDB.Users
+                             select u).DefaultIfEmpty();
 
-            return query.DefaultIfEmpty().ToList();
+
+            List<SysUser> LisUSer = new List<SysUser>();
+
+            if (query != null)
+            {
+                foreach (User u in query)
+                {
+                    LisUSer.Add(new
+                    SysUser
+                    {
+                        Email = u.Email,
+                        Id = u.Id,
+                        User_Type = u.User_Type,
+                        Surname = u.Surname,
+                        U_Name = u.U_Name
+                    });
+
+                }
+                return LisUSer;
+            }
+            else { return null; }
+
+
+          
+
+
         }
 
         public bool HasBoughtProduct(int UserID, int ProductID)
@@ -748,6 +785,33 @@ namespace RentEase_Service
                 return prodlist;
             }
             else { return null; }
+        }
+
+        public bool checkcart(int useId, int prodID)
+        {
+            var TempCart = (from ci in RentEaseDB.Shopping_carts
+                            where ci.C_ID == useId & ci.P_ID == prodID
+                            select ci).FirstOrDefault();
+
+
+            if (TempCart != null) {
+                return true;
+            }
+            return false;
+        
+        }
+
+        public void createCart(int useId, int prodID)
+        {
+            var s = new Shopping_cart
+            {
+                P_ID = prodID,
+                C_ID = useId,
+                Quantity = 1
+            };
+
+            RentEaseDB.Shopping_carts.InsertOnSubmit(s);
+            RentEaseDB.SubmitChanges();
         }
     }
 }
