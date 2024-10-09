@@ -92,7 +92,7 @@
                                
                             </div></div>
 
-    <div class="scroll-contain">
+    <div class="scroll-contain" id="ScrollDiv" runat="server">
          <div class="Scrollable">
         <div  class ="NameBox">
             <p> P name </p>
@@ -110,7 +110,7 @@
     </div>
 
 
-     <div class="Scrollable">
+ <%--    <div class="Scrollable">
         <div  class ="NameBox">
             <p> P name </p>
         <p> P attribute 1 </p>
@@ -142,7 +142,7 @@
                                 <a href="#" class="follow-btn"> Edit</a>      
                             </div>
             </div>
-    </div>
+    </div>--%>
 
         </div>
 

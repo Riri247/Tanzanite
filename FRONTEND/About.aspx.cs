@@ -33,9 +33,11 @@ namespace FRONTEND
                 reviews = rc.getAllReviews(id);
 
                 LoadProduct();
-                foreach (SysReview r in reviews)
-                {
-                    concat(r.Review1, r.Star_Ratng);
+                if (reviews != null) {
+                    foreach (SysReview r in reviews)
+                    {
+                        concat(r.Review1, r.Star_Ratng);
+                    }
                 }
             }
         }
@@ -43,14 +45,19 @@ namespace FRONTEND
 
         private void concat(string text, int rating)
         {
-            string innerChild = $@"<div class='anime__review__item'>
+
+            if (reviews != null) {
+                string innerChild = $@"<div class='anime__review__item'>
                 <div class='anime__review__item__text'>
                 <h6> Star: {rating}</h6>
                 <p>{text}</p>
                 </div>
                 </div>";
 
-            divReviews.InnerHtml += innerChild;
+                divReviews.InnerHtml += innerChild;
+            }
+           
+             
         }
 
     private void LoadProduct()

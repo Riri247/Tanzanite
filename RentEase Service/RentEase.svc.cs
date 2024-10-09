@@ -688,5 +688,20 @@ namespace RentEase_Service
             }
         }
 
+        public List<SysUser> GetAllusers()
+        {
+            dynamic query = from u in RentEaseDB.Users
+                      
+                        select new SysUser
+                        {
+                            Email = u.Email,
+                            Id = u.Id,
+                            User_Type = u.User_Type,
+                            Surname = u.Surname,
+                            U_Name = u.U_Name
+                        };
+
+            return query.DefaultIfEmpty().ToList();
+        }
     }
 }
