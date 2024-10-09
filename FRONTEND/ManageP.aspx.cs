@@ -18,11 +18,15 @@ namespace FRONTEND
             {
                 if (Session["U_Type"] != null)
                 {
-                    if (Session["U_Type"].ToString() == "Admin")
+                    if (Session["U_Type"].ToString() == "Adm")
                     {
                         LoadPRoducts();
 
 
+                    }
+                    else if (Session["U_Type"].ToString() == "Man") {
+
+                        LoadPRoducts();
                     }
                     else { Response.Redirect("Home.aspx"); }
 
@@ -38,6 +42,18 @@ namespace FRONTEND
                 String producthtml = "";
 
                 dynamic ListProds = Rs.getProducts();
+
+            if (Session["U_Type"].ToString() == "Adm")
+            {
+                 ListProds = Rs.getProducts();
+
+
+            }
+            else if (Session["U_Type"].ToString() == "Man")
+            {
+
+                 ListProds = Rs.GetMerchantProds(Convert.ToInt32(Session["ID"].ToString()));
+            }
 
             if (ListProds != null) {
                 foreach (SysProduct p in ListProds)

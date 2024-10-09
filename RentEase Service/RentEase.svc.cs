@@ -38,10 +38,11 @@ namespace RentEase_Service
 
         public bool Register(string email, string password, string name, string surname)
         {
-            try
-            {
+            //try
+            //{
                 if (isAccount(email))
                     return false;
+
                 // create user
                 var u = new User
                 {
@@ -49,18 +50,19 @@ namespace RentEase_Service
                     Surname = surname,
                     Email = email,
                     password = password,
-                    User_Type = "Cus",
-                    Active = true
+                    User_Type = "Cus"
                 };
 
                 RentEaseDB.Users.InsertOnSubmit(u);
                 RentEaseDB.SubmitChanges();
                 return true;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
+            //}
+            //catch (Exception e)
+            //{
+            //    Console.WriteLine(e.Message);
+
+            //    return false;
+            //}
         }
 
         public SysProduct getProduct(int ID)
@@ -74,6 +76,7 @@ namespace RentEase_Service
                             Quantity = p.Quantity,
                             Price = p.Price,
                             M_ID = p.M_ID,
+                            Decript=p.Decript,
                             Available = p.Available,
                             Rental_Agreement = p.Rental_Agreement,
                             Category = p.Category,
@@ -716,7 +719,35 @@ namespace RentEase_Service
             return query.Any();
         }
 
+        public List<SysProduct> GetMerchantProds(int MerchatID)
+        {
+            // Get the first day of the current month
+            DateTime firstDayOfCurrentMonth = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
 
+            var query = from p in RentEaseDB.Products
+                            //finding products registered after the month
+                        where p.M_ID == MerchatID
+                        select new SysProduct
+                        {
+                            Id = p.Id,
+                            Product_Name = p.Product_Name,
+                            Quantity = p.Quantity,
+                            Price = p.Price,
+                            M_ID = p.M_ID,
+                            Available = p.Available,
+                            Rental_Agreement = p.Rental_Agreement,
+                            Category = p.Category,
+                            Registration_Date = p.Registration_Date,
+                            Image_URL = p.Image_URL
+                        };
 
+            dynamic prodlist = query.DefaultIfEmpty().ToList();
+
+            if (prodlist != null)
+            {
+                return prodlist;
+            }
+            else { return null; }
+        }
     }
 }
