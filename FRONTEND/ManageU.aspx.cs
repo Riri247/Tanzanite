@@ -20,7 +20,7 @@ namespace FRONTEND
             if (!IsPostBack) {
                 if (Session["U_Type"] != null)
                 {
-                    if (Session["U_Type"].ToString() == "Admin")
+                    if (Session["U_Type"].ToString() == "Adm")
                     {
                         LoadUSers();
 
