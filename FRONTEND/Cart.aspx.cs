@@ -21,7 +21,7 @@ namespace FRONTEND
 
                     int UserID = int.Parse(Session["ID"].ToString());
                     //check if user added to the cart 
-                    if (Request.QueryString["prodID"].ToString() != null)
+                    if (Request.QueryString["prodID"]!= null)
                     {
                         int prodID = int.Parse(Request.QueryString["prodID"].ToString());
 
