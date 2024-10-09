@@ -310,7 +310,16 @@ namespace RentEase_Service
         /// Method to edit user data 
         /// </summary>
         /// <param name="OneUser"></param>
-        [OperationBehavior]
+        [OperationContract]
         void EditUserData(SysUser OneUser);
+
+        /// <summary>
+        /// Method to get all users
+        /// </summary>
+        /// <returns>
+        /// a list of user wrapper class
+        /// </returns>
+        [OperationContract]
+        List<SysUser> GetAllusers();
     }
 }

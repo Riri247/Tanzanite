@@ -13,7 +13,7 @@ namespace FRONTEND
     {
         RentEaseClient Rs = new RentEaseClient();
         int UseID;
-        String Name, Email, Pass, Type;
+        String Name, Eemail, Pass, Type, surname;
        
         
         protected void Page_Load(object sender, EventArgs e)
@@ -45,7 +45,7 @@ namespace FRONTEND
                 txtEmail.Value = Temp.Email;
                 txtPass.Value = Secrecy.HashPassword(Temp.password);
                 txtType.Value = Temp.User_Type;
-
+                TxtSur.Value = Temp.Surname;
                 
 
             }
@@ -60,18 +60,29 @@ namespace FRONTEND
             {
 
                 Name = txtName.Value;
-                Email = txtEmail.Value;
+                Eemail = txtEmail.Value;
                 Pass = Secrecy.HashPassword(txtPass.Value);
                 Type = txtType.Value;
+                surname = TxtSur.Name;
 
-
+                
                 if (Request.QueryString["ID"] != null) //edit else you create the user
                 {
 
+                    SysUser Temp = new SysUser
+                    {
+                        U_Name = Name,
+                        Email = Eemail, //added other e to tell difference
+                        password = Pass,
+                        User_Type = Type,
+                        Surname = surname
 
-                } else { 
-                
-                
+                    };
+                    Rs.EditUserData(Temp);
+
+                } else {
+
+                    Rs.Register(Eemail, Pass, Name, surname);
                 }
 
               
