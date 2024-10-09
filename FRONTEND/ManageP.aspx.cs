@@ -14,27 +14,14 @@ namespace FRONTEND
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                if (Session["U_Type"] != null)
-                {
-                    if (Session["U_Type"].ToString() == "Adm")
-                    {
+
+
                         LoadPRoducts();
 
 
-                    }
-                    else if (Session["U_Type"].ToString() == "Man") {
-
-                        LoadPRoducts();
-                    }
-                    else { Response.Redirect("Home.aspx"); }
 
 
 
-                }
-                else { Response.Redirect("Home.aspx"); }
-            }
         }
 
             private void LoadPRoducts()
@@ -43,17 +30,10 @@ namespace FRONTEND
 
                 dynamic ListProds = Rs.getProducts();
 
-            if (Session["U_Type"].ToString() == "Adm")
-            {
                  ListProds = Rs.getProducts();
 
 
-            }
-            else if (Session["U_Type"].ToString() == "Man")
-            {
-
-                 ListProds = Rs.GetMerchantProds(Convert.ToInt32(Session["ID"].ToString()));
-            }
+                 ListProds = Rs.GetMerchantProds(1);
 
             if (ListProds != null) {
                 foreach (SysProduct p in ListProds)
