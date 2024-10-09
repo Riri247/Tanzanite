@@ -41,13 +41,13 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
      <div class="scroll-contain"> 
-        <object data="img/INDIVIDUAL ASSIGNMENT 2 HE ASHIMWE 222127212.pdf" type="application/pdf" width="100%" height="100%">
+        <object data="img/Default Contract.pdf" type="application/pdf" width="100%" height="100%">
             <p>This browser does not support PDFs. Please download the PDF to view it: <a href="path/to/your/document.pdf">Download PDF</a>.</p>
         </object>
         </div>
 
      <div class="EntityBox"> <div class="anime__details__btn" >
-                                <a href="#" class="follow-btn"> Agree to Contract terms</a>      
+                                <a href="Invoice.aspx?Current=Yes" class="follow-btn"> Agree to Contract terms</a>      
                                
                             </div></div>
 
