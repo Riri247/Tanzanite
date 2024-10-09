@@ -2,93 +2,139 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
-
-    
-    <!-- Start Hero Section -->
-			<div class="hero">
-				<div class="container">
-					<div class="row justify-content-between">
-						<div class="col-lg-5">
-							<div class="intro-excerpt">
-								<h2> DESCRIPTION</h2>
-							</div>
-						</div>
-						<div class="col-lg-7">
-							
-						</div>
-					</div>
-				</div>
-			</div>
-		<!-- End Hero Section -->
-       <!-- Anime Section Begin -->
-    <section class="anime-details spad">
-        <div class="container">
-
-                  <!-- Hero Section Begin -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero__slider owl-carousel" id="Descriptiondiv" runat="server">
-
-                <!-- Different image same words-->
-                <!-- Commented out incase we may need it again-->
-                <!-- Code to repeat back end start--->
-              <%--  <div class="hero__items set-bg" data-setbg="img/hero/electronics.png"> <!-- Change image directory per loop-->
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="hero__text">
-                                <div class="label">Rental</div> <!-- product type-->
-                                <h2>Electronics</h2> <!-- Product name-->
-                                <p>Description goes here</p> <!--- Description-->
-                                <a href="ProductList.aspx?Category=Electronics"><span> Review</span> <i class="fa fa-angle-right"></i></a> <!-- Review button must only be seen  when the user has bought it before-->
+    <form id="SomeForm" runat="server">
+                        <!-- SECTION -->
+        <div class="section">
+            <!-- container -->
+            <div class="container">
+                <!-- row -->
+                <div class="row">
+                    <!-- Product main img -->
+                    <div class="col-md-5 col-md-push-2">
+                        <div id="product-main-img">
+                            <div class="product-preview">
+                                <asp:Literal ID="ImageLit" runat="server" />
                             </div>
                         </div>
                     </div>
-                </div>--%>
-                 <!-- Code to repeat back end END--->
-             
-            </div>
-        </div>
-    </section>
-    <!-- Hero Section End -->
+                    <!-- /Product main img -->
+                    <!-- Product thumb imgs -->
+                    <div class="col-md-2  col-md-pull-5">
+                    </div>
+                    <!-- /Product thumb imgs -->
+                    <!-- Product details -->
 
-        
-
-            <div class="row">
-                     <div class="col-lg-8 col-md-8">
-                                 <div class="section-title"> <!-- always start with this-->
-                                <h5>Reviews</h5>
-                            </div> <!-- Copy the whole thing-->
-                        <div class="anime__details__review" id="divReviews" runat="server">
-                    
-                            <div class="anime__review__item"> <!--start or repeat code for this section-->
-                               
-                                <div class="anime__review__item__text">
-                                    <h6> Star: 5</h6> <!-- name a time cna be removed-->
-                                    <p>whachikan Just noticed that someone categorized this as belonging to the genre
-                                    "demons" LOL</p> <!-- Review-->
-                                </div> <!-- end of repeat code for this section-->
+                    <div class="col-md-5">
+                        <div class="product-details">
+                            <h2 class="product-name">
+                                <asp:Literal ID="ProdName" runat="server" />
+                            </h2>
+                            <div>
+                                <h3 style="color: red">
+                                    <asp:Literal ID="LitPrice" runat="server" /></h3>
+                                <span class="product-available">In Stock</span>
                             </div>
-                          
-                        </div>
 
-                         <%--add your own--%>
-                        <div class="anime__details__form" id="divLeavReview" visible="false" runat="server">
-                            <div class="section-title">
-                                <h5>Your Comment</h5>
+                            <div class="add-to-cart">
+                               <a href="Cart.aspx?prodID=<% Request.QueryString["ID"].ToString(); %>" class="add-to-cart-btn">
+    <span><i class="fa fa-shopping-cart"></i> Add to cart</span> 
+    <i class="fa fa-angle-right"></i>
+</a>
                             </div>
-                            <form action="#">
-                                <textarea placeholder="Your Comment"></textarea>
-                                <button type="submit"><i class="fa fa-location-arrow"></i> Review</button>
-                            </form>
+
+                            <ul class="product-btns">
+                                <asp:DropDownList ID="ddlQuantity" runat="server" EnableViewState="true">
+                                    <asp:ListItem Value="1">1</asp:ListItem>
+                                    <asp:ListItem Value="2">2</asp:ListItem>
+                                    <asp:ListItem Value="3">3</asp:ListItem>
+                                    <asp:ListItem Value="4">4</asp:ListItem>
+                                    <asp:ListItem Value="5">5</asp:ListItem>
+                                    <asp:ListItem Value="6">6</asp:ListItem>
+                                    <asp:ListItem Value="7">7</asp:ListItem>
+                                    <asp:ListItem Value="8">8</asp:ListItem>
+                                    <asp:ListItem Value="9">9</asp:ListItem>
+                                </asp:DropDownList>
+                            </ul>
                         </div>
                     </div>
                 </div>
+                <!-- /Product details -->
+               <!-- Product tab -->
+                <div class="col-md-12">
+                    <div id="product-tab">
+                        <!-- product tab nav -->
+                        <ul class="tab-nav">
+                            <li class="active"><a data-toggle="tab" href="#tab1">Description</a></li>
+                            <li><a data-toggle="tab" href="#tab3">Reviews</a></li>
+                        </ul>
+                        <!-- /product tab nav -->
+
+                        <!-- product tab content -->
+                        <div class="tab-content">
+                            <!-- tab1  -->
+                            <div id="tab1" class="tab-pane fade in active">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <pre> <asp:Literal ID="LitDescription" runat="server" /></pre>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /tab1  -->
+
+                            <!-- tab3  -->
+                            <div id="tab3" class="tab-pane fade in">
+                                <div class="row">
+
+                                    <!-- Reviews -->
+                                    <div class="col-md-6">
+                                        <div id="reviews">
+                                            <ul class="reviews">
+                                                <li>
+                                                    <div class="review-body">
+                                                        <p><Asp:Label ID="lblName" runat="server" /></p>
+                                                        <p>Rating:<Asp:Label ID="lblTheRate" runat="server" /></p>
+                                                    </div>
+                                                 </li>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <!-- /Reviews -->
+
+                                    <!-- Review Form -->
+                                    <div class="col-md-3">
+                                        <div id="review-form">
+                                            <div class="review-form">
+                                                <asp:TextBox class="input" placeholder="Your Review" TextMode="MultiLine" runat="server" ID="txtRev"></asp:TextBox>
+                                                <div class="input-rating">
+                                                    <span>Your Rating: </span>
+                                                    <asp:Textbox CSSclass="input" ID ="txtRate" placeholder="rate product here" runat="server"></asp:Textbox>
+                                                </div>
+                                                <asp:button CSSclass="primary-btn" ID="btnSubmit" OnClick="BtnSubmit_Click" runat="server" Text="Submit"></asp:button>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                    <!-- /Review Form -->
+                                </div>
+                            </div>
+                            <!-- /tab3  -->
+                        </div>
+                        <!-- /product tab content  -->
                     </div>
+                </div>
+                <!-- /product tab -->
+
+                <!-- /row -->
+            </div>
+            <!-- /container -->
+        </div>
+        </form>
+        <!-- /Section -->
 
 
               
-        </section>
+
 
         <!-- Anime Section End -->
 </asp:Content>
