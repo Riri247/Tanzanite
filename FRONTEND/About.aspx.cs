@@ -78,32 +78,15 @@ namespace FRONTEND
         protected void BtnSubmit_Click(object sender, EventArgs e)
         {
 
-            
+            int rid = rc.getInvoiceID(int.Parse(Session["ID"].ToString()), int.Parse(Request.QueryString["ID"].ToString()));
+
+            rc.rateProduct(rid, int.Parse(Request.QueryString["ID"].ToString()), int.Parse(txtRate.Text), txtRev.Text);
+
+
+
 
         }
     }
 
 
 }
-    //our carocel to be added later 
-
-    /*<div class="col-md-5 col-md-push-2">
-						<div id="product-main-img">
-							<div class="product-preview">
-								<img src="./img/product01.png" alt="">
-							</div>
-
-							<div class="product-preview">
-								<img src="./img/product03.png" alt="">
-							</div>
-
-							<div class="product-preview">
-								<img src="./img/product06.png" alt="">
-							</div>
-
-							<div class="product-preview">
-								<img src="./img/product08.png" alt="">
-							</div>
-						</div>
-					</div>*/
-

@@ -123,6 +123,23 @@ namespace RentEase_Service
             }
             catch (Exception)
             {
+                var query = from sc in RentEaseDB.Shopping_carts
+                            where sc.C_ID == UserID && sc.P_ID == ProductID
+                            select sc;
+
+                Shopping_cart cart = query.FirstOrDefault();
+
+                if (cart != null)
+                {
+                    // increase quantity
+
+                    cart.Quantity++;
+
+                    RentEaseDB.SubmitChanges();
+                    return true;
+
+                }
+
                 return false;
             }
 
@@ -528,6 +545,18 @@ namespace RentEase_Service
             else { return null; }
         }
 
+        public int getInvoiceID(int UserID, int ProductID)
+        {
+            var query = from i in RentEaseDB.Customer_Invoices
+                        join p in RentEaseDB.Orders
+                        on i.Invoice_ID equals p.Invoice_ID
+                        where i.C_ID == UserID
+                        select i.Invoice_ID;
+
+
+            return query.FirstOrDefault();
+        }
+
         public bool rateProduct(int InvoiceID, int ProductID, int stars, string review)
         {
 
@@ -538,6 +567,7 @@ namespace RentEase_Service
                 Star_Rating = stars,
                 Review1 = review
             };
+
 
 
             try

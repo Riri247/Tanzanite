@@ -281,6 +281,21 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
+      <xs:element name="getInvoiceID">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="UserID" type="xs:int" />
+            <xs:element minOccurs="0" name="ProductID" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getInvoiceIDResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="getInvoiceIDResult" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
       <xs:element name="deactivateProduct">
         <xs:complexType>
           <xs:sequence>
@@ -678,6 +693,12 @@
   <wsdl:message name="IRentEase_rateProduct_OutputMessage">
     <wsdl:part name="parameters" element="tns:rateProductResponse" />
   </wsdl:message>
+  <wsdl:message name="IRentEase_getInvoiceID_InputMessage">
+    <wsdl:part name="parameters" element="tns:getInvoiceID" />
+  </wsdl:message>
+  <wsdl:message name="IRentEase_getInvoiceID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getInvoiceIDResponse" />
+  </wsdl:message>
   <wsdl:message name="IRentEase_deactivateProduct_InputMessage">
     <wsdl:part name="parameters" element="tns:deactivateProduct" />
   </wsdl:message>
@@ -810,6 +831,10 @@
     <wsdl:operation name="rateProduct">
       <wsdl:input wsaw:Action="http://tempuri.org/IRentEase/rateProduct" message="tns:IRentEase_rateProduct_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IRentEase/rateProductResponse" message="tns:IRentEase_rateProduct_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getInvoiceID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRentEase/getInvoiceID" message="tns:IRentEase_getInvoiceID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRentEase/getInvoiceIDResponse" message="tns:IRentEase_getInvoiceID_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="deactivateProduct">
       <wsdl:input wsaw:Action="http://tempuri.org/IRentEase/deactivateProduct" message="tns:IRentEase_deactivateProduct_InputMessage" />
@@ -1009,6 +1034,15 @@
     </wsdl:operation>
     <wsdl:operation name="rateProduct">
       <soap:operation soapAction="http://tempuri.org/IRentEase/rateProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getInvoiceID">
+      <soap:operation soapAction="http://tempuri.org/IRentEase/getInvoiceID" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
