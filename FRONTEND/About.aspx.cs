@@ -36,7 +36,9 @@ namespace FRONTEND
                 if (reviews != null) {
                     foreach (SysReview r in reviews)
                     {
-                        concat(r.Review1, r.Star_Ratng);
+                        if (r != null) { 
+                         concat(r.Review1, r.Star_Ratng);
+                        }
                     }
                 }
             }
@@ -62,12 +64,13 @@ namespace FRONTEND
 
     private void LoadProduct()
         {
+            bool CheckIfPurchased;
             String Descphtml = "";
-
+            String wordhtml = "";
             foreach (string f in images) {
 
-                Descphtml = $@"<div class='hero__items set-bg' data-setbg='{f}'> <!-- Change image directory per loop-->
-                        <div class='row'>
+                Descphtml += $@"<img class='hero__items set-bg'  src='{f}'> <!-- Change image directory per loop-->
+                          <div class='row'>
                         <div class='col-lg-6'>
                             <div class='hero__text'>
                                 <div class='label'>{product.Category}</div> <!-- product type-->
@@ -75,23 +78,43 @@ namespace FRONTEND
                                 <p>{product.Decript}</p> <!--- Description-->";
 
                 //this varibale is to check of the user bought the thing its stand in value will be true for now but you guys change it witht he function
-                bool CheckIfPurchased = true;
+                 CheckIfPurchased = true;
 
                 //if the they purchased show the review button
                 if (CheckIfPurchased) {
-                    Descphtml = $@"    <a href ='#anime__details__form'>< span > Review </ span > <i class='fa fa-angle-right'></i></a> <!-- Review button must only be seen  when the user has bought it before-->";
+                    Descphtml += $@"<a href ='#anime__details__form'><span> Review </span> <i class='fa fa-angle-right'></i></a> <!-- Review button must only be seen  when the user has bought it before-->";
 
                 }
-                Descphtml = $@"    </div>
+                Descphtml += $@"    </div>
                         </div>
                     </div>
-                </div>";
+               ";
             }
+
+            wordhtml += $@"<div class='col-lg-6'>
+                            <div class='hero'>
+                                <div class='label'>{product.Category}</div> <!-- product type-->
+                                <h2>Electronics</h2> <!-- Product name-->
+                                <p>{product.Decript}</p> <!---Description--> ";
+
+                //this varibale is to check of the user bought the thing its stand in value will be true for now but you guys change it witht he function
+ CheckIfPurchased = true;
+
+//if the they purchased show the review button
+if (CheckIfPurchased)
+{
+                wordhtml += $@"<a href ='#anime__details__form'><span> Review </span> <i class='fa fa-angle-right'></i></a> <!-- Review button must only be seen  when the user has bought it before-->";
+
+}
+            wordhtml += $@"    </div>
+                        </div>";
+
+            Descpdiv.InnerHtml = wordhtml;
             Descriptiondiv.InnerHtml = Descphtml;
 
 
 
-          //  string htmlstrProduct = "<div class='anime__details__text'>";
+          //  string htmlstrProduct = " <div class='anime__details__text'>";
           //  htmlstrProduct += "<div class='anime__details__title'>";
           //  //Name
           //// error for some reason  htmlstrProduct += "<h3>"+Product.Name+"</h3>";

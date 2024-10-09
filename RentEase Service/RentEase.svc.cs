@@ -703,5 +703,20 @@ namespace RentEase_Service
 
             return query.DefaultIfEmpty().ToList();
         }
+
+        public bool HasBoughtProduct(int UserID, int ProductID)
+        {
+            var query = from ip in RentEaseDB.Orders
+                        join i in RentEaseDB.Customer_Invoices
+                        on ip.Invoice_ID equals i.C_ID
+                        where ip.Product_ID == ProductID && i.C_ID == UserID
+                        select ip;
+
+            // Check if any results were returned
+            return query.Any();
+        }
+
+
+
     }
 }
