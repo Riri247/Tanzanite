@@ -723,18 +723,35 @@ namespace RentEase_Service
 
         public List<SysUser> GetAllusers()
         {
-            dynamic query = from u in RentEaseDB.Users
-                      
-                        select new SysUser
-                        {
-                            Email = u.Email,
-                            Id = u.Id,
-                            User_Type = u.User_Type,
-                            Surname = u.Surname,
-                            U_Name = u.U_Name
-                        };
+            dynamic query = (from u in RentEaseDB.Users
+                             select u).DefaultIfEmpty();
 
-            return query.DefaultIfEmpty().ToList();
+
+            List<SysUser> LisUSer = new List<SysUser>();
+
+            if (query != null)
+            {
+                foreach (User u in query)
+                {
+                    LisUSer.Add(new
+                    SysUser
+                    {
+                        Email = u.Email,
+                        Id = u.Id,
+                        User_Type = u.User_Type,
+                        Surname = u.Surname,
+                        U_Name = u.U_Name
+                    });
+
+                }
+                return LisUSer;
+            }
+            else { return null; }
+
+
+          
+
+
         }
 
         public bool HasBoughtProduct(int UserID, int ProductID)

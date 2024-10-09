@@ -93,22 +93,11 @@
                             </div></div>
 
     <div class="scroll-contain" id="ScrollDiv" runat="server">
-         <div class="Scrollable">
-        <div  class ="NameBox">
-            <p> P name </p>
-        <p> P attribute 1 </p>
-        <p> P attribute 2 </p>
-            </div>
         
 
-         <div class="btnbox">
-<div class="anime__details__btn" >
-                                <a href="#" class="follow-btn"> Remove</a>      
-                                <a href="#" class="follow-btn"> Edit</a>      
-                            </div>
-            </div>
-    </div>
 
+
+   </div>
 
  <%--    <div class="Scrollable">
         <div  class ="NameBox">
@@ -144,7 +133,7 @@
             </div>
     </div>--%>
 
-        </div>
+     
 
    
 </asp:Content>
