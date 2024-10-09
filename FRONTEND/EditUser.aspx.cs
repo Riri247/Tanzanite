@@ -43,7 +43,7 @@ namespace FRONTEND
                 SysUser Temp = Rs.getUser(UseID);
                 txtName.Value = Temp.U_Name;
                 txtEmail.Value = Temp.Email;
-                txtPass.Value = Secrecy.HashPassword(Temp.password);
+                txtPass.Value = Temp.password;
                 txtType.Value = Temp.User_Type;
                 TxtSur.Value = Temp.Surname;
                 
@@ -61,7 +61,7 @@ namespace FRONTEND
 
                 Name = txtName.Value;
                 Eemail = txtEmail.Value;
-                Pass = Secrecy.HashPassword(txtPass.Value);
+                Pass = Secrecy.HashPassword(txtPass.Value.ToString());
                 Type = txtType.Value;
                 surname = TxtSur.Name;
 

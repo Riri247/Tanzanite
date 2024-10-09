@@ -59,25 +59,21 @@ namespace FRONTEND
                 foreach (SysProduct p in ListProds)
                 {
                     producthtml += $@"<div class='Scrollable'>
-        < div  class ='NameBox'>
-            <p>{p.Product_Name}</p>
-        <p>{p.Category}</p>
-        <p>{p.Price} </p>
-          <p>{p.Registration_Date} </p>
+        <div  class ='NameBox'>
+            <p>{p.Product_Name}<br>{p.Category}</p>   
             </div>
-        
 
          <div class='btnbox'>
 <div class='anime__details__btn'>
                                 <a href='#' class='follow-btn'> Remove</a>      
-                                <a href='ManageOneP.aspx?ID={p.Id}' class='follow-btn'> Edit</a>      
+                              <a href='ManageOneP.aspx?ID={p.Id}' class='follow-btn'> Edit</a>      
                             </div>
             </div>
     </div>";
 
                 }
 
-                scrollContain.InnerHtml = producthtml;
+             scrollContain.InnerHtml = producthtml;
             }
         }
     }
