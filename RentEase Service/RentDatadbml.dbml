@@ -84,9 +84,8 @@
       <Column Name="U_Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Surname" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Email" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="User_Type" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="User_Type" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="password" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="Active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="User_Customer_Invoice" Member="Customer_Invoices" ThisKey="Id" OtherKey="C_ID" Type="Customer_Invoice" />
       <Association Name="User_Merchant" Member="Merchant" ThisKey="Id" OtherKey="M_ID" Type="Merchant" Cardinality="One" />
       <Association Name="User_Shopping_cart" Member="Shopping_carts" ThisKey="Id" OtherKey="C_ID" Type="Shopping_cart" />

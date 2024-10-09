@@ -1839,8 +1839,6 @@ namespace RentEase_Service
 		
 		private string _password;
 		
-		private bool _Active;
-		
 		private EntitySet<Customer_Invoice> _Customer_Invoices;
 		
 		private EntityRef<Merchant> _Merchant;
@@ -1863,8 +1861,6 @@ namespace RentEase_Service
     partial void OnUser_TypeChanged();
     partial void OnpasswordChanging(string value);
     partial void OnpasswordChanged();
-    partial void OnActiveChanging(bool value);
-    partial void OnActiveChanged();
     #endregion
 		
 		public User()
@@ -1955,7 +1951,7 @@ namespace RentEase_Service
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_User_Type", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_User_Type", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
 		public string User_Type
 		{
 			get
@@ -1991,26 +1987,6 @@ namespace RentEase_Service
 					this._password = value;
 					this.SendPropertyChanged("password");
 					this.OnpasswordChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Active", DbType="Bit NOT NULL")]
-		public bool Active
-		{
-			get
-			{
-				return this._Active;
-			}
-			set
-			{
-				if ((this._Active != value))
-				{
-					this.OnActiveChanging(value);
-					this.SendPropertyChanging();
-					this._Active = value;
-					this.SendPropertyChanged("Active");
-					this.OnActiveChanged();
 				}
 			}
 		}

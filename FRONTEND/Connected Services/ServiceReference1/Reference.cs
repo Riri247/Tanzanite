@@ -810,6 +810,18 @@ namespace FRONTEND.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/GetAllusers", ReplyAction="http://tempuri.org/IRentEase/GetAllusersResponse")]
         System.Threading.Tasks.Task<FRONTEND.ServiceReference1.SysUser[]> GetAllusersAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/HasBoughtProduct", ReplyAction="http://tempuri.org/IRentEase/HasBoughtProductResponse")]
+        bool HasBoughtProduct(int UserID, int ProductID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/HasBoughtProduct", ReplyAction="http://tempuri.org/IRentEase/HasBoughtProductResponse")]
+        System.Threading.Tasks.Task<bool> HasBoughtProductAsync(int UserID, int ProductID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/GetMerchantProds", ReplyAction="http://tempuri.org/IRentEase/GetMerchantProdsResponse")]
+        FRONTEND.ServiceReference1.SysProduct[] GetMerchantProds(int MerchatID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/GetMerchantProds", ReplyAction="http://tempuri.org/IRentEase/GetMerchantProdsResponse")]
+        System.Threading.Tasks.Task<FRONTEND.ServiceReference1.SysProduct[]> GetMerchantProdsAsync(int MerchatID);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1045,6 +1057,22 @@ namespace FRONTEND.ServiceReference1 {
         
         public System.Threading.Tasks.Task<FRONTEND.ServiceReference1.SysUser[]> GetAllusersAsync() {
             return base.Channel.GetAllusersAsync();
+        }
+        
+        public bool HasBoughtProduct(int UserID, int ProductID) {
+            return base.Channel.HasBoughtProduct(UserID, ProductID);
+        }
+        
+        public System.Threading.Tasks.Task<bool> HasBoughtProductAsync(int UserID, int ProductID) {
+            return base.Channel.HasBoughtProductAsync(UserID, ProductID);
+        }
+        
+        public FRONTEND.ServiceReference1.SysProduct[] GetMerchantProds(int MerchatID) {
+            return base.Channel.GetMerchantProds(MerchatID);
+        }
+        
+        public System.Threading.Tasks.Task<FRONTEND.ServiceReference1.SysProduct[]> GetMerchantProdsAsync(int MerchatID) {
+            return base.Channel.GetMerchantProdsAsync(MerchatID);
         }
     }
 }

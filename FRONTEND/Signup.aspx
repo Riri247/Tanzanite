@@ -11,7 +11,7 @@
                 <div class="col-lg-6">
                     <div class="login__form">
                         <h2>Sign Up</h2>
-                        <form action="#">
+                        <form id="form1" runat="server">
                             <div class="input__item">
                                 <input type="text" placeholder="Email address"  runat="server" id="txtEmail">
                                 <span class="icon_mail"></span>

@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
 using System.ServiceModel;
-using System.Text;
 
 namespace RentEase_Service
 {
@@ -330,6 +327,10 @@ namespace RentEase_Service
         /// true if the user bought, false otherwise
         /// </returns>
         [OperationContract]
-        bool HasBoughtProduct(int UserID, int ProductID)
+        bool HasBoughtProduct(int UserID, int ProductID);
+
+
+        [OperationContract]
+        List<SysProduct> GetMerchantProds(int MerchatID);
     }
 }

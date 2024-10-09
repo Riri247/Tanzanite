@@ -387,6 +387,35 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
+      <xs:element name="HasBoughtProduct">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="UserID" type="xs:int" />
+            <xs:element minOccurs="0" name="ProductID" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="HasBoughtProductResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="HasBoughtProductResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetMerchantProds">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="MerchatID" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetMerchantProdsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/RentEase_Service" minOccurs="0" name="GetMerchantProdsResult" nillable="true" type="q17:ArrayOfSysProduct" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
     </xs:schema>
     <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
       <xs:element name="anyType" nillable="true" type="xs:anyType" />
@@ -697,6 +726,18 @@
   <wsdl:message name="IRentEase_GetAllusers_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAllusersResponse" />
   </wsdl:message>
+  <wsdl:message name="IRentEase_HasBoughtProduct_InputMessage">
+    <wsdl:part name="parameters" element="tns:HasBoughtProduct" />
+  </wsdl:message>
+  <wsdl:message name="IRentEase_HasBoughtProduct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:HasBoughtProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRentEase_GetMerchantProds_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMerchantProds" />
+  </wsdl:message>
+  <wsdl:message name="IRentEase_GetMerchantProds_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMerchantProdsResponse" />
+  </wsdl:message>
   <wsdl:portType name="IRentEase">
     <wsdl:operation name="Login">
       <wsdl:input wsaw:Action="http://tempuri.org/IRentEase/Login" message="tns:IRentEase_Login_InputMessage" />
@@ -801,6 +842,14 @@
     <wsdl:operation name="GetAllusers">
       <wsdl:input wsaw:Action="http://tempuri.org/IRentEase/GetAllusers" message="tns:IRentEase_GetAllusers_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IRentEase/GetAllusersResponse" message="tns:IRentEase_GetAllusers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="HasBoughtProduct">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRentEase/HasBoughtProduct" message="tns:IRentEase_HasBoughtProduct_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRentEase/HasBoughtProductResponse" message="tns:IRentEase_HasBoughtProduct_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMerchantProds">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRentEase/GetMerchantProds" message="tns:IRentEase_GetMerchantProds_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRentEase/GetMerchantProdsResponse" message="tns:IRentEase_GetMerchantProds_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IRentEase" type="tns:IRentEase">
@@ -1032,6 +1081,24 @@
     </wsdl:operation>
     <wsdl:operation name="GetAllusers">
       <soap:operation soapAction="http://tempuri.org/IRentEase/GetAllusers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HasBoughtProduct">
+      <soap:operation soapAction="http://tempuri.org/IRentEase/HasBoughtProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMerchantProds">
+      <soap:operation soapAction="http://tempuri.org/IRentEase/GetMerchantProds" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
