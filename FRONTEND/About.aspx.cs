@@ -33,9 +33,11 @@ namespace FRONTEND
                 reviews = rc.getAllReviews(id);
 
                 LoadProduct();
-                foreach (SysReview r in reviews)
-                {
-                    concat(r.Review1, r.Star_Ratng);
+                if (reviews != null) {
+                    foreach (SysReview r in reviews)
+                    {
+                        concat(r.Review1, r.Star_Ratng);
+                    }
                 }
             }
         }
@@ -43,14 +45,19 @@ namespace FRONTEND
 
         private void concat(string text, int rating)
         {
-            string innerChild = $@"<div class='anime__review__item'>
+
+            if (reviews != null) {
+                string innerChild = $@"<div class='anime__review__item'>
                 <div class='anime__review__item__text'>
                 <h6> Star: {rating}</h6>
                 <p>{text}</p>
                 </div>
                 </div>";
 
-            divReviews.InnerHtml += innerChild;
+                divReviews.InnerHtml += innerChild;
+            }
+           
+             
         }
 
     private void LoadProduct()
@@ -67,9 +74,14 @@ namespace FRONTEND
                                 <h2>Electronics</h2> <!-- Product name-->
                                 <p>{product.Decript}</p> <!--- Description-->";
 
+                //this varibale is to check of the user bought the thing its stand in value will be true for now but you guys change it witht he function
+                bool CheckIfPurchased = true;
 
-                Descphtml = $@"    <a href ='ProductList.aspx?Category=Electronics'>< span > Review </ span > <i class='fa fa-angle-right'></i></a> <!-- Review button must only be seen  when the user has bought it before-->";
-               
+                //if the they purchased show the review button
+                if (CheckIfPurchased) {
+                    Descphtml = $@"    <a href ='#anime__details__form'>< span > Review </ span > <i class='fa fa-angle-right'></i></a> <!-- Review button must only be seen  when the user has bought it before-->";
+
+                }
                 Descphtml = $@"    </div>
                         </div>
                     </div>

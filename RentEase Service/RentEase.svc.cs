@@ -93,7 +93,10 @@ namespace RentEase_Service
                             Id = p.Id,
                             Decript = p.Decript,
                             Quantity = p.Quantity,
-                            Image_URL = p.Image_URL
+                            Image_URL = p.Image_URL,
+                            Price = p.Price,
+                            Category = p.Category,
+                            Product_Name = p.Product_Name
                         };
 
             return query.DefaultIfEmpty().ToList();
@@ -447,11 +450,11 @@ namespace RentEase_Service
             var query = from p in RentEaseDB.Products
                         where p.Id == ID
                         select p.Price;
-           
+
             return query.FirstOrDefault();
         }
 
-     
+
 
         public List<SysProduct> getBestProds()
         {
@@ -497,21 +500,21 @@ namespace RentEase_Service
             DateTime firstDayOfCurrentMonth = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
 
             var query = from p in RentEaseDB.Products
-                                    //finding products registered after the month
-                                where p.Registration_Date > firstDayOfCurrentMonth
-                                select new SysProduct
-                                {
-                                    Id = p.Id,
-                                    Product_Name = p.Product_Name,
-                                    Quantity = p.Quantity,
-                                    Price = p.Price,
-                                    M_ID = p.M_ID,
-                                    Available = p.Available,
-                                    Rental_Agreement = p.Rental_Agreement,
-                                    Category = p.Category,
-                                    Registration_Date = p.Registration_Date,
-                                    Image_URL = p.Image_URL
-                                };
+                            //finding products registered after the month
+                        where p.Registration_Date > firstDayOfCurrentMonth
+                        select new SysProduct
+                        {
+                            Id = p.Id,
+                            Product_Name = p.Product_Name,
+                            Quantity = p.Quantity,
+                            Price = p.Price,
+                            M_ID = p.M_ID,
+                            Available = p.Available,
+                            Rental_Agreement = p.Rental_Agreement,
+                            Category = p.Category,
+                            Registration_Date = p.Registration_Date,
+                            Image_URL = p.Image_URL
+                        };
 
             dynamic prodlist = query.DefaultIfEmpty().ToList();
 
@@ -522,9 +525,11 @@ namespace RentEase_Service
             else { return null; }
         }
 
-        public bool rateProduct(int InvoiceID, int ProductID, int stars, string review) {
+        public bool rateProduct(int InvoiceID, int ProductID, int stars, string review)
+        {
 
-            Review tmpReview = new Review() { 
+            Review tmpReview = new Review()
+            {
                 Invoice_ID = InvoiceID,
                 Product_ID = ProductID,
                 Star_Rating = stars,
@@ -585,7 +590,7 @@ namespace RentEase_Service
                 foreach (Customer_Invoice ci in ListInvoices)
                 {
 
-       
+
                     GetInvoice Temp = new GetInvoice();
                     Temp.invID = ci.Invoice_ID;
 
@@ -609,10 +614,11 @@ namespace RentEase_Service
                 return Listinv;
 
             }
-            else {
+            else
+            {
                 return null;
             }
-            
+
         }
 
         public SysReview getReview(int UserID, int InvoiceID, int ProductID)
@@ -653,5 +659,49 @@ namespace RentEase_Service
             return quary.DefaultIfEmpty().ToList();
         }
 
+        public void EditUserData(SysUser OneUser)
+        {
+            var sysUser = (from u in RentEaseDB.Users
+                           where u.Id == OneUser.Id
+                           select u).FirstOrDefault();
+            if (sysUser != null)
+            {
+                try
+                {
+                    //editing userr data
+                    sysUser.Id = OneUser.Id;
+                    sysUser.U_Name = OneUser.U_Name;
+                    sysUser.Surname = OneUser.Surname;
+                    sysUser.Email = OneUser.Email;
+                    sysUser.User_Type = OneUser.User_Type;
+                    sysUser.password = OneUser.password;
+                    RentEaseDB.SubmitChanges();
+                }
+                catch(Exception e)
+                {
+                    Console.Write(e.Message);
+                }
+            }
+            else
+            {
+                return;
+            }
+        }
+
+        public List<SysUser> GetAllusers()
+        {
+            dynamic query = from u in RentEaseDB.Users
+                      
+                        select new SysUser
+                        {
+                            Email = u.Email,
+                            Id = u.Id,
+                            User_Type = u.User_Type,
+                            Surname = u.Surname,
+                            U_Name = u.U_Name
+                        };
+
+            return query.DefaultIfEmpty().ToList();
+        }
     }
 }
