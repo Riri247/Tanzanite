@@ -666,14 +666,21 @@ namespace RentEase_Service
                            select u).FirstOrDefault();
             if (sysUser != null)
             {
-                //editing userr data
-                sysUser.Id = OneUser.Id;
-                sysUser.U_Name = OneUser.U_Name;
-                sysUser.Surname = OneUser.Surname;
-                sysUser.Email = OneUser.Email;
-                sysUser.User_Type = OneUser.User_Type;
-                sysUser.password = OneUser.password;
-                RentEaseDB.SubmitChanges();
+                try
+                {
+                    //editing userr data
+                    sysUser.Id = OneUser.Id;
+                    sysUser.U_Name = OneUser.U_Name;
+                    sysUser.Surname = OneUser.Surname;
+                    sysUser.Email = OneUser.Email;
+                    sysUser.User_Type = OneUser.User_Type;
+                    sysUser.password = OneUser.password;
+                    RentEaseDB.SubmitChanges();
+                }
+                catch(Exception e)
+                {
+                    Console.Write(e.Message);
+                }
             }
             else
             {
