@@ -24,13 +24,31 @@ namespace FRONTEND
         protected global::System.Web.UI.WebControls.PlaceHolder divCartStuff;
 
         /// <summary>
-        /// DispCart control.
+        /// lbltotal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DispCart;
+        protected global::System.Web.UI.WebControls.Label lbltotal;
+
+        /// <summary>
+        /// lblCperc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCperc;
+
+        /// <summary>
+        /// lblGTots control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblGTots;
 
         /// <summary>
         /// checkoutbtn control.
