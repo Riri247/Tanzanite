@@ -49,7 +49,7 @@ namespace FRONTEND
                 htmlstrBestProds += "<div class='product'>";
 
                 // Product Image
-                htmlstrBestProds += "<a href='About.aspx?id=" + p.Id + "'>";
+                htmlstrBestProds += "<a href='About.aspx?ID=" + p.Id + "'>";
                 htmlstrBestProds += "<div class='product-img'>";
                 htmlstrBestProds += "<img src='" + images[0] + "' alt='" + p.Product_Name + "' />";
                 htmlstrBestProds += "</div>";
@@ -57,7 +57,7 @@ namespace FRONTEND
                 // Product Details (Category, Name, Price)
                 htmlstrBestProds += "<div class='product-body'>";
                 htmlstrBestProds += "<p class='product-category'>" + p.Category + "</p>";
-                htmlstrBestProds += "<a href = 'About.aspx?id=" + p.Id + "'>" + "<h3 class='product-name'>" + p.Product_Name + "</h3></a>";
+                htmlstrBestProds += "<a href = 'About.aspx?ID=" + p.Id + "'>" + "<h3 class='product-name'>" + p.Product_Name + "</h3></a>";
                 htmlstrBestProds += "<h4 style='color:red'>R" + Math.Round(p.Price, 2) + "</h4>";
                 if (Session["ID"] != null) {
                     htmlstrBestProds+="<div class='add-to-cart'>";
@@ -90,7 +90,7 @@ namespace FRONTEND
                 hymlstrNewProds += "<ul>";
                 hymlstrNewProds += "<li>"+p.Category+"</li>";
                 hymlstrNewProds += "</ul>";
-                hymlstrNewProds += "<h5><a href='About.aspx?=id"+p.Id+"'>"+p.Product_Name+"</a></h5>";
+                hymlstrNewProds += "<h5><a href='About.aspx?ID="+p.Id+"'>"+p.Product_Name+"</a></h5>";
                 hymlstrNewProds += "<span>";
                 hymlstrNewProds += "<div class='anime_details_btn'>";
                 //if they are logged in they will see the add to cart shandiz
