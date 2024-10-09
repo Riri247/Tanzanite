@@ -76,6 +76,7 @@ namespace RentEase_Service
                             Quantity = p.Quantity,
                             Price = p.Price,
                             M_ID = p.M_ID,
+                            Decript=p.Decript,
                             Available = p.Available,
                             Rental_Agreement = p.Rental_Agreement,
                             Category = p.Category,
