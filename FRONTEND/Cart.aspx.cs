@@ -56,6 +56,7 @@ namespace FRONTEND
             string CartItemHTML = "";
             int DurationBoxCount = 1;
             int QuantityboxCount = 1;
+
             foreach(CartProductWrapper c in CartItems)
             {
                 CartItemHTML += "<tr>";
