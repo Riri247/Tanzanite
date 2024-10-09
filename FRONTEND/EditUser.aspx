@@ -36,23 +36,23 @@ width: 500px;
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
       <!-- per attribute this 1-->
-<div class="AttributeCont">
+<div class="AttributeCont"  >
      <div class="EntityBox">
         <h2> Name :</h2>
         </div>
 
-    <input type="text" class="Pinput" placeholder="Enter Value">
+    <input type="text" class="Pinput" placeholder="Enter Value" id="txtName" runat="server">
  
 </div>
     <!-- end of that attribute-->
 
      <!-- per attribute this 1-->
-<div class="AttributeCont">
+<div class="AttributeCont" >
      <div class="EntityBox">
         <h2> Email :</h2>
         </div>
 
-    <input type="text" class="Pinput" placeholder="Enter Value">
+    <input type="text" class="Pinput" placeholder="Enter Value"  id="txtEmail" runat="server">
  
 </div>
     <!-- end of that attribute-->
@@ -61,12 +61,12 @@ width: 500px;
 
 
        <!-- per attribute this 1-->
-<div class="AttributeCont" id="UseType" runat="server">
+<div class="AttributeCont" id="UseType" runat="server" visible="false">
      <div class="EntityBox">
         <h2> Type :</h2>
         </div>
 
-    <input type="text" class="Pinput" placeholder="Enter Value">
+    <input type="text" class="Pinput" placeholder="Enter Value"  id="txtType" runat="server" >
  
 </div>
     <!-- end of that attribute-->
@@ -74,17 +74,17 @@ width: 500px;
    <div id="PassDiv" runat="server">
 
           <!-- per attribute this 1-->
-<div class="AttributeCont">
+<div class="AttributeCont" >
      <div class="EntityBox">
-        <h2> Pass :</h2>
+        <h2> PassWord :</h2>
         </div>
 
-    <input type="text" class="Pinput" placeholder="Enter Value">
+    <input type="text" class="Pinput" placeholder="Enter Value" id="txtPass" runat="server">
  
 </div>
     <!-- end of that attribute-->
 
-         <!-- per attribute this 1-->
+<%--         <!-- per attribute this 1-->
 <div class="AttributeCont">
      <div class="EntityBox">
         <h2> Confirm Pass :</h2>
@@ -93,19 +93,20 @@ width: 500px;
     <input type="text" class="Pinput" placeholder="Enter Value">
  
 </div>
-    <!-- end of that attribute-->
+    <!-- end of that attribute-->--%>
 
     
        </div>
 
        <!-- BUTTON-->
-<div class="AttributeCont">
-                               <div class="anime__details__btn" >
-                                <a href="#" class="follow-btn"> Submit to DB</a>      
-                               
-                            </div>
- 
-</div>
-    <!-- end of that-->
+        <div class="AttributeCont">
+            <div class="anime__details__btn">
+                <asp:Button ID="btnSubmit" runat="server" CssClass="follow-btn" Text="Submit to DB" OnClick="Submit_Click"></asp:Button>
+
+
+            </div>
+
+        </div>
+        <!-- end of that-->
 
 </asp:Content>
