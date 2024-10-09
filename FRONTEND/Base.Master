@@ -36,6 +36,15 @@
     <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
+        <!-- Css Styles -->
+    <link rel="stylesheet" href="css1/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css1/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="css1/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="css1/plyr.css" type="text/css">
+    <link rel="stylesheet" href="css1/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="css1/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="css1/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="css1/style.css" type="text/css">
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -197,5 +206,11 @@
 <script src="js/jquery.slicknav.js"></script>
 <script src="js/owl.carousel.min.js"></script>
 <script src="js/main.js"></script>
+<script src="js1/jquery.min.js"></script>
+<script src="js1/bootstrap.min.js"></script>
+<script src="js1/slick.min.js"></script>
+<script src="js1/nouislider.min.js"></script>
+<script src="js1/jquery.zoom.min.js"></script>
+<script src="js1/main.js"></script>
 </body>
 </html>
