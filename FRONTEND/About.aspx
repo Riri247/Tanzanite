@@ -36,7 +36,7 @@
                             </div>
 
                             <div class="add-to-cart">
-                               <a href="Cart.aspx?prodID=<% Request.QueryString["ID"].ToString(); %>" class="add-to-cart-btn">
+                               <a href="Cart.aspx?prodID=<%Request.QueryString["ID"].ToString();%>" class="add-to-cart-btn">
     <span><i class="fa fa-shopping-cart"></i> Add to cart</span> 
     <i class="fa fa-angle-right"></i>
 </a>
@@ -108,7 +108,7 @@
                                                 <asp:TextBox class="input" placeholder="Your Review" TextMode="MultiLine" runat="server" ID="txtRev"></asp:TextBox>
                                                 <div class="input-rating">
                                                     <span>Your Rating: </span>
-                                                    <asp:Textbox CSSclass="input" ID ="txtRate" placeholder="rate product here" runat="server"></asp:Textbox>
+                                                    <asp:Textbox CSSclass="input" ID ="txtRate" placeholder="rate product here" runat="server" TextMode="Number"></asp:Textbox>
                                                 </div>
                                                 <asp:button CSSclass="primary-btn" ID="btnSubmit" OnClick="BtnSubmit_Click" runat="server" Text="Submit"></asp:button>
                                             </div>
