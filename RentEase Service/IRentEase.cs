@@ -305,5 +305,12 @@ namespace RentEase_Service
         /// </returns>
         [OperationContract]
         List<GetInvoice> getUserInvoices(int UserID);
+
+        /// <summary>
+        /// Method to edit user data 
+        /// </summary>
+        /// <param name="OneUser"></param>
+        [OperationBehavior]
+        void EditUserData(SysUser OneUser);
     }
 }
