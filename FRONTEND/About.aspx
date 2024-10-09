@@ -1,9 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Base.Master" AutoEventWireup="true" CodeBehind="About.aspx.cs" Inherits="FRONTEND.About" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form id="SomeForm" runat="server">
-                        <!-- SECTION -->
+        <!-- SECTION -->
         <div class="section">
             <!-- container -->
             <div class="container">
@@ -35,31 +36,18 @@
                                 <span class="product-available">In Stock</span>
                             </div>
 
-                            <div class="add-to-cart">
-                               <a href="Cart.aspx?prodID=<%Request.QueryString["ID"].ToString();%>" class="add-to-cart-btn">
-    <span><i class="fa fa-shopping-cart"></i> Add to cart</span> 
-    <i class="fa fa-angle-right"></i>
-</a>
+                            <div class="add-to-cart" id="btnCart" runat="server">
+                                <a id="cart_adder" runat="server" class="add-to-cart-btn">
+                                    <span><i class="fa fa-shopping-cart"></i>Add to cart</span>
+                                    <i class="fa fa-angle-right"></i>
+                                </a>
                             </div>
 
-                            <ul class="product-btns">
-                                <asp:DropDownList ID="ddlQuantity" runat="server" EnableViewState="true">
-                                    <asp:ListItem Value="1">1</asp:ListItem>
-                                    <asp:ListItem Value="2">2</asp:ListItem>
-                                    <asp:ListItem Value="3">3</asp:ListItem>
-                                    <asp:ListItem Value="4">4</asp:ListItem>
-                                    <asp:ListItem Value="5">5</asp:ListItem>
-                                    <asp:ListItem Value="6">6</asp:ListItem>
-                                    <asp:ListItem Value="7">7</asp:ListItem>
-                                    <asp:ListItem Value="8">8</asp:ListItem>
-                                    <asp:ListItem Value="9">9</asp:ListItem>
-                                </asp:DropDownList>
-                            </ul>
                         </div>
                     </div>
                 </div>
                 <!-- /Product details -->
-               <!-- Product tab -->
+                <!-- Product tab -->
                 <div class="col-md-12">
                     <div id="product-tab">
                         <!-- product tab nav -->
@@ -85,37 +73,41 @@
                             <div id="tab3" class="tab-pane fade in">
                                 <div class="row">
 
-                                    <!-- Reviews -->
-                                    <div class="col-md-6">
-                                        <div id="reviews">
-                                            <ul class="reviews">
-                                                <li>
-                                                    <div class="review-body">
-                                                        <p><Asp:Label ID="lblName" runat="server" /></p>
-                                                        <p>Rating:<Asp:Label ID="lblTheRate" runat="server" /></p>
-                                                    </div>
-                                                 </li>
+                                    <div class="col-lg-8 col-md-8">
+                                        <div class="anime__details__review">
+                                            <div class="section-title">
+                                                <h5>Reviews</h5>
+                                            </div>
 
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <!-- /Reviews -->
-
-                                    <!-- Review Form -->
-                                    <div class="col-md-3">
-                                        <div id="review-form">
-                                            <div class="review-form">
-                                                <asp:TextBox class="input" placeholder="Your Review" TextMode="MultiLine" runat="server" ID="txtRev"></asp:TextBox>
-                                                <div class="input-rating">
-                                                    <span>Your Rating: </span>
-                                                    <asp:Textbox CSSclass="input" ID ="txtRate" placeholder="rate product here" runat="server" TextMode="Number"></asp:Textbox>
-                                                </div>
-                                                <asp:button CSSclass="primary-btn" ID="btnSubmit" OnClick="BtnSubmit_Click" runat="server" Text="Submit"></asp:button>
+                                            <div id="rev_cont" runat="server">
+                                                
                                             </div>
                                             
+                                           
+
+                                        </div>
+
+                                        <div class="anime__details__form" id="your_rating_container" runat="server">
+                                            <div class="section-title">
+                                                <h5>Your Comment</h5>
+                                            </div>
+                                            <form action="#">
+                                                <textarea placeholder="Your Comment" runat="server" id="txtReview"></textarea>
+
+                                                <div class="input-rating">
+                                                    <span>Your Rating: </span>
+                                                    <asp:TextBox CssClass="input" ID="txtRate" placeholder="rate product here" runat="server" TextMode="Number"></asp:TextBox>
+                                                </div>
+
+                                                <asp:Button CssClass="primary-btn" ID="btnSubmit" OnClick="BtnSubmit_Click" runat="server" Text="Submit"></asp:Button>
+
+                                            </form>
                                         </div>
                                     </div>
-                                    <!-- /Review Form -->
+
+
+
+
                                 </div>
                             </div>
                             <!-- /tab3  -->
@@ -129,12 +121,12 @@
             </div>
             <!-- /container -->
         </div>
-        </form>
-        <!-- /Section -->
+    </form>
+    <!-- /Section -->
 
 
-              
 
 
-        <!-- Anime Section End -->
+
+    <!-- Anime Section End -->
 </asp:Content>
