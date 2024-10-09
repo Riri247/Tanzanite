@@ -242,7 +242,7 @@ namespace RentEase_Service
         /// <summary>
         /// This method rates a product in a user's invoice
         /// </summary>
-        /// <param name="InvoiceID">The ID of the invoice the product belongs to</param>
+        /// <param name="UserID">The ID of the user the review belongs to</param>
         /// <param name="ProductID">The ID of the product/param>
         /// <param name="stars">The star rating</param>
         /// <param name="review">The text review of the product</param>
@@ -250,6 +250,10 @@ namespace RentEase_Service
         [OperationContract]
         bool rateProduct(int InvoiceID, int ProductID, int stars, string review);
 
+
+        [OperationContract]
+
+        int getInvoiceID(int UserID, int ProductID);
 
 
         /// <summary>

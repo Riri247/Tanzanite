@@ -763,6 +763,12 @@ namespace FRONTEND.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/rateProduct", ReplyAction="http://tempuri.org/IRentEase/rateProductResponse")]
         System.Threading.Tasks.Task<bool> rateProductAsync(int InvoiceID, int ProductID, int stars, string review);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/getInvoiceID", ReplyAction="http://tempuri.org/IRentEase/getInvoiceIDResponse")]
+        int getInvoiceID(int UserID, int ProductID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/getInvoiceID", ReplyAction="http://tempuri.org/IRentEase/getInvoiceIDResponse")]
+        System.Threading.Tasks.Task<int> getInvoiceIDAsync(int UserID, int ProductID);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/deactivateProduct", ReplyAction="http://tempuri.org/IRentEase/deactivateProductResponse")]
         bool deactivateProduct(int ID);
         
@@ -993,6 +999,14 @@ namespace FRONTEND.ServiceReference1 {
         
         public System.Threading.Tasks.Task<bool> rateProductAsync(int InvoiceID, int ProductID, int stars, string review) {
             return base.Channel.rateProductAsync(InvoiceID, ProductID, stars, review);
+        }
+        
+        public int getInvoiceID(int UserID, int ProductID) {
+            return base.Channel.getInvoiceID(UserID, ProductID);
+        }
+        
+        public System.Threading.Tasks.Task<int> getInvoiceIDAsync(int UserID, int ProductID) {
+            return base.Channel.getInvoiceIDAsync(UserID, ProductID);
         }
         
         public bool deactivateProduct(int ID) {
