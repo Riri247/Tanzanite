@@ -23,10 +23,15 @@ namespace FRONTEND
             if(!String.IsNullOrEmpty(txtEmail.Value) && !String.IsNullOrEmpty(txtSur.Value) &&
                !String.IsNullOrEmpty(txtPassword.Value) && !String.IsNullOrEmpty(txtName.Value))
             {
-                if (serve.Register(txtEmail.Value,Secrecy.HashPassword(txtPassword.Value),txtName.Value,txtSur.Value))
+                if (serve.Register(txtEmail.Value, Secrecy.HashPassword(txtPassword.Value), txtName.Value, txtSur.Value))
                 {
+                    ServiceReference1.SysUser user = serve.Login(txtEmail.Value, Secrecy.HashPassword(txtPassword.Value));
+                    Session["ID"] = user.Id;
+                    Session["Email"] = user.Email;
+                    Session["U_type"] = user.User_Type;
                     Response.Redirect("Home.aspx");
                 }
+                else
                 {
                     lblMessage.Text = "Fatal error occured";
                     lblMessage.ForeColor = System.Drawing.Color.Red;

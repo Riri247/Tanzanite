@@ -17,21 +17,21 @@ namespace FRONTEND
 
           
 
-            if (!IsPostBack) {
-                if (Session["U_Type"] != null)
-                {
-                    if (Session["U_Type"].ToString() == "Adm")
-                    {
-                        LoadUSers();
+            //if (!IsPostBack) {
+            //    if (Session["U_Type"] != null)
+            //    {
+            //        if (Session["U_Type"].ToString() == "Adm")
+            //        {
+            //            LoadUSers();
 
-                    }
-                    else { Response.Redirect("Home.aspx"); }
+            //        }
+            //        else { Response.Redirect("Home.aspx"); }
 
 
 
-                }
-                else { Response.Redirect("Home.aspx"); }
-            }
+            //    }
+            //    else { Response.Redirect("Home.aspx"); }
+            //}
         }
 
         private void LoadUSers()
