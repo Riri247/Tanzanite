@@ -24,16 +24,20 @@ namespace FRONTEND
             //}
             if(Session["ID"]!=null)
             {
-                btnSubmit.Visible = true;
-                txtRate.Visible = true;
-                txtRev.Visible = true;
+                btnCart.Visible = true;
+
+                your_rating_container.Visible = true;
             }
             else
             {
-                txtRate.Visible = false;
-                txtRev.Visible = false;
-                btnSubmit.Visible = false;
+                btnCart.Visible = false;
+
+                your_rating_container.Visible = false;
+                
             }
+
+
+            
 
             if (Request.QueryString["ID"] != null)
             {
@@ -41,7 +45,15 @@ namespace FRONTEND
 
                 int id = int.Parse(Request.QueryString["ID"].ToString());
                 product = rc.getProduct(id);
-                 images = JsonConvert.DeserializeObject<string[]>(product.Image_URL);
+                images = JsonConvert.DeserializeObject<string[]>(product.Image_URL);
+
+                cart_adder.HRef = "About.aspx?ID=" + id + "&cart=" + id;
+
+                if (Request.QueryString["cart"] != null)
+                {
+                    addToCart();
+
+                }
 
                 PopulateProductDetails(id);
               
@@ -67,12 +79,29 @@ namespace FRONTEND
                 {
                     if(r!=null)
                     {
-                        lblName.Text = r.Review1;
-                        lblTheRate.Text = r.Star_Ratng.ToString();
+                        concatRev(r.Review1, r.Star_Ratng);
+
                     }
 
                 }
             }
+        }
+
+        private void concatRev(string text, int star)
+        {
+            string innerChild = $@"<div class='anime__review__item'>
+                                                <div class='anime__review__item__pic'>
+                                                </div>
+                                                <div class='anime__review__item__text'>
+                                                    <h6>Stars: <span>{star}</span></h6>
+                                                    <p>
+                                                        {text}
+                                                    </p>
+                                                </div>
+                                            </div>";
+
+
+            rev_cont.InnerHtml += innerChild;
         }
 
         protected void BtnSubmit_Click(object sender, EventArgs e)
@@ -80,18 +109,59 @@ namespace FRONTEND
 
             int rid = rc.getInvoiceID(int.Parse(Session["ID"].ToString()), int.Parse(Request.QueryString["ID"].ToString()));
 
-            rc.rateProduct(rid, int.Parse(Request.QueryString["ID"].ToString()), int.Parse(txtRate.Text), txtRev.Text);
+            try
+            {
+
+                string rev = txtReview.Value;
+                int star = int.Parse(txtRate.Text);
+
+                bool isvalid = rev.Length > 0 && star >= 0 && rid != 0;
+
+                if (isvalid)
+                {
+                    rc.rateProduct(rid, int.Parse(Request.QueryString["ID"].ToString()), star, rev);
+                }
+
+            }
+            catch (Exception)
+            {
+
+            }
+
+        }
+
+        private void addToCart()
+        {
+            if (Session["ID"] != null)
+            {
+                int uid = int.Parse(Session["ID"].ToString());
+                int pid = int.Parse(Request.QueryString["ID"].ToString());
+
+                if (rc.addToCart(uid, pid)){
+
+                    string script = $"alert('Item added to cart'); window.location.href='About.aspx?ID={pid}';";
+
+                    ClientScript.RegisterStartupScript(this.GetType(), "alertRedirect", script, true);
+                }
+                else
+                {
+                    string script = $"alert('Could not add item to cart'); window.location.href='About.aspx?ID={pid}';";
+
+                    ClientScript.RegisterStartupScript(this.GetType(), "alertRedirect", script, true);
+                }
 
 
+            }
+            else
+            {
+                string script = $"alert('Could not add item to cart'); window.location.href='About.aspx?ID={Request.QueryString["ID"].ToString()}';";
 
+                ClientScript.RegisterStartupScript(this.GetType(), "alertRedirect", script, true);
+            }
 
+          
         }
     }
 
 
-<<<<<<< Updated upstream
 }
-=======
-}
-
->>>>>>> Stashed changes

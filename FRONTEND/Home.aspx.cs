@@ -12,13 +12,29 @@ namespace FRONTEND
 {
     public partial class Home : System.Web.UI.Page
     {
+
+        RentEaseClient rc = new RentEaseClient();
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
+          
+            if (Request.QueryString["cart"] != null)
+            {
+                addToCart();
+
+            }
+
+
             if (!IsPostBack)
             {
                 LoadProducts();
             }
+
+
         }
+
+
         /*//if they are logged in they will see the add to cart shandiz
            
 										<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
@@ -26,10 +42,11 @@ namespace FRONTEND
          */
         private void LoadProducts()
         {
-            RentEaseClient rc = new RentEaseClient();
             dynamic Prods = rc.getProducts();
             int counter = 0;
             String htmlstrBestProds = "<table class='table'>"; // Start of  table
+
+
             foreach (ServiceReference1.SysProduct p in Prods)
             {
                 string[] images = JsonConvert.DeserializeObject<string[]>(p.Image_URL);
@@ -59,11 +76,9 @@ namespace FRONTEND
                 htmlstrBestProds += "<p class='product-category'>" + p.Category + "</p>";
                 htmlstrBestProds += "<a href = 'About.aspx?ID=" + p.Id + "'>" + "<h3 class='product-name'>" + p.Product_Name + "</h3></a>";
                 htmlstrBestProds += "<h4 style='color:red'>R" + Math.Round(p.Price, 2) + "</h4>";
-                if (Session["ID"] != null) {
                     htmlstrBestProds+="<div class='add-to-cart'>";
-                    htmlstrBestProds += "<a href ='Cart.aspx?prodID='" + p.Id + "' class='add-to-cart-btn'><span><i class='fa fa-shopping - cart'></i> Add to cart</span> <i class='fa fa-angle-right'></i></a>";
+                    htmlstrBestProds += $"<a href='Home.aspx?cart={p.Id}' class='add-to-cart-btn'><span><i class='fa fa-shopping-cart'></i> Add to cart</span> <i class='fa fa-angle-right'></i></a>";
                     htmlstrBestProds += "</div>";
-                }
                 htmlstrBestProds += "</div>";
 
 
@@ -94,10 +109,9 @@ namespace FRONTEND
                 hymlstrNewProds += "<span>";
                 hymlstrNewProds += "<div class='anime_details_btn'>";
                 //if they are logged in they will see the add to cart shandiz
-                if (Session["ID"] != null)
-                {
-                    hymlstrNewProds += "<a href ='Cart.aspx?prodID='" + p.Id + "' class='watch-btn'><span> Add to cart</span> <i class='fa fa-angle-right'></i></a>";
-                }
+                
+                    hymlstrNewProds += $"<a href='Home.aspx?cart={p.Id}' class='watch-btn'><span> Add to cart</span> <i class='fa fa-angle-right'></i></a>";
+               
                
                 hymlstrNewProds += "</div>";
                 hymlstrNewProds += "</span>";
@@ -107,5 +121,42 @@ namespace FRONTEND
 
             Sidebarcontent.InnerHtml = hymlstrNewProds;  
         }
+
+
+
+        private void addToCart()
+        {
+
+            if (Session["ID"] != null)
+            {
+                int uid = int.Parse(Session["ID"].ToString());
+                int pid = int.Parse(Request.QueryString["cart"].ToString());
+
+                if (rc.addToCart(uid, pid))
+                {
+
+                    string script = $"alert('Item added to cart'); window.location.href='Home.aspx';";
+
+                    ClientScript.RegisterStartupScript(this.GetType(), "alertRedirect", script, true);
+                }
+                else
+                {
+                    string script = $"alert('Could not add item to cart'); window.location.href='Home.aspx';";
+
+                    ClientScript.RegisterStartupScript(this.GetType(), "alertRedirect", script, true);
+                }
+
+
+            }
+            else
+            {
+                string script = $"alert('Could not add item to cart'); window.location.href='Home.aspx';";
+
+                ClientScript.RegisterStartupScript(this.GetType(), "alertRedirect", script, true);
+            }
+
+
+        }
     }
+
 }
