@@ -333,8 +333,29 @@ namespace RentEase_Service
         [OperationContract]
         bool HasBoughtProduct(int UserID, int ProductID);
 
-
+        /// <summary>
+        /// Gets all the products related to the merchant
+        /// </summary>
+        /// <param name="MerchatID"></param>
+        /// <returns></returns>
         [OperationContract]
         List<SysProduct> GetMerchantProds(int MerchatID);
+
+
+        //Utiity function -- by Emmanuel
+
+        /// <summary>
+        /// checks if cart item exists
+        /// </summary>
+        /// <param name="useId"></param>
+        /// <param name="prodID"></param>
+        /// <returns> true if cart item in db already
+        /// </returns>
+        bool checkcart(int useId, int prodID);
+
+
+        void createCart(int useId, int prodID);
+
+
     }
 }

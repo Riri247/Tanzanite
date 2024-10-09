@@ -89,4 +89,9 @@ namespace FRONTEND
     }
 
 
+<<<<<<< Updated upstream
 }
+=======
+}
+
+>>>>>>> Stashed changes
