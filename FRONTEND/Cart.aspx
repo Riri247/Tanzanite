@@ -136,14 +136,7 @@ a {
                           <h3 class="text-black h4 text-uppercase">Cart Totals</h3>
                         </div>
                       </div>
-                      <div class="row mb-3">
-                        <div class="col-md-6">
-                          <span class="text-black">Subtotal</span>
-                        </div>
-                        <div class="col-md-6 text-right">
-                          <strong class="text-black">$230.00</strong>
-                        </div>
-                      </div>
+
                       <div class="row mb-5">
                         <div class="col-md-6">
                           <span class="text-black">Total</span>
@@ -154,9 +147,9 @@ a {
                       </div>
         
                       <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-12" id="checkoutbtn" runat="server">
 
-                          <a class="btn btn-black btn-lg py-3 btn-block" href="Invoice.aspx?userID=<%= Session["ID"] %>" >Proceed To Checkout</a>
+                          <a class="btn btn-black btn-lg py-3 btn-block" href="ContactView.aspx" >Proceed To Checkout</a>
                         </div>
                       </div>
                     </div>

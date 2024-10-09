@@ -47,7 +47,7 @@
         </div>
 
      <div class="EntityBox"> <div class="anime__details__btn" >
-                                <a href="Invoice.aspx?Current=Yes" class="follow-btn"> Agree to Contract terms</a>      
+                                <a href="Invoice.aspx?userID=<%= Session["ID"] %>" class="follow-btn"> I agree to Contract terms and conditions</a>      
                                
                             </div></div>
 
