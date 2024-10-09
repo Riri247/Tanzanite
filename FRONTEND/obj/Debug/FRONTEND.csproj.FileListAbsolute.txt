@@ -234,9 +234,7 @@ C:\Users\Wesley_The_CodeDemon\source\repos\Tanzanite\FRONTEND\bin\roslyn\VBCSCom
 C:\Users\Wesley_The_CodeDemon\source\repos\Tanzanite\FRONTEND\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\Wesley_The_CodeDemon\source\repos\Tanzanite\FRONTEND\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\Wesley_The_CodeDemon\source\repos\Tanzanite\FRONTEND\obj\Debug\FRONTEND.csproj.CopyComplete
-C:\Users\Wesley_The_CodeDemon\source\repos\Tanzanite\FRONTEND\bin\BouncyCastle.Cryptography.dll
 C:\Users\Wesley_The_CodeDemon\source\repos\Tanzanite\FRONTEND\bin\itextsharp.dll
-C:\Users\Wesley_The_CodeDemon\source\repos\Tanzanite\FRONTEND\bin\BouncyCastle.Cryptography.xml
 C:\Users\Wesley_The_CodeDemon\source\repos\Tanzanite\FRONTEND\bin\itextsharp.xml
 C:\Users\GEORGE MUGALE\Source\Repos\Tanzanite\FRONTEND\obj\Debug\FRONTEND.csproj.AssemblyReference.cache
 C:\Users\GEORGE MUGALE\Source\Repos\Tanzanite\FRONTEND\obj\Debug\FRONTEND.csproj.CoreCompileInputs.cache
@@ -301,6 +299,8 @@ C:\Users\GEORGE MUGALE\Source\Repos\Tanzanite\FRONTEND\bin\itextsharp.xml
 C:\Users\GEORGE MUGALE\Source\Repos\Tanzanite\FRONTEND\bin\Newtonsoft.Json.xml
 C:\Users\GEORGE MUGALE\Source\Repos\Tanzanite\FRONTEND\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\GEORGE MUGALE\Source\Repos\Tanzanite\FRONTEND\obj\Debug\FRONTEND.csproj.CopyComplete
+C:\Users\Wesley_The_CodeDemon\source\repos\Tanzanite\FRONTEND\bin\Newtonsoft.Json.dll
+C:\Users\Wesley_The_CodeDemon\source\repos\Tanzanite\FRONTEND\bin\Newtonsoft.Json.xml
 C:\Users\eashi\OneDrive\Documents\SCHOOL\3rdYEar\IFM2B\TANZANITE GROUP PROJ\Tanzanite\Tanzanite\FRONTEND\bin\itextsharp.dll
 C:\Users\eashi\OneDrive\Documents\SCHOOL\3rdYEar\IFM2B\TANZANITE GROUP PROJ\Tanzanite\Tanzanite\FRONTEND\bin\Newtonsoft.Json.dll
 C:\Users\eashi\OneDrive\Documents\SCHOOL\3rdYEar\IFM2B\TANZANITE GROUP PROJ\Tanzanite\Tanzanite\FRONTEND\bin\itextsharp.xml

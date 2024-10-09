@@ -50,7 +50,7 @@
         <!-- per attribute this 1-->
         <div class="AttributeCont">
             <div class="EntityBox">
-                <h2>Name :</h2>
+                <h3>Name :</h3>
             </div>
 
             <input type="text" id="name" runat="server" class="Pinput" placeholder="Enter Value">
@@ -60,7 +60,7 @@
         <!-- per attribute this 1-->
         <div class="AttributeCont">
             <div class="EntityBox">
-                <h2>Description :</h2>
+                <h3>Description :</h3>
             </div>
             <textarea id="description" runat="server" class="Pinput" placeholder="Enter Value" rows="10" cols="50"></textarea>
 
@@ -70,7 +70,7 @@
         <!-- per attribute this 1-->
         <div class="AttributeCont">
             <div class="EntityBox">
-                <h2>Category :</h2>
+                <h3>Category :</h3>
             </div>
 
             <input type="text" id="category" runat="server" class="Pinput" placeholder="Enter Value">
@@ -81,7 +81,7 @@
         <!-- per attribute this 1-->
         <div class="AttributeCont">
             <div class="EntityBox">
-                <h2>Price :</h2>
+                <h3>Price :</h3>
             </div>
 
             <input type="number" id="price" runat="server" class="Pinput" placeholder="Enter Value" step="0.01" min="0">
@@ -91,7 +91,7 @@
         <!-- per attribute this 1-->
         <div class="AttributeCont">
             <div class="EntityBox">
-                <h2>Quantity :</h2>
+                <h3>Quantity :</h3>
             </div>
 
             <input type="number" id="quantity" runat="server" class="Pinput" placeholder="Enter Value" step="1" min="0">
@@ -101,7 +101,7 @@
         <!-- per attribute this 1-->
         <div class="AttributeCont">
             <div class="EntityBox">
-                <h2>Available :</h2>
+                <h3>Available :</h3>
             </div>
 
             <input type="checkbox" id="available" runat="server" class="Pinput" placeholder="Enter Value">
@@ -111,10 +111,10 @@
         <!-- per attribute this 1-->
         <div class="AttributeCont">
             <div class="EntityBox">
-                <h2>Rental Aggreement:</h2>
-            </div>
+                <h4>Rental Aggreement:</h4>
+            </div  >
 
-            <textarea id="agreement" runat="server" class="Pinput" placeholder="Enter Value" rows="10" cols="50"></textarea>
+            <textarea id="agreement" runat="server"  class="Pinput"  placeholder="Enter Value" rows="10" cols="50"></textarea>
         </div>
         <!-- end of that attribute-->
 
@@ -124,7 +124,7 @@
         <!-- per attribute this 1-->
         <div class="AttributeCont">
             <div class="EntityBox">
-                <h2>Images :</h2>
+                <h3>Images :</h3>
             </div>
 
             <asp:Panel ID="image_url_holder" runat="server">

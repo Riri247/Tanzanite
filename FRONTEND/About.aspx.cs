@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using FRONTEND.ServiceReference1;
+using Newtonsoft.Json;
 
 namespace FRONTEND
 {
@@ -13,7 +14,7 @@ namespace FRONTEND
         RentEaseClient rc = new RentEaseClient();
         SysProduct product;
         SysReview[] reviews;
-
+        string[] images;
         protected void Page_Load(object sender, EventArgs e)
         {
             //if (!IsPostBack)
@@ -23,14 +24,20 @@ namespace FRONTEND
 
             if (Request.QueryString["ID"] != null)
             {
-                int id = int.Parse(Request.QueryString["ID"].ToString());
 
+
+                int id = int.Parse(Request.QueryString["ID"].ToString());
+              
                 product = rc.getProduct(id);
+                 images = JsonConvert.DeserializeObject<string[]>(product.Image_URL);
                 reviews = rc.getAllReviews(id);
 
-                foreach (SysReview r in reviews)
-                {
-                    concat(r.Review1, r.Star_Ratng);
+                LoadProduct();
+                if (reviews != null) {
+                    foreach (SysReview r in reviews)
+                    {
+                        concat(r.Review1, r.Star_Ratng);
+                    }
                 }
             }
         }
@@ -38,22 +45,49 @@ namespace FRONTEND
 
         private void concat(string text, int rating)
         {
-            string innerChild = $@"<div class='anime__review__item'>
+
+            if (reviews != null) {
+                string innerChild = $@"<div class='anime__review__item'>
                 <div class='anime__review__item__text'>
                 <h6> Star: {rating}</h6>
                 <p>{text}</p>
                 </div>
                 </div>";
 
-            divReviews.InnerHtml += innerChild;
+                divReviews.InnerHtml += innerChild;
+            }
+           
+             
         }
 
     private void LoadProduct()
         {
-            RentEaseClient rc = new RentEaseClient();
+            String Descphtml = "";
 
-            int ID = Convert.ToInt32(Request.QueryString["ID"].ToString());
-            var Product = rc.getProduct(ID);
+            foreach (string f in images) {
+
+                Descphtml = $@"<div class='hero__items set-bg' data-setbg='{f}'> <!-- Change image directory per loop-->
+                        <div class='row'>
+                        <div class='col-lg-6'>
+                            <div class='hero__text'>
+                                <div class='label'>{product.Category}</div> <!-- product type-->
+                                <h2>Electronics</h2> <!-- Product name-->
+                                <p>{product.Decript}</p> <!--- Description-->";
+
+                //this varibale is to check of the user bought the thing its stand in value will be true for now but you guys change it witht he function
+                bool CheckIfPurchased = true;
+
+                //if the they purchased show the review button
+                if (CheckIfPurchased) {
+                    Descphtml = $@"    <a href ='#anime__details__form'>< span > Review </ span > <i class='fa fa-angle-right'></i></a> <!-- Review button must only be seen  when the user has bought it before-->";
+
+                }
+                Descphtml = $@"    </div>
+                        </div>
+                    </div>
+                </div>";
+            }
+            Descriptiondiv.InnerHtml = Descphtml;
 
 
 
