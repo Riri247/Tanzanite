@@ -87,7 +87,7 @@ a {
 		<div class="untree_co-section before-footer-section">
             <div class="container">
               <div class="row mb-5">
-                <form class="col-md-12" method="post">
+                <form class="col-md-12" method="post" runat="server">
                   <div class="site-blocks-table">
                     <table class="table">
                       <thead>
@@ -105,12 +105,12 @@ a {
                         <asp:PlaceHolder ID="divCartStuff" runat="server">
 
                             </asp:PlaceHolder>
-                      <tbody id="DispCart" runat="server">
+                   <%--   <tbody id="DispCart" runat="server">
                            <!-- Product section start-->
                         
         <!-- end of product-->
 
-                      </tbody>
+                      </tbody>--%>
                     </table>
                   </div>
                 </form>
@@ -119,11 +119,11 @@ a {
               <div class="row">
                 <div class="col-md-6">
                   <div class="row mb-5">
-                    <div class="col-md-6 mb-3 mb-md-0">
+                  <%--  idk what this will be used for <div class="col-md-6 mb-3 mb-md-0">
                       <button class="btn btn-black btn-sm btn-block">Update Cart</button>
-                    </div>
+                    </div>--%>
                     <div class="col-md-6">
-                      <button class="btn btn-outline-black btn-sm btn-block">Continue Shopping</button>
+                      <a class="btn btn-outline-black btn-sm btn-block" href="Home.aspx">Continue Shopping</a>
                     </div>
                   </div>
                   
@@ -142,10 +142,39 @@ a {
                           <span class="text-black">Total</span>
                         </div>
                         <div class="col-md-6 text-right">
-                          <strong class="text-black">$230.00</strong>
+                          <asp:Label ID="lbltotal" class="text-black" runat="server"></asp:Label>
+                        </div>
+                      </div>
+
+                         <div class="row mb-5">
+                        <div class="col-md-6">
+                          <span class="text-black">Vat</span>
+                        </div>
+                        <div class="col-md-6 text-right">
+                          <strong class="text-black"> 15%</strong>
+                        </div>
+                      </div>
+
+                         <div class="row mb-5">
+                        <div class="col-md-6">
+                          <span class="text-black">coupon Apllied</span>
+                        </div>
+                       
+
+                             <div class="col-md-6 text-right">
+                           <asp:Label ID="lblCperc" class="text-black" runat="server"></asp:Label>
                         </div>
                       </div>
         
+                         <div class="row mb-5">
+                             <div class="col-md-6">
+                         <h2> GRAND TOTAL </h2>
+                        </div>
+                             <div class="col-md-6">
+                          <asp:Label ID="lblGTots" class="text-black" runat="server"></asp:Label>
+                        </div>
+                         </div>
+
                       <div class="row">
                         <div class="col-md-12" id="checkoutbtn" runat="server">
 

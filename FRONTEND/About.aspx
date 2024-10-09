@@ -36,7 +36,7 @@
                             </div>
 
                             <div class="add-to-cart">
-                               <a href="Cart.aspx?prodID=<% Request.QueryString["ID"].ToString(); %>" class="add-to-cart-btn">
+                               <a href="Cart.aspx?prodID=<%Request.QueryString["ID"].ToString();%>" class="add-to-cart-btn">
     <span><i class="fa fa-shopping-cart"></i> Add to cart</span> 
     <i class="fa fa-angle-right"></i>
 </a>

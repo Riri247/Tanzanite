@@ -108,40 +108,30 @@ namespace RentEase_Service
 
         public bool addToCart(int UserID, int ProductID)
         {
-            try
+
+            if (checkcart(UserID, ProductID))
             {
-                var s = new Shopping_cart
-                {
-                    P_ID = ProductID,
-                    C_ID = UserID
-                };
+                var query = (from sc in RentEaseDB.Shopping_carts
+                             where sc.C_ID == UserID && sc.P_ID == ProductID
+                             select sc).FirstOrDefault();
 
-                RentEaseDB.Shopping_carts.InsertOnSubmit(s);
-                RentEaseDB.SubmitChanges();
-                return true;
-
-            }
-            catch (Exception)
-            {
-                var query = from sc in RentEaseDB.Shopping_carts
-                            where sc.C_ID == UserID && sc.P_ID == ProductID
-                            select sc;
-
-                Shopping_cart cart = query.FirstOrDefault();
-
-                if (cart != null)
+                if (query != null)
                 {
                     // increase quantity
 
-                    cart.Quantity++;
+                    query.Quantity++;
 
                     RentEaseDB.SubmitChanges();
                     return true;
 
                 }
+                else { return false; }
 
-                return false;
             }
+            else { createCart(UserID, ProductID);  return true; }
+
+            return false;
+
 
         }
 
@@ -191,7 +181,7 @@ namespace RentEase_Service
                             {
                                 C_ID = c.C_ID,
                                 P_ID = c.P_ID,
-                                //Quantity = c.Quantity
+                                Quantity = c.Quantity
                             }
 
                         };
@@ -795,6 +785,33 @@ namespace RentEase_Service
                 return prodlist;
             }
             else { return null; }
+        }
+
+        public bool checkcart(int useId, int prodID)
+        {
+            var TempCart = (from ci in RentEaseDB.Shopping_carts
+                            where ci.C_ID == useId & ci.P_ID == prodID
+                            select ci).FirstOrDefault();
+
+
+            if (TempCart != null) {
+                return true;
+            }
+            return false;
+        
+        }
+
+        public void createCart(int useId, int prodID)
+        {
+            var s = new Shopping_cart
+            {
+                P_ID = prodID,
+                C_ID = useId,
+                Quantity = 1
+            };
+
+            RentEaseDB.Shopping_carts.InsertOnSubmit(s);
+            RentEaseDB.SubmitChanges();
         }
     }
 }
