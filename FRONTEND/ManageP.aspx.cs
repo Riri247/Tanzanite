@@ -39,7 +39,7 @@ namespace FRONTEND
                 foreach (SysProduct p in ListProds)
                 {
                     producthtml += $@"<div class='Scrollable'>
-        <div  class ='NameBox'>
+        <div class='NameBox'>
             <p>{p.Product_Name}<br>{p.Category}</p>   
             </div>
 
