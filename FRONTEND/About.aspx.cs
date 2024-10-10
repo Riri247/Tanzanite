@@ -36,9 +36,6 @@ namespace FRONTEND
 
             }
 
-
-
-
             if (Request.QueryString["ID"] != null)
             {
 
@@ -137,8 +134,6 @@ namespace FRONTEND
                 int uid = int.Parse(Session["ID"].ToString());
                 int pid = int.Parse(Request.QueryString["ID"].ToString());
 
-                if (rc.addToCart(uid, pid))
-                {
 
                     string script = $"alert('Item added to cart'); window.location.href='About.aspx?ID={pid}';";
 
@@ -161,8 +156,10 @@ namespace FRONTEND
             }
 
 
-        }
-    }
+<<<<<<< Updated upstream
+}
+=======
+}
 
 
 }
