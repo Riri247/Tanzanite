@@ -51,13 +51,22 @@ namespace FRONTEND
         protected global::System.Web.UI.WebControls.Literal LitPrice;
 
         /// <summary>
-        /// ddlQuantity control.
+        /// btnCart control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlQuantity;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl btnCart;
+
+        /// <summary>
+        /// cart_adder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor cart_adder;
 
         /// <summary>
         /// LitDescription control.
@@ -69,31 +78,31 @@ namespace FRONTEND
         protected global::System.Web.UI.WebControls.Literal LitDescription;
 
         /// <summary>
-        /// lblName control.
+        /// rev_cont control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblName;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl rev_cont;
 
         /// <summary>
-        /// lblTheRate control.
+        /// your_rating_container control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTheRate;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl your_rating_container;
 
         /// <summary>
-        /// txtRev control.
+        /// txtReview control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtRev;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtReview;
 
         /// <summary>
         /// txtRate control.
