@@ -431,6 +431,18 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
+      <xs:element name="GetSortedProducts">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetSortedProductsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/RentEase_Service" minOccurs="0" name="GetSortedProductsResult" nillable="true" type="q18:ArrayOfSysProduct" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
     </xs:schema>
     <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
       <xs:element name="anyType" nillable="true" type="xs:anyType" />
@@ -759,6 +771,12 @@
   <wsdl:message name="IRentEase_GetMerchantProds_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetMerchantProdsResponse" />
   </wsdl:message>
+  <wsdl:message name="IRentEase_GetSortedProducts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSortedProducts" />
+  </wsdl:message>
+  <wsdl:message name="IRentEase_GetSortedProducts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSortedProductsResponse" />
+  </wsdl:message>
   <wsdl:portType name="IRentEase">
     <wsdl:operation name="Login">
       <wsdl:input wsaw:Action="http://tempuri.org/IRentEase/Login" message="tns:IRentEase_Login_InputMessage" />
@@ -875,6 +893,10 @@
     <wsdl:operation name="GetMerchantProds">
       <wsdl:input wsaw:Action="http://tempuri.org/IRentEase/GetMerchantProds" message="tns:IRentEase_GetMerchantProds_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IRentEase/GetMerchantProdsResponse" message="tns:IRentEase_GetMerchantProds_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSortedProducts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRentEase/GetSortedProducts" message="tns:IRentEase_GetSortedProducts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRentEase/GetSortedProductsResponse" message="tns:IRentEase_GetSortedProducts_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IRentEase" type="tns:IRentEase">
@@ -1133,6 +1155,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetMerchantProds">
       <soap:operation soapAction="http://tempuri.org/IRentEase/GetMerchantProds" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSortedProducts">
+      <soap:operation soapAction="http://tempuri.org/IRentEase/GetSortedProducts" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

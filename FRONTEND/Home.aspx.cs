@@ -28,7 +28,7 @@ namespace FRONTEND
 
             if (!IsPostBack)
             {
-                LoadProducts();
+                LoadProducts(0,50000);
             }
 
 
@@ -40,7 +40,7 @@ namespace FRONTEND
 										<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
 									</div>     
          */
-        private void LoadProducts()
+        private void LoadProducts(decimal min,decimal Max)
         {
             dynamic Prods = rc.getProducts();
             int counter = 0;
@@ -49,56 +49,59 @@ namespace FRONTEND
 
             foreach (ServiceReference1.SysProduct p in Prods)
             {
-                string[] images = JsonConvert.DeserializeObject<string[]>(p.Image_URL);
-
-
-                if (counter % 3 == 0) // Every 3 products, start a new row
+                if(p.Price<= Max && p.Price>=min)
                 {
-                    if (counter > 0)
+                    string[] images = JsonConvert.DeserializeObject<string[]>(p.Image_URL);
+
+
+                    if (counter % 3 == 0) // Every 3 products, start a new row
                     {
-                        htmlstrBestProds += "</tr>";
+                        if (counter > 0)
+                        {
+                            htmlstrBestProds += "</tr>";
+                        }
+                        htmlstrBestProds += "<tr>"; // Start a new row
                     }
-                    htmlstrBestProds += "<tr>"; // Start a new row
-                }
 
 
 
-                
 
 
-                // Build HTML for each product
+
+                    // Build HTML for each product
                     htmlstrBestProds += "<td>";
-                htmlstrBestProds += "<div class='product'>";
+                    htmlstrBestProds += "<div class='product'>";
 
-                // Product Image
-                htmlstrBestProds += "<a href='About.aspx?ID=" + p.Id + "'>";
-                htmlstrBestProds += "<div class='product-img'>";
-                htmlstrBestProds += $"<div class='product__item__pic set-bg' data-setbg='{images[0]}' alt='{p.Product_Name}' style='background-image: url(&quot;{images[0]}&quot;);' />";
-                htmlstrBestProds += "</div>";
-                htmlstrBestProds += "</a>";
-                // Product Details (Category, Name, Price)
-                htmlstrBestProds += "<div class='product-body'>";
-                //< div class="product__item__pic set-bg" data-setbg="img/trending/trend-2.jpg" >
-                //                        <div class="ep">18 / 18</div>
-                //                        <div class="comment"><i class="fa fa-comments"></i> 11</div>
-                //                        <div class="view"><i class="fa fa-eye"></i> 9141</div>
-                //                    </div>
-
-                htmlstrBestProds += "<p class='product-category'>" + p.Category + "</p>";
-                htmlstrBestProds += "<a href = 'About.aspx?ID=" + p.Id + "'>" + "<h3 class='product-name'>" + p.Product_Name + "</h3></a>";
-                htmlstrBestProds += "<h4 style='color:red'>R" + Math.Round(p.Price, 2) + "</h4>";
-                if (Session["ID"] != null)
-                {
-
-                    htmlstrBestProds += "<div class='add-to-cart'>";
-                    htmlstrBestProds += $"<a href='Home.aspx?cart={p.Id}' class='add-to-cart-btn'><span><i class='fa fa-shopping-cart'></i> Add to cart</span> <i class='fa fa-angle-right'></i></a>";
+                    // Product Image
+                    htmlstrBestProds += "<a href='About.aspx?ID=" + p.Id + "'>";
+                    htmlstrBestProds += "<div class='product-img'>";
+                    htmlstrBestProds += $"<div class='product__item__pic set-bg' data-setbg='{images[0]}' alt='{p.Product_Name}' style='background-image: url(&quot;{images[0]}&quot;);' />";
                     htmlstrBestProds += "</div>";
+                    htmlstrBestProds += "</a>";
+                    // Product Details (Category, Name, Price)
+                    htmlstrBestProds += "<div class='product-body'>";
+                    //< div class="product__item__pic set-bg" data-setbg="img/trending/trend-2.jpg" >
+                    //                        <div class="ep">18 / 18</div>
+                    //                        <div class="comment"><i class="fa fa-comments"></i> 11</div>
+                    //                        <div class="view"><i class="fa fa-eye"></i> 9141</div>
+                    //                    </div>
+
+                    htmlstrBestProds += "<p class='product-category'>" + p.Category + "</p>";
+                    htmlstrBestProds += "<a href = 'About.aspx?ID=" + p.Id + "'>" + "<h3 class='product-name'>" + p.Product_Name + "</h3></a>";
+                    htmlstrBestProds += "<h4 style='color:red'>R" + Math.Round(p.Price, 2) + "</h4>";
+                    if (Session["ID"] != null)
+                    {
+
+                        htmlstrBestProds += "<div class='add-to-cart'>";
+                        htmlstrBestProds += $"<a href='Home.aspx?cart={p.Id}' class='add-to-cart-btn'><span><i class='fa fa-shopping-cart'></i> Add to cart</span> <i class='fa fa-angle-right'></i></a>";
+                        htmlstrBestProds += "</div>";
+                    }
+                    htmlstrBestProds += "</div>";
+
+
+
+                    counter++;
                 }
-                htmlstrBestProds += "</div>";
-
-
-
-                counter++;
             }
             htmlstrBestProds += "</tr></table>"; // Close the last row and table
             ProductList.InnerHtml = htmlstrBestProds;
@@ -172,6 +175,85 @@ namespace FRONTEND
 
 
         }
-    }
+
+        protected void btnFilterPrice_Click(object sender, EventArgs e)
+        {
+            int minPrice = int.Parse(txtPriceMin.Text);
+            int maxPrice = int.Parse(txtPriceMax.Text);
+
+            //filtering by price 
+            LoadProducts(minPrice, maxPrice);
+        }
+
+        protected void btnAlpha(object sender, EventArgs e)
+        {
+            dynamic prods = rc.GetSortedProducts();
+            SortByLetter(prods);
+        }
+
+        private void SortByLetter(dynamic SortedProds)
+        {
+
+            int counter = 0;
+            String htmlstrBestProds = "<table class='table'>"; // Start of  table
+
+
+            foreach (ServiceReference1.SysProduct p in SortedProds)
+            {
+
+                    string[] images = JsonConvert.DeserializeObject<string[]>(p.Image_URL);
+
+
+                    if (counter % 3 == 0) // Every 3 products, start a new row
+                    {
+                        if (counter > 0)
+                        {
+                            htmlstrBestProds += "</tr>";
+                        }
+                        htmlstrBestProds += "<tr>"; // Start a new row
+                    }
+
+
+
+
+
+
+                    // Build HTML for each product
+                    htmlstrBestProds += "<td>";
+                    htmlstrBestProds += "<div class='product'>";
+
+                    // Product Image
+                    htmlstrBestProds += "<a href='About.aspx?ID=" + p.Id + "'>";
+                    htmlstrBestProds += "<div class='product-img'>";
+                    htmlstrBestProds += $"<div class='product__item__pic set-bg' data-setbg='{images[0]}' alt='{p.Product_Name}' style='background-image: url(&quot;{images[0]}&quot;);' />";
+                    htmlstrBestProds += "</div>";
+                    htmlstrBestProds += "</a>";
+                    // Product Details (Category, Name, Price)
+                    htmlstrBestProds += "<div class='product-body'>";
+                    //< div class="product__item__pic set-bg" data-setbg="img/trending/trend-2.jpg" >
+                    //                        <div class="ep">18 / 18</div>
+                    //                        <div class="comment"><i class="fa fa-comments"></i> 11</div>
+                    //                        <div class="view"><i class="fa fa-eye"></i> 9141</div>
+                    //                    </div>
+
+                    htmlstrBestProds += "<p class='product-category'>" + p.Category + "</p>";
+                    htmlstrBestProds += "<a href = 'About.aspx?ID=" + p.Id + "'>" + "<h3 class='product-name'>" + p.Product_Name + "</h3></a>";
+                    htmlstrBestProds += "<h4 style='color:red'>R" + Math.Round(p.Price, 2) + "</h4>";
+                    if (Session["ID"] != null)
+                    {
+
+                        htmlstrBestProds += "<div class='add-to-cart'>";
+                        htmlstrBestProds += $"<a href='Home.aspx?cart={p.Id}' class='add-to-cart-btn'><span><i class='fa fa-shopping-cart'></i> Add to cart</span> <i class='fa fa-angle-right'></i></a>";
+                        htmlstrBestProds += "</div>";
+                    }
+                    htmlstrBestProds += "</div>";
+
+
+
+                    counter++;
+                }
+            }
+
+        }
 
 }
