@@ -22,9 +22,11 @@ namespace FRONTEND
                     if (Session["U_Type"].ToString() == "Man")
                     {
                         ProductOne.Visible = true;
+                        ReportSec.Visible = true;
                     }
                     else if (Session["U_Type"].ToString() == "Adm") {
                         ProductOne.Visible = true;
+                        ReportSec.Visible = true;
                         UserOne.Visible = true;
                     }
                 

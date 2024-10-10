@@ -87,6 +87,15 @@ namespace FRONTEND
         protected global::System.Web.UI.HtmlControls.HtmlAnchor ProductOne;
 
         /// <summary>
+        /// ReportSec control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor ReportSec;
+
+        /// <summary>
         /// UserOne control.
         /// </summary>
         /// <remarks>

@@ -95,7 +95,7 @@
 
                                         <!--Renter one-->
                                          <li><a href="ManageP.aspx" runat="server" id="ProductOne" visible="false" >Check Products</a></li>
-
+                                        <li><a href="Report.aspx" runat="server" id="ReportSec" visible="false" >Report Statistics</a></li>
                                         <!-- Admin-->
                                         <!-- SUers page-->
                                         <li><a href="ManageU.aspx" runat="server" id="UserOne" visible="false" >Track User</a></li>
