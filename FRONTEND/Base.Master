@@ -57,6 +57,13 @@
             <div class="row">
               
                 <div class="col-lg-8">
+                    <div class="col-lg-2">
+                    <div class="header__logo">
+                        <a href="./index.html">
+                            <img src="Tanzanite files/logo/RentEaseLogo.jpg" alt="" width="93" height="93">
+                        </a>
+                    </div>
+                </div>
                     <div class="header__nav">
                         <nav class="header__menu mobile-menu">
                             <ul>
@@ -71,10 +78,10 @@
 
 								<!-- default nav -->
 								<div class="default__nav" style="float:left;">
-									 <li class="active"><a href="#">Categories <span class="arrow_carrot-down"></span></a>
+									 <li class="active"><a href="#">Options <span class="arrow_carrot-down"></span></a>
                                     <ul class="dropdown">
                                         <!--default ones pages-->
-                                           <li><a href="Signup.aspx" runat="server" id="SignID" >Sign Up</a></li>
+                                           <li><a href="Signup.aspx" runat="server" id="SignID">Sign Up</a></li>
                                            <li><a href="Home.aspx" runat="server" id="HomeID" >Home</a></li>
                                         <li><a href="Login.aspx" runat="server" id="LoginID" >Login</a></li>
                                         <!--Remeber to add about us page-->
@@ -118,8 +125,7 @@
                 </div>
                  <div class="col-lg-2">
                     <div class="header__right">
-                        <a href="#" class="search-switch"><span class="icon_search"></span></a>
-                        <a href="EditUser.aspx?Val=1"><span class="icon_profile"></span></a>
+                      <a href="Login.aspx"><span class="icon_profile"></span></a>
                       <a href="Cart.aspx"  id="CartImage" runat="server" visible="false"><img src="img/cart.svg"></a>
                     </div>
                 </div>
@@ -173,7 +179,13 @@
             </div>
 
 			<div>
-				<p>Group info will go here</p>
+				<pre>
+                        GHE Ashimwe 222127212
+                        R Mabasa 221015101 
+                        GFM Mugale 222056431
+                        NW Ndebele 222003489
+
+				</pre>
 			</div>
             <div class="col-lg-3">
                 <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->

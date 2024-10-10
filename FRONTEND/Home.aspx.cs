@@ -176,6 +176,7 @@ namespace FRONTEND
 
         }
 
+        //button for filering by 
         protected void btnFilterPrice_Click(object sender, EventArgs e)
         {
             int minPrice = int.Parse(txtPriceMin.Text);
@@ -185,6 +186,7 @@ namespace FRONTEND
             LoadProducts(minPrice, maxPrice);
         }
 
+        //button for sorting products 
         protected void btnAlpha(object sender, EventArgs e)
         {
             dynamic prods = rc.GetSortedProducts();
@@ -230,12 +232,6 @@ namespace FRONTEND
                     htmlstrBestProds += "</a>";
                     // Product Details (Category, Name, Price)
                     htmlstrBestProds += "<div class='product-body'>";
-                    //< div class="product__item__pic set-bg" data-setbg="img/trending/trend-2.jpg" >
-                    //                        <div class="ep">18 / 18</div>
-                    //                        <div class="comment"><i class="fa fa-comments"></i> 11</div>
-                    //                        <div class="view"><i class="fa fa-eye"></i> 9141</div>
-                    //                    </div>
-
                     htmlstrBestProds += "<p class='product-category'>" + p.Category + "</p>";
                     htmlstrBestProds += "<a href = 'About.aspx?ID=" + p.Id + "'>" + "<h3 class='product-name'>" + p.Product_Name + "</h3></a>";
                     htmlstrBestProds += "<h4 style='color:red'>R" + Math.Round(p.Price, 2) + "</h4>";
@@ -247,12 +243,13 @@ namespace FRONTEND
                         htmlstrBestProds += "</div>";
                     }
                     htmlstrBestProds += "</div>";
-
-
-
                     counter++;
                 }
-            }
+            htmlstrBestProds += "</tr></table>"; // Close the last row and table
+            ProductList.InnerHtml = htmlstrBestProds;
+
+        }
+
 
         }
 
