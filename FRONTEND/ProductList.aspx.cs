@@ -27,29 +27,29 @@ namespace FRONTEND
 			List<ServiceReference1.SysProduct> listProducts = new List<SysProduct>();
 			//if Category was passed as a parameter
 
-			if (Request.QueryString["Category"].ToString() != null)
+			if (Request.QueryString["Category"] != null)
 			{
 				String Category = Request.QueryString["Category"].ToString();
-				
-				switch (Category)
-                {
-					case "Electronics":
-                        {
-							foreach(SysProduct p in Prods)
-                            {
-								if(p.Category.Equals("Electronics"))
-                                {
-									listProducts.Add(p);
-                                }
-                            }
 
-							break;
-                        }
-					case "Accomodations":
+				switch (Category)
+				{
+					case "Electronics":
 						{
 							foreach (SysProduct p in Prods)
 							{
-								if (p.Category.Equals("Accomodations"))
+								if (p.Category.Equals("Electronics"))
+								{
+									listProducts.Add(p);
+								}
+							}
+
+							break;
+						}
+					case "Accommodation":
+						{
+							foreach (SysProduct p in Prods)
+							{
+								if (p.Category.Equals("Accommodation"))
 								{
 									listProducts.Add(p);
 								}
@@ -73,12 +73,15 @@ namespace FRONTEND
 				}
 			}
 			//if client either wants the best or new products
-			else if (Request.QueryString["Type"].ToString() != null) {
+			else if (Request.QueryString["Type"] != null)
+			{
 				String type = Request.QueryString["Type"].ToString();
 
-				switch (type) {
-					case "Best": {
-							
+				switch (type)
+				{
+					case "Best":
+						{
+
 							break;
 						}
 
@@ -89,9 +92,18 @@ namespace FRONTEND
 						}
 				}
 			}
+			else {
+
+				foreach (SysProduct p in Prods)
+				{
+					
+						listProducts.Add(p);
+					
+				}
+			}
 
 			//cehcking if the list has stuff else go back to home page
-			if (Prods != null)
+			if (listProducts != null)
 			{
 				String htmlstrProdList = "";
 				foreach (ServiceReference1.SysProduct p in listProducts) {

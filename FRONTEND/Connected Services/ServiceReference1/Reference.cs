@@ -1081,6 +1081,12 @@ namespace FRONTEND.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/GetMerchantProds", ReplyAction="http://tempuri.org/IRentEase/GetMerchantProdsResponse")]
         System.Threading.Tasks.Task<FRONTEND.ServiceReference1.SysProduct[]> GetMerchantProdsAsync(int MerchatID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/GetSortedProducts", ReplyAction="http://tempuri.org/IRentEase/GetSortedProductsResponse")]
+        FRONTEND.ServiceReference1.SysProduct[] GetSortedProducts();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/GetSortedProducts", ReplyAction="http://tempuri.org/IRentEase/GetSortedProductsResponse")]
+        System.Threading.Tasks.Task<FRONTEND.ServiceReference1.SysProduct[]> GetSortedProductsAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1348,6 +1354,14 @@ namespace FRONTEND.ServiceReference1 {
         
         public System.Threading.Tasks.Task<FRONTEND.ServiceReference1.SysProduct[]> GetMerchantProdsAsync(int MerchatID) {
             return base.Channel.GetMerchantProdsAsync(MerchatID);
+        }
+        
+        public FRONTEND.ServiceReference1.SysProduct[] GetSortedProducts() {
+            return base.Channel.GetSortedProducts();
+        }
+        
+        public System.Threading.Tasks.Task<FRONTEND.ServiceReference1.SysProduct[]> GetSortedProductsAsync() {
+            return base.Channel.GetSortedProductsAsync();
         }
     }
 }

@@ -36,21 +36,29 @@ namespace FRONTEND
             {
                 UseID = Convert.ToInt32(Request.QueryString["ID"].ToString());
 
-                if (UseID == Convert.ToInt32(Session["ID"].ToString()))
-                {
-                    PassDiv.Visible = true;
-                }
+               
                 SysUser Temp = Rs.getUser(UseID);
                 txtName.Value = Temp.U_Name;
                 txtEmail.Value = Temp.Email;
                 txtPass.Value = Temp.password;
                 txtType.Value = Temp.User_Type;
                 TxtSur.Value = Temp.Surname;
-                
 
+
+            } else if (Request.QueryString["Val"] != null) {
+                PassDiv.Visible = true;
+                SysUser Temp = Rs.getUser(Convert.ToInt32(Session["ID"].ToString()));
+                txtName.Value = Temp.U_Name;
+                txtEmail.Value = Temp.Email;
+                //txtPass.Value = Temp.password;
+                txtType.Value = Temp.User_Type;
+                TxtSur.Value = Temp.Surname;
             }
             else {
-                PassDiv.Visible = true;
+
+                if (Request.QueryString["Action"] == null) {
+                    Response.Redirect("Login.aspx");
+                }
             }
         }
 
@@ -59,30 +67,37 @@ namespace FRONTEND
             try
             {
 
-                Name = txtName.Value;
-                Eemail = txtEmail.Value;
+                Name = txtName.Value.ToString();
+                Eemail = txtEmail.Value.ToString();
                 Pass = Secrecy.HashPassword(txtPass.Value.ToString());
-                Type = txtType.Value;
-                surname = TxtSur.Name;
+                Type = txtType.Value.ToString();
+                surname = TxtSur.Value.ToString();
 
-                
-                if (Request.QueryString["ID"] != null) //edit else you create the user
+                SysUser Temp = Rs.getUser(Convert.ToInt32(Session["ID"].ToString()));
+
+
+
+                if (Request.QueryString["ID"] != null || Request.QueryString["Val"] != null) //edit else you create the user
                 {
 
-                    SysUser Temp = new SysUser
+                    SysUser DTemp = new SysUser
                     {
-                        U_Name = Name,
-                        Email = Eemail, //added other e to tell difference
-                        password = Pass,
-                        User_Type = Type,
-                        Surname = surname
+                        Id = Temp.Id,
+                        U_Name = txtName.Value.ToString(),
+                        Email = txtEmail.Value.ToString(), //added other e to tell difference
+                        password = Secrecy.HashPassword(txtPass.Value.ToString()),
+                        User_Type = txtType.Value.ToString(),
+                        Surname = TxtSur.Value.ToString()
 
                     };
-                    Rs.EditUserData(Temp);
+                    Rs.EditUserData(DTemp);
+
+                    Response.Redirect("Home.aspx");
 
                 } else {
 
                     Rs.Register(Eemail, Pass, Name, surname);
+                    Response.Redirect("ManageU.aspx");
                 }
 
               

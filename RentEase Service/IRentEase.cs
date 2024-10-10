@@ -386,6 +386,12 @@ namespace RentEase_Service
 
         void createCart(int useId, int prodID);
 
-
+        /// <summary>
+        /// Method for sorting by letter 
+        /// </summary>
+        /// <returns></returns>
+        
+        [OperationContract]
+        List<SysProduct> GetSortedProducts();
     }
 }

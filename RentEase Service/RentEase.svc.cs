@@ -759,12 +759,21 @@ namespace RentEase_Service
                 try
                 {
                     //editing userr data
-                    sysUser.Id = OneUser.Id;
+                    
                     sysUser.U_Name = OneUser.U_Name;
+                    Console.Write($@"Name {OneUser.U_Name}");
                     sysUser.Surname = OneUser.Surname;
+                    Console.Write($@"Name {OneUser.Surname}");
                     sysUser.Email = OneUser.Email;
+                    Console.Write($@"Name {OneUser.Email}");
                     sysUser.User_Type = OneUser.User_Type;
-                    sysUser.password = OneUser.password;
+                    Console.Write($@"Name {OneUser.User_Type}");
+
+                    if (!String.IsNullOrEmpty(OneUser.password)) {
+                        sysUser.password = OneUser.password;
+                    }
+
+                    
                     RentEaseDB.SubmitChanges();
                 }
                 catch(Exception e)
@@ -880,5 +889,47 @@ namespace RentEase_Service
             RentEaseDB.Shopping_carts.InsertOnSubmit(s);
             RentEaseDB.SubmitChanges();
         }
+
+        
+    public List<SysProduct> GetSortedProducts()
+    {
+        // Fetch the list of products from the database where Quantity > 0
+        dynamic listProducts = (from p in RentEaseDB.Products
+                            where p.Quantity > 0
+                            select p).ToList();
+
+        // Initialize the list of tProduct
+        List<SysProduct> sortedProducts = new List<SysProduct>();
+
+        // Check if the list is not empty
+        if (listProducts != null)
+        {
+            // Convert each Product entity to tProduct
+            foreach (Product p in listProducts)
+            {
+                SysProduct tProd = new SysProduct
+                {
+                   Id=p.Id,
+                   Product_Name=p.Product_Name,
+                   Decript=p.Decript,
+                   Quantity=p.Quantity,
+                   Price=p.Price,
+                    M_ID=p.M_ID,
+                    Available=p.Available,
+                    Rental_Agreement=p.Rental_Agreement,
+                    Category=p.Category,
+                    Registration_Date=p.Registration_Date,
+                    Image_URL=p.Image_URL,
+                };
+                sortedProducts.Add(tProd);
+            }
+
+            // Sort the list by product name in alphabetical order (case-insensitive)
+            sortedProducts.Sort((x, y) => string.Compare(x.Product_Name, y.Product_Name, StringComparison.OrdinalIgnoreCase));
+        }
+
+        // Return the sorted list of tProduct (empty if no data was found)
+        return sortedProducts;
+    }
     }
 }
