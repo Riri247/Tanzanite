@@ -11,6 +11,7 @@ namespace FRONTEND
 {
     public partial class Cart : System.Web.UI.Page
     {
+        dynamic CartItems;
         RentEaseClient serve = new RentEaseClient();
         decimal GTotal;
         List<decimal> Totals = new List<decimal>();
@@ -58,9 +59,8 @@ namespace FRONTEND
         {
             //adding discount
             decimal perc = 0;
-            String discText = "No";
           
-                dynamic CartItems = serve.getUserCart(UserID);
+                 CartItems = serve.getUserCart(UserID);
             string CartItemHTML = "";
             int DurationBoxCount = 1;
             int QuantityboxCount = 1;
@@ -95,9 +95,10 @@ namespace FRONTEND
                     QuanText.Text = (c.cart.Quantity).ToString();
                     QuanText.ID = "txtQuantity" + QuantityboxCount; //naming the id
                     QuantityboxCount++; //incremetning
-                    LiteralControl htmlDura = new LiteralControl("<h2> Duration product </h2>"); //adding the title
+                    LiteralControl htmlDura = new LiteralControl("<h2> Duration product in days</h2>"); //adding the title
                     TextBox DuraText = new TextBox();
                     DuraText.ID = "txtQuantity" + DurationBoxCount; //naming the id
+                    DuraText.Text = c.Duration.ToString();
                     DurationBoxCount++; //incremetning
 
                     //adding it all in order
@@ -122,9 +123,6 @@ namespace FRONTEND
                     //CartItemHTML += "<button class='btn btn-outline-black increase' type='button'>&plus;</button>";
                     //CartItemHTML += "</div>";
                     //CartItemHTML += "</div>";
-
-
-
                     //  CartItemHTML = "</td>";
                     //adding the rest 
                     //adding discount
@@ -132,7 +130,7 @@ namespace FRONTEND
 
                     if (serve.HasBoughtProduct(int.Parse(Session["ID"].ToString()),c.product.Id)) {
                         perc = Convert.ToDecimal(0.1);
-                        discText = "yes";
+                        
                     }
 
                         decimal TemTotal = c.product.Price * c.cart.Quantity;
@@ -182,7 +180,20 @@ namespace FRONTEND
             //redirect ot invoice page
         }
 
+        protected void btnUpdate_Click(object sender, EventArgs e)
+        {
 
 
+            int count = 1;
+
+
+            foreach (CartProductWrapper c in CartItems)
+            {
+                String dynamicID = "txtQuantity" + count;
+                TextBox txtBox = (TextBox)divCartStuff.FindControl(dynamicID);
+
+                serve.EditCart(Convert.ToInt32(Session["ID"].ToString()), c.product.Id, Convert.ToInt32(txtBox.Text));
+            }
+            }
     }
 }

@@ -113,15 +113,15 @@ a {
                       </tbody>--%>
                     </table>
                   </div>
-                </form>
+               
               </div>
         
               <div class="row">
                 <div class="col-md-6">
                   <div class="row mb-5">
-                  <%--  idk what this will be used for <div class="col-md-6 mb-3 mb-md-0">
-                      <button class="btn btn-black btn-sm btn-block">Update Cart</button>
-                    </div>--%>
+                  <div class="col-md-6 mb-3 mb-md-0">
+                      <asp:Button class="btn btn-outline-black btn-sm btn-block" runat="server" ID="btnUpdate" Text="Update Cart" OnClick="btnUpdate_Click" ></asp:Button>
+                    </div>
                     <div class="col-md-6">
                       <a class="btn btn-outline-black btn-sm btn-block" href="Home.aspx">Continue Shopping</a>
                     </div>
@@ -174,7 +174,7 @@ a {
                           <asp:Label ID="lblGTots" class="text-black" runat="server"></asp:Label>
                         </div>
                          </div>
-
+                         </form>
                       <div class="row">
                         <div class="col-md-12" id="checkoutbtn" runat="server">
 

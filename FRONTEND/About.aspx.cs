@@ -36,14 +36,7 @@ namespace FRONTEND
 
             }
 
-<<<<<<< HEAD
 
-           
-
-
-
-=======
->>>>>>> main
             if (Request.QueryString["ID"] != null)
             {
 

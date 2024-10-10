@@ -92,6 +92,20 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
+      <xs:element name="EditCart">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="UserId" type="xs:int" />
+            <xs:element minOccurs="0" name="ProductId" type="xs:int" />
+            <xs:element minOccurs="0" name="Quantity" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="EditCartResponse">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
       <xs:element name="getUserCart">
         <xs:complexType>
           <xs:sequence>
@@ -527,6 +541,7 @@
       <xs:element name="ArrayOfCartProductWrapper" nillable="true" type="tns:ArrayOfCartProductWrapper" />
       <xs:complexType name="CartProductWrapper">
         <xs:sequence>
+          <xs:element minOccurs="0" name="Duration" type="xs:int" />
           <xs:element minOccurs="0" name="cart" nillable="true" type="tns:SysShopping_Cart" />
           <xs:element minOccurs="0" name="product" nillable="true" type="tns:SysProduct" />
         </xs:sequence>
@@ -632,6 +647,12 @@
   </wsdl:message>
   <wsdl:message name="IRentEase_removeFromCart_OutputMessage">
     <wsdl:part name="parameters" element="tns:removeFromCartResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRentEase_EditCart_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditCart" />
+  </wsdl:message>
+  <wsdl:message name="IRentEase_EditCart_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditCartResponse" />
   </wsdl:message>
   <wsdl:message name="IRentEase_getUserCart_InputMessage">
     <wsdl:part name="parameters" element="tns:getUserCart" />
@@ -802,6 +823,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IRentEase/removeFromCart" message="tns:IRentEase_removeFromCart_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IRentEase/removeFromCartResponse" message="tns:IRentEase_removeFromCart_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="EditCart">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRentEase/EditCart" message="tns:IRentEase_EditCart_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRentEase/EditCartResponse" message="tns:IRentEase_EditCart_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="getUserCart">
       <wsdl:input wsaw:Action="http://tempuri.org/IRentEase/getUserCart" message="tns:IRentEase_getUserCart_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IRentEase/getUserCartResponse" message="tns:IRentEase_getUserCart_OutputMessage" />
@@ -948,6 +973,15 @@
     </wsdl:operation>
     <wsdl:operation name="removeFromCart">
       <soap:operation soapAction="http://tempuri.org/IRentEase/removeFromCart" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditCart">
+      <soap:operation soapAction="http://tempuri.org/IRentEase/EditCart" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

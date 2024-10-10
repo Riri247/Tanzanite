@@ -182,7 +182,9 @@ namespace RentEase_Service
                                 C_ID = c.C_ID,
                                 P_ID = c.P_ID,
                                 Quantity = c.Quantity
-                            }
+                            },
+
+                            Duration = 1
 
                         };
 
@@ -864,5 +866,18 @@ namespace RentEase_Service
         // Return the sorted list of tProduct (empty if no data was found)
         return sortedProducts;
     }
+
+        public void EditCart(int UserId, int ProductId, int Quantity)
+        {
+            var cartToDelete = RentEaseDB.Shopping_carts.FirstOrDefault(c => c.C_ID == UserId && c.P_ID == ProductId);
+
+            // If the cart exists
+            if (cartToDelete != null)
+            {
+                cartToDelete.Quantity = Quantity;
+                RentEaseDB.SubmitChanges();
+               
+            }
+        }
     }
 }

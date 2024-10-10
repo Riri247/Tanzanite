@@ -39,6 +39,7 @@ namespace RentEase_Service
         public int P_ID;
         public int C_ID;
         public int Quantity;
+       
 
     }
 
@@ -46,6 +47,7 @@ namespace RentEase_Service
     {
         public SysProduct product;
         public SysShopping_Cart cart;
+        public int Duration;
     }
 
     //making the returnable invoice thing
@@ -127,6 +129,10 @@ namespace RentEase_Service
         /// <returns>Returns true if the product was removed from the cart, otherwise false.</returns>
         [OperationContract]
         bool removeFromCart(int UserID, int ProductID);
+
+
+        [OperationContract]
+        void EditCart(int UserId, int ProductId, int Quantity);
 
         /// <summary>
         /// This method gets a user's shopping cart.
