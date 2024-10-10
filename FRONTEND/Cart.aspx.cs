@@ -22,8 +22,9 @@ namespace FRONTEND
                 {
 
                     int UserID = int.Parse(Session["ID"].ToString());
+                    string action = Request.QueryString["action"].ToString();
                     //check if user added to the cart 
-                    if (Request.QueryString["prodID"]!= null)
+                    if (Request.QueryString["prodID"]!= null && action == "remove")
                     {
                         int prodID = int.Parse(Request.QueryString["prodID"].ToString());
 

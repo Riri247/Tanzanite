@@ -75,6 +75,7 @@
                                     <ul class="dropdown">
                                         <!--default ones pages-->
                                            <li><a href="Signup.aspx" runat="server" id="SignID" >Sign Up</a></li>
+                                           <li><a href="Home.aspx" runat="server" id="HomeID" >Home</a></li>
                                         <li><a href="Login.aspx" runat="server" id="LoginID" >Login</a></li>
                                         <!--Remeber to add about us page-->
                                         <!-- Still need to add-->

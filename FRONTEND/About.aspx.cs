@@ -22,7 +22,7 @@ namespace FRONTEND
             //{
             //    LoadProduct();
             //}
-            if(Session["ID"]!=null)
+            if (Session["ID"] != null)
             {
                 btnCart.Visible = true;
 
@@ -33,11 +33,8 @@ namespace FRONTEND
                 btnCart.Visible = false;
 
                 your_rating_container.Visible = false;
-                
+
             }
-
-
-            
 
             if (Request.QueryString["ID"] != null)
             {
@@ -56,28 +53,28 @@ namespace FRONTEND
                 }
 
                 PopulateProductDetails(id);
-              
+
             }
         }
 
 
-     
+
 
         private void PopulateProductDetails(int productId)
         {
             var prod = rc.getProduct(productId);
             images = JsonConvert.DeserializeObject<string[]>(product.Image_URL);
             // Populate product details like image, price, and description
-            ImageLit.Text = "<img src ='" +images[0] + "' alt ='' >";
+            ImageLit.Text = "<img src ='" + images[0] + "' alt ='' >";
             LitPrice.Text = "R" + Math.Round(prod.Price, 2);
             LitDescription.Text = prod.Decript;
             SysReview[] users = rc.getAllReviews(productId);
-             
-            if(User!=null)
+
+            if (User != null)
             {
                 foreach (SysReview r in users)
                 {
-                    if(r!=null)
+                    if (r != null)
                     {
                         concatRev(r.Review1, r.Star_Ratng);
 
@@ -137,7 +134,6 @@ namespace FRONTEND
                 int uid = int.Parse(Session["ID"].ToString());
                 int pid = int.Parse(Request.QueryString["ID"].ToString());
 
-                if (rc.addToCart(uid, pid)){
 
                     string script = $"alert('Item added to cart'); window.location.href='About.aspx?ID={pid}';";
 
@@ -159,9 +155,11 @@ namespace FRONTEND
                 ClientScript.RegisterStartupScript(this.GetType(), "alertRedirect", script, true);
             }
 
-          
-        }
-    }
+
+<<<<<<< Updated upstream
+}
+=======
+}
 
 
 }
