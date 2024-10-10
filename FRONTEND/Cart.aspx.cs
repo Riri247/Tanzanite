@@ -34,6 +34,11 @@ namespace FRONTEND
 
                     }
                 }
+                else
+                {
+                    Response.Redirect("Login.asx");
+
+                }
             }
 
                 if(Session["ID"]!=null)

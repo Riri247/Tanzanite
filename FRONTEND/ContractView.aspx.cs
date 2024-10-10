@@ -47,8 +47,13 @@ namespace FRONTEND
 
                 if ((iid = serve.placeOrder(int.Parse(Session["ID"].ToString()), finalCart, durations)) > 1)
                 {
-                    Response.Redirect("Invoices.aspx?InvoiceID=" + iid);
+                    Response.Redirect("Invoice.aspx?InvoiceID=" + iid);
                 }
+
+            }
+            else
+            {
+                Response.Redirect("Login.asx");
 
             }
         }
