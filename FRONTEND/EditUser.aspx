@@ -36,6 +36,7 @@ width: 500px;
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
       <!-- per attribute this 1-->
+     <form id="form1" runat="server">
 <div class="AttributeCont"  >
      <div class="EntityBox">
         <h2> Name :</h2>
@@ -111,7 +112,7 @@ width: 500px;
        </div>
 
        <!-- BUTTON-->
-       <form id="form1" runat="server">
+      
             <div class="AttributeCont">
             <div class="anime__details__btn">
                 <asp:Button ID="btnSubmit" runat="server" CssClass="follow-btn" Text="Submit to DB" OnClick="Submit_Click"></asp:Button>

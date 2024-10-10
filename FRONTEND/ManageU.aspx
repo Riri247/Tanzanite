@@ -88,7 +88,7 @@
        <div width="100%"><h1> Manage Users</h1></div>
 
     <div class="EntityBox"> <div class="anime__details__btn" >
-                                <a href="#" class="follow-btn"> Add User</a>      
+                                <a href="EditUser.aspx?Action=Yes" class="follow-btn"> Add User</a>      
                                
                             </div></div>
 
