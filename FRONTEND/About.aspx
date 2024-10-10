@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <form id="SomeForm" runat="server">
+    <form id="form1" runat="server">
         <!-- SECTION -->
         <div class="section">
             <!-- container -->
@@ -87,11 +87,11 @@
 
                                         </div>
 
-                                        <div class="anime__details__form" id="your_rating_container" runat="server">
+                                        <div class="anime__details__form" id="your_rating_container" runat="server" visible="false">
                                             <div class="section-title">
                                                 <h5>Your Comment</h5>
                                             </div>
-                                            <form action="#">
+                                           
                                                 <textarea placeholder="Your Comment" runat="server" id="txtReview"></textarea>
 
                                                 <div class="input-rating">
@@ -101,7 +101,7 @@
 
                                                 <asp:Button CssClass="primary-btn" ID="btnSubmit" OnClick="BtnSubmit_Click" runat="server" Text="Submit"></asp:Button>
 
-                                            </form>
+                                            
                                         </div>
                                     </div>
 

@@ -68,6 +68,8 @@ namespace FRONTEND
             foreach(CartProductWrapper c in CartItems)
             {
                 if (c != null) {
+                    //empting the carthtml thing
+                    CartItemHTML = "";
                     string[] images = JsonConvert.DeserializeObject<string[]>(c.product.Image_URL);
                     CartItemHTML += "<tr>";
                     CartItemHTML += "<td class='product-thumbnail'>";

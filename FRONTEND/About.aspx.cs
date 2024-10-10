@@ -37,6 +37,8 @@ namespace FRONTEND
             }
 
 
+           
+
 
 
             if (Request.QueryString["ID"] != null)
@@ -56,6 +58,18 @@ namespace FRONTEND
                 }
 
                 PopulateProductDetails(id);
+
+
+                //if they bought it already they can review
+                //must be logged in
+                if (Session["ID"] != null) {
+                    if (rc.HasBoughtProduct(Convert.ToInt32(Session["ID"].ToString()), id))
+                    {
+
+                        your_rating_container.Visible = true;
+                    }
+                }
+                    
 
             }
         }
