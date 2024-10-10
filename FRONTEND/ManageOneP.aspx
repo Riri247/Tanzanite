@@ -84,7 +84,7 @@
                 <h3>Price :</h3>
             </div>
 
-            <input type="number" id="price" runat="server" class="Pinput" placeholder="Enter Value" step="0.01" min="0">
+            <input type="text" id="price" runat="server" class="Pinput" placeholder="Enter Value" >
         </div>
         <!-- end of that attribute-->
 
@@ -94,7 +94,7 @@
                 <h3>Quantity :</h3>
             </div>
 
-            <input type="number" id="quantity" runat="server" class="Pinput" placeholder="Enter Value" step="1" min="0">
+            <input type="text" id="quantity" runat="server" class="Pinput" placeholder="Enter Value" step="1" min="0">
         </div>
         <!-- end of that attribute-->
 
