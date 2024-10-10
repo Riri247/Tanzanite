@@ -16,17 +16,27 @@ namespace FRONTEND
         RentEaseClient serve = new RentEaseClient();
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            Session["ID"] = 7;
+
+            Request.QueryString["sdgfh"].ToString();
+
+
             if (!IsPostBack)
             {
-                
+                Request.QueryString["sdgfh"].ToString();
 
-                if (Session["ID"]!=null)
+                if (Session["ID"]!=null && Request.QueryString["InvoiceID"] != null)
                 {
                     int userId = int.Parse(Session["ID"].ToString());
-                    dynamic cartItems = serve.getUserCart(userId);
+                    int invoiceId = int.Parse(Request.QueryString["InvoiceID"].ToString());
+
+                    SysInvoice cartItems = serve.getInvoice(userId, invoiceId);
 
                     // Generate the PDF and get the file path
                     string pdfFilePath = GeneratePDF(userId, cartItems);
+
+
                     pdfViewer.Attributes["data"] = ResolveUrl("~/pdf/" + Path.GetFileName(pdfFilePath));
                     pdfSec.Attributes["href"] = ResolveUrl("~/pdf/" + Path.GetFileName(pdfFilePath));
                 }
@@ -34,19 +44,13 @@ namespace FRONTEND
 
         }
         //function for displaying pdf of invoice 
-        private string GeneratePDF(int UserID,List<CartProductWrapper> Items)
+        private string GeneratePDF(int UserID,SysInvoice invoice)
         {
             //getting file path or where pdfs will be stored 
             string folderPath = Server.MapPath("~/pdf/");
-            //placing order 
-            dynamic CartItems = serve.getUserCart(UserID);
-            List<SysShopping_Cart> ShopList = new List<SysShopping_Cart>();
-            foreach(CartProductWrapper c in CartItems)
-            {
-                ShopList.Add(c.cart);
-            }
+           
             //create file path and place order 
-            int Invoice_ID = serve.placeOrder(UserID,ShopList.ToArray(), (int[])Session["Durations"]);
+            int Invoice_ID = invoice.invoice.invID;
             string filename = "Invoice_" + Invoice_ID + DateTime.Now.Ticks + ".pdf";
             string pdfPath = Path.Combine(folderPath, filename);
 
@@ -69,19 +73,19 @@ namespace FRONTEND
             table.AddCell("Quantity");
             table.AddCell("Price");
             decimal total = 0;
-            foreach(CartProductWrapper c in Items)
+            foreach(SysInvoiceProduct ip in invoice.products)
             {
                 //display image 
-                string imagePath = Server.MapPath(c.product.Image_URL);
+                string imagePath = Server.MapPath(ip.product.Image_URL);
                 iTextSharp.text.Image productImage = iTextSharp.text.Image.GetInstance(imagePath);
                 productImage.ScaleToFit(50f, 50f);
                 PdfPCell ImageT = new PdfPCell(productImage);
                 ImageT.HorizontalAlignment = Element.ALIGN_CENTER;
                 table.AddCell(ImageT);
                 //display other important info 
-                table.AddCell(c.product.Product_Name);
-                table.AddCell(c.cart.Quantity.ToString());
-                decimal Subtotal = (decimal)(c.product.Price * c.cart.Quantity);
+                table.AddCell(ip.product.Product_Name);
+                table.AddCell(ip.orderProduct.Quantity.ToString());
+                decimal Subtotal = (decimal)(ip.orderProduct.Price * ip.orderProduct.Quantity);
                 total += Subtotal;
                 table.AddCell(Subtotal.ToString());
 

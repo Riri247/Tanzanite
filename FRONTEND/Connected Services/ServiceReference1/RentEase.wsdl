@@ -296,6 +296,21 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
+      <xs:element name="getInvoice">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="UserID" type="xs:int" />
+            <xs:element minOccurs="0" name="InvoiceID" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getInvoiceResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/RentEase_Service" minOccurs="0" name="getInvoiceResult" nillable="true" type="q10:SysInvoice" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
       <xs:element name="deactivateProduct">
         <xs:complexType>
           <xs:sequence>
@@ -322,7 +337,7 @@
       <xs:element name="getReviewResponse">
         <xs:complexType>
           <xs:sequence>
-            <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/RentEase_Service" minOccurs="0" name="getReviewResult" nillable="true" type="q10:SysReview" />
+            <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/RentEase_Service" minOccurs="0" name="getReviewResult" nillable="true" type="q11:SysReview" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -336,7 +351,7 @@
       <xs:element name="getAllReviewsResponse">
         <xs:complexType>
           <xs:sequence>
-            <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/RentEase_Service" minOccurs="0" name="getAllReviewsResult" nillable="true" type="q11:ArrayOfSysReview" />
+            <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/RentEase_Service" minOccurs="0" name="getAllReviewsResult" nillable="true" type="q12:ArrayOfSysReview" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -348,7 +363,7 @@
       <xs:element name="getBestProdsResponse">
         <xs:complexType>
           <xs:sequence>
-            <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/RentEase_Service" minOccurs="0" name="getBestProdsResult" nillable="true" type="q12:ArrayOfSysProduct" />
+            <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/RentEase_Service" minOccurs="0" name="getBestProdsResult" nillable="true" type="q13:ArrayOfSysProduct" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -360,7 +375,7 @@
       <xs:element name="getNewProdsResponse">
         <xs:complexType>
           <xs:sequence>
-            <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/RentEase_Service" minOccurs="0" name="getNewProdsResult" nillable="true" type="q13:ArrayOfSysProduct" />
+            <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/RentEase_Service" minOccurs="0" name="getNewProdsResult" nillable="true" type="q14:ArrayOfSysProduct" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -374,14 +389,14 @@
       <xs:element name="getUserInvoicesResponse">
         <xs:complexType>
           <xs:sequence>
-            <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/RentEase_Service" minOccurs="0" name="getUserInvoicesResult" nillable="true" type="q14:ArrayOfGetInvoice" />
+            <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/RentEase_Service" minOccurs="0" name="getUserInvoicesResult" nillable="true" type="q15:ArrayOfGetInvoice" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
       <xs:element name="EditUserData">
         <xs:complexType>
           <xs:sequence>
-            <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/RentEase_Service" minOccurs="0" name="OneUser" nillable="true" type="q15:SysUser" />
+            <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/RentEase_Service" minOccurs="0" name="OneUser" nillable="true" type="q16:SysUser" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -398,7 +413,7 @@
       <xs:element name="GetAllusersResponse">
         <xs:complexType>
           <xs:sequence>
-            <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/RentEase_Service" minOccurs="0" name="GetAllusersResult" nillable="true" type="q16:ArrayOfSysUser" />
+            <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/RentEase_Service" minOccurs="0" name="GetAllusersResult" nillable="true" type="q17:ArrayOfSysUser" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -427,7 +442,7 @@
       <xs:element name="GetMerchantProdsResponse">
         <xs:complexType>
           <xs:sequence>
-            <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/RentEase_Service" minOccurs="0" name="GetMerchantProdsResult" nillable="true" type="q17:ArrayOfSysProduct" />
+            <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/RentEase_Service" minOccurs="0" name="GetMerchantProdsResult" nillable="true" type="q18:ArrayOfSysProduct" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -534,6 +549,45 @@
         </xs:sequence>
       </xs:complexType>
       <xs:element name="ArrayOfSysShopping_Cart" nillable="true" type="tns:ArrayOfSysShopping_Cart" />
+      <xs:complexType name="SysInvoice">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="invoice" nillable="true" type="tns:GetInvoice" />
+          <xs:element minOccurs="0" name="products" nillable="true" type="tns:ArrayOfSysInvoiceProduct" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="SysInvoice" nillable="true" type="tns:SysInvoice" />
+      <xs:complexType name="GetInvoice">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="INvPrice" type="xs:decimal" />
+          <xs:element minOccurs="0" name="invDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="invID" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="GetInvoice" nillable="true" type="tns:GetInvoice" />
+      <xs:complexType name="ArrayOfSysInvoiceProduct">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="SysInvoiceProduct" nillable="true" type="tns:SysInvoiceProduct" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfSysInvoiceProduct" nillable="true" type="tns:ArrayOfSysInvoiceProduct" />
+      <xs:complexType name="SysInvoiceProduct">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="orderProduct" nillable="true" type="tns:SysOrder" />
+          <xs:element minOccurs="0" name="product" nillable="true" type="tns:SysProduct" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="SysInvoiceProduct" nillable="true" type="tns:SysInvoiceProduct" />
+      <xs:complexType name="SysOrder">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Duration" type="xs:int" />
+          <xs:element minOccurs="0" name="Invoice_ID" type="xs:int" />
+          <xs:element minOccurs="0" name="Price" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Product_ID" type="xs:int" />
+          <xs:element minOccurs="0" name="Quantity" type="xs:int" />
+          <xs:element minOccurs="0" name="subTotal" type="xs:decimal" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="SysOrder" nillable="true" type="tns:SysOrder" />
       <xs:complexType name="SysReview">
         <xs:sequence>
           <xs:element minOccurs="0" name="Invoice_ID" type="xs:int" />
@@ -555,14 +609,6 @@
         </xs:sequence>
       </xs:complexType>
       <xs:element name="ArrayOfGetInvoice" nillable="true" type="tns:ArrayOfGetInvoice" />
-      <xs:complexType name="GetInvoice">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="INvPrice" type="xs:decimal" />
-          <xs:element minOccurs="0" name="invDate" type="xs:dateTime" />
-          <xs:element minOccurs="0" name="invID" type="xs:int" />
-        </xs:sequence>
-      </xs:complexType>
-      <xs:element name="GetInvoice" nillable="true" type="tns:GetInvoice" />
       <xs:complexType name="ArrayOfSysUser">
         <xs:sequence>
           <xs:element minOccurs="0" maxOccurs="unbounded" name="SysUser" nillable="true" type="tns:SysUser" />
@@ -698,6 +744,12 @@
   </wsdl:message>
   <wsdl:message name="IRentEase_getInvoiceID_OutputMessage">
     <wsdl:part name="parameters" element="tns:getInvoiceIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRentEase_getInvoice_InputMessage">
+    <wsdl:part name="parameters" element="tns:getInvoice" />
+  </wsdl:message>
+  <wsdl:message name="IRentEase_getInvoice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getInvoiceResponse" />
   </wsdl:message>
   <wsdl:message name="IRentEase_deactivateProduct_InputMessage">
     <wsdl:part name="parameters" element="tns:deactivateProduct" />
@@ -835,6 +887,10 @@
     <wsdl:operation name="getInvoiceID">
       <wsdl:input wsaw:Action="http://tempuri.org/IRentEase/getInvoiceID" message="tns:IRentEase_getInvoiceID_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IRentEase/getInvoiceIDResponse" message="tns:IRentEase_getInvoiceID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getInvoice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRentEase/getInvoice" message="tns:IRentEase_getInvoice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRentEase/getInvoiceResponse" message="tns:IRentEase_getInvoice_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="deactivateProduct">
       <wsdl:input wsaw:Action="http://tempuri.org/IRentEase/deactivateProduct" message="tns:IRentEase_deactivateProduct_InputMessage" />
@@ -1043,6 +1099,15 @@
     </wsdl:operation>
     <wsdl:operation name="getInvoiceID">
       <soap:operation soapAction="http://tempuri.org/IRentEase/getInvoiceID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getInvoice">
+      <soap:operation soapAction="http://tempuri.org/IRentEase/getInvoice" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

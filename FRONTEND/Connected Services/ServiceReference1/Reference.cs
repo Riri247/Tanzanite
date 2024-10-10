@@ -483,24 +483,18 @@ namespace FRONTEND.ServiceReference1 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="SysReview", Namespace="http://schemas.datacontract.org/2004/07/RentEase_Service")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SysInvoice", Namespace="http://schemas.datacontract.org/2004/07/RentEase_Service")]
     [System.SerializableAttribute()]
-    public partial class SysReview : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class SysInvoice : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int Invoice_IDField;
+        private FRONTEND.ServiceReference1.GetInvoice invoiceField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int Product_IDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string Review1Field;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int Star_RatngField;
+        private FRONTEND.ServiceReference1.SysInvoiceProduct[] productsField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -513,53 +507,27 @@ namespace FRONTEND.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Invoice_ID {
+        public FRONTEND.ServiceReference1.GetInvoice invoice {
             get {
-                return this.Invoice_IDField;
+                return this.invoiceField;
             }
             set {
-                if ((this.Invoice_IDField.Equals(value) != true)) {
-                    this.Invoice_IDField = value;
-                    this.RaisePropertyChanged("Invoice_ID");
+                if ((object.ReferenceEquals(this.invoiceField, value) != true)) {
+                    this.invoiceField = value;
+                    this.RaisePropertyChanged("invoice");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Product_ID {
+        public FRONTEND.ServiceReference1.SysInvoiceProduct[] products {
             get {
-                return this.Product_IDField;
+                return this.productsField;
             }
             set {
-                if ((this.Product_IDField.Equals(value) != true)) {
-                    this.Product_IDField = value;
-                    this.RaisePropertyChanged("Product_ID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Review1 {
-            get {
-                return this.Review1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Review1Field, value) != true)) {
-                    this.Review1Field = value;
-                    this.RaisePropertyChanged("Review1");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Star_Ratng {
-            get {
-                return this.Star_RatngField;
-            }
-            set {
-                if ((this.Star_RatngField.Equals(value) != true)) {
-                    this.Star_RatngField = value;
-                    this.RaisePropertyChanged("Star_Ratng");
+                if ((object.ReferenceEquals(this.productsField, value) != true)) {
+                    this.productsField = value;
+                    this.RaisePropertyChanged("products");
                 }
             }
         }
@@ -637,6 +605,285 @@ namespace FRONTEND.ServiceReference1 {
                 if ((this.invIDField.Equals(value) != true)) {
                     this.invIDField = value;
                     this.RaisePropertyChanged("invID");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SysInvoiceProduct", Namespace="http://schemas.datacontract.org/2004/07/RentEase_Service")]
+    [System.SerializableAttribute()]
+    public partial class SysInvoiceProduct : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private FRONTEND.ServiceReference1.SysOrder orderProductField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private FRONTEND.ServiceReference1.SysProduct productField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public FRONTEND.ServiceReference1.SysOrder orderProduct {
+            get {
+                return this.orderProductField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.orderProductField, value) != true)) {
+                    this.orderProductField = value;
+                    this.RaisePropertyChanged("orderProduct");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public FRONTEND.ServiceReference1.SysProduct product {
+            get {
+                return this.productField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.productField, value) != true)) {
+                    this.productField = value;
+                    this.RaisePropertyChanged("product");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SysOrder", Namespace="http://schemas.datacontract.org/2004/07/RentEase_Service")]
+    [System.SerializableAttribute()]
+    public partial class SysOrder : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int DurationField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int Invoice_IDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal PriceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int Product_IDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int QuantityField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal subTotalField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Duration {
+            get {
+                return this.DurationField;
+            }
+            set {
+                if ((this.DurationField.Equals(value) != true)) {
+                    this.DurationField = value;
+                    this.RaisePropertyChanged("Duration");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Invoice_ID {
+            get {
+                return this.Invoice_IDField;
+            }
+            set {
+                if ((this.Invoice_IDField.Equals(value) != true)) {
+                    this.Invoice_IDField = value;
+                    this.RaisePropertyChanged("Invoice_ID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal Price {
+            get {
+                return this.PriceField;
+            }
+            set {
+                if ((this.PriceField.Equals(value) != true)) {
+                    this.PriceField = value;
+                    this.RaisePropertyChanged("Price");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Product_ID {
+            get {
+                return this.Product_IDField;
+            }
+            set {
+                if ((this.Product_IDField.Equals(value) != true)) {
+                    this.Product_IDField = value;
+                    this.RaisePropertyChanged("Product_ID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Quantity {
+            get {
+                return this.QuantityField;
+            }
+            set {
+                if ((this.QuantityField.Equals(value) != true)) {
+                    this.QuantityField = value;
+                    this.RaisePropertyChanged("Quantity");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal subTotal {
+            get {
+                return this.subTotalField;
+            }
+            set {
+                if ((this.subTotalField.Equals(value) != true)) {
+                    this.subTotalField = value;
+                    this.RaisePropertyChanged("subTotal");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SysReview", Namespace="http://schemas.datacontract.org/2004/07/RentEase_Service")]
+    [System.SerializableAttribute()]
+    public partial class SysReview : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int Invoice_IDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int Product_IDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Review1Field;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int Star_RatngField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Invoice_ID {
+            get {
+                return this.Invoice_IDField;
+            }
+            set {
+                if ((this.Invoice_IDField.Equals(value) != true)) {
+                    this.Invoice_IDField = value;
+                    this.RaisePropertyChanged("Invoice_ID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Product_ID {
+            get {
+                return this.Product_IDField;
+            }
+            set {
+                if ((this.Product_IDField.Equals(value) != true)) {
+                    this.Product_IDField = value;
+                    this.RaisePropertyChanged("Product_ID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Review1 {
+            get {
+                return this.Review1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Review1Field, value) != true)) {
+                    this.Review1Field = value;
+                    this.RaisePropertyChanged("Review1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Star_Ratng {
+            get {
+                return this.Star_RatngField;
+            }
+            set {
+                if ((this.Star_RatngField.Equals(value) != true)) {
+                    this.Star_RatngField = value;
+                    this.RaisePropertyChanged("Star_Ratng");
                 }
             }
         }
@@ -768,6 +1015,12 @@ namespace FRONTEND.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/getInvoiceID", ReplyAction="http://tempuri.org/IRentEase/getInvoiceIDResponse")]
         System.Threading.Tasks.Task<int> getInvoiceIDAsync(int UserID, int ProductID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/getInvoice", ReplyAction="http://tempuri.org/IRentEase/getInvoiceResponse")]
+        FRONTEND.ServiceReference1.SysInvoice getInvoice(int UserID, int InvoiceID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/getInvoice", ReplyAction="http://tempuri.org/IRentEase/getInvoiceResponse")]
+        System.Threading.Tasks.Task<FRONTEND.ServiceReference1.SysInvoice> getInvoiceAsync(int UserID, int InvoiceID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/deactivateProduct", ReplyAction="http://tempuri.org/IRentEase/deactivateProductResponse")]
         bool deactivateProduct(int ID);
@@ -1007,6 +1260,14 @@ namespace FRONTEND.ServiceReference1 {
         
         public System.Threading.Tasks.Task<int> getInvoiceIDAsync(int UserID, int ProductID) {
             return base.Channel.getInvoiceIDAsync(UserID, ProductID);
+        }
+        
+        public FRONTEND.ServiceReference1.SysInvoice getInvoice(int UserID, int InvoiceID) {
+            return base.Channel.getInvoice(UserID, InvoiceID);
+        }
+        
+        public System.Threading.Tasks.Task<FRONTEND.ServiceReference1.SysInvoice> getInvoiceAsync(int UserID, int InvoiceID) {
+            return base.Channel.getInvoiceAsync(UserID, InvoiceID);
         }
         
         public bool deactivateProduct(int ID) {

@@ -85,6 +85,9 @@
     <Content Include="Connected Services\ServiceReference1\FRONTEND.ServiceReference1.GetInvoice.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Connected Services\ServiceReference1\FRONTEND.ServiceReference1.SysInvoice.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <Content Include="Connected Services\ServiceReference1\FRONTEND.ServiceReference1.SysProduct.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
