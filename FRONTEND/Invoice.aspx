@@ -34,10 +34,6 @@
             <p>This browser does not support PDFs. Please download the PDF to view it: <a id="pdfSec" runat="server" href="">Download PDF</a>.</p>
         </object>
     </div>
-    <div>
-        <asp:Checkbox runat><p><p>
-    </div>
-
     
     
 

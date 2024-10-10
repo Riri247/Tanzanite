@@ -818,7 +818,7 @@ namespace RentEase_Service
     public List<SysProduct> GetSortedProducts()
     {
         // Fetch the list of products from the database where Quantity > 0
-        var listProducts = (from p in RentEaseDB.Products
+        dynamic listProducts = (from p in RentEaseDB.Products
                             where p.Quantity > 0
                             select p).ToList();
 
@@ -826,7 +826,7 @@ namespace RentEase_Service
         List<SysProduct> sortedProducts = new List<SysProduct>();
 
         // Check if the list is not empty
-        if (listProducts != null && listProducts.Any())
+        if (listProducts != null)
         {
             // Convert each Product entity to tProduct
             foreach (Product p in listProducts)
