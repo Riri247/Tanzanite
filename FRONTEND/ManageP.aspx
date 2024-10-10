@@ -106,7 +106,7 @@
 		<!-- End Hero Section -->
 
     <div class="EntityBox"> <div class="anime__details__btn" >
-                                <a href="#" class="follow-btn"> Add Product</a>      
+                                <a href="ManageOneP.aspx" class="follow-btn"> Add Product</a>      
                                
                             </div></div>
 

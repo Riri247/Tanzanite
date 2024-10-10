@@ -57,7 +57,7 @@ namespace FRONTEND
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl price;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText price;
 
         /// <summary>
         /// quantity control.
@@ -66,7 +66,7 @@ namespace FRONTEND
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl quantity;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText quantity;
 
         /// <summary>
         /// available control.
