@@ -353,6 +353,9 @@ namespace FRONTEND.ServiceReference1 {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int DurationField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private FRONTEND.ServiceReference1.SysShopping_Cart cartField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -365,6 +368,19 @@ namespace FRONTEND.ServiceReference1 {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Duration {
+            get {
+                return this.DurationField;
+            }
+            set {
+                if ((this.DurationField.Equals(value) != true)) {
+                    this.DurationField = value;
+                    this.RaisePropertyChanged("Duration");
+                }
             }
         }
         
@@ -938,6 +954,12 @@ namespace FRONTEND.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/removeFromCart", ReplyAction="http://tempuri.org/IRentEase/removeFromCartResponse")]
         System.Threading.Tasks.Task<bool> removeFromCartAsync(int UserID, int ProductID);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/EditCart", ReplyAction="http://tempuri.org/IRentEase/EditCartResponse")]
+        void EditCart(int UserId, int ProductId, int Quantity);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/EditCart", ReplyAction="http://tempuri.org/IRentEase/EditCartResponse")]
+        System.Threading.Tasks.Task EditCartAsync(int UserId, int ProductId, int Quantity);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRentEase/getUserCart", ReplyAction="http://tempuri.org/IRentEase/getUserCartResponse")]
         FRONTEND.ServiceReference1.CartProductWrapper[] getUserCart(int ID);
         
@@ -1162,6 +1184,14 @@ namespace FRONTEND.ServiceReference1 {
         
         public System.Threading.Tasks.Task<bool> removeFromCartAsync(int UserID, int ProductID) {
             return base.Channel.removeFromCartAsync(UserID, ProductID);
+        }
+        
+        public void EditCart(int UserId, int ProductId, int Quantity) {
+            base.Channel.EditCart(UserId, ProductId, Quantity);
+        }
+        
+        public System.Threading.Tasks.Task EditCartAsync(int UserId, int ProductId, int Quantity) {
+            return base.Channel.EditCartAsync(UserId, ProductId, Quantity);
         }
         
         public FRONTEND.ServiceReference1.CartProductWrapper[] getUserCart(int ID) {

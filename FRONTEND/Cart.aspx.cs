@@ -11,10 +11,11 @@ namespace FRONTEND
 {
     public partial class Cart : System.Web.UI.Page
     {
+        dynamic CartItems;
         RentEaseClient serve = new RentEaseClient();
         decimal GTotal;
         List<decimal> Totals = new List<decimal>();
-        CartProductWrapper[] CartItems;
+        CartProductWrapper[] CartItems2;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -57,6 +58,7 @@ namespace FRONTEND
             decimal perc = 0;
           
             CartItems = serve.getUserCart(UserID);
+            int QuantityboxCount = 1;
             string CartItemHTML = "";
 
             foreach(CartProductWrapper c in CartItems)
@@ -88,12 +90,15 @@ namespace FRONTEND
                     LiteralControl htmlName = new LiteralControl("<h2> Quantity of product </h2>"); //adding the title
                     TextBox QuanText = new TextBox();
                     QuanText.Text = (c.cart.Quantity).ToString();
-                    QuanText.ID = "txtQuantity" + c.product.Id; //naming the id
-                    
-                    LiteralControl htmlDura = new LiteralControl("<h2> Duration product </h2>"); //adding the title
+
+                    QuanText.ID = "txtQuantity" + QuantityboxCount; //naming the id
+                    QuantityboxCount++; //incremetning
+                    LiteralControl htmlDura = new LiteralControl("<h2> Duration product in days</h2>"); //adding the title
                     TextBox DuraText = new TextBox();
-                    DuraText.ID = "txtDuration" + c.product.Id; //naming the id
-                    DuraText.TextMode = TextBoxMode.Number;
+                     DuraText.ID = "txtDuration" + c.product.Id; //naming the id
+                     DuraText.TextMode = TextBoxMode.Number;
+                    DuraText.Text = c.Duration.ToString();
+                   
 
 
                     //adding it all in order
@@ -105,11 +110,13 @@ namespace FRONTEND
                     //adding the td to placeholder
                     divCartStuff.Controls.Add(Td);
 
+
                     TableCell td = (TableCell)divCartStuff.FindControl("td" + c.product.Id);
                     TextBox txt = (TextBox)td.FindControl("txtDuration" + c.product.Id);
 
                     if (serve.HasBoughtProduct(int.Parse(Session["ID"].ToString()),c.product.Id)) {
                         perc = Convert.ToDecimal(0.1);
+
                     }
 
                     decimal TemTotal = c.product.Price * c.cart.Quantity;
@@ -205,7 +212,20 @@ namespace FRONTEND
             }
         }
 
+        protected void btnUpdate_Click(object sender, EventArgs e)
+        {
 
 
+            
+
+
+            foreach (CartProductWrapper c in CartItems)
+            {
+                String dynamicID = "txtDuration" + c.product.Id;
+                TextBox txtBox = (TextBox)divCartStuff.FindControl(dynamicID);
+
+                serve.EditCart(Convert.ToInt32(Session["ID"].ToString()), c.product.Id, Convert.ToInt32(txtBox.Text));
+            }
+            }
     }
 }

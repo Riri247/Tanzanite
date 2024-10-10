@@ -4,9 +4,10 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <form id="theForm" runat="server">
+    
 
-    <!-- Hero Section Begin -->
+   <form id="form1" runat="server">
+        <!-- Hero Section Begin -->
     <section class="hero">
         <div class="container">
             <div class="hero__slider owl-carousel">
@@ -124,6 +125,8 @@
         </div>
     </section>
     <!-- Product Section End -->
+
     </form>
+
 
 </asp:Content>
