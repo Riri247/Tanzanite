@@ -15,7 +15,7 @@ namespace FRONTEND
         RentEaseClient serve = new RentEaseClient();
         decimal GTotal;
         List<decimal> Totals = new List<decimal>();
-        CartProductWrapper[] CartItems;
+        CartProductWrapper[] CartItems2;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -58,7 +58,7 @@ namespace FRONTEND
             decimal perc = 0;
           
             CartItems = serve.getUserCart(UserID);
-
+            int QuantityboxCount = 1;
             string CartItemHTML = "";
 
             foreach(CartProductWrapper c in CartItems)
@@ -97,7 +97,7 @@ namespace FRONTEND
                     TextBox DuraText = new TextBox();
                      DuraText.ID = "txtDuration" + c.product.Id; //naming the id
                      DuraText.TextMode = TextBoxMode.Number;
-                    DuraText.Text = c.Duration;
+                    DuraText.Text = c.Duration.ToString();
                    
 
 

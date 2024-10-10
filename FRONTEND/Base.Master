@@ -59,7 +59,7 @@
                 <div class="col-lg-8">
                     <div class="col-lg-2">
                     <div class="header__logo">
-                        <a href="./index.html">
+                        <a href="Home.aspx">
                             <img src="Tanzanite files/logo/RentEaseLogo.jpg" alt="" width="93" height="93">
                         </a>
                     </div>
@@ -125,7 +125,7 @@
                 </div>
                  <div class="col-lg-2">
                     <div class="header__right">
-                      <a href="Login.aspx"><span class="icon_profile"></span></a>
+                      <a href="EditUser.aspx?Val=1"><span class="icon_profile"></span></a>
                       <a href="Cart.aspx"  id="CartImage" runat="server" visible="false"><img src="img/cart.svg"></a>
                     </div>
                 </div>

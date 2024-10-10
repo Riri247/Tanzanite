@@ -145,6 +145,7 @@
                     </div>
                     <div class="col-md-6">
                       <a class="btn btn-outline-black btn-sm btn-block" href="Home.aspx">Continue Shopping</a>
+                          </div>
 
                     </div>
                     <div class="col-md-6 pl-5">
@@ -155,7 +156,8 @@
                                         <h3 class="text-black h4 text-uppercase">Cart Totals</h3>
                                     </div>
                                 </div>
-
+                                  </div>
+ </div>
                                 <div class="row mb-5">
                                     <div class="col-md-6">
                                         <span class="text-black">Total</span>
@@ -209,6 +211,7 @@
                         </div>
                     </div>
                 </div>
+                   
             </form>
         </div>
     </div>
