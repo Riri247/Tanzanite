@@ -188,6 +188,18 @@
                                     </div>
                                 </div>
 
+                                
+                                  <div class="row mb-5">
+                                    <div class="col-md-6">
+                                        <span class="text-black">Free Shipping</span>
+                                    </div>
+
+
+
+                                    <div class="col-md-6 text-right">
+                                        <asp:Label ID="lblFree" class="text-black" runat="server"></asp:Label>
+                                    </div>
+                                </div>
 
                                 <div class="row mb-5">
                                     <div class="col-md-6">
