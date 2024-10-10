@@ -646,6 +646,73 @@ namespace RentEase_Service
 
         }
 
+        public SysInvoice getInvoice(int UserID, int InvoiceID)
+        {
+            SysInvoice invoice = new SysInvoice();
+
+            var query = (from i in RentEaseDB.Invoices
+                       where i.ID == InvoiceID
+                       select new GetInvoice
+                       { 
+                               invID = i.ID,
+                               invDate = i.I_Date,
+                               INvPrice = i.Total_Cost
+                       }).FirstOrDefault();
+
+
+
+            if (query != null)
+            {
+                invoice.invoice = query;
+
+                var query2 = (from o in RentEaseDB.Orders
+                              where o.Invoice_ID == InvoiceID
+                              join p in RentEaseDB.Products
+                              on o.Product_ID equals p.Id
+                              select new SysInvoiceProduct
+                              {
+                                  orderProduct = new SysOrder
+                                  {
+                                      Invoice_ID = o.Invoice_ID,
+                                      Product_ID = o.Product_ID,
+                                      Quantity = o.Quantity,
+                                      subTotal = o.subTotal,
+                                      Duration = o.Durantion,
+                                      Price = o.Price
+
+                                  },
+
+                                  product = new SysProduct
+                                  {
+                                      Id = p.Id,
+                                      Product_Name = p.Product_Name,
+                                      Quantity = p.Quantity,
+                                      Price = p.Price,
+                                      M_ID = p.M_ID,
+                                      Available = p.Available,
+                                      Rental_Agreement = p.Rental_Agreement,
+                                      Category = p.Category,
+                                      Registration_Date = p.Registration_Date,
+                                      Image_URL = p.Image_URL
+                                  }
+  
+                            }).DefaultIfEmpty().ToList();
+                            
+                invoice.products = query2;
+
+                return invoice;
+
+
+            }
+            else
+            {
+                return null;
+            }
+
+
+        }
+
+
         public SysReview getReview(int UserID, int InvoiceID, int ProductID)
         {
 
@@ -829,7 +896,7 @@ namespace RentEase_Service
     public List<SysProduct> GetSortedProducts()
     {
         // Fetch the list of products from the database where Quantity > 0
-        var listProducts = (from p in RentEaseDB.Products
+        dynamic listProducts = (from p in RentEaseDB.Products
                             where p.Quantity > 0
                             select p).ToList();
 
@@ -837,7 +904,7 @@ namespace RentEase_Service
         List<SysProduct> sortedProducts = new List<SysProduct>();
 
         // Check if the list is not empty
-        if (listProducts != null && listProducts.Any())
+        if (listProducts != null)
         {
             // Convert each Product entity to tProduct
             foreach (Product p in listProducts)

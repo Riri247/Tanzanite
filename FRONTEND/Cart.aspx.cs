@@ -15,6 +15,8 @@ namespace FRONTEND
         RentEaseClient serve = new RentEaseClient();
         decimal GTotal;
         List<decimal> Totals = new List<decimal>();
+        CartProductWrapper[] CartItems;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Request.QueryString["action"]!= null && Request.QueryString["prodID"] != null)
@@ -33,26 +35,21 @@ namespace FRONTEND
 
                     }
                 }
+                else
+                {
+                    Response.Redirect("Login.asx");
+
+                }
             }
-            if(!IsPostBack)
-            {
-                //check if user is logged in 
+
                 if(Session["ID"]!=null)
                 {
 
                     int UserID = int.Parse(Session["ID"].ToString());
-                    //check if user added to the cart 
-                    if (Request.QueryString["prodID"]!=null)
-                    {
-                        int prodID = int.Parse(Request.QueryString["prodID"].ToString());
-                        
-                        serve.addToCart(UserID, prodID);
-
-                    }
+                  
                    
                     LoadCart(UserID);
                 }
-            }
         }
 
         private void LoadCart(int UserID)
@@ -60,10 +57,9 @@ namespace FRONTEND
             //adding discount
             decimal perc = 0;
           
-                 CartItems = serve.getUserCart(UserID);
+            CartItems = serve.getUserCart(UserID);
+
             string CartItemHTML = "";
-            int DurationBoxCount = 1;
-            int QuantityboxCount = 1;
 
             foreach(CartProductWrapper c in CartItems)
             {
@@ -88,18 +84,22 @@ namespace FRONTEND
 
                     //making an empty tablecell and adding to it
                     TableCell Td = new TableCell();
+                    Td.ID = "td" + c.product.Id;
 
                     //making a quantity and duration input
                     LiteralControl htmlName = new LiteralControl("<h2> Quantity of product </h2>"); //adding the title
                     TextBox QuanText = new TextBox();
                     QuanText.Text = (c.cart.Quantity).ToString();
+
                     QuanText.ID = "txtQuantity" + QuantityboxCount; //naming the id
                     QuantityboxCount++; //incremetning
                     LiteralControl htmlDura = new LiteralControl("<h2> Duration product in days</h2>"); //adding the title
                     TextBox DuraText = new TextBox();
-                    DuraText.ID = "txtQuantity" + DurationBoxCount; //naming the id
-                    DuraText.Text = c.Duration.ToString();
-                    DurationBoxCount++; //incremetning
+                     DuraText.ID = "txtDuration" + c.product.Id; //naming the id
+                     DuraText.TextMode = TextBoxMode.Number;
+                    DuraText.Text = c.Duration;
+                   
+
 
                     //adding it all in order
                     Td.Controls.Add(htmlName);
@@ -111,29 +111,15 @@ namespace FRONTEND
                     divCartStuff.Controls.Add(Td);
 
 
-                    //  CartItemHTML += "<td>";
-
-                    //Commented out the stuff you did
-                    //CartItemHTML += "<div class='input-group mb-3 d-flex align-items-center quantity-container' style='max-width: 120px;'>";
-                    //CartItemHTML += "<div class='input-group-prepend'>";
-                    //CartItemHTML += "<button class='btn btn-outline-black decrease' type='button'>&minus;</button>";
-                    //CartItemHTML += "</div>";
-                    //CartItemHTML += "<input type='text' class='form-control text-center quantity-amount' value='1' placeholder='' aria-label='Example text with button addon' aria-describedby='button-addon1' style='width:min-content;'>";
-                    //CartItemHTML += "<div class='input-group-append'>";
-                    //CartItemHTML += "<button class='btn btn-outline-black increase' type='button'>&plus;</button>";
-                    //CartItemHTML += "</div>";
-                    //CartItemHTML += "</div>";
-                    //  CartItemHTML = "</td>";
-                    //adding the rest 
-                    //adding discount
-                    
+                    TableCell td = (TableCell)divCartStuff.FindControl("td" + c.product.Id);
+                    TextBox txt = (TextBox)td.FindControl("txtDuration" + c.product.Id);
 
                     if (serve.HasBoughtProduct(int.Parse(Session["ID"].ToString()),c.product.Id)) {
                         perc = Convert.ToDecimal(0.1);
-                        
+
                     }
 
-                        decimal TemTotal = c.product.Price * c.cart.Quantity;
+                    decimal TemTotal = c.product.Price * c.cart.Quantity;
                     Totals.Add(TemTotal);
                     CartItemHTML = "<td><h3>R" + TemTotal + "</h3></td>";
                     CartItemHTML += "<td><a href='Cart.aspx?action=remove&prodID=" + c.product.Id + "' class='btn btn-black btn-sm'>X</a></td>";
@@ -175,21 +161,67 @@ namespace FRONTEND
 
 
 
-        protected void CheckOut(object sender, EventArgs e) { 
+        protected void CheckOut(object sender, EventArgs e) {
             //make invoice
             //redirect ot invoice page
+
+            
+            if (Session["ID"] != null) {
+
+                CartItems = serve.getUserCart(int.Parse(Session["ID"].ToString()));
+
+                int[] durations = new int[CartItems.Length];
+                SysShopping_Cart[] finalCart = new SysShopping_Cart[CartItems.Length];
+
+                int i = 0;
+                 foreach(CartProductWrapper c in CartItems)
+                 {
+                    if (c != null) {
+
+
+                        TableCell td = (TableCell)divCartStuff.FindControl("td" + c.product.Id);
+                        TextBox txt = (TextBox)td.FindControl("txtDuration" + c.product.Id);
+
+                        int duration = 1;
+
+                        try
+                        {
+                            duration = int.Parse(txt.Text);
+                        }
+                        catch (Exception)
+                        {
+                            duration = 1;
+                        }
+
+                          
+
+                        durations[i] = duration;
+                        finalCart[i] = c.cart;
+                        i++;
+
+                    }
+                 }
+
+                 if (durations.Length == finalCart.Length)
+                {
+                    Session["CheckoutDurations"] = durations;
+
+                    Response.Redirect("ContractView.aspx");
+                }
+
+            }
         }
 
         protected void btnUpdate_Click(object sender, EventArgs e)
         {
 
 
-            int count = 1;
+            
 
 
             foreach (CartProductWrapper c in CartItems)
             {
-                String dynamicID = "txtQuantity" + count;
+                String dynamicID = "txtDuration" + c.product.Id;
                 TextBox txtBox = (TextBox)divCartStuff.FindControl(dynamicID);
 
                 serve.EditCart(Convert.ToInt32(Session["ID"].ToString()), c.product.Id, Convert.ToInt32(txtBox.Text));

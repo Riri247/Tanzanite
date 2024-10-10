@@ -34,6 +34,33 @@ namespace RentEase_Service
 
     }
 
+
+    public class SysInvoice
+    {
+        public GetInvoice invoice;
+        public List<SysInvoiceProduct> products = new List<SysInvoiceProduct>();
+
+
+    }
+
+
+    public class SysOrder
+    {
+        public int Invoice_ID;
+        public int Product_ID;
+        public int Quantity;
+        public decimal subTotal;
+        public int Duration;
+        public decimal Price;
+    }
+
+    public class SysInvoiceProduct
+    {
+        public SysProduct product;
+        public SysOrder orderProduct;
+
+    }
+
     public class SysShopping_Cart
     {
         public int P_ID;
@@ -260,6 +287,9 @@ namespace RentEase_Service
         [OperationContract]
 
         int getInvoiceID(int UserID, int ProductID);
+
+        [OperationContract]
+        SysInvoice getInvoice(int UserID, int InvoiceID);
 
 
         /// <summary>

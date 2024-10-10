@@ -102,7 +102,7 @@ namespace FRONTEND
 
               
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                
             }

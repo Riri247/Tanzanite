@@ -15,13 +15,17 @@ namespace FRONTEND
     {
 
         /// <summary>
-        /// form1 control.
+
+        /// theForm control.
+
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+
+        protected global::System.Web.UI.HtmlControls.HtmlForm theForm;
+
 
         /// <summary>
         /// txtPriceMin control.
@@ -51,13 +55,13 @@ namespace FRONTEND
         protected global::System.Web.UI.WebControls.Button btnFilterPrice;
 
         /// <summary>
-        /// Button1 control.
+        /// btnD control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button btnD;
 
         /// <summary>
         /// ProductList control.

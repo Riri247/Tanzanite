@@ -305,3 +305,7 @@ C:\Users\eashi\OneDrive\Documents\SCHOOL\3rdYEar\IFM2B\TANZANITE GROUP PROJ\Tanz
 C:\Users\eashi\OneDrive\Documents\SCHOOL\3rdYEar\IFM2B\TANZANITE GROUP PROJ\Tanzanite\Tanzanite\FRONTEND\bin\Newtonsoft.Json.dll
 C:\Users\eashi\OneDrive\Documents\SCHOOL\3rdYEar\IFM2B\TANZANITE GROUP PROJ\Tanzanite\Tanzanite\FRONTEND\bin\itextsharp.xml
 C:\Users\eashi\OneDrive\Documents\SCHOOL\3rdYEar\IFM2B\TANZANITE GROUP PROJ\Tanzanite\Tanzanite\FRONTEND\bin\Newtonsoft.Json.xml
+C:\Users\GEORGE MUGALE\Source\Repos\Tanzanite\FRONTEND\bin\BouncyCastle.Cryptography.dll
+C:\Users\GEORGE MUGALE\Source\Repos\Tanzanite\FRONTEND\bin\BouncyCastle.Cryptography.xml
+C:\Users\Wesley_The_CodeDemon\source\repos\Tanzanite\FRONTEND\bin\BouncyCastle.Cryptography.dll
+C:\Users\Wesley_The_CodeDemon\source\repos\Tanzanite\FRONTEND\bin\BouncyCastle.Cryptography.xml

@@ -4,7 +4,7 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
+    <form id="theForm" runat="server">
 
    <form id="form1" runat="server">
         <!-- Hero Section Begin -->
@@ -87,7 +87,7 @@
                         <!-- Alphabetical order Widget -->
                         <div class="aside">
                             <h3 class="aside-title">Alphabetical</h3>
-                            <asp:Button ID="Button1" runat="server" Text="Arrange in alphabetical order" OnClick="btnAlpha" />
+                            <asp:Button ID="btnD" runat="server" Text="Arrange in alphabetical order" OnClick="btnAlpha" />
                         </div>
                         <div class="row" id="ProductList" runat="server">
                             <!-- dynamically allocated here-->
@@ -126,6 +126,7 @@
     </section>
     <!-- Product Section End -->
 
-       </form>
+    </form>
+
 
 </asp:Content>
