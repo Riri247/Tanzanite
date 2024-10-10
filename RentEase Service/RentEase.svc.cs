@@ -692,12 +692,21 @@ namespace RentEase_Service
                 try
                 {
                     //editing userr data
-                    sysUser.Id = OneUser.Id;
+                    
                     sysUser.U_Name = OneUser.U_Name;
+                    Console.Write($@"Name {OneUser.U_Name}");
                     sysUser.Surname = OneUser.Surname;
+                    Console.Write($@"Name {OneUser.Surname}");
                     sysUser.Email = OneUser.Email;
+                    Console.Write($@"Name {OneUser.Email}");
                     sysUser.User_Type = OneUser.User_Type;
-                    sysUser.password = OneUser.password;
+                    Console.Write($@"Name {OneUser.User_Type}");
+
+                    if (!String.IsNullOrEmpty(OneUser.password)) {
+                        sysUser.password = OneUser.password;
+                    }
+
+                    
                     RentEaseDB.SubmitChanges();
                 }
                 catch(Exception e)

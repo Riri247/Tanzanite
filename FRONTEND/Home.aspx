@@ -41,7 +41,7 @@
                                 <div class="label">Rentals</div>
                                 <h2>Accomodations</h2>
                                 <p>Description</p>
-                                <a href="ProductList.aspx?Category=Accomodations"><span>View</span> <i class="fa fa-angle-right"></i></a>
+                                <a href="ProductList.aspx?Category=Accommodation"><span>Load products</span> <i class="fa fa-angle-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -69,7 +69,7 @@
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-4">
                                 <div class="btn__all">
-                                    <a href="#" class="primary-btn">View All <span class="arrow_right"></span></a>
+                                    <a href="ProductList.aspx" class="primary-btn">View All <span class="arrow_right"></span></a>
                                 </div>
                             </div>
                         </div>
