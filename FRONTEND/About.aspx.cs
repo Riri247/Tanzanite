@@ -129,36 +129,29 @@ namespace FRONTEND
 
         private void addToCart()
         {
+            int pid = int.Parse(Request.QueryString["ID"].ToString());
             if (Session["ID"] != null)
             {
                 int uid = int.Parse(Session["ID"].ToString());
-                int pid = int.Parse(Request.QueryString["ID"].ToString());
+                
 
 
-                    string script = $"alert('Item added to cart'); window.location.href='About.aspx?ID={pid}';";
+                string script = $"alert('Item added to cart'); window.location.href='About.aspx?ID={pid}';";
 
-                    ClientScript.RegisterStartupScript(this.GetType(), "alertRedirect", script, true);
-                }
-                else
-                {
-                    string script = $"alert('Could not add item to cart'); window.location.href='About.aspx?ID={pid}';";
-
-                    ClientScript.RegisterStartupScript(this.GetType(), "alertRedirect", script, true);
-                }
-
-
+                ClientScript.RegisterStartupScript(this.GetType(), "alertRedirect", script, true);
             }
             else
             {
-                string script = $"alert('Could not add item to cart'); window.location.href='About.aspx?ID={Request.QueryString["ID"].ToString()}';";
+                string script = $"alert('Could not add item to cart'); window.location.href='About.aspx?ID={pid}';";
 
                 ClientScript.RegisterStartupScript(this.GetType(), "alertRedirect", script, true);
             }
 
 
-<<<<<<< Updated upstream
-}
-=======
+        
+    }
+
+
 }
 
 
