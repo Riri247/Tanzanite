@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="9a85f33e-bf6f-4f9f-b9e3-77df39add82d" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="21f24684-951b-4c2b-a597-b2a753f73109" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,7 +22,7 @@
     <MetadataSource Address="http://localhost:53864/RentEase.svc?singleWsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="RentEase.wsdl" MetadataType="Wsdl" ID="2a2e4abc-12af-4cd6-a142-7649bd20fdb1" SourceId="1" SourceUrl="http://localhost:53864/RentEase.svc?singleWsdl" />
+    <MetadataFile FileName="RentEase.wsdl" MetadataType="Wsdl" ID="c1d7adaf-07ad-41ea-b0fd-30667da33bde" SourceId="1" SourceUrl="http://localhost:53864/RentEase.svc?singleWsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

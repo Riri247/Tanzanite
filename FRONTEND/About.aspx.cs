@@ -36,14 +36,6 @@ namespace FRONTEND
 
             }
 
-<<<<<<< HEAD
-
-           
-
-
-
-=======
->>>>>>> main
             if (Request.QueryString["ID"] != null)
             {
 
@@ -61,18 +53,6 @@ namespace FRONTEND
                 }
 
                 PopulateProductDetails(id);
-
-
-                //if they bought it already they can review
-                //must be logged in
-                if (Session["ID"] != null) {
-                    if (rc.HasBoughtProduct(Convert.ToInt32(Session["ID"].ToString()), id))
-                    {
-
-                        your_rating_container.Visible = true;
-                    }
-                }
-                    
 
             }
         }
@@ -149,12 +129,10 @@ namespace FRONTEND
 
         private void addToCart()
         {
-            int pid = int.Parse(Request.QueryString["ID"].ToString());
             if (Session["ID"] != null)
             {
                 int uid = int.Parse(Session["ID"].ToString());
-                
-
+                int pid = int.Parse(Request.QueryString["ID"].ToString());
 
                 string script = $"alert('Item added to cart'); window.location.href='About.aspx?ID={pid}';";
 
@@ -162,17 +140,16 @@ namespace FRONTEND
             }
             else
             {
-                string script = $"alert('Could not add item to cart'); window.location.href='About.aspx?ID={pid}';";
+                string script = $"alert('Could not add item to cart'); window.location.href='About.aspx?ID={Request.QueryString["ID"]}';";
 
                 ClientScript.RegisterStartupScript(this.GetType(), "alertRedirect", script, true);
             }
 
 
-        
+        }
+
     }
 
-
-}
 
 
 }
