@@ -119,8 +119,8 @@ namespace RentEase_Service
                 {
                     // increase quantity
 
-                    query.Quantity++;
-
+                    query.Quantity=query.Quantity+1;
+                    Console.WriteLine(query.Quantity);
                     RentEaseDB.SubmitChanges();
                     return true;
 
@@ -883,7 +883,7 @@ namespace RentEase_Service
             {
                 P_ID = prodID,
                 C_ID = useId,
-                Quantity = 1
+                Quantity = 0
             };
 
             RentEaseDB.Shopping_carts.InsertOnSubmit(s);

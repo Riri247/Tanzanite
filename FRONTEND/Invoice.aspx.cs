@@ -89,8 +89,8 @@ namespace FRONTEND
                     //display other important info 
                     table.AddCell(ip.product.Product_Name);
                     table.AddCell(ip.orderProduct.Quantity.ToString());
-                    decimal Subtotal = (decimal)(ip.orderProduct.Price * ip.orderProduct.Quantity);
-                    total += Subtotal;
+                    decimal Subtotal = (decimal)(ip.product.Price * ip.orderProduct.Quantity);
+                    total += (Subtotal*15/100)+Subtotal;
                     table.AddCell(Subtotal.ToString("C")); // Format as currency
                 }
 
