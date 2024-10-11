@@ -601,9 +601,9 @@ namespace RentEase_Service
 
         public List<GetInvoice> getUserInvoices(int UserID)
         {
-            dynamic ListInvoices = (from i in RentEaseDB.Customer_Invoices
+            var ListInvoices = (from i in RentEaseDB.Customer_Invoices
                                     where i.C_ID == UserID
-                                    select i).DefaultIfEmpty();
+                                    select i).FirstOrDefault();
 
 
 
@@ -612,29 +612,35 @@ namespace RentEase_Service
             {
                 List<GetInvoice> Listinv = new List<GetInvoice>();
 
-                foreach (Customer_Invoice ci in ListInvoices)
-                {
+                
 
 
-                    GetInvoice Temp = new GetInvoice();
-                    Temp.invID = ci.Invoice_ID;
+                    //GetInvoice Temp = new GetInvoice();
+                    //Temp.invID = ListInvoices.Invoice_ID;
 
 
-                    var Tempinv = (from i in RentEaseDB.Invoices
-                                   where i.ID == Temp.invID
-                                   select i).FirstOrDefault();
+                    dynamic Tempinv = (from i in RentEaseDB.Invoices
+                                   where i.ID == ListInvoices.Invoice_ID
+                                       select i).DefaultIfEmpty();
 
                     if (Tempinv != null)
                     {
 
-                        Temp.invDate = Tempinv.I_Date;
-                        Temp.INvPrice = Tempinv.Total_Cost;
+                    foreach (Invoice i in Tempinv) {
 
+                        Listinv.Add(new GetInvoice
+                        {
+                            invID = i.ID,
+                            invDate = i.I_Date,
+                            INvPrice = i.Total_Cost
+                        });
                     }
 
-                    Listinv.Add(Temp);
-
                 }
+
+                   
+
+               
 
                 return Listinv;
 
@@ -885,7 +891,7 @@ namespace RentEase_Service
             {
                 P_ID = prodID,
                 C_ID = useId,
-                Quantity = 0
+                Quantity = 1
             };
 
             RentEaseDB.Shopping_carts.InsertOnSubmit(s);

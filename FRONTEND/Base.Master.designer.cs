@@ -78,6 +78,15 @@ namespace FRONTEND
         protected global::System.Web.UI.HtmlControls.HtmlAnchor CartOne;
 
         /// <summary>
+        /// History control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor History;
+
+        /// <summary>
         /// ProductOne control.
         /// </summary>
         /// <remarks>
