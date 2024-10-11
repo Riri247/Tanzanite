@@ -60,6 +60,15 @@ namespace FRONTEND
         protected global::System.Web.UI.WebControls.Label lblCperc;
 
         /// <summary>
+        /// lblFree control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFree;
+
+        /// <summary>
         /// lblGTots control.
         /// </summary>
         /// <remarks>
