@@ -105,7 +105,9 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <Content Include="ContractView.aspx" />
+    <Content Include="Descrip.aspx" />
     <Content Include="EditUser.aspx" />
+    <Content Include="Group.aspx" />
     <Content Include="hero-1.jpg" />
     <Content Include="History.aspx" />
     <Content Include="Home.aspx" />
@@ -154,6 +156,13 @@
     </Compile>
     <Compile Include="ContractView.aspx.designer.cs">
       <DependentUpon>ContractView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Descrip.aspx.cs">
+      <DependentUpon>Descrip.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Descrip.aspx.designer.cs">
+      <DependentUpon>Descrip.aspx</DependentUpon>
     </Compile>
     <Compile Include="EditUser.aspx.cs">
       <DependentUpon>EditUser.aspx</DependentUpon>

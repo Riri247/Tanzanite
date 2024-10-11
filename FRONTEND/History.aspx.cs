@@ -47,7 +47,7 @@ namespace FRONTEND
                         Scrollhtml = $@" <div class='btnbox'>";
                         Scrollhtml = $@"< div class='anime__details__btn'>";
 
-                        Scrollhtml = $@"<a href='Invoice.aspx?ID={gi.invID}' class='follow-btn'> View </a>";
+                        Scrollhtml = $@"<a href='Invoice.aspx?InvoiceID={gi.invID}' class='follow-btn'> View </a>";
 
 
 

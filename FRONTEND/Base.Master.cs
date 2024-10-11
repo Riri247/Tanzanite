@@ -17,12 +17,13 @@ namespace FRONTEND
 
                 AccountOne.Visible = true;
                 CartOne.Visible = true;
-
+                History.Visible = true;
                 if (Session["U_Type"]!= null) {
                     if (Session["U_Type"].ToString() == "Man")
                     {
                         ProductOne.Visible = true;
                         ReportSec.Visible = true;
+                        
                     }
                     else if (Session["U_Type"].ToString() == "Adm") {
                         ProductOne.Visible = true;

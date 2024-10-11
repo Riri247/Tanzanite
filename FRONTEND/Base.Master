@@ -92,6 +92,7 @@
                                         <!-- Account management page-->
                                             <li><a href="EditUser.aspx?Val=1" runat="server" id="AccountOne"  visible="false">Account</a></li>
                                             <li><a href="Cart.aspx" runat="server" id="CartOne" visible="false" >Check Cart</a></li>
+                                         <li><a href="History.aspx" runat="server" id="History" visible="false" >Invoices</a></li>
 
                                         <!--Renter one-->
                                          <li><a href="ManageP.aspx" runat="server" id="ProductOne" visible="false" >Check Products</a></li>
