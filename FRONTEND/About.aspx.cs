@@ -36,6 +36,7 @@ namespace FRONTEND
 
             }
 
+
             if (Request.QueryString["ID"] != null)
             {
 
@@ -90,7 +91,7 @@ namespace FRONTEND
                                                 <div class='anime__review__item__pic'>
                                                 </div>
                                                 <div class='anime__review__item__text'>
-                                                    <h6>Stars: <span>{star}</span></h6>
+                                                    <h6><span>Stars: {star}</span></h6>
                                                     <p>
                                                         {text}
                                                     </p>

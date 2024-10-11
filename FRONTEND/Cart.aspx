@@ -131,20 +131,21 @@
         <!-- end of product-->
 
                       </tbody>--%>
-                        </table>
-                    </div>
-                </div>
 
-                <div class="row">
+                    </table>
+                  </div>
+               
+              </div>
+        
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="row mb-5">
+                  <div class="col-md-6 mb-3 mb-md-0">
+                      <asp:Button class="btn btn-outline-black btn-sm btn-block" runat="server" ID="btnUpdate" Text="Update Cart" OnClick="btnUpdate_Click" ></asp:Button>
+                    </div>
                     <div class="col-md-6">
-                        <div class="row mb-5">
-                            <%--  idk what this will be used for <div class="col-md-6 mb-3 mb-md-0">
-                      <button class="btn btn-black btn-sm btn-block">Update Cart</button>
-                    </div>--%>
-                            <div class="col-md-6">
-                                <a class="btn btn-outline-black btn-sm btn-block" href="Home.aspx">Continue Shopping</a>
-                            </div>
-                        </div>
+                      <a class="btn btn-outline-black btn-sm btn-block" href="Home.aspx">Continue Shopping</a>
+                          </div>
 
                     </div>
                     <div class="col-md-6 pl-5">
@@ -155,7 +156,8 @@
                                         <h3 class="text-black h4 text-uppercase">Cart Totals</h3>
                                     </div>
                                 </div>
-
+                                  </div>
+ </div>
                                 <div class="row mb-5">
                                     <div class="col-md-6">
                                         <span class="text-black">Total</span>
@@ -180,10 +182,12 @@
                                     </div>
 
 
+
                                     <div class="col-md-6 text-right">
                                         <asp:Label ID="lblCperc" class="text-black" runat="server"></asp:Label>
                                     </div>
                                 </div>
+
 
                                 <div class="row mb-5">
                                     <div class="col-md-6">
@@ -207,6 +211,7 @@
                         </div>
                     </div>
                 </div>
+                   
             </form>
         </div>
     </div>
