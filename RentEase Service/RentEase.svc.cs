@@ -257,11 +257,11 @@ namespace RentEase_Service
 
         }
 
-        public bool EditProduct(int ProductID, string name, string description, int quantity, decimal price, int merchantID, string[] images)
+            public bool EditProduct(int ProductID, string name, string description, int quantity, decimal price, int merchantID, string[] images)
         {
+            
             try
             {
-
                 var query = from p in RentEaseDB.Products
                             where p.Id == ProductID && p.M_ID == merchantID
                             select p;
@@ -270,12 +270,12 @@ namespace RentEase_Service
 
                 if (product != null)
                 {
+                    product.Product_Name = name;
                     product.Decript = description;
                     product.Quantity = quantity;
                     product.Price = price;
                     product.Image_URL = JsonConvert.SerializeObject(images, Formatting.Indented);
 
-                    RentEaseDB.Products.InsertOnSubmit(product);
                     RentEaseDB.SubmitChanges();
 
                     return true;
@@ -285,14 +285,15 @@ namespace RentEase_Service
                     return false;
                 }
 
-
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+
                 return false;
             }
 
         }
+
 
         public bool removeProduct(int ID)
         {
