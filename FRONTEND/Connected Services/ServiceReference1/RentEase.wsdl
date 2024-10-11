@@ -468,7 +468,7 @@
       <xs:element name="GetSortedProductsResponse">
         <xs:complexType>
           <xs:sequence>
-            <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/RentEase_Service" minOccurs="0" name="GetSortedProductsResult" nillable="true" type="q18:ArrayOfSysProduct" />
+            <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/RentEase_Service" minOccurs="0" name="GetSortedProductsResult" nillable="true" type="q19:ArrayOfSysProduct" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>

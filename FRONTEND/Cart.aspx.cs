@@ -60,10 +60,11 @@ namespace FRONTEND
             CartItems = serve.getUserCart(UserID);
             int QuantityboxCount = 1;
             string CartItemHTML = "";
-
+            int Count = 1;
             foreach(CartProductWrapper c in CartItems)
             {
                 if (c != null) {
+                    Count++;
                     //empting the carthtml thing
                     CartItemHTML = "";
                     string[] images = JsonConvert.DeserializeObject<string[]>(c.product.Image_URL);
@@ -150,11 +151,18 @@ namespace FRONTEND
             //dicount
             decimal disc = TempTotal * perc;
 
+            decimal Ship = 0;
+            //Free Shipping
+            if (Count > 10) {
+                Ship = TempTotal * Convert.ToDecimal(0.1);
+            }
+
+            lblFree.Text = $@"-R{Ship}";
           
 
             lblCperc.Text = $@"{(perc*100)}%";
 
-            GTotal = TempTotal - disc + vat;
+            GTotal = TempTotal + vat - (disc + Ship);
             lblGTots.Text = GTotal.ToString();
 
         }

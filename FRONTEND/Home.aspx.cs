@@ -21,7 +21,7 @@ namespace FRONTEND
 
             if (Request.QueryString["cart"] != null)
             {
-                addToCart();
+                addCart();
 
             }
 
@@ -142,7 +142,7 @@ namespace FRONTEND
 
 
 
-        private void addToCart()
+        private void addCart()
         {
 
             if (Session["ID"] != null)

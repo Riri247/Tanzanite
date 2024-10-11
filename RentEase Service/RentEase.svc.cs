@@ -119,8 +119,8 @@ namespace RentEase_Service
                 {
                     // increase quantity
 
-                    query.Quantity=query.Quantity+1;
-                    Console.WriteLine(query.Quantity);
+                    query.Quantity++;
+
                     RentEaseDB.SubmitChanges();
                     return true;
 
