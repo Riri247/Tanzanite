@@ -153,9 +153,7 @@ namespace FRONTEND
                 if (rc.addToCart(uid, pid))
                 {
 
-                    string script = $"alert('Item added to cart'); window.location.href='Home.aspx';";
-
-                    ClientScript.RegisterStartupScript(this.GetType(), "alertRedirect", script, true);
+                    Response.Redirect("Home.aspx");
                 }
                 else
                 {

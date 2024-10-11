@@ -134,10 +134,8 @@ namespace FRONTEND
             {
                 int uid = int.Parse(Session["ID"].ToString());
                 int pid = int.Parse(Request.QueryString["ID"].ToString());
-
-                string script = $"alert('Item added to cart'); window.location.href='About.aspx?ID={pid}';";
-
-                ClientScript.RegisterStartupScript(this.GetType(), "alertRedirect", script, true);
+                rc.addToCart(uid, pid);
+                Response.Redirect("Home.aspx");
             }
             else
             {

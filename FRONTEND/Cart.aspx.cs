@@ -169,7 +169,7 @@ namespace FRONTEND
             if (Session["ID"] != null) {
 
                 CartItems = serve.getUserCart(int.Parse(Session["ID"].ToString()));
-
+                
                 int[] durations = new int[CartItems.Length];
                 SysShopping_Cart[] finalCart = new SysShopping_Cart[CartItems.Length];
 
@@ -177,7 +177,7 @@ namespace FRONTEND
                  foreach(CartProductWrapper c in CartItems)
                  {
                     if (c != null) {
-
+                        
 
                         TableCell td = (TableCell)divCartStuff.FindControl("td" + c.product.Id);
                         TextBox txt = (TextBox)td.FindControl("txtDuration" + c.product.Id);
@@ -194,14 +194,14 @@ namespace FRONTEND
                         }
 
                           
-
+                        
                         durations[i] = duration;
                         finalCart[i] = c.cart;
                         i++;
 
                     }
                  }
-
+                serve.placeOrder(int.Parse(Session["ID"].ToString()),finalCart, durations);
                  if (durations.Length == finalCart.Length)
                 {
                     Session["CheckoutDurations"] = durations;
